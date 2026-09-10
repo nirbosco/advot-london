@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>אדוות · המסע ללונדון 2026</title>
+<meta name="description" content="אתר ההכנה הרשמי של משלחת אדוות ללונדון · 22 עד 26 בנובמבר 2026 · מנהיגות מחוללת שינוי">
+<link rel="icon" type="image/png" href="assets/advot-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#0048FF;
+  --blue-deep:#3B5DEC;
+  --blue-mid:#2680F1;
+  --sky:#0DB4F4;
+  --teal:#41CAC5;
+  --purple:#6536EA;
+  --white:#FEFEFE;
+  --soft:#F3F6FF;
+  --ink:#0B1440;
+  --ink-dim:#4A5580;
+  --line:#DCE3F5;
+  --shadow-sm:0 1px 3px rgba(11,20,64,.08);
+  --shadow-md:0 6px 20px rgba(11,20,64,.10);
+  --shadow-lg:0 16px 40px rgba(11,20,64,.14);
+  --shadow-brand:0 10px 28px rgba(0,72,255,.30);
+  --grad:linear-gradient(105deg,#41CAC5 0%,#0DB4F4 22%,#2680F1 45%,#3B5DEC 66%,#6536EA 85%,#0048FF 100%);
+  --ease:cubic-bezier(0.22,1,0.36,1);
+  --r-card:16px;
+  --r-btn:10px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+html,body{overflow-x:clip}
+body{font-family:'Heebo',sans-serif;color:var(--ink);background:var(--white);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+html[lang="en"] body{font-family:'Montserrat',sans-serif;font-size:15.5px}
+img{max-width:100%;display:block}
+a{color:var(--blue);text-decoration:none}
+.en{font-family:'Montserrat',sans-serif}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* ---------- header ---------- */
+header{position:fixed;top:0;right:0;left:0;z-index:100;background:rgba(254,254,254,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .3s var(--ease),box-shadow .3s var(--ease)}
+header.scrolled{border-bottom-color:var(--line);box-shadow:var(--shadow-sm)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+.brand{display:flex;align-items:center;gap:14px}
+.brand img{height:40px;width:auto}
+.brand .date-chip{font-size:13px;font-weight:500;color:var(--blue);background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:4px 14px;white-space:nowrap}
+.nav-side{display:flex;align-items:center;gap:8px}
+nav.links{display:flex;gap:4px;align-items:center}
+nav.links a{font-size:15px;font-weight:500;color:var(--ink);padding:8px 13px;border-radius:999px;transition:background .25s var(--ease),color .25s var(--ease);white-space:nowrap}
+nav.links a:hover{background:var(--soft);color:var(--blue)}
+nav.links a.active{background:var(--blue);color:var(--white)}
+.lang-btn{font-family:'Montserrat','Heebo',sans-serif;font-size:13.5px;font-weight:700;color:var(--blue);background:var(--white);border:1.5px solid var(--blue);border-radius:999px;padding:6px 18px;cursor:pointer;transition:background .25s var(--ease),color .25s var(--ease);white-space:nowrap}
+.lang-btn:hover{background:var(--blue);color:var(--white)}
+.menu-btn{display:none;background:none;border:none;cursor:pointer;padding:8px}
+.menu-btn span{display:block;width:22px;height:2px;background:var(--ink);margin:5px 0;border-radius:2px}
+
+/* ---------- hero ---------- */
+.hero{position:relative;background:var(--grad);color:var(--white);padding:190px 0 0;overflow:hidden}
+.hero .ripples{position:absolute;left:-140px;top:40px;width:620px;opacity:.28;pointer-events:none;transform:rotate(8deg)}
+.hero .ripples-2{position:absolute;right:-190px;bottom:-80px;width:520px;opacity:.16;pointer-events:none;transform:rotate(190deg)}
+.hero-inner{position:relative;z-index:2;max-width:860px}
+.kicker{display:inline-block;max-width:100%;font-size:15px;font-weight:500;background:rgba(254,254,254,.14);border:1px solid rgba(254,254,254,.35);border-radius:999px;padding:7px 20px;margin-bottom:28px;line-height:1.6}
+.hero h1{font-size:clamp(44px,7vw,96px);font-weight:800;line-height:1.08;letter-spacing:-.01em;margin-bottom:20px}
+.hero .lede{font-size:clamp(19px,2.2vw,24px);font-weight:400;max-width:640px;opacity:.94;margin-bottom:38px}
+html[lang="en"] .hero .lede{font-size:clamp(17px,2vw,21px)}
+.hero .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:72px}
+.btn{display:inline-block;font-family:inherit;font-size:16px;font-weight:700;border-radius:var(--r-btn);padding:13px 30px;cursor:pointer;transition:transform .25s var(--ease),box-shadow .25s var(--ease);border:none}
+.btn-primary{background:var(--white);color:var(--blue)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+.btn-ghost{background:transparent;color:var(--white);border:1.5px solid rgba(254,254,254,.6)}
+.btn-ghost:hover{background:rgba(254,254,254,.12);transform:translateY(-2px)}
+.hero-wave{display:block;width:100%;height:90px;margin-top:-1px}
+.stats{background:var(--white);border-bottom:1px solid var(--line)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:44px 0}
+.stat{text-align:center}
+.stat .num{font-family:'Montserrat','Heebo',sans-serif;font-size:clamp(34px,4vw,52px);font-weight:800;color:var(--blue);line-height:1.1}
+.stat .lbl{font-size:15px;color:var(--ink-dim);font-weight:500;margin-top:6px}
+
+/* ---------- sections ---------- */
+section{padding:100px 0}
+section.alt{background:var(--soft)}
+.sec-kicker{font-size:14px;font-weight:700;color:var(--blue-mid);letter-spacing:.06em;margin-bottom:12px}
+h2{font-size:clamp(30px,3.6vw,48px);font-weight:800;line-height:1.2;margin-bottom:18px}
+.sec-lede{font-size:20px;color:var(--ink-dim);max-width:720px;margin-bottom:56px}
+html[lang="en"] .sec-lede{font-size:18px}
+h3{font-size:clamp(20px,2.2vw,26px);font-weight:700}
+
+/* why london */
+.why-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:start}
+.why-text p{margin-bottom:18px;font-size:17px}
+html[lang="en"] .why-text p{font-size:16px}
+.then-now{background:var(--blue);color:var(--white);border-radius:24px;padding:40px 36px;box-shadow:var(--shadow-brand);position:relative;overflow:hidden}
+.then-now .ripples-card{position:absolute;left:-90px;bottom:-110px;width:320px;opacity:.2;transform:rotate(14deg)}
+.then-now .row{position:relative;z-index:1;padding:18px 0}
+.then-now .row + .row{border-top:1px solid rgba(254,254,254,.25)}
+.then-now .when{font-family:'Montserrat','Heebo',sans-serif;font-size:14px;font-weight:600;opacity:.8;margin-bottom:4px}
+.then-now .what{font-size:21px;font-weight:700;line-height:1.4}
+html[lang="en"] .then-now .what{font-size:18px}
+.then-now .foot{position:relative;z-index:1;font-size:15px;opacity:.85;padding-top:18px;border-top:1px solid rgba(254,254,254,.25)}
+
+/* what we'll do */
+.do-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.do-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);padding:30px 26px;box-shadow:var(--shadow-sm);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.do-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.do-card .icon{width:52px;height:52px;border-radius:14px;background:var(--soft);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.do-card .icon svg{width:26px;height:26px;stroke:var(--blue);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.do-card h3{font-size:19px;margin-bottom:8px}
+.do-card p{font-size:15px;color:var(--ink-dim)}
+html[lang="en"] .do-card p{font-size:14px}
+.reflect{margin-top:48px;background:var(--white);border:1px solid var(--line);border-inline-start:4px solid var(--teal);border-radius:var(--r-card);padding:30px 34px;font-size:18px;color:var(--ink);max-width:860px;box-shadow:var(--shadow-sm)}
+html[lang="en"] .reflect{font-size:16.5px}
+
+/* induction timeline */
+.timeline{position:relative;max-width:860px}
+.timeline::before{content:"";position:absolute;inset-inline-start:29px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.t-item{position:relative;padding-inline-start:88px;padding-bottom:44px}
+.t-item:last-child{padding-bottom:0}
+.t-dot{position:absolute;inset-inline-start:14px;top:2px;width:32px;height:32px;border-radius:50%;background:var(--white);border:2px solid var(--blue);color:var(--blue);font-family:'Montserrat','Heebo',sans-serif;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;z-index:1}
+.t-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);padding:26px 30px;box-shadow:var(--shadow-sm);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.t-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.t-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.t-date{font-size:18px;font-weight:700}
+html[lang="en"] .t-date{font-size:16px}
+.tag{font-size:13px;font-weight:700;border-radius:999px;padding:3px 14px}
+.tag-live{background:var(--blue);color:var(--white)}
+.tag-online{background:var(--soft);color:var(--blue);border:1px solid var(--line)}
+.t-card ul{list-style:none}
+.t-card li{position:relative;padding-inline-start:22px;margin-bottom:6px;color:var(--ink-dim);font-size:16px}
+html[lang="en"] .t-card li{font-size:15px}
+.t-card li::before{content:"";position:absolute;inset-inline-start:0;top:11px;width:8px;height:8px;border-radius:50%;background:var(--sky)}
+.t-note{font-size:14px;color:var(--ink-dim);margin-top:12px;font-weight:500}
+
+/* speakers */
+.speakers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.sp-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .3s var(--ease),box-shadow .3s var(--ease);display:flex;flex-direction:column}
+.sp-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.sp-photo{aspect-ratio:1/.85;overflow:hidden;background:var(--soft)}
+.sp-photo img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.sp-body{padding:24px 26px 26px;display:flex;flex-direction:column;flex:1}
+.sp-name{font-size:21px;font-weight:800;margin-bottom:2px}
+.sp-name-en{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;color:var(--ink-dim);letter-spacing:.03em;margin-bottom:10px}
+html[lang="en"] .sp-name-en{display:none}
+html[lang="en"] .sp-name{margin-bottom:10px}
+.sp-role{font-size:15px;color:var(--ink-dim);margin-bottom:14px}
+html[lang="en"] .sp-role{font-size:13.5px}
+.sp-when{display:inline-flex;align-self:flex-start;font-size:13px;font-weight:700;color:var(--blue);background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:4px 14px;margin-bottom:14px}
+.sp-topic{font-size:15.5px;margin-bottom:16px}
+html[lang="en"] .sp-topic{font-size:14px}
+.sp-card details{margin-top:auto;border-top:1px solid var(--line);padding-top:14px}
+.sp-card summary{cursor:pointer;font-size:14px;font-weight:700;color:var(--blue);list-style:none;display:flex;align-items:center;gap:6px}
+.sp-card summary::-webkit-details-marker{display:none}
+.sp-card summary::after{content:"+";font-size:17px;transition:transform .25s var(--ease)}
+.sp-card details[open] summary::after{transform:rotate(45deg)}
+.sp-card details p{font-size:14.5px;color:var(--ink-dim);margin-top:12px}
+html[lang="en"] .sp-card details p{font-size:13.5px}
+.sp-links{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
+.sp-links a{font-size:13px;font-weight:600;border:1px solid var(--line);border-radius:999px;padding:3px 12px;transition:background .25s var(--ease)}
+.sp-links a:hover{background:var(--soft)}
+.more-soon{margin-top:36px;text-align:center;font-size:16px;color:var(--ink-dim);font-weight:500}
+
+/* resources */
+.res-cat{margin-bottom:52px}
+.res-cat:last-child{margin-bottom:0}
+.res-cat-head{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.res-cat-head .bar{width:5px;height:30px;border-radius:3px;background:var(--blue);flex-shrink:0}
+.res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.res-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);padding:22px 24px;box-shadow:var(--shadow-sm);transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease);display:flex;flex-direction:column;gap:8px}
+.res-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--blue-mid)}
+.res-title{font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:var(--ink);line-height:1.45;direction:ltr;text-align:left}
+.res-src{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;color:var(--blue-mid);direction:ltr;text-align:left}
+.res-note{font-size:14.5px;color:var(--ink-dim)}
+html[lang="en"] .res-note{font-size:13.5px}
+.res-debate{font-size:14px;color:var(--ink-dim);margin-top:2px}
+.res-debate a{font-weight:700}
+.res-intro{font-size:16.5px;color:var(--ink-dim);max-width:820px;margin-bottom:44px}
+html[lang="en"] .res-intro{font-size:15.5px}
+
+/* practical */
+.flights{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:44px;margin-bottom:44px}
+.flight{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);padding:32px 34px;box-shadow:var(--shadow-sm)}
+.flight .dir{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:8px}
+.flight .route{font-size:clamp(20px,2.4vw,26px);font-weight:800;margin-bottom:8px}
+.flight .meta{font-size:15px;color:var(--ink-dim)}
+.flight .code{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--ink);direction:ltr;display:inline-block}
+.tt-note{background:var(--white);border:1px dashed var(--blue-mid);border-radius:var(--r-card);padding:26px 30px;font-size:16px;color:var(--ink-dim);max-width:720px}
+.tt-note strong{color:var(--ink)}
+
+/* footer */
+footer{background:var(--ink);color:var(--white);padding:64px 0 40px;position:relative;overflow:hidden}
+footer .ripples-f{position:absolute;left:-130px;top:-60px;width:420px;opacity:.07;transform:rotate(12deg)}
+.f-inner{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap}
+.f-brand{display:flex;align-items:center;gap:22px}
+.f-brand img{height:52px;width:auto}
+.f-brand .sep{width:1px;height:36px;background:rgba(254,254,254,.25)}
+.f-text{font-size:14px;color:rgba(254,254,254,.75);line-height:1.9}
+.f-text.en{font-size:12px;letter-spacing:.04em}
+
+/* reveal animation */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .4s var(--ease),transform .4s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- responsive ---------- */
+@media (max-width:1080px){
+  .do-grid{grid-template-columns:repeat(2,1fr)}
+  .speakers-grid{grid-template-columns:repeat(2,1fr)}
+  .res-grid{grid-template-columns:repeat(2,1fr)}
+  .why-grid{grid-template-columns:1fr;gap:40px}
+  .brand .date-chip{display:none}
+}
+@media (max-width:860px){
+  html{scroll-padding-top:80px}
+  .nav-inner{height:64px}
+  .brand img{height:32px}
+  .menu-btn{display:block}
+  nav.links{position:fixed;top:64px;right:0;left:0;background:var(--white);flex-direction:column;align-items:stretch;padding:12px 24px 20px;border-bottom:1px solid var(--line);box-shadow:var(--shadow-md);transform:translateY(-140%);transition:transform .35s var(--ease);z-index:99}
+  nav.links.open{transform:none}
+  nav.links a{padding:12px 16px;font-size:16px}
+  .hero{padding-top:140px}
+  .hero .ripples{width:420px;left:-160px;opacity:.2}
+  .stats-grid{grid-template-columns:repeat(2,1fr);gap:28px 16px;padding:36px 0}
+  section{padding:64px 0}
+  .do-grid,.speakers-grid,.res-grid,.flights{grid-template-columns:1fr}
+  .t-item{padding-inline-start:64px}
+  .timeline::before{inset-inline-start:21px}
+  .t-dot{inset-inline-start:6px}
+  .then-now{padding:32px 26px}
+  .f-inner{flex-direction:column;text-align:center}
+  .f-brand{flex-direction:column;gap:14px}
+  .f-brand .sep{display:none}
+}
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="container nav-inner">
+    <div class="brand">
+      <img src="assets/advot-logo.png" alt="אדוות · מנהיגות מחוללת שינוי">
+      <span class="date-chip" data-i18n="chip"></span>
+    </div>
+    <div class="nav-side">
+      <button class="lang-btn" id="langBtn" aria-label="Switch language"></button>
+      <button class="menu-btn" id="menuBtn" aria-label="תפריט"><span></span><span></span><span></span></button>
+    </div>
+    <nav class="links" id="navLinks">
+      <a href="#home" class="active" data-i18n="nav_home"></a>
+      <a href="#why" data-i18n="nav_why"></a>
+      <a href="#do" data-i18n="nav_do"></a>
+      <a href="#induction" data-i18n="nav_induction"></a>
+      <a href="#speakers" data-i18n="nav_speakers"></a>
+      <a href="#resources" data-i18n="nav_resources"></a>
+      <a href="#practical" data-i18n="nav_practical"></a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== hero ===== -->
+<div class="hero" id="home">
+  <img class="ripples" src="assets/ripples-white.png" alt="">
+  <img class="ripples-2" src="assets/ripples-white.png" alt="">
+  <div class="container hero-inner">
+    <span class="kicker" data-i18n="kicker"></span>
+    <h1 data-i18n="h1"></h1>
+    <p class="lede" data-i18n="lede"></p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#induction" data-i18n="cta1"></a>
+      <a class="btn btn-ghost" href="#speakers" data-i18n="cta2"></a>
+    </div>
+  </div>
+  <svg class="hero-wave" viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,50 C240,95 480,0 760,25 C1040,50 1240,80 1440,35 L1440,90 L0,90 Z" fill="#FEFEFE"/></svg>
+</div>
+
+<div class="stats">
+  <div class="container stats-grid">
+    <div class="stat reveal"><div class="num">5</div><div class="lbl" data-i18n="stat1"></div></div>
+    <div class="stat reveal"><div class="num">5</div><div class="lbl" data-i18n="stat2"></div></div>
+    <div class="stat reveal"><div class="num">6+</div><div class="lbl" data-i18n="stat3"></div></div>
+    <div class="stat reveal"><div class="num">30</div><div class="lbl" data-i18n="stat4"></div></div>
+  </div>
+</div>
+
+<!-- ===== why london ===== -->
+<section id="why">
+  <div class="container">
+    <div class="sec-kicker reveal" data-i18n="why_k"></div>
+    <h2 class="reveal" data-i18n="why_h"></h2>
+    <div class="why-grid">
+      <div class="why-text reveal">
+        <p data-i18n="why_p1"></p>
+        <p data-i18n="why_p2"></p>
+        <p data-i18n="why_p3"></p>
+      </div>
+      <div class="then-now reveal">
+        <img class="ripples-card" src="assets/ripples-white.png" alt="">
+        <div class="row"><div class="when" data-i18n="tn1_when"></div><div class="what" data-i18n="tn1"></div></div>
+        <div class="row"><div class="when">2002</div><div class="what" data-i18n="tn2"></div></div>
+        <div class="row"><div class="when" data-i18n="tn3_when"></div><div class="what" data-i18n="tn3"></div></div>
+        <div class="foot" data-i18n="tn_foot"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== what we'll do ===== -->
+<section class="alt" id="do">
+  <div class="container">
+    <div class="sec-kicker reveal" data-i18n="do_k"></div>
+    <h2 class="reveal" data-i18n="do_h"></h2>
+    <p class="sec-lede reveal" data-i18n="do_lede"></p>
+    <div class="do-grid">
+      <div class="do-card reveal">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></div>
+        <h3 data-i18n="do1_h"></h3>
+        <p data-i18n="do1_p"></p>
+      </div>
+      <div class="do-card reveal">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 3L2 8l10 5 10-5-10-5zM6 10.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-5.5"/></svg></div>
+        <h3 data-i18n="do2_h"></h3>
+        <p data-i18n="do2_p"></p>
+      </div>
+      <div class="do-card reveal">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></div>
+        <h3 data-i18n="do3_h"></h3>
+        <p data-i18n="do3_p"></p>
+      </div>
+      <div class="do-card reveal">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg></div>
+        <h3 data-i18n="do4_h"></h3>
+        <p data-i18n="do4_p"></p>
+      </div>
+    </div>
+    <div class="reflect reveal" data-i18n="reflect"></div>
+  </div>
+</section>
+
+<!-- ===== induction ===== -->
+<section id="induction">
+  <div class="container">
+    <div class="sec-kicker reveal" data-i18n="ind_k"></div>
+    <h2 class="reveal" data-i18n="ind_h"></h2>
+    <p class="sec-lede reveal" data-i18n="ind_lede"></p>
+    <div class="timeline">
+      <div class="t-item reveal">
+        <div class="t-dot">1</div>
+        <div class="t-card">
+          <div class="t-head"><span class="t-date" data-i18n="s1_d"></span><span class="tag tag-live" data-i18n="tag_live"></span></div>
+          <ul><li data-i18n="s1_1"></li><li data-i18n="s1_2"></li><li data-i18n="s1_3"></li></ul>
+        </div>
+      </div>
+      <div class="t-item reveal">
+        <div class="t-dot">2</div>
+        <div class="t-card">
+          <div class="t-head"><span class="t-date" data-i18n="s2_d"></span><span class="tag tag-online" data-i18n="s2_tag"></span></div>
+          <ul><li data-i18n="s2_1"></li><li data-i18n="s2_2"></li><li data-i18n="s2_3"></li></ul>
+          <div class="t-note" data-i18n="zoom_tbc"></div>
+        </div>
+      </div>
+      <div class="t-item reveal">
+        <div class="t-dot">3</div>
+        <div class="t-card">
+          <div class="t-head"><span class="t-date" data-i18n="s3_d"></span><span class="tag tag-live" data-i18n="tag_live"></span></div>
+          <ul><li data-i18n="s3_1"></li><li data-i18n="s3_2"></li><li data-i18n="s3_3"></li></ul>
+        </div>
+      </div>
+      <div class="t-item reveal">
+        <div class="t-dot">4</div>
+        <div class="t-card">
+          <div class="t-head"><span class="t-date" data-i18n="s4_d"></span><span class="tag tag-live" data-i18n="tag_live"></span></div>
+          <ul><li data-i18n="s4_1"></li><li data-i18n="s4_2"></li><li data-i18n="s4_3"></li></ul>
+        </div>
+      </div>
+      <div class="t-item reveal">
+        <div class="t-dot">5</div>
+        <div class="t-card">
+          <div class="t-head"><span class="t-date" data-i18n="s5_d"></span><span class="tag tag-online" data-i18n="s5_tag"></span></div>
+          <ul><li data-i18n="s5_1"></li><li data-i18n="s5_2"></li><li data-i18n="s5_3"></li></ul>
+          <div class="t-note" data-i18n="zoom_tbc"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== speakers ===== -->
+<section class="alt" id="speakers">
+  <div class="container">
+    <div class="sec-kicker reveal" data-i18n="sp_k"></div>
+    <h2 class="reveal" data-i18n="sp_h"></h2>
+    <p class="sec-lede reveal" data-i18n="sp_lede"></p>
+    <div class="speakers-grid">
+
+      <div class="sp-card reveal">
+        <div class="sp-photo"><img src="assets/brett.jpg" alt="Brett Wigdortz" loading="lazy"></div>
+        <div class="sp-body">
+          <div class="sp-name" data-i18n="brett_n"></div>
+          <div class="sp-name-en">Brett Wigdortz OBE</div>
+          <div class="sp-role" data-i18n="brett_r"></div>
+          <span class="sp-when" data-i18n="brett_w"></span>
+          <p class="sp-topic" data-i18n="brett_t"></p>
+          <details>
+            <summary data-i18n="brett_more"></summary>
+            <p data-i18n="brett_bio"></p>
+            <div class="sp-links"><a href="https://www.teachfirst.org.uk/" target="_blank" rel="noopener">Teach First</a><a href="https://teachforall.org/our-purpose" target="_blank" rel="noopener">Teach For All</a><a href="https://www.tiney.co/" target="_blank" rel="noopener">tiney</a></div>
+          </details>
+        </div>
+      </div>
+
+      <div class="sp-card reveal">
+        <div class="sp-photo"><img src="assets/steve.jpg" alt="Steve Adcock" loading="lazy"></div>
+        <div class="sp-body">
+          <div class="sp-name" data-i18n="steve_n"></div>
+          <div class="sp-name-en">Steve Adcock</div>
+          <div class="sp-role" data-i18n="steve_r"></div>
+          <span class="sp-when" data-i18n="steve_w"></span>
+          <p class="sp-topic" data-i18n="steve_t"></p>
+          <details>
+            <summary data-i18n="steve_more"></summary>
+            <p data-i18n="steve_bio"></p>
+          </details>
+        </div>
+      </div>
+
+      <div class="sp-card reveal">
+        <div class="sp-photo"><img src="assets/daisy.jpg" alt="Daisy Christodoulou" loading="lazy"></div>
+        <div class="sp-body">
+          <div class="sp-name" data-i18n="daisy_n"></div>
+          <div class="sp-name-en">Daisy Christodoulou</div>
+          <div class="sp-role" data-i18n="daisy_r"></div>
+          <span class="sp-when" data-i18n="daisy_w"></span>
+          <p class="sp-topic" data-i18n="daisy_t"></p>
+          <details>
+            <summary data-i18n="daisy_more"></summary>
+            <p data-i18n="daisy_bio"></p>
+            <div class="sp-links"><a href="https://daisychristodoulou.com/2019/04/what-the-marathon-teaches-you-about-education/" target="_blank" rel="noopener" data-i18n="daisy_l1"></a><a href="https://daisychristodoulou.com/2017/03/shakespeare-and-creative-education/" target="_blank" rel="noopener" data-i18n="daisy_l2"></a><a href="https://www.aei.org/research-products/report/the-problem-with-transferable-skills/" target="_blank" rel="noopener" data-i18n="daisy_l3"></a></div>
+          </details>
+        </div>
+      </div>
+
+      <div class="sp-card reveal">
+        <div class="sp-photo"><img src="assets/caroline.jpg" alt="Caroline Doherty" loading="lazy"></div>
+        <div class="sp-body">
+          <div class="sp-name" data-i18n="caroline_n"></div>
+          <div class="sp-name-en">Caroline Doherty</div>
+          <div class="sp-role" data-i18n="caroline_r"></div>
+          <span class="sp-when" data-i18n="caroline_w"></span>
+          <p class="sp-topic" data-i18n="caroline_t"></p>
+          <details>
+            <summary data-i18n="caroline_more"></summary>
+            <p data-i18n="caroline_bio"></p>
+          </details>
+        </div>
+      </div>
+
+      <div class="sp-card reveal">
+        <div class="sp-photo"><img src="assets/isabel.jpg" alt="Isabel Instone" loading="lazy"></div>
+        <div class="sp-body">
+          <div class="sp-name" data-i18n="isabel_n"></div>
+          <div class="sp-name-en">Isabel Instone</div>
+          <div class="sp-role" data-i18n="isabel_r"></div>
+          <span class="sp-when" data-i18n="isabel_w"></span>
+          <p class="sp-topic" data-i18n="isabel_t"></p>
+          <details>
+            <summary data-i18n="isabel_more"></summary>
+            <p data-i18n="isabel_bio"></p>
+          </details>
+        </div>
+      </div>
+
+      <div class="sp-card reveal">
+        <div class="sp-photo"><img src="assets/michael.jpg" alt="Michael Clarke" loading="lazy"></div>
+        <div class="sp-body">
+          <div class="sp-name" data-i18n="michael_n"></div>
+          <div class="sp-name-en">Michael Clarke</div>
+          <div class="sp-role" data-i18n="michael_r"></div>
+          <span class="sp-when" data-i18n="michael_w"></span>
+          <p class="sp-topic" data-i18n="michael_t"></p>
+          <details>
+            <summary data-i18n="michael_more"></summary>
+            <p data-i18n="michael_bio"></p>
+          </details>
+        </div>
+      </div>
+
+    </div>
+    <div class="more-soon reveal" data-i18n="more_soon"></div>
+  </div>
+</section>
+
+<!-- ===== resources ===== -->
+<section id="resources">
+  <div class="container">
+    <div class="sec-kicker reveal" data-i18n="res_k"></div>
+    <h2 class="reveal" data-i18n="res_h"></h2>
+    <p class="res-intro reveal" data-i18n="res_intro"></p>
+
+    <div class="res-cat reveal">
+      <div class="res-cat-head"><span class="bar"></span><h3 data-i18n="cat1"></h3></div>
+      <div class="res-grid">
+        <a class="res-card" href="https://gpseducation.oecd.org/Content/MapOfEducationSystem/GBR/GBR_2011_EN.pdf" target="_blank" rel="noopener">
+          <span class="res-title">Diagram of the UK schools system on one page</span>
+          <span class="res-src">OECD · 2025</span>
+          <span class="res-note" data-i18n="r1"></span>
+        </a>
+        <a class="res-card" href="https://www.suttontrust.com/our-research/what-is-social-mobility/" target="_blank" rel="noopener">
+          <span class="res-title">What is Social Mobility?</span>
+          <span class="res-src">Sutton Trust · 2025</span>
+          <span class="res-note" data-i18n="r2"></span>
+        </a>
+        <a class="res-card" href="https://3a551fc8-7675-4cc5-9ecd-8697a47d348f.filesusr.com/ugd/5d3f2a_9ed3efcaa0ae4950bfcc2c26a4b7312d.pdf" target="_blank" rel="noopener">
+          <span class="res-title">English Curriculum Overview (3 pages)</span>
+          <span class="res-src">CES · 2025</span>
+          <span class="res-note" data-i18n="r3"></span>
+        </a>
+        <a class="res-card" href="https://www.suttontrust.com/news-opinion/all-news-opinion/london-miles-ahead-of-other-regions-in-providing-best-opportunities-for-the-poorest-young-people/" target="_blank" rel="noopener">
+          <span class="res-title">London has the best results for the poorest</span>
+          <span class="res-src">Sutton Trust · 2025</span>
+          <span class="res-note" data-i18n="r4"></span>
+        </a>
+        <a class="res-card" href="https://www.instituteforgovernment.org.uk/sites/default/files/publications/Implementing%20the%20London%20Challenge%20-%20final_0.pdf" target="_blank" rel="noopener">
+          <span class="res-title">About the London Challenge (2002 to 2011)</span>
+          <span class="res-src">Institute for Government</span>
+          <span class="res-note" data-i18n="r5"></span>
+          <span class="res-debate" data-i18n="r5_debate"></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="res-cat reveal">
+      <div class="res-cat-head"><span class="bar"></span><h3 data-i18n="cat2"></h3></div>
+      <div class="res-grid">
+        <a class="res-card" href="https://labour.org.uk/change/mission-driven-government/" target="_blank" rel="noopener">
+          <span class="res-title">The five missions of the current government</span>
+          <span class="res-src">Labour</span>
+          <span class="res-note" data-i18n="r6"></span>
+        </a>
+        <a class="res-card" href="https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit" target="_blank" rel="noopener">
+          <span class="res-title">Teaching &amp; Learning Toolkit</span>
+          <span class="res-src">EEF</span>
+          <span class="res-note" data-i18n="r7"></span>
+        </a>
+        <a class="res-card" href="https://www.gov.uk/government/publications/2010-to-2015-government-policy-academies-and-free-schools/2010-to-2015-government-policy-academies-and-free-schools" target="_blank" rel="noopener">
+          <span class="res-title">English school structures reforms 2010 to 2015</span>
+          <span class="res-src">DfE</span>
+          <span class="res-note" data-i18n="r8"></span>
+        </a>
+        <a class="res-card" href="https://schoolleaders.thekeysupport.com/administration-and-management/government-policies-and-legislation/need-to-knows/ofsted-inspection-framework-updated-for-" target="_blank" rel="noopener">
+          <span class="res-title">Ofsted Inspection Framework</span>
+          <span class="res-src">The Key</span>
+          <span class="res-note" data-i18n="r9"></span>
+        </a>
+        <a class="res-card" href="https://www.impactedgroup.uk/resources/report-mind-the-engagement-gap" target="_blank" rel="noopener">
+          <span class="res-title">The Engagement Gap</span>
+          <span class="res-src">ImpactEd · UCL</span>
+          <span class="res-note" data-i18n="r10"></span>
+        </a>
+        <a class="res-card" href="https://schoolsweek.co.uk/goves-traditionalists-won-but-now-they-see-what-was-lost/" target="_blank" rel="noopener">
+          <span class="res-title">Opinion: Traditionalists won, but what was lost?</span>
+          <span class="res-src">Schools Week</span>
+          <span class="res-note" data-i18n="r11"></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="res-cat reveal">
+      <div class="res-cat-head"><span class="bar"></span><h3 data-i18n="cat3"></h3></div>
+      <div class="res-grid">
+        <a class="res-card" href="https://grattan.edu.au/report/spreading-success-why-australia-should-trial-multi-school-organisations/" target="_blank" rel="noopener">
+          <span class="res-title">A positive analysis of Multi-Academy Trusts</span>
+          <span class="res-src">Grattan · 2024</span>
+          <span class="res-note" data-i18n="r12"></span>
+        </a>
+        <a class="res-card" href="https://www.thesun.co.uk/news/36872904/strictest-headteacher-hate-wokeness/" target="_blank" rel="noopener">
+          <span class="res-title">Behaviour: is it the single biggest thing to get right?</span>
+          <span class="res-src">The Sun</span>
+          <span class="res-note" data-i18n="r13"></span>
+        </a>
+        <a class="res-card" href="https://www.ambition.org.uk/pupil-engagement-guide/" target="_blank" rel="noopener">
+          <span class="res-title">Research-based guide to pupil motivation</span>
+          <span class="res-src">Ambition Institute</span>
+          <span class="res-note" data-i18n="r14"></span>
+        </a>
+        <a class="res-card" href="https://www.supportingeducation.com/content-hub/safeguarding-in-schools-importance-and-strategies/" target="_blank" rel="noopener">
+          <span class="res-title">An introduction to Safeguarding</span>
+          <span class="res-src">Supporting Education</span>
+          <span class="res-note" data-i18n="r15"></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="res-cat reveal">
+      <div class="res-cat-head"><span class="bar"></span><h3 data-i18n="cat4"></h3></div>
+      <div class="res-grid">
+        <a class="res-card" href="https://assets.publishing.service.gov.uk/media/661d24ac08c3be25cfbd3e61/Initial_Teacher_Training_and_Early_Career_Framework.pdf" target="_blank" rel="noopener">
+          <span class="res-title">What all teachers need to know</span>
+          <span class="res-src">DfE · 2024</span>
+          <span class="res-note" data-i18n="r16"></span>
+        </a>
+        <a class="res-card" href="https://steplab.co/resources/the-science-behind-steplab-how-it-includes-all-14-mechanisms-of-effective-pd/66d9c86d0982810001156b52" target="_blank" rel="noopener">
+          <span class="res-title">The evidence-based case for instructional coaching</span>
+          <span class="res-src">Steplab · 2024</span>
+          <span class="res-note" data-i18n="r17"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== practical ===== -->
+<section class="alt" id="practical">
+  <div class="container">
+    <div class="sec-kicker reveal" data-i18n="pr_k"></div>
+    <h2 class="reveal" data-i18n="pr_h"></h2>
+    <div class="flights">
+      <div class="flight reveal">
+        <div class="dir" data-i18n="f1_dir"></div>
+        <div class="route" data-i18n="f1_route"></div>
+        <div class="meta"><span data-i18n="f1_meta"></span> <span class="code">EL AL 311</span></div>
+      </div>
+      <div class="flight reveal">
+        <div class="dir" data-i18n="f2_dir"></div>
+        <div class="route" data-i18n="f2_route"></div>
+        <div class="meta"><span data-i18n="f2_meta"></span> <span class="code">EL AL 318</span></div>
+      </div>
+    </div>
+    <div class="tt-note reveal" data-i18n="tt_note"></div>
+  </div>
+</section>
+
+<footer>
+  <img class="ripples-f" src="assets/ripples-white.png" alt="">
+  <div class="container f-inner">
+    <div class="f-brand">
+      <img src="assets/advot-logo-white.png" alt="אדוות · מנהיגות מחוללת שינוי">
+      <span class="sep"></span>
+      <div class="f-text" data-i18n="f_text"></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const I18N = {
+he: {
+  chip:"לונדון · 22 עד 26 בנובמבר 2026",
+  nav_home:"בית", nav_why:"למה לונדון", nav_do:"מה נעשה", nav_induction:"מפגשי ההכנה", nav_speakers:"הדוברים", nav_resources:"משאבי למידה", nav_practical:"פרטים מעשיים",
+  kicker:"משלחת אדוות · יום ראשון 22 עד יום חמישי 26 בנובמבר 2026",
+  h1:"המסע ללונדון",
+  lede:"חמישה ימים של גיבוש קבוצתי, למידה הדדית ומפגש עם רעיונות חדשים בתוך מערכת החינוך האנגלית. הזדמנות לקחת צעד אחורה מהיומיום העמוס, להרהר במה שמניע אתכם ולחזור עם כוחות מחודשים.",
+  cta1:"מפגשי ההכנה", cta2:"מי נפגוש",
+  stat1:"ימים בלונדון", stat2:"מפגשי הכנה לפני הטיסה", stat3:"מומחי חינוך שנפגוש", stat4:"שנות שינוי בבתי הספר של לונדון",
+  why_k:"למה לונדון", why_h:"מה הוביל לשינוי הזה?",
+  why_p1:"לפני 30 שנה, בתי הספר בלונדון היו מהגרועים במדינה. כיום ההישגים שלהם עולים על שאר חלקי אנגליה.",
+  why_p2:"איך המערכת המשיכה להשתפר? מה למדה ועשתה שאר מערכת החינוך האנגלית? מיקומה של אנגליה בדירוגי PISA התייצב והשתפר בתקופה הזאת בהשוואה למערכות חינוך אחרות.",
+  why_p3:"הביקור יהיה הזדמנות להתבונן באתגרים שלנו בישראל דרך העדשה של מערכת שונה.",
+  tn1_when:"לפני 30 שנה",
+  tn1:"בתי הספר של לונדון מהגרועים במדינה",
+  tn2:"מדיניות London Challenge יוצאת לדרך",
+  tn3_when:"היום", tn3:"ההישגים בלונדון עולים על שאר חלקי אנגליה",
+  tn_foot:"עד היום אין הסכמה מה חולל את השינוי, ומעניין לדון בשאלה הזאת.",
+  do_k:"מה נעשה", do_h:"מפגשים עם מומחי החינוך האנגלי",
+  do_lede:"במהלך הביקור תפגשו ותשמעו מומחים בתחום החינוך באנגליה. את דף הדוברים נעדכן בפרופילים ובפרטי הארגונים של האנשים שתפגשו.",
+  do1_h:"מנהלי בתי ספר", do1_p:"ביקורים בבתי ספר ומפגשים עם המנהלים שמובילים אותם.",
+  do2_h:"מכשירי מורים", do2_p:"מי שמכשיר ומלווה מורים בתחילת דרכם, מ-Teach First ועד Ark Teacher Training.",
+  do3_h:"יזמי טכנולוגיה", do3_p:"חדשנות EdTech ושינוי קהילתי מקומי, כולל ביקור ב-Ed City.",
+  do4_h:"מומחי מדיניות", do4_p:"אחריותיות, הערכה ומדיניות: הדיונים המרכזיים שמניעים שיפור בחינוך.",
+  reflect:"מעבר לרעיונות המעשיים, הביקור המשותף שלנו בנובמבר ייתן מרחב לגיבוש הקבוצה, לרפלקציה וללמידה הדדית, וגם למפגש עם רעיונות חדשים שיקדמו את החשיבה של כולנו.",
+  ind_k:"ההכנה", ind_h:"חמישה מפגשים בדרך ללונדון",
+  ind_lede:"השתתפו במפגשים והשלימו את משימות החשיבה והקריאה המקדימה לקראת כל מפגש. תהליך ההכנה יכלול סדנאות בהנחיית מומחים חיצוניים מחותם ומלונדון.",
+  tag_live:"מפגש פרונטלי", zoom_tbc:"קישור הזום יעודכן בהמשך",
+  s1_d:"יום שלישי · 8 בספטמבר", s1_1:"מטרות הליבה של המשלחת", s1_2:"מסגרת נרטיבית: מסע הגיבור", s1_3:"ההיסטוריה של החינוך האנגלי: שלושת הגלים",
+  s2_d:"יום שלישי · 6 באוקטובר", s2_tag:"מקוון · 19:30 עד 20:30", s2_1:"צלילה לעומק מערכת בתי הספר בבריטניה", s2_2:"השוואה בין המערכת האנגלית לישראלית", s2_3:"הבדלים ודמיון מבניים מרכזיים",
+  s3_d:"יום רביעי · 14 באוקטובר", s3_1:"שינוי הפרדיגמה: ידע מול מיומנויות", s3_2:"הערכה חלופית ורווחת תלמידים", s3_3:"חלוקת תפקידים וקבוצות משתתפים",
+  s4_d:"יום רביעי · 4 בנובמבר", s4_1:"גיבוש אמנת הקבוצה", s4_2:"ציפיות משותפות לקבוצה", s4_3:"הגדרת גבולות הקבוצה למסע",
+  s5_d:"יום שני · 9 בנובמבר", s5_tag:"מקוון · 15:00 עד 20:00", s5_1:"אוטונומיה, אחריותיות ורשתות בתי ספר (MATs)", s5_2:"לוגיסטיקה תפעולית ומלון", s5_3:"תדריך ביטחוני רשמי של המשרד",
+  sp_k:"הדוברים", sp_h:"מי נפגוש בלונדון",
+  sp_lede:"קצת מידע על כל מי שתפגשו, מסודר לפי סדר המפגשים.",
+  more_soon:"דוברים נוספים יאושרו בקרוב.",
+  brett_n:"ברט ויגדורץ OBE", brett_r:"מייסד Teach First · שותף להקמת Teach For All · סייע בהקמת חותם בישראל · מנכ\"ל tiney", brett_w:"יום ראשון בערב",
+  brett_t:"ידבר על תוכנית London Challenge ועל הקמת Teach First, שהציבה את המנהיגות במרכז הכשרת המורים.",
+  brett_more:"עוד על ברט",
+  brett_bio:"ברט הוא יזם חינוכי משפיע שפועל לצמצום אי-שוויון חברתי מערכתי. בשנת 2002 ייסד את Teach First, ארגון ששינה את פני גיוס המורים בבריטניה, וכיהן כמנכ\"ל עד 2017. הוא שותף להקמת Teach For All, רשת חינוך עולמית, וסייע בהקמת עמותת חותם בישראל. מתוך מחויבות לפיתוח בגיל הרך הוא מכהן כיום כשותף-מייסד ומנכ\"ל tiney, פלטפורמה טכנולוגית שמחדשת את תחום המטפלים והמשפחתונים באנגליה. את סיפורו תיאר בספרו Success against the odds.",
+  steve_n:"סטיב אדקוק", steve_r:"מנהל אזורי של רשתות על-יסודיות, United Learning · מפקח מטעם Ofsted", steve_w:"יום שלישי",
+  steve_t:"ידבר על אחריותיות וכיצד רשתות חינוך רב-בית-ספריות (Multi-Academy Trusts) פועלות לשיפור בתי הספר.",
+  steve_more:"עוד על סטיב",
+  steve_bio:"סטיב מפקח על בתי ספר על-יסודיים באזורים הכוללים את לונדון וקיימברידג' ב-United Learning, מרשתות החינוך המובילות בבריטניה. אחריותו המרכזית היא הובלת שיפור בתי ספר והטמעת סטנדרטים יסודיים בכל מוסדות הרשת: מנהיגות בית-ספרית, תכנון תוכניות לימוד, התנהגות תלמידים ופיתוח צוותי הוראה. לפני כן הקים את צוות היועצים המומחים של הרשת והוביל את מערך תוכניות הלימוד הכולל שלה. לצד זה הוא משמש מפקח בית-ספרי רשמי מטעם Ofsted.",
+  daisy_n:"דייזי כריסטודולו", daisy_r:"מנהלת התחום החינוכי, No More Marking · מחברת הספר Seven Myths about Education", daisy_w:"יום שלישי",
+  daisy_t:"תדבר על שינויים ושיקולים במערכי הערכה, ועל הדיונים המרכזיים במדיניות שמניעים שיפור בחינוך.",
+  daisy_more:"עוד על דייזי",
+  daisy_bio:"דייזי היא אשת חינוך, מחברת ספרים ומומחית להערכה חינוכית. היא מובילה את התחום החינוכי ב-No More Marking, ארגון שמספק תוכנה להערכה השוואתית (Comparative Judgement) של מטלות כתיבה. היא הוכשרה כמורה לאנגלית בלונדון דרך Teach First ושימשה ראש תחום הערכה ברשת Ark Schools. בין ספריה המשפיעים: Seven Myths about Education, ‏Making Good Progress?, ‏Teachers vs Tech ו-Can't Stop Thinking about VAR. לפני המפגש שווה להציץ בכמה מהפוסטים המוכרים שלה.",
+  daisy_l1:"מה מרתון מלמד על חינוך", daisy_l2:"שייקספיר וחינוך יצירתי", daisy_l3:"על חשיבה ביקורתית",
+  caroline_n:"קרוליין דוהרטי", caroline_r:"ראש תחום קשרי ממשל וציבור, Ark · מובילת רשת EdCitizens", caroline_w:"יום שלישי · Ed City",
+  caroline_t:"תכננה את תוכנית הביקור ב-Ed City, תקבל את פנינו ותערוך לנו סיור במקום.",
+  caroline_more:"עוד על קרוליין",
+  caroline_bio:"קרוליין הצטרפה ל-Ark בשנת 2022 עם יותר מ-15 שנות ניסיון במגזר הפרטי, השלישי והציבורי, ואת דרכה המקצועית התחילה כמורה בכיתה. היא חברה בקבוצת הייעוץ למדיניות של Confederation of School Trusts ומכהנת כיושבת ראש הנהלת בית ספר יסודי.",
+  isabel_n:"איזבל אינסטון", isabel_r:"חוקרת ומכשירת מורים · Ark Schools ו-Ark Teacher Training", isabel_w:"יום שלישי · Ed City",
+  isabel_t:"תדבר על פיתוח מנהיגות בתוך בתי הספר ועל האופן שבו מצמיחים את מנהיגי החינוך הבאים מתוך הרשת.",
+  isabel_more:"עוד על איזבל",
+  isabel_bio:"איזבל מתמחה בפיתוח תוכניות לימוד, בהוראה מבוססת ראיות ובהכשרת מורים בתחילת דרכם. ברשת Ark מילאה תפקידי מנהיגות בכירים: מנחה בכירה, ראש תחום תוכניות לימוד והערכה ומובילת פיתוח מקצועי על-יסודי. עבודתה מתמקדת בהעלאת הסטנדרטים בכיתה, בבניית מסגרות הכשרה חזקות ובגיוס מורים מומחי תחום, כולל התמודדות עם המחסור החמור במורי פיזיקה בבריטניה. מחקרה עוסק באימון מבוסס פרקטיקה, בתפיסת משוב אצל מורים חדשים ובפירוק פרקטיקות הוראה מורכבות למיומנויות יישומיות, בשיתוף ארגונים כמו Ambition Institute.",
+  michael_n:"מייקל קלארק", michael_r:"מנכ\"ל מייסד, Purposeful Ventures · לשעבר סגן מנכ\"ל Ark", michael_w:"יום חמישי בבוקר",
+  michael_t:"יציג את החדשנות בתחום ה-EdTech ואת השינוי הקהילתי-מקומי ב-Ed City.",
+  michael_more:"עוד על מייקל",
+  michael_bio:"מייקל מוביל את Purposeful Ventures, ארגון שפועל לקידום השפעה חברתית חיובית בהיקף רחב. קודם לכן כיהן כסגן מנכ\"ל Ark, שם הקים והוביל את Ark Ventures וליווה את הקמתם של 15 ארגונים ללא כוונת רווח בין 2012 ל-2023. מוקדם יותר בקריירה היה שותף זוטר ב-McKinsey, שם ניהל במשותף את זרוע החינוך של החברה בבריטניה, והיה חלק מהצוות המייסד של Ed City.",
+  res_k:"משאבי למידה", res_h:"קריאה מקדימה",
+  res_intro:"אנגליה, סקוטלנד, ויילס וצפון אירלנד מקיימות מערכות חינוך שונות, ובביקור בלונדון תלמדו בהקשר של המערכת האנגלית. ההבדלים ביניהן יצרו ניסוי טבעי: מדינות דומות למדי שבחרו דרכים שונות באחריותיות, בתוכנית הלימודים, בתקצוב ועוד. המשאבים כאן, כולם באנגלית, יציגו לכם חלק מההקשר של מערכת החינוך שבה תבקרו.",
+  cat1:"לונדון ובריטניה: מערכת החינוך וההקשר החברתי",
+  r1:"כאן אפשר לראות את כל המסלולים שתלמידים יכולים לעבור במערכות החינוך של בריטניה.",
+  r2:"רבים משתמשים בניידות חברתית כמבחן: האם מערכת החינוך עובדת בשביל צעירים או לא.",
+  r3:"נוצר בעזרת AI ונבדק בידי אדם. בעמוד האחרון ציר זמן שימושי של הרפורמות בתוכנית הלימודים.",
+  r4:"דוח שמראה איך התלמידים העניים ביותר בלונדון מצליחים יותר מתלמידים מבוססים באזורים אחרים בבריטניה.",
+  r5:"איש אינו מסכים למה בתי הספר בלונדון טובים בהרבה משאר המדינה. שלושה הסברים אפשריים:",
+  r5_debate:'<a href="https://www.theguardian.com/commentisfree/2014/nov/14/london-schools-immigration-children-education" target="_blank" rel="noopener">הגירה</a> · <a href="https://samfreedman1.blogspot.com/2013/10/why-are-londons-schools-doing-so-well.html" target="_blank" rel="noopener">כסף</a> · <a href="https://www.bbc.co.uk/news/education-28003848" target="_blank" rel="noopener">Teach First</a>',
+  cat2:"מדיניות חינוך",
+  r6:"ביעד החינוך: אזכור מפורש של מעמד ושל ניידות חברתית.",
+  r7:"סיכום הראיות המחקריות על הוראה מה-EEF, הגוף שהממשלה הקימה ב-2011 כדי לחבר מחקר לכיתה.",
+  r8:"מסמך קצר שמסביר למה הממשלה הקימה אקדמיות: בתי ספר עצמאיים במימון המדינה.",
+  r9:"מה מחפשים מפקחי Ofsted כשהם מעריכים בית ספר, בסיכום קצר.",
+  r10:"איך מחוברות התלמידים יורדת בבית הספר העל-יסודי. אתגר חשוב שבתי ספר רבים מתמודדים איתו.",
+  r11:"מאמר דעה חכם על ההצלחות של 25 השנים האחרונות, ועל הבעיות הגדולות שנשארו במערכת.",
+  cat3:"בתי ספר: איך הם עובדים ולמה לצפות",
+  r12:"משלחת אוסטרלית ביקרה וחקרה את רשתות ה-MAT באנגליה, וכתבה איך הן יכולות לעבוד היטב.",
+  r13:"נפגוש ונשמע את סרג' צפאי כשנבקר בבית הספר שלו ביום שני בבוקר.",
+  r14:"בתי ספר מנסים לאמץ פרקטיקה מבוססת ראיות כדי להחליט מה לשפר.",
+  r15:"כל בתי הספר מחויבים בחוק להגן על תלמידיהם במגוון דרכים.",
+  cat4:"מנהיגות ושיפור הוראה",
+  r16:"הסטנדרטים המקצועיים, הגדרה של למידה ורשימת קריאה מומלצת, במסמך אחד.",
+  r17:"איך אימון הוראה (Instructional Coaching) עובד, ולמה הראיות תומכות בו.",
+  pr_k:"פרטים מעשיים", pr_h:"הטיסות והלו\"ז",
+  f1_dir:"הלוך · יום ראשון 22 בנובמבר, מוקדם בבוקר", f1_route:"תל אביב ← לונדון לוטון", f1_meta:"נתב\"ג אל שדה התעופה לוטון · טיסת אל על",
+  f2_dir:"חזור · יום חמישי 26 בנובמבר, בערב", f2_route:"לונדון הית'רו ← תל אביב", f2_meta:"הית'רו אל נתב\"ג · טיסת אל על",
+  tt_note:"<strong>הלו\"ז המפורט בבנייה.</strong> פרטי הימים, הביקורים והמפגשים יתפרסמו כאן. הלוגיסטיקה התפעולית ופרטי המלון, יחד עם תדריך ביטחוני רשמי, יימסרו במפגש ההכנה של 9 בנובמבר.",
+  f_text:"אדוות · מנהיגות מחוללת שינוי<br>משלחת לונדון · 22 עד 26 בנובמבר 2026",
+  title:"אדוות · המסע ללונדון 2026",
+  lang_btn:"English"
+},
+en: {
+  chip:"London · 22 to 26 November 2026",
+  nav_home:"Home", nav_why:"Why London", nav_do:"What we'll do", nav_induction:"Induction", nav_speakers:"Speakers", nav_resources:"Learning resources", nav_practical:"Practical",
+  kicker:"Advot delegation · Sunday 22 to Thursday 26 November 2026",
+  h1:"London Calling!",
+  lede:"Five days to bond as a group, learn from each other and encounter new ideas, inside the English school system. A chance to step back from your busy day-to-day tasks, reflect on what motivates you, and return with renewed vigour.",
+  cta1:"The induction", cta2:"Who we'll meet",
+  stat1:"days in London", stat2:"induction sessions before the flight", stat3:"education experts to meet", stat4:"years of change in London schools",
+  why_k:"Why London", why_h:"What led to this change?",
+  why_p1:"30 years ago London schools were among the worst in the country. Today they outperform the rest of the country.",
+  why_p2:"How did the system continue to improve? What has the rest of the English system learnt and done to improve? England's place in the PISA rankings has stabilised and improved over this time relative to other education systems.",
+  why_p3:"This visit will be a chance to look at our own challenges in Israel through the lens of a different system.",
+  tn1_when:"30 years ago",
+  tn1:"London schools among the worst in the country",
+  tn2:"The London Challenge policy begins",
+  tn3_when:"Today", tn3:"London outperforms the rest of England",
+  tn_foot:"No one agrees what exactly drove the change. It is interesting to discuss why.",
+  do_k:"What we'll do", do_h:"Meeting experts in English education",
+  do_lede:"During your visit you will meet and hear from some experts in English education. We will update the speakers page with the profiles and organisation details of the people you will meet.",
+  do1_h:"School leaders", do1_p:"School visits and meetings with the leaders who run them.",
+  do2_h:"Teacher trainers", do2_p:"The people training and supporting new teachers, from Teach First to Ark Teacher Training.",
+  do3_h:"Tech entrepreneurs", do3_p:"EdTech innovation and place-based community change, including a visit to Ed City.",
+  do4_h:"Policy experts", do4_p:"Accountability, assessment and policy: the key debates that drive improvement in education.",
+  reflect:"As well as practical ideas, our visit together in November will provide a space to bond as a group, reflect and learn from each other, and encounter new ideas that advance our thinking.",
+  ind_k:"The induction", ind_h:"Five sessions on the way to London",
+  ind_lede:"Attend the sessions and do the preparatory thinking and reading for each one. Our induction will include workshops led by external experts from Hotam and London.",
+  tag_live:"In person", zoom_tbc:"Zoom session link to be confirmed",
+  s1_d:"Tuesday · 8 September", s1_1:"Delegation core goals", s1_2:"\"Hero's Journey\" narrative framework", s1_3:"English education history: the three waves",
+  s2_d:"Tuesday · 6 October", s2_tag:"Online · 19:30 to 20:30", s2_1:"Deep dive into the UK school system", s2_2:"Comparing the English and Israeli systems", s2_3:"Key structural differences and similarities",
+  s3_d:"Wednesday · 14 October", s3_1:"Knowledge vs. skills paradigm shift", s3_2:"Alternative assessments and student well-being", s3_3:"Cohort role allocation and participant groups",
+  s4_d:"Wednesday · 4 November", s4_1:"Developing the Cohort Covenant", s4_2:"Establishing shared group expectations", s4_3:"Defining group boundaries for the trip",
+  s5_d:"Monday · 9 November", s5_tag:"Online · 15:00 to 20:00", s5_1:"Autonomy, accountability and MATs", s5_2:"Operational and hotel logistics", s5_3:"Official Ministry security briefing",
+  sp_k:"Speakers", sp_h:"Who we'll meet in London",
+  sp_lede:"A bit of information about everyone you will meet, laid out in the order that you will meet them.",
+  more_soon:"More confirmed soon.",
+  brett_n:"Brett Wigdortz OBE", brett_r:"Founder of Teach First · co-founder of Teach For All · helped found Hotam · CEO of tiney", brett_w:"Sunday evening",
+  brett_t:"Will speak about the London Challenge and founding Teach First, which placed leadership at the heart of teacher training.",
+  brett_more:"More about Brett",
+  brett_bio:"Brett is an influential educational entrepreneur dedicated to reducing systemic social inequality. In 2002 he founded Teach First, transforming UK teacher recruitment, and served as CEO until 2017. He co-founded Teach For All, a global education network, and helped found Hotam (Teach First Israel). Driven by early-years development, he is now co-founder and CEO of tiney, a tech platform modernising childminding across England. He wrote his story in Success against the odds.",
+  steve_n:"Steve Adcock", steve_r:"Regional Director of Secondary Academies, United Learning · Ofsted inspector", steve_w:"Tuesday",
+  steve_t:"Will discuss accountability and how Multi-Academy Trusts work to improve schools.",
+  steve_more:"More about Steve",
+  steve_bio:"Steve oversees secondary schools across regions including London and Cambridge at United Learning, one of the UK's leading educational trusts. His key responsibility is driving school improvement by embedding foundational standards across all academies: school leadership, curriculum design, pupil behaviour and teacher development. He previously established United Learning's team of subject specialist advisers and led the trust's curriculum work. Alongside this, he is an official Ofsted school inspector.",
+  daisy_n:"Daisy Christodoulou", daisy_r:"Director of Education, No More Marking · author of Seven Myths about Education", daisy_w:"Tuesday",
+  daisy_t:"Will talk about assessment change and trade-offs, and the key debates in policy that drive education improvement.",
+  daisy_more:"More about Daisy",
+  daisy_bio:"Daisy is an educator, author and assessment specialist. She is Director of Education at No More Marking, which provides online Comparative Judgement software for evaluating student writing. She trained as a secondary English teacher in London through Teach First and served as Head of Assessment at Ark Schools. Her influential books include Seven Myths about Education, Making Good Progress?, Teachers vs Tech and Can't Stop Thinking about VAR. A few of her best-known blog posts are worth reading before the session.",
+  daisy_l1:"What the marathon teaches about education", daisy_l2:"Shakespeare and creative education", daisy_l3:"On critical thinking",
+  caroline_n:"Caroline Doherty", caroline_r:"Head of Public Affairs, Ark · EdCitizens Network lead", caroline_w:"Tuesday · Ed City",
+  caroline_t:"Designed the programme for the Ed City visit, and will give us a welcome and a tour of the site.",
+  caroline_more:"More about Caroline",
+  caroline_bio:"Caroline joined Ark in 2022 with over 15 years of experience in the private, charity and public sectors, and began her career in the classroom. She is a member of the Confederation of School Trusts policy advisory group and chair of governors at a primary school.",
+  isabel_n:"Isabel Instone", isabel_r:"Researcher and teacher trainer · Ark Schools and Ark Teacher Training", isabel_w:"Tuesday · Ed City",
+  isabel_t:"Will discuss school-based leadership development and how future school leaders grow from within the network.",
+  isabel_more:"More about Isabel",
+  isabel_bio:"Isabel specialises in curriculum development, evidence-based instruction and initial teacher education. At Ark she has held senior leadership roles: Senior Tutor, Head of Curriculum and Assessment, and Network Lead for Secondary Professional Development. Her work focuses on raising classroom standards, building robust training frameworks and advocating for subject-specialist recruitment, including tackling the UK's critical shortage of physics teachers. Her research centres on practice-based coaching, feedback orientation in novice teachers, and decomposing complex teaching practices into actionable skills, collaborating with organisations such as the Ambition Institute.",
+  michael_n:"Michael Clarke", michael_r:"Founding CEO, Purposeful Ventures · former Deputy CEO of Ark", michael_w:"Thursday morning",
+  michael_t:"Will introduce the EdTech innovation and place-based change at Ed City.",
+  michael_more:"More about Michael",
+  michael_bio:"Michael leads Purposeful Ventures, an organisation dedicated to driving positive, scalable social impact. He previously served as Deputy CEO of Ark, where he established and led Ark Ventures, incubating 15 charities between 2012 and 2023. Earlier in his career he was a junior partner at McKinsey, co-leading its UK education practice, and was part of the founding team of Ed City.",
+  res_k:"Learning resources", res_h:"Pre-reading",
+  res_intro:"England, Scotland, Wales and Northern Ireland have different education systems. On your visit to London you will be learning in the context of the English system. The differences have created a natural experiment of approaches, as broadly similar nations have taken different paths on school accountability, curriculum, funding, and more. The resources below will introduce you to some of the context of the education system you are visiting.",
+  cat1:"London and the UK: the education system and social context",
+  r1:"Here you can see all the pathways that students can take through the education systems of the UK.",
+  r2:"Many people use social mobility as a test of whether the education system works for young people or not.",
+  r3:"AI-generated, but human checked. A useful timeline of curriculum reform on the last page.",
+  r4:"A report that shows how the poorest students in London do better than wealthier students in other parts of the UK.",
+  r5:"No one agrees why London schools are so much better than the rest of the country. Three possible explanations:",
+  r5_debate:'<a href="https://www.theguardian.com/commentisfree/2014/nov/14/london-schools-immigration-children-education" target="_blank" rel="noopener">Immigration</a> · <a href="https://samfreedman1.blogspot.com/2013/10/why-are-londons-schools-doing-so-well.html" target="_blank" rel="noopener">Money</a> · <a href="https://www.bbc.co.uk/news/education-28003848" target="_blank" rel="noopener">Teach First</a>',
+  cat2:"Education policy",
+  r6:"On education: an explicit mention of class and social mobility.",
+  r7:"In 2011, the government established an NGO focused on education research. The EEF applies research to teaching.",
+  r8:"A short document summarising why the government created academies: state-funded, autonomous schools.",
+  r9:"A short summary of what school inspectors (known as Ofsted) are looking for when they evaluate a school.",
+  r10:"How student engagement drops in secondary school. An important challenge that many schools are facing.",
+  r11:"A smart opinion piece reflecting on the successes of the last 25 years, and what remain as the big problems in the system.",
+  cat3:"Schools: how they work and what to expect",
+  r12:"An Australian delegation visited and studied MATs in England and wrote this report on how they can work well.",
+  r13:"We will meet and hear from Serge Cefai when we visit his school on Monday morning.",
+  r14:"Schools are trying to adopt evidence-based practice to make decisions about how to improve.",
+  r15:"All schools are legally required to keep their students protected in many ways.",
+  cat4:"Leadership and teacher improvement",
+  r16:"The professional standards, a definition of learning, and a recommended reading list, in one document.",
+  r17:"How instructional coaching works, and why the evidence supports it.",
+  pr_k:"Practical", pr_h:"Flights and timetable",
+  f1_dir:"Outbound · Sunday 22 November, early morning", f1_route:"Tel Aviv → London Luton", f1_meta:"Ben Gurion Airport to Luton Airport · EL AL flight",
+  f2_dir:"Return · Thursday 26 November, evening", f2_route:"London Heathrow → Tel Aviv", f2_meta:"Heathrow to Ben Gurion Airport · EL AL flight",
+  tt_note:"<strong>The detailed timetable is under construction.</strong> Day-by-day visits and sessions will be published here. Operational and hotel logistics, along with an official security briefing, will be covered at the final induction session on 9 November.",
+  f_text:"Advot · Leadership that drives change<br>London delegation · 22 to 26 November 2026",
+  title:"Advot · The Journey to London 2026",
+  lang_btn:"עברית"
+}
+};
+
+let lang='he';
+try{ const saved=localStorage.getItem('advot-lang'); if(saved==='en'||saved==='he') lang=saved; }catch(e){}
+try{ const qp=new URLSearchParams(location.search).get('lang'); if(qp==='en'||qp==='he') lang=qp; }catch(e){}
+
+const langBtn=document.getElementById('langBtn');
+function setLang(l){
+  lang=l;
+  const d=I18N[l];
+  document.documentElement.lang=l;
+  document.documentElement.dir=(l==='he')?'rtl':'ltr';
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const v=d[el.dataset.i18n];
+    if(v!==undefined) el.innerHTML=v;
+  });
+  document.title=d.title;
+  langBtn.textContent=d.lang_btn;
+  try{ localStorage.setItem('advot-lang',l); }catch(e){}
+}
+langBtn.addEventListener('click',()=>setLang(lang==='he'?'en':'he'));
+setLang(lang);
+
+// sticky header shadow
+const header=document.getElementById('header');
+addEventListener('scroll',()=>{header.classList.toggle('scrolled',scrollY>10)},{passive:true});
+
+// mobile menu
+const menuBtn=document.getElementById('menuBtn'),navLinks=document.getElementById('navLinks');
+menuBtn.addEventListener('click',()=>navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
+
+// active nav on scroll
+const sections=[...document.querySelectorAll('section[id],div.hero[id]')];
+const navA=[...navLinks.querySelectorAll('a')];
+const spy=()=>{
+  let cur=sections[0].id;
+  for(const s of sections){ if(s.getBoundingClientRect().top<=120) cur=s.id; }
+  navA.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+};
+addEventListener('scroll',spy,{passive:true});spy();
+
+// reveal on scroll
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
