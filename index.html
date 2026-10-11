@@ -172,6 +172,7 @@ html[lang="en"] .sp-card details p{font-size:13.5px}
 .res-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);padding:22px 24px;box-shadow:var(--shadow-sm);transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease);display:flex;flex-direction:column;gap:8px}
 .res-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--blue-mid)}
 .res-title{font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:var(--ink);line-height:1.45;direction:ltr;text-align:left}
+.res-title.dyn,.res-src.dyn{direction:inherit;text-align:start;font-family:inherit}
 .res-src{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;color:var(--blue-mid);direction:ltr;text-align:left}
 .res-note{font-size:14.5px;color:var(--ink-dim)}
 html[lang="en"] .res-note{font-size:13.5px}
@@ -495,6 +496,22 @@ footer .ripples-f{position:absolute;left:-130px;top:-60px;width:420px;opacity:.0
     <p class="res-intro reveal" data-i18n="res_intro"></p>
 
     <div class="res-cat reveal">
+      <div class="res-cat-head"><span class="bar"></span><h3 data-i18n="cat0"></h3></div>
+      <div class="res-grid">
+        <a class="res-card" href="https://drive.google.com/file/d/1L4Me5AARMjcRdtsN0Cg7_U5gO4zQR618/view?usp=sharing" target="_blank" rel="noopener">
+          <span class="res-title dyn" data-i18n="p1_t"></span>
+          <span class="res-src dyn" data-i18n="p1_s"></span>
+          <span class="res-note" data-i18n="p1_n"></span>
+        </a>
+        <a class="res-card" href="assets/hadshanut-shamranit.pdf" target="_blank" rel="noopener">
+          <span class="res-title dyn" data-i18n="p2_t"></span>
+          <span class="res-src dyn" data-i18n="p2_s"></span>
+          <span class="res-note" data-i18n="p2_n"></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="res-cat reveal">
       <div class="res-cat-head"><span class="bar"></span><h3 data-i18n="cat1"></h3></div>
       <div class="res-grid">
         <a class="res-card" href="https://gpseducation.oecd.org/Content/MapOfEducationSystem/GBR/GBR_2011_EN.pdf" target="_blank" rel="noopener">
@@ -544,9 +561,9 @@ footer .ripples-f{position:absolute;left:-130px;top:-60px;width:420px;opacity:.0
           <span class="res-src">DfE</span>
           <span class="res-note" data-i18n="r8"></span>
         </a>
-        <a class="res-card" href="https://schoolleaders.thekeysupport.com/administration-and-management/government-policies-and-legislation/need-to-knows/ofsted-inspection-framework-updated-for-" target="_blank" rel="noopener">
+        <a class="res-card" href="https://www.gov.uk/government/publications/education-inspection-framework" target="_blank" rel="noopener">
           <span class="res-title">Ofsted Inspection Framework</span>
-          <span class="res-src">The Key</span>
+          <span class="res-src">Ofsted · GOV.UK</span>
           <span class="res-note" data-i18n="r9"></span>
         </a>
         <a class="res-card" href="https://www.impactedgroup.uk/resources/report-mind-the-engagement-gap" target="_blank" rel="noopener">
@@ -702,6 +719,13 @@ he: {
   michael_bio:"מייקל מוביל את Purposeful Ventures, ארגון שפועל לקידום השפעה חברתית חיובית בהיקף רחב. קודם לכן כיהן כסגן מנכ\"ל Ark, שם הקים והוביל את Ark Ventures וליווה את הקמתם של 15 ארגונים ללא כוונת רווח בין 2012 ל-2023. מוקדם יותר בקריירה היה שותף זוטר ב-McKinsey, שם ניהל במשותף את זרוע החינוך של החברה בבריטניה, והיה חלק מהצוות המייסד של Ed City.",
   res_k:"משאבי למידה", res_h:"קריאה מקדימה",
   res_intro:"אנגליה, סקוטלנד, ויילס וצפון אירלנד מקיימות מערכות חינוך שונות, ובביקור בלונדון תלמדו בהקשר של המערכת האנגלית. ההבדלים ביניהן יצרו ניסוי טבעי: מדינות דומות למדי שבחרו דרכים שונות באחריותיות, בתוכנית הלימודים, בתקצוב ועוד. המשאבים כאן, כולם באנגלית, יציגו לכם חלק מההקשר של מערכת החינוך שבה תבקרו.",
+  cat0:"חדשנות שמרנית: פודקאסט ומצגת בעברית",
+  p1_t:"פודקאסט קצר: החדשנות השמרנית שהזניקה את החינוך באנגליה",
+  p1_s:"פודקאסט · בעברית",
+  p1_n:"האזנה קצרה ומעניינת לסיפור הרפורמות, נקודת פתיחה טובה לפני חומרי הקריאה באנגלית.",
+  p2_t:"מצגת: חדשנות שמרנית · אדריכלות הפלא החינוכי של אנגליה",
+  p2_s:"PDF · מלווה את הפודקאסט",
+  p2_n:"מבט ישראלי על רפורמות העומק 2003 עד 2025. המצגת מלווה את הפודקאסט הקצר.",
   cat1:"לונדון ובריטניה: מערכת החינוך וההקשר החברתי",
   r1:"כאן אפשר לראות את כל המסלולים שתלמידים יכולים לעבור במערכות החינוך של בריטניה.",
   r2:"רבים משתמשים בניידות חברתית כמבחן: האם מערכת החינוך עובדת בשביל צעירים או לא.",
@@ -794,6 +818,13 @@ en: {
   michael_bio:"Michael leads Purposeful Ventures, an organisation dedicated to driving positive, scalable social impact. He previously served as Deputy CEO of Ark, where he established and led Ark Ventures, incubating 15 charities between 2012 and 2023. Earlier in his career he was a junior partner at McKinsey, co-leading its UK education practice, and was part of the founding team of Ed City.",
   res_k:"Learning resources", res_h:"Pre-reading",
   res_intro:"England, Scotland, Wales and Northern Ireland have different education systems. On your visit to London you will be learning in the context of the English system. The differences have created a natural experiment of approaches, as broadly similar nations have taken different paths on school accountability, curriculum, funding, and more. The resources below will introduce you to some of the context of the education system you are visiting.",
+  cat0:"Conservative innovation: a podcast and slides in Hebrew",
+  p1_t:"Short podcast: the conservative innovation that lifted English education",
+  p1_s:"Podcast · Hebrew",
+  p1_n:"A short, engaging listen on the story of the reforms, a good starting point before the English readings.",
+  p2_t:"Slides: Conservative innovation · the architecture of England's education miracle",
+  p2_s:"PDF · accompanies the podcast",
+  p2_n:"An Israeli look at the deep reforms of 2003 to 2025. The deck accompanies the short podcast.",
   cat1:"London and the UK: the education system and social context",
   r1:"Here you can see all the pathways that students can take through the education systems of the UK.",
   r2:"Many people use social mobility as a test of whether the education system works for young people or not.",
