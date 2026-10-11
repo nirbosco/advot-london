@@ -60,6 +60,9 @@ nav.links a.active{background:var(--blue);color:var(--white)}
 
 /* ---------- hero ---------- */
 .hero{position:relative;background:var(--grad);color:var(--white);padding:190px 0 0;overflow:hidden}
+.hero-video{position:absolute;inset:0;overflow:hidden;pointer-events:none;opacity:0;transition:opacity 1.2s var(--ease)}
+.hero-video.on{opacity:.32}
+.hero-video iframe{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);border:0}
 .hero .ripples{position:absolute;left:-140px;top:40px;width:620px;opacity:.28;pointer-events:none;transform:rotate(8deg)}
 .hero .ripples-2{position:absolute;right:-190px;bottom:-80px;width:520px;opacity:.16;pointer-events:none;transform:rotate(190deg)}
 .hero-inner{position:relative;z-index:2;max-width:860px}
@@ -74,7 +77,7 @@ html[lang="en"] nav.links a{font-size:14px;padding:8px 11px}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
 .btn-ghost{background:transparent;color:var(--white);border:1.5px solid rgba(254,254,254,.6)}
 .btn-ghost:hover{background:rgba(254,254,254,.12);transform:translateY(-2px)}
-.hero-wave{display:block;width:100%;height:90px;margin-top:-1px}
+.hero-wave{display:block;width:100%;height:90px;margin-top:-1px;position:relative;z-index:3}
 .stats{background:var(--white);border-bottom:1px solid var(--line)}
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:44px 0}
 .stat{text-align:center}
@@ -271,6 +274,7 @@ footer .ripples-f{position:absolute;left:-130px;top:-60px;width:420px;opacity:.0
 
 <!-- ===== hero ===== -->
 <div class="hero" id="home">
+  <div class="hero-video" aria-hidden="true"><div id="ytbg"></div></div>
   <img class="ripples" src="assets/ripples-white.png" alt="">
   <img class="ripples-2" src="assets/ripples-white.png" alt="">
   <div class="container hero-inner">
@@ -922,6 +926,39 @@ const spy=()=>{
   navA.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
 };
 addEventListener('scroll',spy,{passive:true});spy();
+
+// hero background video (desktop only)
+{
+  const tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  document.head.appendChild(tag);
+  window.onYouTubeIframeAPIReady = function () {
+    const wrap = document.querySelector('.hero-video');
+    const player = new YT.Player('ytbg', {
+      videoId: 'jmoPo11ktN4',
+      playerVars: { autoplay: 1, mute: 1, controls: 0, start: 16, rel: 0, playsinline: 1, disablekb: 1, iv_load_policy: 3 },
+      events: {
+        onReady: function (e) {
+          e.target.mute(); e.target.playVideo();
+          sizeYtBg(); addEventListener('resize', sizeYtBg, { passive: true });
+        },
+        onStateChange: function (e) {
+          if (e.data === YT.PlayerState.PLAYING) wrap.classList.add('on');
+          if (e.data === YT.PlayerState.ENDED) { e.target.seekTo(16); e.target.playVideo(); }
+        }
+      }
+    });
+  };
+  function sizeYtBg() {
+    const hero = document.querySelector('.hero');
+    const f = document.querySelector('.hero-video iframe');
+    if (!hero || !f) return;
+    const w = hero.offsetWidth, h = hero.offsetHeight;
+    const vw = Math.max(w, h * 16 / 9), vh = Math.max(h, w * 9 / 16);
+    f.style.width = Math.ceil(vw) + 'px';
+    f.style.height = Math.ceil(vh) + 'px';
+  }
+}
 
 // reveal on scroll
 const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
