@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>השתבצות לצוותים · אדוות לונדון 2026</title>
+<meta name="description" content="בוחרים צוות, רושמים שם, ורואים מי כבר בפנים">
+<link rel="icon" type="image/png" href="assets/advot-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#0048FF; --blue-mid:#2680F1; --sky:#0DB4F4; --teal:#41CAC5;
+  --white:#FEFEFE; --soft:#F3F6FF; --ink:#0B1440; --ink-dim:#4A5580; --line:#DCE3F5;
+  --shadow-sm:0 1px 3px rgba(11,20,64,.08);
+  --shadow-md:0 6px 20px rgba(11,20,64,.10);
+  --ease:cubic-bezier(0.22,1,0.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{overflow-x:clip}
+body{font-family:'Heebo',sans-serif;color:var(--ink);background:var(--soft);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--blue);text-decoration:none}
+.container{max-width:980px;margin:0 auto;padding:0 20px}
+
+header{background:var(--white);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-inner img{height:34px;width:auto}
+.back{font-size:14px;font-weight:500;color:var(--blue);background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:5px 16px}
+.back:hover{background:var(--line)}
+
+.page-head{padding:44px 0 8px;text-align:center}
+.page-head h1{font-size:clamp(28px,5vw,40px);font-weight:800;line-height:1.2;margin-bottom:10px}
+.page-head p{font-size:17px;color:var(--ink-dim);max-width:560px;margin:0 auto}
+
+.me-bar{position:sticky;top:0;z-index:50;padding:14px 0;background:linear-gradient(to bottom,var(--soft) 75%,rgba(243,246,255,0))}
+.me-card{background:var(--white);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-md);padding:14px 18px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.me-card label{font-size:15px;font-weight:700;white-space:nowrap}
+.me-card input{flex:1;min-width:180px;font-family:inherit;font-size:16px;padding:10px 16px;border:1.5px solid var(--line);border-radius:10px;background:var(--soft);color:var(--ink);transition:border-color .2s var(--ease)}
+.me-card input:focus{outline:none;border-color:var(--blue);background:var(--white)}
+.me-hint{font-size:13.5px;color:var(--ink-dim);width:100%}
+.me-done{display:none;align-items:center;gap:10px;width:100%}
+.me-done .check{width:26px;height:26px;border-radius:50%;background:var(--teal);color:var(--white);display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0}
+.me-done span{font-size:15.5px}
+.me-done b{font-weight:800}
+
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;padding:18px 0 64px}
+.team{background:var(--white);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-sm);padding:24px 24px 22px;display:flex;flex-direction:column;gap:12px;transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+.team:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.team-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.team h2{font-size:19px;font-weight:800;line-height:1.35}
+.mentor{font-size:13px;font-weight:700;color:var(--blue);background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:3px 13px;white-space:nowrap}
+.bar{height:8px;border-radius:999px;background:var(--soft);overflow:hidden}
+.bar i{display:block;height:100%;border-radius:999px;background:var(--blue);transition:width .4s var(--ease)}
+.team.full .bar i{background:var(--teal)}
+.count{font-size:14px;color:var(--ink-dim);font-weight:500}
+.count b{color:var(--ink);font-weight:800}
+.members{display:flex;flex-wrap:wrap;gap:6px;min-height:30px}
+.members span{font-size:13.5px;background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:3px 13px}
+.members span.me{background:var(--blue);border-color:var(--blue);color:var(--white);font-weight:700}
+.members .empty{border-style:dashed;color:var(--ink-dim);background:transparent}
+.join{margin-top:auto;font-family:inherit;font-size:15.5px;font-weight:700;color:var(--white);background:var(--blue);border:none;border-radius:10px;padding:11px 20px;cursor:pointer;transition:filter .2s var(--ease),transform .2s var(--ease)}
+.join:hover:not(:disabled){filter:brightness(.92);transform:translateY(-1px)}
+.join:disabled{background:var(--line);color:var(--ink-dim);cursor:default}
+.team.full .join{background:transparent;border:1.5px solid var(--line);color:var(--ink-dim)}
+
+.toast{position:fixed;bottom:24px;right:50%;transform:translateX(50%) translateY(90px);background:var(--ink);color:var(--white);font-size:15px;font-weight:500;border-radius:12px;padding:12px 24px;box-shadow:var(--shadow-md);transition:transform .35s var(--ease);max-width:92vw;text-align:center;z-index:99}
+.toast.show{transform:translateX(50%) translateY(0)}
+
+.loading{text-align:center;color:var(--ink-dim);padding:70px 0;grid-column:1/-1;font-size:16px}
+footer{text-align:center;font-size:13px;color:var(--ink-dim);padding:0 0 36px}
+
+@media (max-width:680px){
+  .grid{grid-template-columns:1fr}
+  .page-head{padding-top:32px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav-inner">
+    <img src="assets/advot-logo.png" alt="אדוות · מנהיגות מחוללת שינוי">
+    <a class="back" href="index.html">חזרה לאתר המסע</a>
+  </div>
+</header>
+
+<div class="container page-head">
+  <h1>השתבצות לצוותי המשלחת</h1>
+  <p>לכל צוות יש מלווה ומספר מקומות. רושמים שם, בוחרים צוות אחד, וכולם רואים מי כבר בפנים ומה נשאר פתוח.</p>
+</div>
+
+<div class="container me-bar">
+  <div class="me-card" id="meCard">
+    <label for="myName">השם שלי:</label>
+    <input id="myName" type="text" maxlength="40" placeholder="שם מלא" autocomplete="name">
+    <div class="me-hint">אחרי שכותבים שם, לוחצים "אני בצוות הזה" בצוות שבחרתם.</div>
+    <div class="me-done" id="meDone"><span class="check">&#10003;</span><span id="meDoneText"></span></div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="grid" id="grid"><div class="loading">טוען את מצב הצוותים...</div></div>
+</div>
+
+<footer>אדוות · משלחת לונדון 2026</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const API_URL = 'https://script.google.com/macros/s/AKfycbyn7bbOvQhRQxtXe1cgon9HnQeI9s9CQ9D9Rn-MjyIzN04k-cv8ABN8bzeA3OB2S2-KmQ/exec';
+
+const grid = document.getElementById('grid');
+const nameInput = document.getElementById('myName');
+const meDone = document.getElementById('meDone');
+const meDoneText = document.getElementById('meDoneText');
+const toastEl = document.getElementById('toast');
+
+let state = null;
+let busy = false;
+
+let savedName = '';
+try { savedName = localStorage.getItem('advot-team-name') || ''; } catch (e) {}
+if (savedName) nameInput.value = savedName;
+
+function toast(msg) {
+  toastEl.textContent = msg;
+  toastEl.classList.add('show');
+  clearTimeout(toastEl._t);
+  toastEl._t = setTimeout(() => toastEl.classList.remove('show'), 4200);
+}
+
+function myTeam() {
+  if (!state) return null;
+  const norm = (nameInput.value || savedName).trim().toLowerCase();
+  if (!norm) return null;
+  return state.teams.find(t => t.members.some(m => m.toLowerCase() === norm)) || null;
+}
+
+function render() {
+  if (!state) return;
+  const mine = myTeam();
+  const norm = (nameInput.value || savedName).trim().toLowerCase();
+
+  if (mine) {
+    nameInput.style.display = 'none';
+    document.querySelector('.me-card label').style.display = 'none';
+    document.querySelector('.me-hint').style.display = 'none';
+    meDone.style.display = 'flex';
+    meDoneText.innerHTML = 'השתבצת לצוות <b>' + esc(mine.name) + '</b>. רוצים לעבור צוות? דברו עם ' + esc(mine.mentor) + '.';
+  }
+
+  grid.innerHTML = state.teams.map(t => {
+    const left = t.quota - t.members.length;
+    const full = left <= 0;
+    const pct = t.quota ? Math.min(100, Math.round(t.members.length / t.quota * 100)) : 0;
+    const chips = t.members.length
+      ? t.members.map(m => '<span class="' + (m.toLowerCase() === norm ? 'me' : '') + '">' + esc(m) + '</span>').join('')
+      : '<span class="empty">עוד אין משובצים, אפשר להיות ראשונים</span>';
+    let btn;
+    if (mine) {
+      btn = '';
+    } else if (full) {
+      btn = '<button class="join" disabled>הצוות מלא</button>';
+    } else {
+      btn = '<button class="join" data-team="' + esc(t.id) + '">אני בצוות הזה</button>';
+    }
+    return '<div class="team' + (full ? ' full' : '') + '">' +
+      '<div class="team-head"><h2>' + esc(t.name) + '</h2><span class="mentor">' + esc(t.mentor) + ' · מלווה</span></div>' +
+      '<div class="bar"><i style="width:' + pct + '%"></i></div>' +
+      '<div class="count"><b>' + t.members.length + '</b> מתוך ' + t.quota + ' משובצים · ' +
+        (full ? 'אין מקומות פנויים' : ('נשארו <b>' + left + '</b> מקומות')) + '</div>' +
+      '<div class="members">' + chips + '</div>' + btn +
+    '</div>';
+  }).join('');
+
+  grid.querySelectorAll('.join[data-team]').forEach(b => b.addEventListener('click', () => join(b.dataset.team)));
+}
+
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+async function load() {
+  try {
+    const r = await fetch(API_URL);
+    state = await r.json();
+    render();
+  } catch (e) {
+    grid.innerHTML = '<div class="loading">לא הצלחנו לטעון את מצב הצוותים. בדקו את החיבור לרשת ורעננו את הדף.</div>';
+  }
+}
+
+async function join(teamId) {
+  if (busy) return;
+  const name = nameInput.value.trim().replace(/\s+/g, ' ');
+  if (name.length < 2) {
+    toast('קודם כותבים שם למעלה, ואז בוחרים צוות.');
+    nameInput.focus();
+    return;
+  }
+  busy = true;
+  const team = state.teams.find(t => t.id === teamId);
+  try {
+    const r = await fetch(API_URL, { method: 'POST', body: JSON.stringify({ name: name, teamId: teamId }) });
+    const res = await r.json();
+    if (res.state) state = res.state;
+    if (res.ok) {
+      savedName = name;
+      try { localStorage.setItem('advot-team-name', name); } catch (e) {}
+      toast('נרשמת לצוות ' + (team ? team.name : '') + '. נתראה בלונדון.');
+    } else if (res.error === 'full') {
+      toast('הספיקו להשתבץ לפניך והצוות התמלא. בחרו צוות אחר.');
+    } else if (res.error === 'duplicate') {
+      toast('השם הזה כבר משובץ באחד הצוותים.');
+    } else if (res.error === 'bad_name') {
+      toast('כתבו שם מלא (לפחות שתי אותיות).');
+    } else {
+      toast('משהו השתבש, נסו שוב.');
+    }
+    render();
+  } catch (e) {
+    toast('לא הצלחנו לשמור. בדקו את החיבור ונסו שוב.');
+  } finally {
+    busy = false;
+  }
+}
+
+nameInput.addEventListener('input', render);
+load();
+setInterval(load, 25000);
+</script>
+</body>
+</html>

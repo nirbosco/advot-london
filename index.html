@@ -191,6 +191,13 @@ html[lang="en"] .res-intro{font-size:15.5px}
 .tt-note{background:var(--white);border:1px dashed var(--blue-mid);border-radius:var(--r-card);padding:26px 30px;font-size:16px;color:var(--ink-dim);max-width:720px}
 .tt-note strong{color:var(--ink)}
 
+.signup-cta{position:relative;overflow:hidden;background:var(--blue);color:var(--white);border-radius:24px;padding:34px 38px;margin-top:44px;box-shadow:var(--shadow-brand);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.signup-cta .ripples-card{position:absolute;left:-90px;bottom:-120px;width:320px;opacity:.18;transform:rotate(14deg)}
+.signup-cta .signup-txt{position:relative;z-index:1;max-width:560px}
+.signup-cta h3{margin-bottom:6px}
+.signup-cta p{font-size:16px;opacity:.9}
+.signup-cta .btn{position:relative;z-index:1}
+
 /* footer */
 footer{background:var(--ink);color:var(--white);padding:64px 0 40px;position:relative;overflow:hidden}
 footer .ripples-f{position:absolute;left:-130px;top:-60px;width:420px;opacity:.07;transform:rotate(12deg)}
@@ -273,6 +280,7 @@ footer .ripples-f{position:absolute;left:-130px;top:-60px;width:420px;opacity:.0
     <div class="cta-row">
       <a class="btn btn-primary" href="#induction" data-i18n="cta1"></a>
       <a class="btn btn-ghost" href="#speakers" data-i18n="cta2"></a>
+      <a class="btn btn-ghost" href="teams.html" data-i18n="cta3"></a>
     </div>
   </div>
   <svg class="hero-wave" viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,50 C240,95 480,0 760,25 C1040,50 1240,80 1440,35 L1440,90 L0,90 Z" fill="#FEFEFE"/></svg>
@@ -628,6 +636,14 @@ footer .ripples-f{position:absolute;left:-130px;top:-60px;width:420px;opacity:.0
   <div class="container">
     <div class="sec-kicker reveal" data-i18n="pr_k"></div>
     <h2 class="reveal" data-i18n="pr_h"></h2>
+    <div class="signup-cta reveal">
+      <img class="ripples-card" src="assets/ripples-white.png" alt="">
+      <div class="signup-txt">
+        <h3 data-i18n="su_h"></h3>
+        <p data-i18n="su_p"></p>
+      </div>
+      <a class="btn btn-primary" href="teams.html" data-i18n="su_btn"></a>
+    </div>
     <div class="flights">
       <div class="flight reveal">
         <div class="dir" data-i18n="f1_dir"></div>
@@ -749,6 +765,10 @@ he: {
   cat4:"מנהיגות ושיפור הוראה",
   r16:"הסטנדרטים המקצועיים, הגדרה של למידה ורשימת קריאה מומלצת, במסמך אחד.",
   r17:"איך אימון הוראה (Instructional Coaching) עובד, ולמה הראיות תומכות בו.",
+  cta3:"השתבצות לצוותים",
+  su_h:"השתבצות לצוותי המשלחת",
+  su_p:"לכל צוות יש מלווה ומספר מקומות. בוחרים צוות, רושמים שם, ורואים מי כבר בפנים ומה נשאר פתוח.",
+  su_btn:"לטופס ההשתבצות",
   pr_k:"פרטים מעשיים", pr_h:"הטיסות והלו\"ז",
   f1_dir:"הלוך · יום ראשון 22 בנובמבר, מוקדם בבוקר", f1_route:"תל אביב ← לונדון לוטון", f1_meta:"נתב\"ג אל שדה התעופה לוטון · טיסת אל על",
   f2_dir:"חזור · יום חמישי 26 בנובמבר, בערב", f2_route:"לונדון הית'רו ← תל אביב", f2_meta:"הית'רו אל נתב\"ג · טיסת אל על",
@@ -849,6 +869,10 @@ en: {
   cat4:"Leadership and teacher improvement",
   r16:"The professional standards, a definition of learning, and a recommended reading list, in one document.",
   r17:"How instructional coaching works, and why the evidence supports it.",
+  cta3:"Team sign-up",
+  su_h:"Delegation team sign-up",
+  su_p:"Each team has a mentor and a set number of places. Pick a team, add your name, and see who is already in. The form is in Hebrew.",
+  su_btn:"To the sign-up form",
   pr_k:"Practical", pr_h:"Flights and timetable",
   f1_dir:"Outbound · Sunday 22 November, early morning", f1_route:"Tel Aviv → London Luton", f1_meta:"Ben Gurion Airport to Luton Airport · EL AL flight",
   f2_dir:"Return · Thursday 26 November, evening", f2_route:"London Heathrow → Tel Aviv", f2_meta:"Heathrow to Ben Gurion Airport · EL AL flight",
