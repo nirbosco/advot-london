@@ -936,11 +936,16 @@ addEventListener('scroll',spy,{passive:true});spy();
     const wrap = document.querySelector('.hero-video');
     const player = new YT.Player('ytbg', {
       videoId: 'jmoPo11ktN4',
-      playerVars: { autoplay: 1, mute: 1, controls: 0, start: 16, rel: 0, playsinline: 1, disablekb: 1, iv_load_policy: 3 },
+      playerVars: { autoplay: 1, mute: 1, controls: 0, start: 16, end: 600, rel: 0, playsinline: 1, disablekb: 1, iv_load_policy: 3 },
       events: {
         onReady: function (e) {
           e.target.mute(); e.target.playVideo();
           sizeYtBg(); addEventListener('resize', sizeYtBg, { passive: true });
+          setInterval(function () {
+            try {
+              if (e.target.getCurrentTime() >= 600) { e.target.seekTo(16); e.target.playVideo(); }
+            } catch (err) {}
+          }, 1000);
         },
         onStateChange: function (e) {
           if (e.data === YT.PlayerState.PLAYING) wrap.classList.add('on');
