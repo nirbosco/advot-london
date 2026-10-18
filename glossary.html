@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>מילון מושגים · אדוות לונדון 2026</title>
+<meta name="description" content="חינוך ומדיניות באנגלית בריטית, בעברית. חיפוש חכם, פרקים, כרטיסיות תרגול ומחשבון שכבות.">
+<link rel="icon" type="image/png" href="assets/advot-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#0048FF; --blue-deep:#0033B8; --sky:#0DB4F4; --teal:#41CAC5; --warn:#E8590C;
+  --white:#FEFEFE; --soft:#F3F6FF; --ink:#0B1440; --ink-dim:#4A5580; --line:#DCE3F5;
+  --shadow-sm:0 1px 3px rgba(11,20,64,.08);
+  --shadow-md:0 6px 20px rgba(11,20,64,.10);
+  --shadow-lg:0 18px 50px rgba(11,20,64,.18);
+  --ease:cubic-bezier(0.22,1,0.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{overflow-x:clip}
+body{font-family:'Heebo',sans-serif;color:var(--ink);background:var(--soft);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+button{font-family:inherit;cursor:pointer}
+a{color:var(--blue);text-decoration:none}
+.container{max-width:1040px;margin:0 auto;padding:0 20px}
+.en{direction:ltr;unicode-bidi:isolate}
+
+header{background:var(--white);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-inner img{height:34px;width:auto}
+.back{font-size:14px;font-weight:500;color:var(--blue);background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:5px 16px}
+.back:hover{background:var(--line)}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--blue) 0%,var(--blue-deep) 60%,#1B2A8C 100%);color:var(--white);padding:46px 0 92px}
+.hero .rip{position:absolute;left:-120px;top:-60px;width:520px;opacity:.16;pointer-events:none}
+.hero .rip2{position:absolute;right:-160px;bottom:-200px;width:480px;opacity:.10;pointer-events:none;transform:rotate(180deg)}
+.hero-inner{position:relative;text-align:center}
+.kicker{display:inline-block;font-size:13.5px;font-weight:700;letter-spacing:.02em;background:rgba(254,254,254,.14);border:1px solid rgba(254,254,254,.28);border-radius:999px;padding:4px 15px;margin-bottom:14px}
+.hero h1{font-size:clamp(32px,6vw,52px);font-weight:800;line-height:1.1;margin-bottom:10px}
+.hero p.lede{font-size:clamp(16px,2.2vw,18.5px);opacity:.9;max-width:600px;margin:0 auto 26px}
+
+.search{position:relative;max-width:680px;margin:0 auto}
+.search input{width:100%;font-family:inherit;font-size:19px;color:var(--ink);background:var(--white);border:none;border-radius:18px;padding:19px 58px 19px 54px;box-shadow:var(--shadow-lg);outline:none;transition:box-shadow .25s var(--ease)}
+.search input:focus{box-shadow:0 0 0 4px rgba(13,180,244,.45),var(--shadow-lg)}
+.search .ico{position:absolute;right:20px;top:50%;transform:translateY(-50%);width:24px;height:24px;color:var(--blue);pointer-events:none}
+.search .clear{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:32px;height:32px;border-radius:50%;border:none;background:var(--soft);color:var(--ink-dim);font-size:18px;line-height:1;display:none}
+.search.has .clear{display:block}
+.search kbd{position:absolute;left:16px;top:50%;transform:translateY(-50%);font-family:inherit;font-size:12px;color:var(--ink-dim);border:1px solid var(--line);border-radius:6px;padding:1px 7px}
+.search.has kbd{display:none}
+.examples{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}
+.examples button{font-size:14px;font-weight:500;color:var(--white);background:rgba(254,254,254,.12);border:1px solid rgba(254,254,254,.3);border-radius:999px;padding:5px 15px;transition:background .2s var(--ease)}
+.examples button:hover{background:rgba(254,254,254,.24)}
+
+/* tools */
+.tools{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:-58px;position:relative;z-index:2}
+.tool{background:var(--white);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-md);padding:18px 20px;text-align:right;display:flex;gap:14px;align-items:center;transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+.tool:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.tool .ti{flex-shrink:0;width:46px;height:46px;border-radius:12px;background:var(--soft);color:var(--blue);display:flex;align-items:center;justify-content:center}
+.tool .ti svg{width:26px;height:26px}
+.tool b{display:block;font-size:16.5px;font-weight:800;color:var(--ink);line-height:1.3}
+.tool span{display:block;font-size:13.5px;color:var(--ink-dim);line-height:1.4;margin-top:2px}
+
+/* sticky filters */
+.bar{position:sticky;top:0;z-index:40;background:rgba(243,246,255,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);margin-top:26px}
+.bar-inner{display:flex;gap:8px;overflow-x:auto;padding:12px 20px;scrollbar-width:none;max-width:1040px;margin:0 auto}
+.bar-inner::-webkit-scrollbar{display:none}
+.chip{flex-shrink:0;font-size:14px;font-weight:500;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:999px;padding:6px 15px;white-space:nowrap;transition:all .2s var(--ease)}
+.chip:hover{border-color:var(--blue);color:var(--blue)}
+.chip.on{background:var(--blue);border-color:var(--blue);color:var(--white)}
+.chip .n{font-size:12px;opacity:.65;margin-right:4px}
+.chip.f{border-style:dashed}
+.chip.f.on{border-style:solid;background:var(--ink);border-color:var(--ink)}
+.sep{flex-shrink:0;width:1px;background:var(--line);margin:4px 4px}
+
+main{padding:22px 0 60px}
+
+/* answer bubble */
+.answer{display:none;gap:14px;align-items:flex-start;background:var(--white);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-md);padding:20px 22px;margin-bottom:22px;animation:pop .35s var(--ease)}
+.answer.show{display:flex}
+@keyframes pop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.answer .av{flex-shrink:0;width:42px;height:42px;border-radius:50%;background:var(--blue);color:var(--white);display:flex;align-items:center;justify-content:center}
+.answer .av svg{width:22px;height:22px}
+.answer .body{flex:1;min-width:0}
+.answer .who{font-size:13px;font-weight:700;color:var(--ink-dim);margin-bottom:2px}
+.answer .say{font-size:18px;line-height:1.55}
+.answer .say b{color:var(--blue)}
+.answer .more{font-size:15px;color:var(--ink-dim);margin-top:6px}
+.answer .rel{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;align-items:center}
+.answer .rel small{font-size:13px;color:var(--ink-dim);margin-left:2px}
+.answer .rel button{font-size:13.5px;font-weight:500;color:var(--blue);background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:3px 12px}
+.answer .rel button:hover{border-color:var(--blue)}
+
+.count{font-size:14px;color:var(--ink-dim);margin-bottom:12px}
+.count b{color:var(--ink)}
+
+.ch-head{margin:34px 0 14px;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ch-head:first-child{margin-top:4px}
+.ch-head h2{font-size:24px;font-weight:800;line-height:1.25}
+.ch-head span{font-size:14px;color:var(--ink-dim)}
+.sub-head{font-size:15px;font-weight:700;color:var(--blue);margin:18px 0 10px;padding-right:2px}
+
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.card{position:relative;background:var(--white);border:1px solid var(--line);border-radius:14px;padding:15px 18px 15px 46px;box-shadow:var(--shadow-sm);transition:border-color .2s var(--ease),box-shadow .2s var(--ease)}
+.card:hover{border-color:#B9C6EE;box-shadow:var(--shadow-md)}
+.card .t{font-size:17px;font-weight:800;color:var(--blue);line-height:1.35;display:inline}
+.card .h{font-size:16px;font-weight:700;margin-top:3px;line-height:1.45}
+.card .h .lbl{font-weight:500;color:var(--ink-dim);font-size:14px}
+.card .nt{font-size:14.5px;color:var(--ink-dim);margin-top:5px;line-height:1.55}
+.card mark{background:rgba(13,180,244,.22);color:inherit;border-radius:3px;padding:0 1px}
+.badges{display:inline-flex;gap:5px;margin-right:8px;vertical-align:2px}
+.badge{font-size:11.5px;font-weight:700;border-radius:999px;padding:1px 9px;white-space:nowrap}
+.badge.w{color:var(--warn);background:#FFF1E8}
+.badge.u{color:#087F7A;background:#E3F7F6}
+.star{position:absolute;left:10px;top:11px;width:30px;height:30px;border:none;background:none;color:#B9C3E0;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:color .2s var(--ease),transform .2s var(--ease)}
+.star:hover{color:var(--blue);transform:scale(1.12)}
+.star.on{color:#F5A400}
+.star svg{width:20px;height:20px}
+.empty{text-align:center;color:var(--ink-dim);padding:40px 0;font-size:16px}
+
+footer{text-align:center;font-size:13px;color:var(--ink-dim);padding:0 0 36px}
+
+/* dialogs */
+dialog{border:none;border-radius:22px;padding:0;width:min(560px,calc(100% - 32px));box-shadow:var(--shadow-lg);color:var(--ink);margin:auto}
+dialog::backdrop{background:rgba(11,20,64,.45);backdrop-filter:blur(3px)}
+.dlg{padding:26px 26px 24px;position:relative}
+.dlg h3{font-size:22px;font-weight:800;margin-bottom:4px}
+.dlg .intro{font-size:15px;color:var(--ink-dim);margin-bottom:18px}
+.x{position:absolute;left:14px;top:14px;width:36px;height:36px;border-radius:50%;border:none;background:var(--soft);color:var(--ink-dim);font-size:20px;line-height:1}
+.x:hover{background:var(--line)}
+
+/* year converter */
+.yr-big{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;margin:6px 0 18px}
+.yr-box{background:var(--soft);border-radius:16px;padding:16px 10px;text-align:center}
+.yr-box small{display:block;font-size:13px;color:var(--ink-dim);font-weight:500}
+.yr-box b{display:block;font-size:30px;font-weight:800;color:var(--blue);line-height:1.2}
+.yr-eq{font-size:26px;color:var(--ink-dim);font-weight:800}
+input[type=range]{width:100%;accent-color:var(--blue);direction:ltr;height:28px}
+.yr-ticks{display:flex;justify-content:space-between;direction:ltr;font-size:11.5px;color:var(--ink-dim);margin:0 2px 14px}
+.yr-facts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.yr-facts div{border:1px solid var(--line);border-radius:12px;padding:9px 12px;font-size:14px;line-height:1.4}
+.yr-facts div small{display:block;color:var(--ink-dim);font-size:12.5px}
+.yr-facts div.wide{grid-column:1/-1}
+
+/* flashcards */
+.fc-pick{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.fc-pick .chip{font-size:13px;padding:4px 12px}
+.flip{perspective:1200px;height:220px;margin-bottom:14px;cursor:pointer}
+.flip-in{position:relative;width:100%;height:100%;transition:transform .55s var(--ease);transform-style:preserve-3d}
+.flip.on .flip-in{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px}
+.face.front{background:linear-gradient(135deg,var(--blue),var(--blue-deep));color:var(--white)}
+.face.front b{font-size:clamp(22px,5vw,30px);font-weight:800;line-height:1.25}
+.face.front small{margin-top:14px;font-size:13px;opacity:.75}
+.face.back{background:var(--soft);border:1px solid var(--line);transform:rotateY(180deg)}
+.face.back b{font-size:21px;font-weight:800;line-height:1.35}
+.face.back p{font-size:14.5px;color:var(--ink-dim);margin-top:8px;line-height:1.5;max-height:110px;overflow:auto}
+.fc-row{display:flex;gap:10px}
+.fc-row button{flex:1;font-size:16px;font-weight:700;border-radius:12px;padding:12px;border:none}
+.b-yes{background:var(--teal);color:var(--white)}
+.b-no{background:var(--soft);color:var(--ink);border:1px solid var(--line)!important}
+.b-main{background:var(--blue);color:var(--white)}
+.fc-prog{height:6px;border-radius:999px;background:var(--soft);overflow:hidden;margin-bottom:6px}
+.fc-prog i{display:block;height:100%;background:var(--blue);transition:width .35s var(--ease)}
+.fc-meta{font-size:13px;color:var(--ink-dim);margin-bottom:12px;display:flex;justify-content:space-between}
+.done{text-align:center;padding:18px 0 6px}
+.done b{display:block;font-size:44px;font-weight:800;color:var(--blue);line-height:1.1}
+.done p{color:var(--ink-dim);margin:6px 0 18px}
+
+/* between the lines quiz */
+.q-phrase{background:linear-gradient(135deg,var(--blue),var(--blue-deep));color:var(--white);border-radius:18px;padding:26px 20px;text-align:center;font-size:clamp(20px,4.6vw,26px);font-weight:800;line-height:1.3;margin-bottom:6px}
+.q-phrase small{display:block;font-size:13px;font-weight:500;opacity:.75;margin-bottom:6px}
+.q-opts{display:flex;flex-direction:column;gap:8px;margin:14px 0}
+.q-opts button{font-size:16px;font-weight:500;text-align:right;background:var(--white);border:1.5px solid var(--line);border-radius:12px;padding:12px 16px;color:var(--ink);transition:all .2s var(--ease)}
+.q-opts button:hover:not(:disabled){border-color:var(--blue)}
+.q-opts button.ok{background:#E3F7F6;border-color:var(--teal);font-weight:700}
+.q-opts button.bad{background:#FFF1E8;border-color:var(--warn)}
+.q-opts button:disabled{cursor:default}
+
+@media (max-width:820px){
+  .tools{gap:8px;margin-top:-64px}
+  .tool{flex-direction:column;text-align:center;gap:8px;padding:14px 8px}
+  .tool b{font-size:14px}
+  .tool span span{display:none}
+  .grid{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .hero{padding:30px 0 86px}
+  .search input::placeholder{font-size:15px}
+  .search input{font-size:17px;padding:16px 50px 16px 46px;border-radius:15px}
+  .search .ico{right:16px}
+  .search kbd{display:none}
+  .examples button{font-size:13px;padding:4px 12px}
+  .examples button:nth-child(n+4){display:none}
+  .dlg{padding:22px 18px 18px}
+  .fc-pick{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 -18px 14px;padding:0 18px}
+  .fc-pick::-webkit-scrollbar{display:none}
+  .flip{height:200px}
+  .ch-head h2{font-size:21px}
+  .answer{padding:16px}
+  .answer .av{width:36px;height:36px}
+  .answer .say{font-size:16.5px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav-inner">
+    <a href="index.html"><img src="assets/advot-logo.png" alt="אדוות · מנהיגות מחוללת שינוי"></a>
+    <a class="back" href="index.html">חזרה לאתר המסע</a>
+  </div>
+</header>
+
+<section class="hero">
+  <img class="rip" src="assets/ripples-white.png" alt="">
+  <img class="rip2" src="assets/ripples-white.png" alt="">
+  <div class="container hero-inner">
+    <span class="kicker">משלחת אדוות · לונדון 2026</span>
+    <h1>מילון מושגים</h1>
+    <p class="lede">חינוך ומדיניות באנגלית בריטית, בעברית. כתבו מילה או שאלה, בעברית או באנגלית, והמילון יענה.</p>
+    <div class="search" id="searchWrap">
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="מילה או שאלה, עברית או English" aria-label="חיפוש במילון">
+      <kbd>/</kbd>
+      <button class="clear" id="clear" aria-label="ניקוי">×</button>
+    </div>
+    <div class="examples" id="examples">
+      <button>מה זה Ofsted?</button>
+      <button>איך אומרים מחנך?</button>
+      <button>Year 9 זה איזו כיתה?</button>
+      <button>public school</button>
+      <button>מה זה MAT?</button>
+      <button>בגרות</button>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="tools">
+    <button class="tool" data-open="dlgYear">
+      <span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M8 2v4M16 2v4M3 10h18M8 15h3M13 15h3"/></svg></span>
+      <span><b>מחשבון שכבות</b><span>Year 7 זה איזו כיתה אצלנו?</span></span>
+    </button>
+    <button class="tool" data-open="dlgCards">
+      <span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="14" height="17" rx="2.5"/><path d="M4 7v12a2 2 0 0 0 2 2h10"/><path d="M10 9h6M10 13h4"/></svg></span>
+      <span><b>כרטיסיות לטיסה</b><span>תרגול קצר לפני הנחיתה</span></span>
+    </button>
+    <button class="tool" data-open="dlgQuiz">
+      <span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.9A8 8 0 1 1 21 12Z"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.3 2.4c-.5.2-.8.6-.8 1.1v.5M12 16.5h.01"/></svg></span>
+      <span><b>מה הם באמת אומרים?</b><span>חידון על אנגלית בין השורות</span></span>
+    </button>
+  </div>
+</div>
+
+<div class="bar"><div class="bar-inner" id="chips"></div></div>
+
+<main class="container">
+  <div class="answer" id="answer">
+    <div class="av"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/></svg></div>
+    <div class="body" id="answerBody"></div>
+  </div>
+  <div class="count" id="count"></div>
+  <div id="list"></div>
+</main>
+
+<footer>אדוות · משלחת לונדון 2026</footer>
+
+<!-- year converter -->
+<dialog id="dlgYear"><div class="dlg">
+  <button class="x" data-close aria-label="סגירה">×</button>
+  <h3>מחשבון שכבות</h3>
+  <p class="intro">באנגליה מתחילים לספור שנה לפנינו. גררו את הסרגל.</p>
+  <div class="yr-big">
+    <div class="yr-box"><small>באנגליה</small><b class="en" id="yrUk"></b></div>
+    <div class="yr-eq">≈</div>
+    <div class="yr-box"><small>אצלנו</small><b id="yrIl"></b></div>
+  </div>
+  <input type="range" id="yr" min="0" max="13" value="7" aria-label="שכבה">
+  <div class="yr-ticks"><span>R</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span></div>
+  <div class="yr-facts">
+    <div><small>גיל</small><span id="yrAge"></span></div>
+    <div><small>שלב</small><span class="en" id="yrKs"></span></div>
+    <div><small>מסגרת</small><span id="yrSchool"></span></div>
+    <div><small>בחינה או הערכה</small><span id="yrTest"></span></div>
+  </div>
+</div></dialog>
+
+<!-- flashcards -->
+<dialog id="dlgCards"><div class="dlg">
+  <button class="x" data-close aria-label="סגירה">×</button>
+  <h3>כרטיסיות לטיסה</h3>
+  <p class="intro">רואים את המונח באנגלית, נזכרים, ולוחצים על הכרטיס כדי לבדוק.</p>
+  <div class="fc-pick" id="fcPick"></div>
+  <div id="fcStage"></div>
+</div></dialog>
+
+<!-- quiz -->
+<dialog id="dlgQuiz"><div class="dlg">
+  <button class="x" data-close aria-label="סגירה">×</button>
+  <h3>מה הם באמת אומרים?</h3>
+  <p class="intro">אנגלים מדברים בהמעטה. נחשו מה עומד מאחורי המשפט.</p>
+  <div id="qStage"></div>
+</div></dialog>
+
+<script>
+const DATA = {"chapters":[{"id":"top","label":"עשרים מילים חובה","title":"עשרים מילים שכדאי להכיר לפני הנחיתה"},{"id":"structure","label":"מבנה המערכת","title":"מבנה המערכת: שלבים ושכבות"},{"id":"types","label":"סוגי בתי ספר","title":"סוגי בתי ספר"},{"id":"gov","label":"מי מנהל","title":"מי מנהל את המערכת"},{"id":"acc","label":"פיקוח ואחריותיות","title":"פיקוח ואחריותיות"},{"id":"staff","label":"אנשי הצוות","title":"אנשי הצוות"},{"id":"itt","label":"הכשרת מורים","title":"הכשרת מורים והתפתחות מקצועית"},{"id":"curr","label":"לימודים והערכה","title":"תוכנית לימודים, הוראה והערכה"},{"id":"equity","label":"שוויון ורווחה","title":"שוויון, רווחה וצדק חינוכי"},{"id":"beh","label":"התנהגות","title":"התנהגות ומשמעת"},{"id":"he","label":"השכלה גבוהה","title":"השכלה גבוהה בקצרה"},{"id":"ff","label":"אמריקה מול אנגליה","title":"מלכודות: אמריקאית מול בריטית"},{"id":"talk","label":"נימוסים ושפה","title":"נימוסים, תארים ושפה בין השורות"}],"entries":[{"c":"top","t":"Headteacher / Head","h":"מנהל/ת בית הספר","n":"לא Principal. ככה קוראים למנהל באנגליה"},{"c":"top","t":"Pupils","h":"תלמידים","n":"בבית ספר אומרים pupils. Students שמור לרוב לתיכון העליון ולאוניברסיטה"},{"c":"top","t":"Academy","h":"בית ספר אקדמיה","n":"בית ספר ציבורי שממומן ישירות מהממשלה ומנוהל בעצמאות, מחוץ לרשות המקומית"},{"c":"top","t":"MAT (Multi-Academy Trust)","h":"רשת אקדמיות","n":"עמותה שמפעילה כמה בתי ספר אקדמיה. הכי קרוב לרשת חינוך אצלנו, עם הרבה יותר סמכויות"},{"c":"top","t":"Trust","h":"הרשת / העמותה המפעילה","n":"קיצור נפוץ ל-MAT. \"Our trust\" זו הרשת שלנו"},{"c":"top","t":"Ofsted","h":"הפיקוח הארצי על בתי הספר","n":"גוף עצמאי שמבקר בבתי ספר ומפרסם דוח פומבי. מילה טעונה מאוד אצל מנהלים"},{"c":"top","t":"Accountability","h":"אחריותיות, מתן דין וחשבון","n":"כל מנגנוני המדידה והפיקוח: מבחנים ארציים, טבלאות דירוג, Ofsted"},{"c":"top","t":"Autonomy","h":"אוטונומיה","n":"מה שקיבלו האקדמיות בתמורה לאחריותיות"},{"c":"top","t":"DfE (Department for Education)","h":"משרד החינוך","n":"Department ולא Ministry. אומרים \"the Department\""},{"c":"top","t":"Local authority (LA)","h":"הרשות המקומית","n":"פעם ניהלה את רוב בתי הספר. היום אחראית בעיקר על שיבוץ, חינוך מיוחד ורווחה"},{"c":"top","t":"Key Stage","h":"שלב חינוכי","n":"חלוקת שנות הלימוד לשלבים, כל שלב נגמר בהערכה"},{"c":"top","t":"Year 7, Year 11","h":"שכבה ז', שכבה י' (בערך)","n":"הספירה מתחילה שנה לפנינו. ראו הטבלה למטה"},{"c":"top","t":"GCSEs","h":"בחינות סוף חטיבה עליונה בגיל 16","n":"הבחינות הגדולות של Year 11. הכי קרוב לבגרות אצלנו מבחינת המשקל הציבורי"},{"c":"top","t":"A-levels","h":"בחינות סיום בגיל 18","n":"שלושה-ארבעה מקצועות לעומק, שקובעים קבלה לאוניברסיטה"},{"c":"top","t":"Disadvantaged pupils","h":"תלמידים מרקע מוחלש","n":"מוגדרים כמעט תמיד לפי זכאות לארוחות חינם (FSM)"},{"c":"top","t":"Pupil Premium","h":"תוספת תקציב לתלמיד מרקע מוחלש","n":"כסף צבוע שמגיע לבית הספר על כל תלמיד כזה"},{"c":"top","t":"Social mobility","h":"ניעות חברתית","n":"המושג המרכזי בשיח הבריטי על צדק חינוכי"},{"c":"top","t":"Attainment gap / Disadvantage gap","h":"פער ההישגים","n":"הפער בין תלמידים מרקע מוחלש לשאר"},{"c":"top","t":"Safeguarding","h":"מוגנות","n":"חובה חוקית של כל איש צוות לזהות סיכון לילד ולדווח. נמצאת בכל מקום"},{"c":"top","t":"SEND","h":"צרכים מיוחדים ומוגבלויות","n":"התחום שבמשבר הכי גדול כרגע, בעיקר תקציבית"},{"c":"structure","t":"Primary school","h":"בית ספר יסודי","n":"Reception עד Year 6. לפעמים מחולק ל-Infant school (עד Year 2) ו-Junior school (Year 3 עד 6)","s":"ספירת השנים"},{"c":"structure","t":"Secondary school","h":"בית ספר על-יסודי","n":"מ-Year 7. אין חטיבת ביניים נפרדת, המעבר הגדול הוא בגיל 11","s":"ספירת השנים"},{"c":"structure","t":"Transition","h":"המעבר בין יסודי לעל-יסודי","n":"מעבר מ-Year 6 ל-Year 7. נושא שמדברים עליו הרבה","s":"ספירת השנים"},{"c":"structure","t":"All-through school","h":"בית ספר רב-גילי","n":"מגן ועד Year 13 באותו מוסד","s":"ספירת השנים"},{"c":"structure","t":"Sixth form","h":"התיכון העליון","n":"Year 12 ו-13. יכול להיות חלק מבית הספר או מוסד נפרד","s":"ספירת השנים"},{"c":"structure","t":"Sixth form college","h":"מכללה לגילאי 16 עד 18","n":"מוסד עצמאי רק לשתי השנים האחרונות","s":"ספירת השנים"},{"c":"structure","t":"FE college (Further Education)","h":"מכללה להשכלה מקצועית","n":"לימודים מקצועיים מגיל 16, גם למבוגרים. לא אוניברסיטה","s":"ספירת השנים"},{"c":"structure","t":"Post-16","h":"אחרי גיל 16","n":"כל מה שקורה אחרי ה-GCSEs","s":"ספירת השנים"},{"c":"structure","t":"Raising the participation age","h":"חובת השתתפות עד 18","n":"חובה להיות בלימודים או בהכשרה עד 18, לא בהכרח בבית ספר","s":"ספירת השנים"},{"c":"structure","t":"Compulsory school age","h":"גיל חינוך חובה","n":"5 עד 16","s":"ספירת השנים"},{"c":"structure","t":"Cohort","h":"שנתון","n":"כל התלמידים שנולדו באותה שנה. גם במובן של \"מחזור\"","s":"ספירת השנים"},{"c":"structure","t":"Term","h":"שליש / תקופת לימודים","n":"שלוש בשנה: Autumn (ספטמבר עד דצמבר), Spring, Summer. לא semester","s":"לוח השנה"},{"c":"structure","t":"Half term","h":"חופשת אמצע שליש","n":"שבוע חופש באמצע כל שליש. בסוף אוקטובר יש half term","s":"לוח השנה"},{"c":"structure","t":"Holidays","h":"חופשות","n":"Vacation זו מילה אמריקאית","s":"לוח השנה"},{"c":"structure","t":"INSET day","h":"יום השתלמות צוות","n":"יום שבו בית הספר סגור לתלמידים ופתוח למורים","s":"לוח השנה"},{"c":"structure","t":"Timetable","h":"מערכת שעות","n":"גם לוח זמנים באופן כללי","s":"לוח השנה"},{"c":"structure","t":"Break / Playtime","h":"הפסקה","n":"Recess אמריקאי","s":"לוח השנה"},{"c":"structure","t":"Assembly","h":"כינוס בוקר / מפגש כלל-בית-ספרי","n":"טקס קבוע, כמה פעמים בשבוע","s":"לוח השנה"},{"c":"structure","t":"Form time / Registration","h":"שיעור מחנך / נוכחות בוקר","n":"הזמן הקבוע עם המחנך. Homeroom אמריקאי","s":"לוח השנה"},{"c":"types","t":"State school","h":"בית ספר ציבורי","n":"ממומן מכספי ציבור, בלי שכר לימוד. כולל גם אקדמיות"},{"c":"types","t":"Maintained school","h":"בית ספר בניהול הרשות המקומית","n":"בית ספר ציבורי \"ישן\", שהרשות המקומית מתקצבת ומפקחת עליו"},{"c":"types","t":"Academy","h":"בית ספר אקדמיה","n":"ציבורי, חינמי, ממומן ישירות מהממשלה. חופש בתוכנית הלימודים, בשכר ובשעות. רוב בתי הספר העל-יסודיים באנגליה הם אקדמיות"},{"c":"types","t":"Sponsored academy","h":"אקדמיה בחסות","n":"בית ספר חלש שהועבר בכפייה לרשת חזקה"},{"c":"types","t":"Converter academy","h":"אקדמיה מרצון","n":"בית ספר טוב שבחר לצאת מהרשות המקומית"},{"c":"types","t":"Academisation","h":"הפיכה לאקדמיה","n":"התהליך עצמו. מילה פוליטית"},{"c":"types","t":"Free school","h":"בית ספר חדש מסוג אקדמיה","n":"אקדמיה שהוקמה מאפס, לרוב ביוזמת הורים, מורים או עמותה. לא \"בית ספר חינמי\""},{"c":"types","t":"Multi-Academy Trust (MAT)","h":"רשת אקדמיות","n":"עמותה שמפעילה כמה אקדמיות תחת דירקטוריון אחד. יש רשתות של שלושה בתי ספר ויש של יותר ממאה"},{"c":"types","t":"Single-Academy Trust (SAT)","h":"אקדמיה עצמאית","n":"עמותה של בית ספר אחד"},{"c":"types","t":"Faith school","h":"בית ספר דתי","n":"ציבורי, בניהול כנסייה, בית כנסת או מסגד. כשליש מבתי הספר היסודיים"},{"c":"types","t":"Voluntary aided / Voluntary controlled","h":"בתי ספר דתיים בדרגות עצמאות שונות","n":"פחות חשוב לזכור, רק לדעת שזה קשור לבתי ספר דתיים"},{"c":"types","t":"Comprehensive","h":"בית ספר אזורי לא סלקטיבי","n":"רוב בתי הספר העל-יסודיים. מקבל את כולם בלי מבחני כניסה"},{"c":"types","t":"Grammar school","h":"בית ספר סלקטיבי","n":"ציבורי, עם מבחן כניסה בגיל 11 (11-plus). קיים רק באזורים מסוימים ושנוי במחלוקת"},{"c":"types","t":"Independent school / Private school","h":"בית ספר פרטי","n":"עם שכר לימוד. כ-7% מהתלמידים"},{"c":"types","t":"Public school","h":"בית ספר פרטי יוקרתי","n":"מלכודת. באנגליה public school זה בית ספר פרטי ותיק ויוקרתי כמו Eton או Harrow. בית ספר ציבורי זה state school","w":1},{"c":"types","t":"Prep school","h":"בית ספר יסודי פרטי","n":"מכין לבתי ספר פרטיים"},{"c":"types","t":"Boarding school","h":"פנימייה","n":"בדרך כלל פרטית"},{"c":"types","t":"Special school","h":"בית ספר לחינוך מיוחד","n":""},{"c":"types","t":"Alternative Provision (AP)","h":"מסגרת חלופית","n":"לתלמידים שהורחקו או שלא מסתדרים במסגרת רגילה"},{"c":"types","t":"PRU (Pupil Referral Unit)","h":"יחידה לתלמידים מורחקים","n":"סוג של Alternative Provision בניהול הרשות"},{"c":"types","t":"UTC (University Technical College)","h":"בית ספר טכנולוגי","n":"גילאי 14 עד 19, בשיתוף מעסיקים ואוניברסיטה"},{"c":"types","t":"Outstanding school / Good school","h":"בית ספר מצטיין / טוב","n":"ציונים ישנים של Ofsted. עדיין שומעים אותם הרבה, ראו פרק 4","u":1},{"c":"gov","t":"DfE (Department for Education)","h":"משרד החינוך","n":"אחראי על חינוך באנגליה בלבד","s":"ממשלה וגופים לאומיים"},{"c":"gov","t":"Secretary of State for Education","h":"שר/ת החינוך","n":"מכונה גם Education Secretary. השר הבכיר, חבר בקבינט","s":"ממשלה וגופים לאומיים"},{"c":"gov","t":"Schools Minister","h":"שר/ת בתי הספר","n":"שר זוטר יותר בתוך המשרד. אין לזה מקבילה אצלנו","s":"ממשלה וגופים לאומיים"},{"c":"gov","t":"Permanent Secretary","h":"מנכ\"ל/ית המשרד","n":"הפקיד הבכיר, לא פוליטי. ממשיך גם כשהממשלה מתחלפת","s":"ממשלה וגופים לאומיים"},{"c":"gov","t":"Civil servant / Civil service","h":"עובד/ת מדינה / שירות המדינה","n":"","s":"ממשלה וגופים לאומיים"},{"c":"gov","t":"Whitehall","h":"הממשלה, המשרדים","n":"הרחוב שבו יושבים משרדי הממשלה. \"Whitehall thinks\" = הפקידות חושבת","s":"ממשלה וגופים לאומיים"},{"c":"gov","t":"Westminster","h":"הפרלמנט, הפוליטיקה","n":"","s":"ממשלה וגופים לאומיים"},{"c":"gov","t":"The Treasury","h":"משרד האוצר","n":"כמו אצלנו, מי שבאמת מחליט","s":"ממשלה וגופים לאומיים"},{"c":"gov","t":"Spending Review","h":"תוכנית תקציב רב-שנתית","n":"קובעת את תקציבי המשרדים לכמה שנים","s":"ממשלה וגופים לאומיים"},{"c":"gov","t":"National Funding Formula (NFF)","h":"נוסחת התקצוב הארצית","n":"איך מחלקים כסף לבתי ספר לפי מאפייני התלמידים","s":"ממשלה וגופים לאומיים"},{"c":"gov","t":"Per-pupil funding","h":"תקצוב לתלמיד","n":"","s":"ממשלה וגופים לאומיים"},{"c":"gov","t":"Ofqual","h":"הרשות להסדרת בחינות","n":"מפקחת על הבחינות הארציות ועל גופי הבחינה","s":"ממשלה וגופים לאומיים"},{"c":"gov","t":"Exam board / Awarding body","h":"גוף בחינה","n":"AQA, Pearson Edexcel, OCR. גופים עצמאיים שכותבים ובודקים את ה-GCSEs. אצלנו אין דבר כזה, יש אגף בחינות אחד","s":"ממשלה וגופים לאומיים"},{"c":"gov","t":"EEF (Education Endowment Foundation)","h":"הקרן לראיות בחינוך","n":"הוקמה ב-2011 בכסף ממשלתי. ממפה מה עובד לפי מחקר ומממנת ניסויים. ה-Teaching and Learning Toolkit שלה הוא כלי עבודה של מנהלים","s":"ממשלה וגופים לאומיים"},{"c":"gov","t":"Regional Director","h":"מנהל/ת אזור","n":"נציג/ת המשרד באזור שמאשר/ת הקמת אקדמיות והעברתן בין רשתות. פעם נקרא Regional Schools Commissioner","s":"ממשלה וגופים לאומיים","u":1},{"c":"gov","t":"RISE teams","h":"צוותי שיפור אזוריים","n":"צוותים חדשים של המשרד (מ-2025) שעובדים עם בתי ספר תקועים","s":"ממשלה וגופים לאומיים","u":1},{"c":"gov","t":"Teaching School Hubs","h":"מוקדי הכשרה אזוריים","n":"בתי ספר מובילים שמרכזים הכשרה והתפתחות מקצועית באזור","s":"ממשלה וגופים לאומיים"},{"c":"gov","t":"Quango","h":"גוף ממשלתי עצמאי למחצה","n":"מילה בריטית ציורית, לרוב בטון ביקורתי","s":"ממשלה וגופים לאומיים"},{"c":"gov","t":"Think tank","h":"מכון מחקר ומדיניות","n":"Policy Exchange, EPI (Education Policy Institute), IFS ועוד","s":"ממשלה וגופים לאומיים"},{"c":"gov","t":"Select Committee","h":"ועדה פרלמנטרית","n":"ה-Education Select Committee דומה לוועדת החינוך של הכנסת","s":"ממשלה וגופים לאומיים"},{"c":"gov","t":"Green Paper / White Paper","h":"מסמך התייעצות / מסמך מדיניות","n":"Green Paper: רעיונות להתייעצות. White Paper: התוכנית של הממשלה לפני חקיקה","s":"ממשלה וגופים לאומיים"},{"c":"gov","t":"Consultation","h":"שימוע ציבורי","n":"שלב חובה לפני שינוי מדיניות","s":"ממשלה וגופים לאומיים"},{"c":"gov","t":"Bill / Act","h":"הצעת חוק / חוק","n":"","s":"ממשלה וגופים לאומיים"},{"c":"gov","t":"Charity / Third sector","h":"עמותה / המגזר השלישי","n":"Teach First, Ark, Sutton Trust הם charities","s":"ממשלה וגופים לאומיים"},{"c":"gov","t":"Trust board / Trustees","h":"דירקטוריון הרשת / הדירקטורים","n":"אחראים משפטית על כל בתי הספר ברשת","s":"בתוך הרשת ובית הספר"},{"c":"gov","t":"CEO (of a trust)","h":"מנכ\"ל/ית הרשת","n":"בראש רשת גדולה. לפעמים מרוויח/ה יותר משר החינוך, וזה נושא ציבורי","s":"בתוך הרשת ובית הספר"},{"c":"gov","t":"Executive headteacher","h":"מנהל/ת על","n":"מנהל/ת כמה בתי ספר במקביל","s":"בתוך הרשת ובית הספר"},{"c":"gov","t":"Director of Education / Regional Director (in a trust)","h":"מנהל/ת פדגוגי/ת ברשת","n":"אחראי/ת על כמה בתי ספר באזור. כך מוגדר Steve Adcock ב-United Learning","s":"בתוך הרשת ובית הספר"},{"c":"gov","t":"Governing body / Governors","h":"הוועד המנהל / חברי הוועד","n":"מתנדבים מהקהילה, הורים וצוות שמפקחים על בית הספר. ברשת הם נקראים Local Governing Body ויש להם פחות סמכויות","s":"בתוך הרשת ובית הספר"},{"c":"gov","t":"Central team","h":"הצוות המרכזי של הרשת","n":"מטה הרשת","s":"בתוך הרשת ובית הספר"},{"c":"gov","t":"School improvement","h":"שיפור בית ספרי","n":"גם שם של תפקיד וגם תחום עבודה שלם","s":"בתוך הרשת ובית הספר"},{"c":"gov","t":"Economies of scale","h":"יתרון לגודל","n":"הטיעון המרכזי בעד רשתות","s":"בתוך הרשת ובית הספר"},{"c":"acc","t":"Ofsted","h":"הפיקוח הארצי","n":"Office for Standards in Education. מבקר, כותב דוח ומפרסם אותו לכולם. שונה מאוד מהמפקח אצלנו, שמלווה ותומך"},{"c":"acc","t":"HMCI (His Majesty's Chief Inspector)","h":"ראש הפיקוח הארצי","n":""},{"c":"acc","t":"HMI / Inspector","h":"מפקח/ת","n":""},{"c":"acc","t":"Inspection","h":"ביקורת פיקוח","n":"ביקור של יומיים-שלושה עם התראה של יום אחד"},{"c":"acc","t":"Inspection framework","h":"מסגרת הפיקוח","n":"המסמך שקובע מה בודקים"},{"c":"acc","t":"Report card","h":"כרטיס דוח","n":"מנובמבר 2025 במקום ציון אחד, בית הספר מקבל ציון בכל תחום על סולם של חמש דרגות: exceptional, strong standard, expected standard, needs attention, urgent improvement","u":1},{"c":"acc","t":"Outstanding / Good / Requires Improvement / Inadequate","h":"מצטיין / טוב / דורש שיפור / לא מספק","n":"הציון הכללי הישן, שבוטל ב-2024. עדיין מופיע בשלטים ובשיחות. \"RI\" זה Requires Improvement","u":1},{"c":"acc","t":"Special measures","h":"בית ספר בהשגחה מיוחדת","n":"מעמד של בית ספר שנכשל קשות. בדרך כלל מוביל להעברה לרשת"},{"c":"acc","t":"Deep dive","h":"צלילה לעומק","n":"שיטת Ofsted: לוקחים מקצוע אחד ובודקים אותו לעומק, עם שיחות עם מורים ותלמידים"},{"c":"acc","t":"Intent, implementation, impact","h":"כוונה, יישום, השפעה","n":"שלוש שאלות שהפיקוח שאל על תוכנית הלימודים מ-2019. כל מנהל מכיר אותן בעל פה"},{"c":"acc","t":"League tables / Performance tables","h":"טבלאות דירוג / טבלאות הישגים","n":"פרסום ציבורי של תוצאות כל בית ספר"},{"c":"acc","t":"Progress 8","h":"מדד התקדמות","n":"ערך מוסף: כמה התקדמו התלמידים מגיל 11 עד 16 ביחס לתלמידים דומים. המדד המרכזי לשפוט בית ספר על-יסודי"},{"c":"acc","t":"Attainment 8","h":"מדד הישגים","n":"ממוצע הציונים בשמונה מקצועות ב-GCSE"},{"c":"acc","t":"EBacc (English Baccalaureate)","h":"סל מקצועות אקדמי","n":"מדד לשיעור התלמידים שניגשים למקצועות ליבה אקדמיים. הממשלה הודיעה על ביטולו בעקבות הסקירה של 2025","u":1},{"c":"acc","t":"Floor standards / Coasting schools","h":"רף מינימום / בתי ספר \"דורכים במקום\"","n":"מונחים ישנים יותר שעדיין עולים בשיחה"},{"c":"acc","t":"High-stakes accountability","h":"אחריותיות עם השלכות כבדות","n":"כשתוצאות המבחנים קובעות גורל של בית ספר ומנהל. ביקורת נפוצה על המערכת האנגלית"},{"c":"acc","t":"Teaching to the test","h":"הוראה לקראת המבחן","n":""},{"c":"acc","t":"Off-rolling","h":"הוצאת תלמידים מהרשימות","n":"נוהג פסול של דחיקת תלמידים חלשים החוצה לפני הבחינות, כדי לשפר את התוצאות. מילה רגישה","w":1},{"c":"acc","t":"Gaming","h":"משחק במערכת","n":"ניצול המדדים כדי להיראות טוב יותר"},{"c":"acc","t":"Data drops","h":"איסוף נתונים תקופתי","n":"כמה פעמים בשנה מורים מזינים ציונים למעקב"},{"c":"staff","t":"Headteacher / Head","h":"מנהל/ת","n":"Principal משמש רק בחלק מהאקדמיות ובמכללות"},{"c":"staff","t":"Deputy head","h":"סגן/ית מנהל","n":""},{"c":"staff","t":"Assistant head","h":"עוזר/ת מנהל","n":"חבר/ת הנהלה עם תחום אחריות"},{"c":"staff","t":"SLT (Senior Leadership Team)","h":"הנהלת בית הספר","n":"המילה שתשמעו הכי הרבה. גם \"senior leaders\""},{"c":"staff","t":"Middle leaders","h":"דרג הביניים","n":"ראשי מקצוע, רכזי שכבה. אצלנו בערך \"רכזים\""},{"c":"staff","t":"Head of Department (HoD) / Subject lead","h":"ראש תחום דעת / רכז/ת מקצוע","n":""},{"c":"staff","t":"Head of Year","h":"רכז/ת שכבה","n":""},{"c":"staff","t":"Form tutor","h":"מחנך/ת","n":"אחראי/ת על כיתת אם, בדרך כלל לא מלמד/ת אותה"},{"c":"staff","t":"Pastoral","h":"התחום הרגשי-חברתי","n":"\"Pastoral care\" זה כל מה שאינו לימודי: רווחה, התנהגות, קשר עם הורים. אצלנו בערך חינוך + ייעוץ"},{"c":"staff","t":"Pastoral lead / Head of Pastoral","h":"אחראי/ת רווחה ומוגנות","n":""},{"c":"staff","t":"Teaching Assistant (TA)","h":"סייע/ת הוראה","n":"יש הרבה, בעיקר ביסודי"},{"c":"staff","t":"SENCo (Special Educational Needs Coordinator)","h":"רכז/ת חינוך מיוחד","n":"חובה בכל בית ספר"},{"c":"staff","t":"DSL (Designated Safeguarding Lead)","h":"אחראי/ת מוגנות","n":"חובה בכל בית ספר. מקבל/ת כל דיווח על סיכון"},{"c":"staff","t":"Supply teacher","h":"מורה מחליף/ה","n":""},{"c":"staff","t":"Cover","h":"מילוי מקום","n":"\"I'm on cover\" = אני ממלא/ת מקום"},{"c":"staff","t":"School Business Manager / Bursar","h":"מנהל/ת אדמיניסטרטיבי/ת","n":"אחראי/ת על כספים ותפעול"},{"c":"staff","t":"Staff","h":"הצוות","n":"Faculty אמריקאי. באנגליה אומרים staff"},{"c":"staff","t":"Staffroom","h":"חדר המורים","n":""},{"c":"staff","t":"Workload","h":"עומס עבודה","n":"נושא בוער, יחד עם retention"},{"c":"staff","t":"Recruitment and retention","h":"גיוס ושימור מורים","n":"המשבר המקביל למחסור במורים אצלנו"},{"c":"staff","t":"Union","h":"ארגון המורים","n":"NEU הגדול, NASUWT, ASCL (של מנהלים), NAHT (של מנהלים)"},{"c":"itt","t":"ITT / ITE (Initial Teacher Training / Education)","h":"הכשרה להוראה","n":"ITT המונח הרשמי, ITE מעדיפים באקדמיה"},{"c":"itt","t":"QTS (Qualified Teacher Status)","h":"תעודת הוראה","n":"לפי הרפורמה החדשה גם מורים באקדמיות יידרשו לה","u":1},{"c":"itt","t":"PGCE","h":"תעודת הוראה אוניברסיטאית לאחר תואר","n":"שנה אחת אחרי תואר ראשון. המסלול הקלאסי"},{"c":"itt","t":"SCITT","h":"הכשרה בהובלת בתי ספר","n":"מסלול הכשרה שבתי ספר מפעילים בעצמם"},{"c":"itt","t":"School Direct","h":"הכשרה מבוססת בית ספר","n":"מסלול שבו בית ספר מגייס ומכשיר בשיתוף אוניברסיטה"},{"c":"itt","t":"Teach First","h":"Teach First","n":"הארגון שהקים Brett Wigdortz ב-2002. מגייס בוגרים מצטיינים להוראה בבתי ספר מוחלשים. ארגון אחות של חותם"},{"c":"itt","t":"Trainee","h":"סטודנט/ית להוראה","n":"Student teacher פחות נפוץ"},{"c":"itt","t":"Placement","h":"התנסות מעשית","n":""},{"c":"itt","t":"ECT (Early Career Teacher)","h":"מורה בתחילת דרכו","n":"שנתיים ראשונות של ליווי חובה. פעם נקרא NQT, ועדיין שומעים","u":1},{"c":"itt","t":"Induction","h":"תקופת כניסה לתפקיד","n":"שתי השנים של ECT. גם \"מפגשי הכנה\" באופן כללי, כמו בעמוד שלנו"},{"c":"itt","t":"ITTECF","h":"מסגרת ההכשרה והליווי","n":"המסגרת המאוחדת מ-2025 שמגדירה מה מורה צריך ללמוד בהכשרה ובשנתיים הראשונות","u":1},{"c":"itt","t":"Mentor","h":"חונך/ת","n":""},{"c":"itt","t":"Instructional coaching","h":"אימון הוראה","n":"שיטה של צפייה קצרה, משוב ממוקד וצעד אחד לתרגול. מאוד אופנתי באנגליה"},{"c":"itt","t":"CPD (Continuing Professional Development)","h":"פיתוח מקצועי","n":"גם PD. המילה הנפוצה ביותר"},{"c":"itt","t":"NPQ (National Professional Qualification)","h":"הכשרה ארצית למובילים","n":"NPQH למנהלים, NPQSL להנהלה בכירה, NPQLT ועוד"},{"c":"itt","t":"Teachers' Standards","h":"סטנדרטים מקצועיים למורים","n":"מה מורה צריך לדעת ולעשות"},{"c":"itt","t":"Evidence-informed / Evidence-based","h":"מבוסס ראיות / מושכל מראיות","n":"Evidence-informed מקובל יותר כיום, כי הוא מודה שגם שיקול דעת משחק תפקיד"},{"c":"itt","t":"Research-informed practice","h":"עבודה שנשענת על מחקר","n":""},{"c":"itt","t":"ResearchED","h":"ResearchED","n":"תנועת מורים שמביאה מחקר לכיתה. כנסים בכל העולם"},{"c":"itt","t":"Ambition Institute","h":"Ambition Institute","n":"עמותה גדולה להכשרת מנהלים ומורים"},{"c":"curr","t":"National Curriculum","h":"תוכנית הלימודים הארצית","n":"אקדמיות לא חייבות בה, אבל רובן קרובות אליה","s":"תוכנית לימודים והוראה"},{"c":"curr","t":"Curriculum and Assessment Review","h":"הסקירה הארצית של תוכניות הלימודים וההערכה","n":"סקירה שהובילה פרופ' בקי פרנסיס, הדוח הסופי פורסם בנובמבר 2025","s":"תוכנית לימודים והוראה","u":1},{"c":"curr","t":"Knowledge-rich curriculum","h":"תוכנית לימודים עשירת ידע","n":"הגישה ששלטה באנגליה בעשור האחרון","s":"תוכנית לימודים והוראה"},{"c":"curr","t":"Knowledge vs. skills","h":"ידע מול מיומנויות","n":"הוויכוח הגדול. באנגליה ניצחה בינתיים עמדת הידע","s":"תוכנית לימודים והוראה"},{"c":"curr","t":"Traditionalists / Progressives","h":"המסורתיים / הפרוגרסיביים","n":"שני המחנות בוויכוח הפדגוגי. \"Trads\" ו-\"progs\" בשפה של מורים","s":"תוכנית לימודים והוראה"},{"c":"curr","t":"Powerful knowledge","h":"ידע בעל עוצמה","n":"מושג של מייקל יאנג: ידע שתלמידים לא יקבלו בבית, ולכן בית הספר חייב לתת אותו","s":"תוכנית לימודים והוראה"},{"c":"curr","t":"Cultural capital","h":"הון תרבותי","n":"נכנס לשפת הפיקוח, ושנוי במחלוקת","s":"תוכנית לימודים והוראה"},{"c":"curr","t":"Scheme of work","h":"תוכנית עבודה שנתית למקצוע","n":"","s":"תוכנית לימודים והוראה"},{"c":"curr","t":"Lesson plan","h":"מערך שיעור","n":"","s":"תוכנית לימודים והוראה"},{"c":"curr","t":"Sequencing","h":"רצף לימוד","n":"באיזה סדר מלמדים מה","s":"תוכנית לימודים והוראה"},{"c":"curr","t":"Retrieval practice","h":"תרגול שליפה","n":"שאלות קצרות על חומר ישן כדי לחזק זיכרון","s":"תוכנית לימודים והוראה"},{"c":"curr","t":"Cognitive load theory","h":"תיאוריית העומס הקוגניטיבי","n":"הבסיס התיאורטי של הרבה מהשינויים באנגליה","s":"תוכנית לימודים והוראה"},{"c":"curr","t":"Direct instruction / Explicit instruction","h":"הוראה ישירה / הוראה מפורשת","n":"","s":"תוכנית לימודים והוראה"},{"c":"curr","t":"Rosenshine's Principles","h":"עקרונות רוזנשיין","n":"עשרה עקרונות הוראה שתלויים בחדרי מורים רבים","s":"תוכנית לימודים והוראה"},{"c":"curr","t":"Cold calling","h":"שאלה לתלמיד בלי הצבעה","n":"","s":"תוכנית לימודים והוראה"},{"c":"curr","t":"Mini whiteboards","h":"לוחות מחיקים אישיים","n":"כולם מראים תשובה בבת אחת","s":"תוכנית לימודים והוראה"},{"c":"curr","t":"Setting / Streaming","h":"הקבצה במקצוע / הסללה","n":"Setting: הקבצה לפי מקצוע. Streaming: חלוקה קבועה של כל הכיתה","s":"תוכנית לימודים והוראה"},{"c":"curr","t":"Mixed-ability","h":"כיתה הטרוגנית","n":"","s":"תוכנית לימודים והוראה"},{"c":"curr","t":"Phonics (Systematic Synthetic Phonics)","h":"הוראת קריאה בשיטה הצלילית","n":"חובה ביסודי, עם בדיקה ארצית ב-Year 1","s":"תוכנית לימודים והוראה"},{"c":"curr","t":"Oracy","h":"מיומנויות שיח ודיבור","n":"מקבל חיזוק בסקירה החדשה","s":"תוכנית לימודים והוראה","u":1},{"c":"curr","t":"Enrichment / Extracurricular","h":"פעילות העשרה","n":"","s":"תוכנית לימודים והוראה"},{"c":"curr","t":"PSHE","h":"חינוך חברתי, רגשי ובריאותי","n":"בערך \"כישורי חיים\"","s":"תוכנית לימודים והוראה"},{"c":"curr","t":"RSHE","h":"חינוך למיניות ולמערכות יחסים","n":"חובה, ונושא רגיש ציבורית","s":"תוכנית לימודים והוראה"},{"c":"curr","t":"Assessment","h":"הערכה","n":"","s":"הערכה ובחינות"},{"c":"curr","t":"Formative / Summative assessment","h":"הערכה מעצבת / הערכה מסכמת","n":"","s":"הערכה ובחינות"},{"c":"curr","t":"AfL (Assessment for Learning)","h":"הערכה לשם למידה","n":"","s":"הערכה ובחינות"},{"c":"curr","t":"SATs","h":"מבחנים ארציים ב-Year 6","n":"לא ה-SAT האמריקאי. באנגליה אלה מבחני קריאה, כתיבה וחשבון בסוף היסודי. דומה למיצ\"ב, עם השלכות כבדות יותר","s":"הערכה ובחינות","w":1},{"c":"curr","t":"Multiplication Tables Check","h":"בדיקת לוח הכפל","n":"ב-Year 4","s":"הערכה ובחינות"},{"c":"curr","t":"GCSE","h":"General Certificate of Secondary Education","n":"בחינות בגיל 16, בדרך כלל 8 עד 10 מקצועות. ציונים מ-9 (הגבוה) עד 1","s":"הערכה ובחינות"},{"c":"curr","t":"Grade 4 / Grade 5","h":"\"עובר\" / \"עובר טוב\"","n":"ציון 4 ב-GCSE נחשב עובר, 5 נחשב עובר טוב. מי שקיבל פחות מ-4 באנגלית או במתמטיקה חייב לגשת שוב","s":"הערכה ובחינות"},{"c":"curr","t":"A-levels","h":"בחינות בגרות מתקדמות","n":"שלושה מקצועות בדרך כלל, ציונים A* עד E","s":"הערכה ובחינות"},{"c":"curr","t":"T-levels","h":"בגרות טכנולוגית","n":"מסלול מקצועי חדש יחסית, עם התמחות אצל מעסיק","s":"הערכה ובחינות"},{"c":"curr","t":"BTEC","h":"תעודה מקצועית","n":"מסלול מקצועי ותיק","s":"הערכה ובחינות"},{"c":"curr","t":"Mocks","h":"בחינות מתכונת","n":"","s":"הערכה ובחינות"},{"c":"curr","t":"Coursework / NEA (Non-Exam Assessment)","h":"עבודה שנתית / מטלת הערכה חלופית","n":"חלק מהציון שלא נקבע במבחן","s":"הערכה ובחינות"},{"c":"curr","t":"Resit","h":"ניגשות חוזרת","n":"","s":"הערכה ובחינות"},{"c":"curr","t":"Predicted grades","h":"ציונים צפויים","n":"המורים מעריכים ציוני A-level לפני הבחינה, והאוניברסיטאות מקבלות לפיהם","s":"הערכה ובחינות"},{"c":"curr","t":"Marking","h":"בדיקת עבודות","n":"בבריטניה marking זה בדיקה ונתינת ציון. Grading אמריקאי יותר","s":"הערכה ובחינות","w":1},{"c":"curr","t":"Marks","h":"ציון בנקודות","n":"\"She got 72 marks\". אצל אמריקאים זה points","s":"הערכה ובחינות"},{"c":"curr","t":"Feedback","h":"משוב","n":"","s":"הערכה ובחינות"},{"c":"curr","t":"Comparative judgement","h":"שיפוט השוואתי","n":"המורה משווה שתי עבודות ובוחר את הטובה, במקום לבדוק לפי מחוון. השיטה של Daisy Christodoulou ו-No More Marking","s":"הערכה ובחינות"},{"c":"curr","t":"Rubric / Mark scheme","h":"מחוון","n":"באנגליה אומרים mark scheme","s":"הערכה ובחינות"},{"c":"curr","t":"Revision","h":"חזרה למבחן","n":"לא עריכה של טקסט. \"Revision timetable\" זה לוח חזרות לבחינות","s":"הערכה ובחינות","w":1},{"c":"curr","t":"Exam season","h":"עונת הבחינות","n":"מאי-יוני","s":"הערכה ובחינות"},{"c":"curr","t":"Results day","h":"יום פרסום התוצאות","n":"אוגוסט. אירוע לאומי עם צילומים בעיתונים","s":"הערכה ובחינות"},{"c":"equity","t":"Disadvantaged pupils","h":"תלמידים מרקע מוחלש","n":"ההגדרה הרשמית: זכאות לארוחות חינם בשש השנים האחרונות, או ילדים בהשמה חוץ-ביתית"},{"c":"equity","t":"FSM (Free School Meals)","h":"ארוחות חינם בבית הספר","n":"המדד הכמעט יחיד לעוני במערכת.  מספטמבר 2026 הזכאות הורחבה לכל המשפחות שמקבלות Universal Credit","u":1},{"c":"equity","t":"Ever 6 FSM","h":"זכאי לארוחות חינם בשש השנים האחרונות","n":"הבסיס לחישוב Pupil Premium"},{"c":"equity","t":"Pupil Premium","h":"תוספת תקציב לתלמיד מרקע מוחלש","n":"בית הספר מחויב לפרסם איך השתמש בכסף"},{"c":"equity","t":"Disadvantage gap","h":"פער ההישגים בין מוחלשים לאחרים","n":"מדד מרכזי. נמדד גם בחודשי למידה"},{"c":"equity","t":"Social mobility","h":"ניעות חברתית","n":"\"הסיכוי של ילד ממשפחה עניה להגיע רחוק\". המילה שמחברת חינוך לפוליטיקה"},{"c":"equity","t":"Class","h":"מעמד","n":"באנגליה מדברים על מעמד בגלוי, הרבה יותר מאצלנו. \"Working class\" (מעמד הפועלים) זה לא עלבון","w":1},{"c":"equity","t":"White working-class boys","h":"בנים לבנים ממעמד הפועלים","n":"קבוצה עם ההישגים הנמוכים ביותר. נושא רגיש פוליטית"},{"c":"equity","t":"Life chances","h":"סיכויי חיים","n":"מילה נפוצה בהצהרות חזון"},{"c":"equity","t":"Opportunity / Barriers to opportunity","h":"הזדמנות / חסמים","n":"אחת מחמש המשימות של הממשלה הנוכחית היא \"Break down barriers to opportunity\"","u":1},{"c":"equity","t":"Five Missions","h":"חמש המשימות של הממשלה","n":"המסגרת של ממשלת הלייבור"},{"c":"equity","t":"London Challenge","h":"תוכנית האתגר של לונדון","n":"2003 עד 2011. התוכנית שנחשבת לסיבה (או לאחת הסיבות) לשיפור הדרמטי בבתי הספר בלונדון"},{"c":"equity","t":"The London Effect","h":"אפקט לונדון","n":"העובדה שתלמידים מוחלשים בלונדון מצליחים יותר מכל מקום אחר באנגליה. אף אחד לא מסכים בדיוק למה"},{"c":"equity","t":"SEND (Special Educational Needs and Disabilities)","h":"צרכים מיוחדים ומוגבלויות","n":""},{"c":"equity","t":"EHCP (Education, Health and Care Plan)","h":"תוכנית אישית משולבת חינוך, בריאות ורווחה","n":"מסמך משפטי שמחייב את הרשות לתת שירותים. בערך תוצאת ועדת זכאות ואפיון אצלנו. הביקוש להן זינק והרשויות בגירעון"},{"c":"equity","t":"Inclusion","h":"הכלה","n":""},{"c":"equity","t":"EAL (English as an Additional Language)","h":"אנגלית כשפה נוספת","n":"בלונדון שיעור גבוה מאוד, חלק מהסבר \"אפקט לונדון\""},{"c":"equity","t":"Looked-after children (LAC) / Children in care","h":"ילדים בהשמה חוץ-ביתית","n":""},{"c":"equity","t":"Virtual School Head","h":"אחראי/ת חינוך לילדים בהשמה","n":"תפקיד ברשות המקומית"},{"c":"equity","t":"Children in need","h":"ילדים בסיכון","n":"בטיפול שירותי הרווחה"},{"c":"equity","t":"Safeguarding","h":"מוגנות","n":"חובה חוקית. כל מבקר בבית ספר נדרש להירשם ולענוד תג. אל תצלמו תלמידים בלי אישור מפורש"},{"c":"equity","t":"DBS check","h":"אישור היעדר עבירות","n":"בערך אישור משטרה לעבודה עם ילדים"},{"c":"equity","t":"Wellbeing","h":"רווחה רגשית","n":""},{"c":"equity","t":"Mental health","h":"בריאות הנפש","n":"Mental Health Support Teams פועלים בבתי ספר"},{"c":"equity","t":"Attendance","h":"נוכחות","n":"נושא מספר אחת מאז הקורונה"},{"c":"equity","t":"Persistent absence","h":"היעדרות כרונית","n":"היעדרות של 10% מהימים ומעלה. בערך אחד מכל חמישה תלמידים"},{"c":"equity","t":"Severe absence","h":"היעדרות חמורה","n":"50% מהימים ומעלה"},{"c":"equity","t":"NEET","h":"צעירים שלא לומדים ולא עובדים","n":"Not in Education, Employment or Training"},{"c":"equity","t":"Engagement","h":"מעורבות","n":"\"The engagement gap\": הירידה במעורבות התלמידים בעל-יסודי"},{"c":"beh","t":"Behaviour policy","h":"תקנון התנהגות","n":""},{"c":"beh","t":"Behaviour hubs","h":"מוקדי התנהגות","n":"תוכנית ממשלתית שבה בתי ספר מצליחים מלווים אחרים"},{"c":"beh","t":"Warm-strict","h":"חם ותקיף","n":"הגישה שמורים רבים מגדירים בה את עצמם"},{"c":"beh","t":"Routines","h":"שגרות","n":"מאוד מודגש. איך נכנסים לכיתה, איך עוברים במסדרון"},{"c":"beh","t":"Detention","h":"ריתוק","n":"השארה אחרי הלימודים או בהפסקה"},{"c":"beh","t":"Isolation / Internal exclusion","h":"הרחקה פנימית","n":"התלמיד יושב בחדר נפרד בתוך בית הספר"},{"c":"beh","t":"Suspension","h":"השעיה","n":"פעם נקרא fixed-term exclusion","u":1},{"c":"beh","t":"Permanent exclusion","h":"הרחקה לצמיתות","n":"סילוק מבית הספר"},{"c":"beh","t":"Zero tolerance / No excuses","h":"אפס סובלנות","n":"גישה מחמירה שחלק מהאקדמיות מזוהות איתה. שנויה במחלוקת"},{"c":"beh","t":"Uniform","h":"תלבושת אחידה","n":"כמעט בכל בית ספר, כולל עניבה"},{"c":"beh","t":"House system","h":"שבטים / בתים","n":"חלוקה של כל התלמידים לקבוצות שמתחרות לאורך השנה"},{"c":"beh","t":"Sir / Miss","h":"המורה","n":"כך תלמידים פונים למורים. \"Yes, Miss\""},{"c":"he","t":"University / Uni","h":"אוניברסיטה","n":"לא college. \"Going to college\" באנגליה זה בדרך כלל מכללה מקצועית אחרי 16","w":1},{"c":"he","t":"Undergraduate / Postgraduate","h":"תואר ראשון / תואר מתקדם","n":""},{"c":"he","t":"Russell Group","h":"קבוצת האוניברסיטאות המובילות","n":"24 אוניברסיטאות מחקר"},{"c":"he","t":"Oxbridge","h":"אוקספורד וקיימברידג'","n":""},{"c":"he","t":"UCAS","h":"מערכת הרישום לאוניברסיטאות","n":""},{"c":"he","t":"Tuition fees","h":"שכר לימוד","n":""},{"c":"he","t":"Widening participation","h":"הרחבת הנגישות להשכלה גבוהה","n":""},{"c":"he","t":"Lecturer / Professor","h":"מרצה / פרופסור","n":"באנגליה professor זו הדרגה הגבוהה ביותר בלבד","w":1},{"c":"he","t":"Fresher","h":"סטודנט/ית שנה א'","n":""},{"c":"ff","t":"Public school","h":"בית ספר פרטי יוקרתי","n":"באמריקה: בית ספר ציבורי","kind":"ff","w":1},{"c":"ff","t":"College","h":"מכללה אחרי גיל 16, או קולג' בתוך אוניברסיטה כמו אוקספורד","n":"באמריקה: אוניברסיטה","kind":"ff","w":1},{"c":"ff","t":"School","h":"רק בית ספר","n":"באמריקה: גם אוניברסיטה (\"What school did you go to?\")","kind":"ff","w":1},{"c":"ff","t":"Grade","h":"ציון בלבד. שכבה זה Year","n":"באמריקה: שכבה (9th grade) וגם ציון","kind":"ff","w":1},{"c":"ff","t":"Principal","h":"Headteacher. Principal רק בחלק מהאקדמיות ובמכללות","n":"באמריקה: מנהל בית ספר","kind":"ff","w":1},{"c":"ff","t":"Faculty","h":"פקולטה באוניברסיטה. הסגל בבית ספר זה staff","n":"באמריקה: הסגל","kind":"ff","w":1},{"c":"ff","t":"Student","h":"בעיקר מגיל 16 ומעלה. בבית ספר: pupil","n":"באמריקה: כל מי שלומד","kind":"ff","w":1},{"c":"ff","t":"Semester","h":"Term, שלושה בשנה","n":"באמריקה: סמסטר","kind":"ff","w":1},{"c":"ff","t":"Vacation","h":"Holiday","n":"באמריקה: חופשה","kind":"ff","w":1},{"c":"ff","t":"Recess","h":"Break, ביסודי playtime","n":"באמריקה: הפסקה","kind":"ff","w":1},{"c":"ff","t":"Homeroom","h":"Form time / Registration","n":"באמריקה: שיעור מחנך","kind":"ff","w":1},{"c":"ff","t":"Grading","h":"Marking","n":"באמריקה: בדיקת עבודות","kind":"ff","w":1},{"c":"ff","t":"Points","h":"Marks","n":"באמריקה: נקודות במבחן","kind":"ff","w":1},{"c":"ff","t":"Test","h":"Test זה מבחן קטן. בחינה גדולה זה exam","n":"באמריקה: מבחן","kind":"ff","w":1},{"c":"ff","t":"Graduate","h":"לסיים אוניברסיטה בלבד. מבית ספר \"leave\"","n":"באמריקה: לסיים בית ספר או אוניברסיטה","kind":"ff","w":1},{"c":"ff","t":"Revise","h":"לחזור על חומר לקראת מבחן","n":"באמריקה: לערוך טקסט","kind":"ff","w":1},{"c":"ff","t":"School district","h":"אין דבר כזה. יש local authority ו-trust","n":"באמריקה: מחוז חינוך","kind":"ff","w":1},{"c":"ff","t":"Superintendent","h":"אין מקבילה ישירה. הכי קרוב: CEO של רשת","n":"באמריקה: מנהל מחוז","kind":"ff","w":1},{"c":"ff","t":"Charter school","h":"הכי קרוב: academy או free school","n":"באמריקה: בית ספר צ'רטר","kind":"ff","w":1},{"c":"ff","t":"SAT","h":"SATs: מבחנים ארציים לילדים בני 11","n":"באמריקה: מבחן כניסה לקולג'","kind":"ff","w":1},{"c":"ff","t":"Standardized tests","h":"National tests / National assessments","n":"באמריקה: מבחנים ארציים","kind":"ff","w":1},{"c":"ff","t":"Counselor","h":"כמעט אין יועצים במובן שלנו. התפקיד מתפזר בין pastoral, DSL ו-SENCo","n":"באמריקה: יועץ/ת בית ספר","kind":"ff","w":1},{"c":"ff","t":"Elementary / Middle / High school","h":"Primary / Secondary. אין חטיבת ביניים","n":"באמריקה: יסודי / חטיבה / תיכון","kind":"ff","w":1},{"c":"ff","t":"Freshman, Senior","h":"לא בשימוש. אומרים Year 7, Year 13","n":"באמריקה: שנה א', שנה אחרונה","kind":"ff","w":1},{"c":"ff","t":"Math","h":"Maths","n":"באמריקה: מתמטיקה","kind":"ff","w":1},{"c":"ff","t":"Cafeteria","h":"Canteen / Dining hall","n":"באמריקה: חדר אוכל","kind":"ff","w":1},{"c":"ff","t":"Program","h":"Programme (במובן תוכנית). Program רק תוכנת מחשב","n":"באמריקה: תוכנית","kind":"ff","w":1},{"c":"ff","t":"Enroll","h":"Enrol, ובדרך כלל \"admissions\" לבית ספר","n":"באמריקה: להירשם","kind":"ff","w":1},{"c":"talk","t":"OBE / MBE / CBE","h":"אות כבוד מהמלך","n":"לא משנה את הפנייה. כותבים אחרי השם: Brett Wigdortz OBE","kind":"title","s":"תארים"},{"c":"talk","t":"Sir / Dame","h":"תואר אבירות","n":"פונים בשם הפרטי: Sir Kevan, Dame Rachel. לא Sir Collins","kind":"title","s":"תארים"},{"c":"talk","t":"Lord / Baroness","h":"חבר/ת בית הלורדים","n":"Lord Smith, Baroness Morris","kind":"title","s":"תארים"},{"c":"talk","t":"Professor / Dr","h":"פרופסור / דוקטור","n":"Professor Francis. בשיחה רוב האנשים יבקשו שתקראו להם בשם הפרטי","kind":"title","s":"תארים"},{"c":"talk","t":"That's quite interesting","h":"לא משכנע אותי","n":"","kind":"say","s":"מה הם באמת אומרים"},{"c":"talk","t":"Quite good","h":"בסדר, לא יותר","n":"","kind":"say","s":"מה הם באמת אומרים"},{"c":"talk","t":"Not bad at all","h":"טוב מאוד","n":"","kind":"say","s":"מה הם באמת אומרים"},{"c":"talk","t":"With the greatest respect","h":"אני חושב/ת שאתם טועים","n":"","kind":"say","s":"מה הם באמת אומרים"},{"c":"talk","t":"I hear what you're saying","h":"אני לא מסכים/ה","n":"","kind":"say","s":"מה הם באמת אומרים"},{"c":"talk","t":"That's a brave decision","h":"זה רעיון רע","n":"","kind":"say","s":"מה הם באמת אומרים"},{"c":"talk","t":"I might suggest...","h":"תעשו את זה","n":"","kind":"say","s":"מה הם באמת אומרים"},{"c":"talk","t":"Could we perhaps...","h":"בואו נעשה את זה עכשיו","n":"","kind":"say","s":"מה הם באמת אומרים"},{"c":"talk","t":"It's on the agenda","h":"זה לא יקרה בקרוב","n":"","kind":"say","s":"מה הם באמת אומרים"},{"c":"talk","t":"Cheers","h":"תודה, להתראות, לחיים. לפי ההקשר","n":"","kind":"say","s":"מה הם באמת אומרים"}]};
+const E = DATA.entries, CH = DATA.chapters;
+const chapterById = Object.fromEntries(CH.map(c => [c.id, c]));
+E.forEach((e, i) => { e.id = i; });
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const store = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+};
+let favs = new Set(store.get('advot-gl-favs', []));
+
+/* ---------- search ---------- */
+const norm = s => String(s).toLowerCase()
+  .replace(/[֑-ׇ]/g, '')
+  .replace(/[״"׳'`’‘“”]/g, '')
+  .replace(/[-–־_/.,:;()!?·≈=+&]/g, ' ')
+  .replace(/\s+/g, ' ').trim();
+
+const STOP = ['מה ההבדל בין','מה הפירוש של','מה המשמעות של','מה פירוש','איך קוראים ל','איך קוראים','איך אומרים','מה זאת אומרת','מה זה','מה זאת','מה זו','מה הם','מה הן','מה היא','מה הוא','מי זה','מי זאת','מי הם','מה','בין','באנגלית','בעברית','בבריטניה','באנגליה','בלונדון','אצלם','what is','what are','what does','whats','meaning of','means','mean','the','an','is','of','a'];
+const STOP_N = STOP.map(norm).sort((a, b) => b.length - a.length);
+const SYN = {
+  'מפקח':'ofsted inspector','מפקחת':'ofsted inspector','פיקוח':'ofsted inspection','בגרות':'a levels gcse','בגרויות':'a levels gcse',
+  'מיצב':'sats','רשת':'mat trust','רשתות':'mat trust','מנהל':'headteacher','מנהלת':'headteacher','יועץ':'counselor pastoral','יועצת':'counselor pastoral',
+  'מחנך':'form tutor','מחנכת':'form tutor','שכבה':'year','כיתה':'year','סמסטר':'term','מנכל':'permanent secretary ceo','מוגנות':'safeguarding',
+  'עוני':'fsm disadvantaged','השעיה':'suspension','חופש':'holiday half term','חופשה':'holiday half term','ציון':'grade marks','ציונים':'grade marks',
+  'מבחן':'exam test','בחינה':'exam','פרטי':'independent public school','פרטיים':'independent private school','בתי':'בית','משרד החינוך':'dfe','שר החינוך':'secretary of state',
+  'חינוך מיוחד':'send senco ehcp','סייעת':'teaching assistant','סייע':'teaching assistant','השתלמות':'cpd inset','פיתוח מקצועי':'cpd',
+  'סטאז':'ect','סטודנט להוראה':'trainee','הכשרה':'itt','הכשרת מורים':'itt','תיכון':'secondary sixth form','יסודי':'primary','חטיבת ביניים':'secondary key stage 3',
+  'מכינה':'prep school','פנימייה':'boarding school','ארוחות':'fsm','נשירה':'neet persistent absence','היעדרות':'absence','משמעת':'behaviour','תלבושת':'uniform'
+};
+const SYN_N = Object.entries(SYN).map(([k, v]) => [norm(k), v]).sort((a, b) => b[0].length - a[0].length);
+
+function lev(a, b) {
+  if (Math.abs(a.length - b.length) > 2) return 9;
+  const m = a.length, n = b.length; let prev = Array.from({length: n + 1}, (_, j) => j);
+  for (let i = 1; i <= m; i++) {
+    const cur = [i];
+    for (let j = 1; j <= n; j++) cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+    prev = cur;
+  }
+  return prev[n];
+}
+function indexEntries() { E.forEach(e => {
+  e.T = norm(e.t); e.H = norm(e.h); e.N = norm(e.n + ' ' + (e.s || ''));
+  e.TW = e.T.split(' ');
+  const hw = e.H.split(' ');
+  e.HW0 = hw[0];
+  e.HW = [...new Set(hw.flatMap(w => variants(w).flatMap(x => x.startsWith('וו') ? [x, x.slice(1)] : [x])))];
+}); }
+const isHeb = s => /[֐-׿]/.test(s);
+function variants(tk) {
+  const v = [tk];
+  if (isHeb(tk) && tk.length > 3) {
+    if ('הובלמשכ'.includes(tk[0])) v.push(tk.slice(1));
+    if (['וה','שה','מה','בה','לה','כש','וב','ול','ומ'].includes(tk.slice(0, 2)) && tk.length > 4) v.push(tk.slice(2));
+  }
+  if (isHeb(tk)) for (const x of v.slice()) if (x.length > 4 && /(ים|ות)$/.test(x)) v.push(x.slice(0, -2));
+  return v;
+}
+function cleanQuery(raw) {
+  let q = ' ' + norm(raw) + ' ';
+  for (const s of STOP_N) q = q.split(' ' + s + ' ').join(' ');
+  q = q.replace(/(^| )ל ?(?=[a-z0-9])/g, '$1'); // "ל-free school"
+  return q.trim();
+}
+function scoreEntry(e, q, toks) {
+  let total = 0, hit = 0;
+  if (q && (e.T === q)) total += 220;
+  else if (q && e.TW.includes(q)) total += 90;
+  else if (q.length > 3 && e.T.startsWith(q)) total += 50;
+  if (q.length > 2 && e.H.includes(q)) total += 60;
+  for (const tk of toks) {
+    let best = 0;
+    for (const v of variants(tk)) {
+      let s = 0;
+      if (e.TW.includes(v)) s = 60;
+      else if (v.length > 1 && e.TW.some(w => w.startsWith(v))) s = v.length > 3 ? 34 : 16;
+      else if (v.length > 2 && e.T.includes(v)) s = 20;
+      if (e.HW0 === v) s = Math.max(s, 52);
+      else if (e.HW.includes(v)) s = Math.max(s, 46);
+      else if (v.length > 1 && e.HW.some(w => w.startsWith(v))) s = Math.max(s, 30);
+      else if (v.length > 2 && e.H.includes(v)) s = Math.max(s, 22);
+      if (!s && v.length > 2 && e.N.includes(v)) s = 7;
+      if (!s && !isHeb(v) && v.length >= 4) {
+        const lim = v.length >= 7 ? 2 : 1;
+        if (e.TW.some(w => w.length >= 3 && lev(w, v) <= lim)) s = 24;
+      }
+      best = Math.max(best, s);
+    }
+    if (best) hit++;
+    total += best;
+  }
+  if (!toks.length) return 0;
+  return total * Math.pow(hit / toks.length, 2);
+}
+function dedupe(res) {
+  const seen = new Set();
+  return res.filter(r => { if (seen.has(r.e.T)) return false; seen.add(r.e.T); return true; });
+}
+function search(raw) {
+  // comparisons: "ההבדל בין academy ל-free school", "A vs B", "X או Y"
+  const n0 = norm(raw);
+  if (/הבדל|השוואה| vs | versus | או | or /.test(' ' + n0 + ' ')) {
+    const parts = (' ' + n0.replace(/(^| )(?:ההבדל|הבדל|השוואה)( |$)/g, ' ') + ' ')
+      .split(/ (?:vs|versus|or|and|או|ו|ל)(?: |(?=[a-z]))/).map(cleanQuery).filter(Boolean);
+    if (parts.length > 1) {
+      const subs = parts.map(p => searchOne(p));
+      const merged = [], seen = new Set();
+      const tops = subs.map(r => r.res[0]).filter(Boolean);
+      tops.forEach(r => { seen.add(r.e.T); merged.push({e: r.e, s: 999}); });
+      subs.flatMap(r => r.res).sort((a, b) => b.s - a.s).forEach(r => { if (!seen.has(r.e.T)) { seen.add(r.e.T); merged.push(r); } });
+      return {q: parts.join(' '), toks: subs.flatMap(r => r.toks || []), res: merged, compare: tops.map(r => r.e)};
+    }
+  }
+  return searchOne(raw);
+}
+function searchOne(raw) {
+  const q = cleanQuery(raw);
+  if (!q) return {q, res: []};
+  let toks = q.split(' ').filter(Boolean);
+  let extra = [];
+  for (const [k, v] of SYN_N) if ((' ' + q + ' ').includes(' ' + k + ' ')) extra.push(...v.split(' '));
+  let res = E.map(e => {
+    let s = scoreEntry(e, q, toks);
+    if (extra.length) s = s * 0.7 + scoreEntry(e, '', extra) * 0.6;
+    return {e, s};
+  }).filter(r => r.s >= 6).sort((a, b) => b.s - a.s);
+  res = dedupe(res);
+  return {q, toks: toks.concat(extra), res};
+}
+
+indexEntries();
+
+/* ---------- year data ---------- */
+const IL = ['טרום חובה','גן חובה',"כיתה א'","כיתה ב'","כיתה ג'","כיתה ד'","כיתה ה'","כיתה ו'","כיתה ז'","כיתה ח'","כיתה ט'","כיתה י'",'כיתה י"א','כיתה י"ב'];
+function yearInfo(y) {
+  const ks = y === 0 ? 'EYFS' : y <= 2 ? 'Key Stage 1' : y <= 6 ? 'Key Stage 2' : y <= 9 ? 'Key Stage 3' : y <= 11 ? 'Key Stage 4' : 'Key Stage 5 · Sixth form';
+  const school = y <= 6 ? 'בית ספר יסודי (Primary)' : y <= 11 ? 'בית ספר על-יסודי (Secondary)' : 'התיכון העליון (Sixth form)';
+  const tests = {0:'הערכת גן (EYFS Profile)',1:'בדיקת קריאה (Phonics check)',4:'בדיקת לוח הכפל',6:'SATs, מבחנים ארציים',11:'GCSEs',13:'A-levels או T-levels'};
+  return {uk: y === 0 ? 'Reception' : 'Year ' + y, il: IL[y], age: (y + 4) + ' עד ' + (y + 5), ks, school, test: tests[y] || 'אין בחינה ארצית השנה'};
+}
+
+/* ---------- state + render ---------- */
+let state = {ch: 'all', filter: null, q: ''};
+const COUNTS = {};
+E.forEach(e => COUNTS[e.c] = (COUNTS[e.c] || 0) + 1);
+
+function renderChips() {
+  const items = [{id:'all', label:'הכול', n:E.length}].concat(CH.map(c => ({id:c.id, label:c.label, n:COUNTS[c.id] || 0})));
+  let h = items.map(c => `<button class="chip${state.ch === c.id && !state.filter ? ' on' : ''}" data-ch="${c.id}">${esc(c.label)}<span class="n">${c.n}</span></button>`).join('');
+  h += '<span class="sep"></span>';
+  h += `<button class="chip f${state.filter === 'w' ? ' on' : ''}" data-f="w">מלכודות</button>`;
+  h += `<button class="chip f${state.filter === 'u' ? ' on' : ''}" data-f="u">השתנה לאחרונה</button>`;
+  h += `<button class="chip f${state.filter === 'fav' ? ' on' : ''}" data-f="fav">השמורים שלי<span class="n">${favs.size}</span></button>`;
+  $('#chips').innerHTML = h;
+}
+
+function hl(text, toks) {
+  let out = esc(text);
+  if (!toks || !toks.length) return out;
+  const ws = [...new Set(toks.flatMap(variants))].filter(t => t.length > 1).sort((a, b) => b.length - a.length).slice(0, 8);
+  if (!ws.length) return out;
+  const re = new RegExp('(' + ws.map(w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') + ')', 'gi');
+  return out.replace(/(<[^>]+>)|([^<]+)/g, (m, tag, txt) => tag || txt.replace(re, '<mark>$1</mark>'));
+}
+const STAR = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.8 2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3L2.9 9.5l6.3-.9z"/></svg>';
+function card(e, toks) {
+  const b = (e.w ? '<span class="badge w">מלכודת</span>' : '') + (e.u ? '<span class="badge u">השתנה לאחרונה</span>' : '');
+  let h;
+  if (e.kind === 'ff') h = `<div class="h"><span class="lbl">באנגליה: </span>${hl(e.h, toks)}</div><div class="nt">${hl(e.n, toks)}</div>`;
+  else if (e.kind === 'say') h = `<div class="h"><span class="lbl">מתכוונים בדרך כלל: </span>${hl(e.h, toks)}</div>`;
+  else h = `<div class="h">${hl(e.h, toks)}</div>` + (e.n ? `<div class="nt">${hl(e.n, toks)}</div>` : '');
+  return `<article class="card"><button class="star${favs.has(e.id) ? ' on' : ''}" data-fav="${e.id}" aria-label="שמירה">${STAR}</button>` +
+    `<div class="t en">${hl(e.t, toks)}</div>${b ? '<span class="badges">' + b + '</span>' : ''}${h}</article>`;
+}
+
+function renderAnswer(raw, r) {
+  const box = $('#answer'), body = $('#answerBody');
+  const ym = norm(raw).match(/(?:^| )(?:year|y|שכבה)\s*(\d{1,2})(?: |$)|^(\d{1,2})$/);
+  if (ym) {
+    const y = +(ym[1] || ym[2]);
+    if (y >= 1 && y <= 13) {
+      const i = yearInfo(y);
+      body.innerHTML = `<div class="who">המילון עונה</div><div class="say"><b class="en">${i.uk}</b> זה בערך <b>${i.il}</b> אצלנו. גילאי ${i.age}, <span class="en">${i.ks}</span>.</div>` +
+        `<div class="more">${i.school} · ${i.test}</div><div class="rel"><button data-open="dlgYear" data-year="${y}">לפתוח את מחשבון השכבות</button></div>`;
+      box.classList.add('show'); return;
+    }
+  }
+  if (!r.res.length) {
+    body.innerHTML = `<div class="who">המילון עונה</div><div class="say">את זה לא מצאתי במילון.</div><div class="more">נסו מילה אחת, או לכתוב את המונח באנגלית. אפשר גם לעבור על הפרקים בסרגל למעלה.</div>`;
+    box.classList.add('show'); return;
+  }
+  if (r.compare && r.compare.length > 1) {
+    const line = e => e.kind === 'ff' ? `<b class="en">${esc(e.t)}</b> באנגליה זה ${esc(e.h)}.` : `<b class="en">${esc(e.t)}</b> זה <b>${esc(e.h)}</b>.`;
+    body.innerHTML = `<div class="who">המילון עונה · השוואה</div>` + r.compare.map(e =>
+      `<div class="say" style="margin-top:6px">${line(e)}</div>` + (e.n && e.kind !== 'say' ? `<div class="more" style="margin-top:2px">${esc(e.n)}</div>` : '')).join('');
+    box.classList.add('show'); return;
+  }
+  const top = r.res[0];
+  if (top.s < 40) { box.classList.remove('show'); return; }
+  const e = top.e;
+  let say;
+  if (e.kind === 'ff') say = `<b class="en">${esc(e.t)}</b> באנגליה זה ${esc(e.h)}.`;
+  else if (e.kind === 'say') say = `כשאומרים <b class="en">${esc(e.t)}</b>, בדרך כלל מתכוונים ל: ${esc(e.h)}.`;
+  else say = `<b class="en">${esc(e.t)}</b> זה <b>${esc(e.h)}</b>.`;
+  const more = e.kind === 'say' ? '' : esc(e.n);
+  const rel = r.res.slice(1, 5).filter(x => x.s > 15);
+  body.innerHTML = `<div class="who">המילון עונה · מתוך "${esc(chapterById[e.c].label)}"</div><div class="say">${say}</div>` +
+    (more ? `<div class="more">${more}</div>` : '') +
+    (rel.length ? `<div class="rel"><small>אולי גם:</small>${rel.map(x => `<button data-q="${esc(x.e.t)}" class="en">${esc(x.e.t)}</button>`).join('')}</div>` : '');
+  box.classList.add('show');
+}
+
+function render() {
+  renderChips();
+  const list = $('#list'), count = $('#count');
+  const raw = state.q.trim();
+  if (raw) {
+    const r = search(raw);
+    renderAnswer(raw, r);
+    let res = r.res;
+    if (state.ch !== 'all') res = res.filter(x => x.e.c === state.ch);
+    if (state.filter) res = res.filter(x => state.filter === 'fav' ? favs.has(x.e.id) : x.e[state.filter]);
+    count.innerHTML = res.length ? `<b>${res.length}</b> תוצאות` : '';
+    list.innerHTML = res.length ? `<div class="grid">${res.slice(0, 60).map(x => card(x.e, r.toks)).join('')}</div>` : '';
+    return;
+  }
+  $('#answer').classList.remove('show');
+  let pool = E;
+  if (state.filter) pool = pool.filter(e => state.filter === 'fav' ? favs.has(e.id) : e[state.filter]);
+  else if (state.ch !== 'all') pool = pool.filter(e => e.c === state.ch);
+  if (!pool.length) {
+    count.innerHTML = '';
+    list.innerHTML = `<div class="empty">${state.filter === 'fav' ? 'עוד לא שמרתם מושגים. לוחצים על הכוכב בכרטיס, והוא נשמר כאן.' : 'אין מושגים להצגה.'}</div>`;
+    return;
+  }
+  count.innerHTML = `<b>${pool.length}</b> מושגים`;
+  let h = '', lastC = null, lastS = null, open = false;
+  for (const e of pool) {
+    if (e.c !== lastC) {
+      if (open) h += '</div>';
+      const c = chapterById[e.c];
+      h += `<div class="ch-head"><h2>${esc(c.title)}</h2><span>${COUNTS[e.c]} מושגים</span></div>`;
+      lastC = e.c; lastS = null; open = false;
+    }
+    if ((e.s || null) !== lastS) {
+      if (open) h += '</div>';
+      if (e.s) h += `<div class="sub-head">${esc(e.s)}</div>`;
+      lastS = e.s || null; h += '<div class="grid">'; open = true;
+    }
+    if (!open) { h += '<div class="grid">'; open = true; }
+    h += card(e);
+  }
+  if (open) h += '</div>';
+  list.innerHTML = h;
+}
+
+/* ---------- events ---------- */
+const qEl = $('#q'), wrap = $('#searchWrap');
+let t;
+function setQ(v, push) {
+  state.q = v; qEl.value = v; wrap.classList.toggle('has', !!v);
+  clearTimeout(t);
+  t = setTimeout(() => {
+    try { const u = new URL(location); v ? u.searchParams.set('q', v) : u.searchParams.delete('q'); history.replaceState(null, '', u); } catch (e) {}
+  }, 400);
+  render();
+}
+qEl.addEventListener('input', () => setQ(qEl.value));
+$('#clear').addEventListener('click', () => { setQ(''); qEl.focus(); });
+$('#examples').addEventListener('click', ev => { const b = ev.target.closest('button'); if (b) { setQ(b.textContent); scrollToResults(); } });
+function scrollToResults() {
+  const y = $('.bar').getBoundingClientRect().top + scrollY - 4;
+  if (scrollY < y - 40) scrollTo({top: y, behavior: 'smooth'});
+}
+qEl.addEventListener('keydown', ev => { if (ev.key === 'Enter') { qEl.blur(); scrollToResults(); } if (ev.key === 'Escape') setQ(''); });
+document.addEventListener('keydown', ev => {
+  if (ev.key === '/' && document.activeElement !== qEl && !document.querySelector('dialog[open]')) { ev.preventDefault(); qEl.focus(); }
+});
+document.addEventListener('click', ev => {
+  const ch = ev.target.closest('[data-ch]');
+  if (ch) { state.ch = ch.dataset.ch; state.filter = null; render(); if (!state.q) scrollToResults(); return; }
+  const f = ev.target.closest('[data-f]');
+  if (f) { state.filter = state.filter === f.dataset.f ? null : f.dataset.f; state.ch = 'all'; render(); return; }
+  const fav = ev.target.closest('[data-fav]');
+  if (fav) {
+    const id = +fav.dataset.fav;
+    favs.has(id) ? favs.delete(id) : favs.add(id);
+    store.set('advot-gl-favs', [...favs]);
+    fav.classList.toggle('on', favs.has(id));
+    renderChips();
+    if (state.filter === 'fav') render();
+    return;
+  }
+  const rq = ev.target.closest('[data-q]');
+  if (rq) { setQ(rq.dataset.q); return; }
+  const op = ev.target.closest('[data-open]');
+  if (op) { openDlg(op.dataset.open, op.dataset.year); return; }
+  if (ev.target.closest('[data-close]')) { ev.target.closest('dialog').close(); return; }
+  if (ev.target.tagName === 'DIALOG') ev.target.close();
+});
+
+/* ---------- dialogs ---------- */
+function openDlg(id, year) {
+  const d = document.getElementById(id);
+  if (id === 'dlgYear') { $('#yr').value = year || $('#yr').value; drawYear(); }
+  if (id === 'dlgCards') fcInit();
+  if (id === 'dlgQuiz') qInit();
+  d.showModal();
+}
+function drawYear() {
+  const i = yearInfo(+$('#yr').value);
+  $('#yrUk').textContent = i.uk; $('#yrIl').textContent = i.il; $('#yrAge').textContent = i.age;
+  $('#yrKs').textContent = i.ks; $('#yrSchool').textContent = i.school; $('#yrTest').textContent = i.test;
+}
+$('#yr').addEventListener('input', drawYear);
+
+/* flashcards */
+let fc = {ch: 'top', deck: [], i: 0, known: 0, total: 0, again: []};
+const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+function fcInit(ch) {
+  if (ch) fc.ch = ch;
+  const pickable = CH.filter(c => c.id !== 'talk');
+  $('#fcPick').innerHTML = [{id:'fav', label:'השמורים שלי'}].concat(pickable).map(c =>
+    `<button class="chip${fc.ch === c.id ? ' on' : ''}" data-fc="${c.id}">${esc(c.label)}</button>`).join('');
+  let pool = fc.ch === 'fav' ? E.filter(e => favs.has(e.id)) : E.filter(e => e.c === fc.ch);
+  pool = pool.filter(e => e.kind !== 'say');
+  fc.deck = shuffle(pool.slice()); fc.i = 0; fc.known = 0; fc.total = fc.deck.length; fc.again = [];
+  fcDraw();
+}
+function fcDraw() {
+  const st = $('#fcStage');
+  if (!fc.total) { st.innerHTML = '<div class="done"><p>אין כאן עדיין כרטיסים. שמרו מושגים בכוכב, או בחרו פרק אחר.</p></div>'; return; }
+  if (fc.i >= fc.deck.length) {
+    if (fc.again.length) { fc.deck = shuffle(fc.again); fc.again = []; fc.i = 0; }
+    else {
+      st.innerHTML = `<div class="done"><b>${fc.known} / ${fc.total}</b><p>${fc.known === fc.total ? 'כל הכבוד, ידעתם הכול בפעם הראשונה.' : 'סיימתם את החפיסה. מה שלא ידעתם חזר עד שידעתם.'}</p><div class="fc-row"><button class="b-main" data-fcre>עוד סיבוב</button></div></div>`;
+      return;
+    }
+  }
+  const e = fc.deck[fc.i];
+  const done = fc.total - (fc.deck.length - fc.i) - fc.again.length;
+  const back = e.kind === 'ff' ? 'באנגליה: ' + e.h : e.h;
+  const note = e.kind === 'ff' ? e.n : e.n;
+  st.innerHTML = `<div class="fc-prog"><i style="width:${Math.round(done / fc.total * 100)}%"></i></div>` +
+    `<div class="fc-meta"><span>${done} מתוך ${fc.total}</span><span>ידעתם: ${fc.known}</span></div>` +
+    `<div class="flip" id="flip"><div class="flip-in"><div class="face front"><b class="en">${esc(e.t)}</b><small>לחצו כדי להפוך</small></div>` +
+    `<div class="face back"><b>${esc(back)}</b>${note ? `<p>${esc(note)}</p>` : ''}</div></div></div>` +
+    `<div class="fc-row"><button class="b-no" data-fcans="0">עוד לא</button><button class="b-yes" data-fcans="1">ידעתי</button></div>`;
+  $('#flip').addEventListener('click', () => $('#flip').classList.toggle('on'));
+}
+$('#dlgCards').addEventListener('click', ev => {
+  const p = ev.target.closest('[data-fc]'); if (p) { fcInit(p.dataset.fc); return; }
+  if (ev.target.closest('[data-fcre]')) { fcInit(); return; }
+  const a = ev.target.closest('[data-fcans]');
+  if (a) {
+    const flip = $('#flip');
+    if (!flip.classList.contains('on')) { flip.classList.add('on'); return; }
+    const e = fc.deck[fc.i];
+    if (a.dataset.fcans === '1') { if (!e._missed) fc.known++; }
+    else { e._missed = true; fc.again.push(e); }
+    fc.i++; fcDraw();
+  }
+});
+document.getElementById('dlgCards').addEventListener('close', () => E.forEach(e => delete e._missed));
+
+/* quiz */
+let qz = {list: [], i: 0, ok: 0};
+function qInit() {
+  qz.list = shuffle(E.filter(e => e.kind === 'say').slice()); qz.i = 0; qz.ok = 0; qDraw();
+}
+function qDraw() {
+  const st = $('#qStage');
+  if (qz.i >= qz.list.length) {
+    st.innerHTML = `<div class="done"><b>${qz.ok} / ${qz.list.length}</b><p>${qz.ok >= qz.list.length - 1 ? 'אתם מוכנים לישיבה בווייטהול.' : 'עכשיו אתם יודעים למה כדאי להקשיב לטון ולא רק למילים.'}</p><div class="fc-row"><button class="b-main" data-qre>עוד סיבוב</button></div></div>`;
+    return;
+  }
+  const e = qz.list[qz.i];
+  const others = shuffle(E.filter(x => x.kind === 'say' && x !== e && x.h !== e.h)).slice(0, 2);
+  const opts = shuffle([e, ...others]);
+  st.innerHTML = `<div class="fc-prog"><i style="width:${Math.round(qz.i / qz.list.length * 100)}%"></i></div>` +
+    `<div class="fc-meta"><span>${qz.i + 1} מתוך ${qz.list.length}</span><span>צדקתם: ${qz.ok}</span></div>` +
+    `<div class="q-phrase"><small>הם אומרים</small><span class="en">${esc(e.t)}</span></div>` +
+    `<div class="q-opts">${opts.map(o => `<button data-qa="${o === e ? 1 : 0}">${esc(o.h)}</button>`).join('')}</div>` +
+    `<div class="fc-row" id="qNext" style="visibility:hidden"><button class="b-main" data-qn>הבא</button></div>`;
+}
+$('#dlgQuiz').addEventListener('click', ev => {
+  if (ev.target.closest('[data-qre]')) { qInit(); return; }
+  if (ev.target.closest('[data-qn]')) { qz.i++; qDraw(); return; }
+  const a = ev.target.closest('[data-qa]');
+  if (a && !a.disabled) {
+    const btns = [...document.querySelectorAll('#qStage [data-qa]')];
+    btns.forEach(b => { b.disabled = true; if (b.dataset.qa === '1') b.classList.add('ok'); });
+    if (a.dataset.qa === '1') qz.ok++; else a.classList.add('bad');
+    $('#qNext').style.visibility = 'visible';
+  }
+});
+
+/* ---------- start ---------- */
+try { const q0 = new URL(location).searchParams.get('q'); if (q0) { state.q = q0; qEl.value = q0; wrap.classList.add('has'); } } catch (e) {}
+render();
+</script>
+</body>
+</html>
