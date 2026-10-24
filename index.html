@@ -87,7 +87,7 @@ html[lang="en"] nav.links a{font-size:14px;padding:8px 11px}
 /* ---------- sections ---------- */
 section{padding:100px 0}
 section.alt{background:var(--soft)}
-.sec-kicker{font-size:14px;font-weight:700;color:var(--blue-mid);letter-spacing:.06em;margin-bottom:12px}
+.sec-kicker{font-size:14px;font-weight:700;color:var(--blue);letter-spacing:.06em;margin-bottom:12px}
 h2{font-size:clamp(30px,3.6vw,48px);font-weight:800;line-height:1.2;margin-bottom:18px}
 .sec-lede{font-size:20px;color:var(--ink-dim);max-width:720px;margin-bottom:56px}
 html[lang="en"] .sec-lede{font-size:18px}
@@ -176,7 +176,7 @@ html[lang="en"] .sp-card details p{font-size:13.5px}
 .res-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--blue-mid)}
 .res-title{font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:var(--ink);line-height:1.45;direction:ltr;text-align:left}
 .res-title.dyn,.res-src.dyn{direction:inherit;text-align:start;font-family:inherit}
-.res-src{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;color:var(--blue-mid);direction:ltr;text-align:left}
+.res-src{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;color:var(--blue);direction:ltr;text-align:left}
 .res-note{font-size:14.5px;color:var(--ink-dim)}
 html[lang="en"] .res-note{font-size:13.5px}
 .res-debate{font-size:14px;color:var(--ink-dim);margin-top:2px}
@@ -184,15 +184,112 @@ html[lang="en"] .res-note{font-size:13.5px}
 .res-intro{font-size:16.5px;color:var(--ink-dim);max-width:820px;margin-bottom:44px}
 html[lang="en"] .res-intro{font-size:15.5px}
 
-/* practical */
-.flights{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:44px;margin-bottom:44px}
-.flight{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);padding:32px 34px;box-shadow:var(--shadow-sm)}
-.flight .dir{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:8px}
-.flight .route{font-size:clamp(20px,2.4vw,26px);font-weight:800;margin-bottom:8px}
-.flight .meta{font-size:15px;color:var(--ink-dim)}
-.flight .code{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--ink);direction:ltr;display:inline-block}
-.tt-note{background:var(--white);border:1px dashed var(--blue-mid);border-radius:var(--r-card);padding:26px 30px;font-size:16px;color:var(--ink-dim);max-width:720px}
-.tt-note strong{color:var(--ink)}
+/* focus (spec 1.3) */
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.hero :focus-visible,.signup-cta :focus-visible,footer :focus-visible{outline-color:var(--white)}
+
+/* speakers: "in the schedule" tag + highlight on arrival */
+a.sp-when{transition:background .2s var(--ease)}
+a.sp-when:hover{background:var(--line)}
+.sp-card{scroll-margin-top:96px}
+.sp-card:target{animation:spflash 2s var(--ease) forwards}
+@keyframes spflash{0%,75%{box-shadow:0 0 0 3px var(--blue),var(--shadow-md)}100%{box-shadow:var(--shadow-sm)}}
+
+/* learning-plan card (spec 2.8) */
+.btn-solid{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:12px 22px;border-radius:var(--r-btn);background:var(--blue);color:var(--white);font-family:inherit;font-size:15.5px;font-weight:700;line-height:1.3;transition:filter .2s var(--ease),transform .2s var(--ease)}
+.btn-solid:hover{filter:brightness(.92);transform:translateY(-1px)}
+.learn-teaser{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--shadow-sm);padding:28px 32px;margin-bottom:24px;display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}
+.learn-teaser .sec-kicker{margin-bottom:8px}
+.learn-teaser h3{margin-bottom:8px}
+.learn-teaser p{font-size:16px;color:var(--ink-dim);margin-bottom:18px}
+html[lang="en"] .learn-teaser p{font-size:15px}
+.lt-mods{list-style:none}
+.lt-mods li + li{border-top:1px solid var(--line)}
+.lt-mods a{display:flex;align-items:center;gap:12px;padding:10px 0;min-height:56px;color:var(--ink)}
+.lt-num{flex-shrink:0;width:36px;height:36px;border-radius:12px;background:var(--soft);color:var(--blue);display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px}
+.lt-mods .soon .lt-num{background:var(--white);border:1.5px dashed var(--blue-mid)}
+.lt-name{flex:1;font-size:15.5px;font-weight:700;line-height:1.35}
+.lt-status{font-size:13px;color:var(--ink-dim);white-space:nowrap}
+.lt-mods a:hover .lt-name{color:var(--blue)}
+
+/* schedule (spec 3) */
+#schedule{position:relative;overflow:hidden}
+#schedule .container{position:relative;z-index:1}
+.sch-ripples{position:absolute;inset-inline-start:-60px;top:-40px;width:420px;opacity:.07;pointer-events:none}
+#schedule .sec-lede{margin-bottom:28px}
+.sch-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.sch-status{font-size:15px;font-weight:700;color:var(--ink)}
+.sch-status[hidden]{display:none}
+.sch-actions{display:flex;gap:8px;flex-wrap:wrap;margin-inline-start:auto}
+.sch-actions[hidden],.day-nav[hidden]{display:none}
+.sch-btn{font-family:inherit;font-size:14px;font-weight:500;color:var(--blue);background:var(--white);border:1px solid var(--line);border-radius:999px;padding:6px 16px;min-height:44px;cursor:pointer;transition:background .2s var(--ease),color .2s var(--ease),border-color .2s var(--ease)}
+.sch-btn:hover{border-color:var(--blue-mid)}
+.sch-btn[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:var(--white)}
+.sch-tabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-bottom:18px}
+.sch-tabs[hidden]{display:none}
+.sch-tab{position:relative;font-family:inherit;text-align:start;background:var(--white);color:var(--ink);border:1px solid var(--line);border-radius:14px;padding:14px 16px;min-height:92px;display:flex;flex-direction:column;align-items:flex-start;gap:2px;box-shadow:var(--shadow-sm);cursor:pointer;transition:border-color .2s var(--ease),background .2s var(--ease)}
+.sch-tab:hover{border-color:var(--blue-mid)}
+.sch-tab:focus-visible{outline-offset:3px}
+.st-wd{font-size:16px;font-weight:800;line-height:1.3}
+.st-date{font-family:'Montserrat','Heebo',sans-serif;font-size:13px;font-weight:600;color:var(--ink-dim);line-height:1.3}
+.st-title{font-size:13.5px;color:var(--ink-dim);line-height:1.4;margin-top:4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.sch-tab[aria-selected="true"]{background:var(--blue);border-color:var(--blue);color:var(--white);box-shadow:var(--shadow-brand)}
+.sch-tab[aria-selected="true"] .st-date,.sch-tab[aria-selected="true"] .st-title{color:var(--white)}
+.st-today{position:absolute;top:10px;inset-inline-end:10px;font-size:11.5px;font-weight:700;line-height:1.5;padding:1px 9px;border-radius:999px;background:var(--blue);color:var(--white)}
+.st-today[hidden]{display:none}
+.sch-tab[aria-selected="true"] .st-today{background:var(--white);color:var(--blue)}
+.sch-panels{display:flex;flex-direction:column;gap:18px}
+.sch-day{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--shadow-sm);padding:34px 36px;scroll-margin-top:96px}
+.sch-day[hidden]{display:none}
+.sch-day.fade{animation:schfade .2s var(--ease)}
+@keyframes schfade{from{opacity:0}to{opacity:1}}
+.sch-day:focus-visible{outline-offset:4px}
+.day-head{margin-bottom:20px}
+.day-h{font-size:clamp(20px,2.2vw,26px);font-weight:700;line-height:1.3}
+.day-sub{font-size:16.5px;color:var(--ink-dim);margin-top:2px}
+html[lang="en"] .day-sub{font-size:15.5px}
+.day-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:40px;align-items:start}
+.band{display:grid;grid-template-columns:140px minmax(0,1fr);gap:20px;padding:20px 0}
+.band:first-child{padding-top:0}
+.band:last-child{padding-bottom:0}
+.band + .band{border-top:1px solid var(--line)}
+.band-label{display:flex;gap:10px;align-items:flex-start}
+.band-ico{flex-shrink:0;width:40px;height:40px;border-radius:12px;background:var(--soft);display:flex;align-items:center;justify-content:center}
+.band-ico svg,.sch-flight svg{width:22px;height:22px;stroke:var(--blue);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.band-label h4{font-size:15px;font-weight:800;line-height:1.35;padding-top:9px}
+.band-items{list-style:none;display:flex;flex-direction:column;gap:12px}
+.sch-item{display:flex;flex-direction:column;gap:2px}
+.sch-item .kind{font-size:12.5px;font-weight:700;color:var(--ink-dim);letter-spacing:.02em}
+.sch-item .what{font-size:16.5px;color:var(--ink);line-height:1.55}
+html[lang="en"] .sch-item .what{font-size:15.5px}
+.sch-item .what b{font-weight:700}
+.sch-item .what a{font-weight:700;color:var(--blue)}
+.sch-item .what a:hover,.sch-item .what a:focus-visible{text-decoration:underline}
+.sch-item[data-kind="free"] .kind{display:none}
+.sch-item[data-kind="free"] .what{color:var(--ink-dim)}
+.sch-flight{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:12px 16px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;align-items:start}
+.fl-route{font-size:16px;font-weight:700;line-height:1.4}
+.fl-dir{font-size:14px;color:var(--ink-dim)}
+.sch-flight .code{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--ink);direction:ltr;display:inline-block;white-space:nowrap}
+.day-aside{background:var(--soft);border-radius:14px;padding:22px 24px;display:flex;flex-direction:column;gap:22px;position:sticky;top:96px}
+.day-themes summary{list-style:none;font-size:15px;font-weight:800;color:var(--ink);display:flex;align-items:center;justify-content:space-between;gap:8px;pointer-events:none}
+.day-themes summary::-webkit-details-marker{display:none}
+.day-themes summary::after{content:"+";display:none;font-size:18px;font-weight:700;color:var(--blue);transition:transform .25s var(--ease)}
+.day-themes[open] summary::after{transform:rotate(45deg)}
+.sum-m{display:none}
+.day-themes ol{list-style:none;counter-reset:th;display:flex;flex-direction:column;gap:10px;margin-top:12px}
+.day-themes li{counter-increment:th;position:relative;padding-inline-start:24px;font-size:15px;line-height:1.5}
+html[lang="en"] .day-themes li{font-size:14px}
+.day-themes li::before{content:counter(th);position:absolute;inset-inline-start:0;top:0;font-family:'Montserrat',sans-serif;font-weight:700;color:var(--blue)}
+.day-people h4{font-size:15px;font-weight:800;margin-bottom:8px}
+.day-people ul{list-style:none;display:flex;flex-direction:column;gap:4px}
+.day-people a{display:flex;align-items:center;gap:10px;min-height:44px;font-size:15px;font-weight:700;color:var(--blue)}
+.day-people a:hover span{text-decoration:underline}
+.day-people img{width:40px;height:40px;border-radius:50%;object-fit:cover;object-position:center 20%;flex-shrink:0}
+.day-nav{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:22px;border-top:1px solid var(--line);padding-top:16px}
+.day-nav .day-next{margin-inline-start:auto}
+.sch-note{background:var(--white);border:1px dashed var(--blue-mid);border-radius:var(--r-card);padding:22px 26px;font-size:16px;color:var(--ink-dim);max-width:760px;margin-top:28px}
+.print-only{display:none}
 
 .signup-cta{position:relative;overflow:hidden;background:var(--blue);color:var(--white);border-radius:24px;padding:34px 38px;margin-top:44px;box-shadow:var(--shadow-brand);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
 .signup-cta .ripples-card{position:absolute;left:-90px;bottom:-120px;width:320px;opacity:.18;transform:rotate(14deg)}
@@ -224,8 +321,6 @@ footer .ripples-f{position:absolute;left:-130px;top:-60px;width:420px;opacity:.0
   .speakers-grid{grid-template-columns:repeat(2,1fr)}
   .res-grid{grid-template-columns:repeat(2,1fr)}
   .why-grid{grid-template-columns:1fr;gap:40px}
-}
-@media (max-width:940px){
   html{scroll-padding-top:80px}
   .nav-inner{height:64px}
   .brand img{height:32px}
@@ -233,11 +328,15 @@ footer .ripples-f{position:absolute;left:-130px;top:-60px;width:420px;opacity:.0
   nav.links{position:fixed;top:64px;right:0;left:0;background:var(--white);flex-direction:column;align-items:stretch;padding:12px 24px 20px;border-bottom:1px solid var(--line);box-shadow:var(--shadow-md);transform:translateY(-140%);transition:transform .35s var(--ease);z-index:99}
   nav.links.open{transform:none}
   nav.links a{padding:12px 16px;font-size:16px}
+  html[lang="en"] nav.links a{padding:12px 16px;font-size:16px}
+  nav.links:not(.open){visibility:hidden}
+}
+@media (max-width:940px){
   .hero{padding-top:140px}
   .hero .ripples{width:420px;left:-160px;opacity:.2}
   .stats-grid{grid-template-columns:repeat(2,1fr);gap:28px 16px;padding:36px 0}
   section{padding:64px 0}
-  .do-grid,.speakers-grid,.res-grid,.flights{grid-template-columns:1fr}
+  .do-grid,.speakers-grid,.res-grid{grid-template-columns:1fr}
   .t-item{padding-inline-start:64px}
   .timeline::before{inset-inline-start:21px}
   .t-dot{inset-inline-start:6px}
@@ -245,6 +344,93 @@ footer .ripples-f{position:absolute;left:-130px;top:-60px;width:420px;opacity:.0
   .f-inner{flex-direction:column;text-align:center}
   .f-brand{flex-direction:column;gap:14px}
   .f-brand .sep{display:none}
+}
+/* ---------- schedule + learning-plan card: responsive ---------- */
+@media (max-width:940px){
+  .learn-teaser{grid-template-columns:1fr;gap:18px;padding:24px 22px}
+  .sch-day{padding:22px 18px;scroll-margin-top:80px}
+  .day-grid{grid-template-columns:minmax(0,1fr);gap:22px}
+  .day-aside{position:static;padding:18px 18px}
+  .day-themes summary{pointer-events:auto;cursor:pointer;min-height:28px}
+  .day-themes summary::after{display:block}
+  .sum-d{display:none}
+  .sum-m{display:inline}
+  .sp-card{scroll-margin-top:80px}
+}
+@media (max-width:720px){
+  .sch-ripples{display:none}
+  .sch-tabs{gap:6px}
+  .sch-tab{padding:10px 2px;min-height:60px;align-items:center;text-align:center;gap:0}
+  .st-title{display:none}
+  .st-wd{font-size:14px}
+  .st-date{font-size:12px}
+  .st-today{position:static;order:-1;font-size:11px;padding:0 7px;margin-bottom:2px}
+  .band{grid-template-columns:minmax(0,1fr);gap:10px}
+  .band-ico{width:34px;height:34px}
+  .band-label{align-items:center}
+  .band-label h4{padding-top:0}
+  .sch-actions{margin-inline-start:0}
+  .sch-note{padding:18px 18px}
+}
+@media (max-width:400px){
+  #schedule .container{padding:0 14px}
+  .sch-tabs{gap:4px}
+}
+
+/* ---------- reduced motion (spec 1.3) ---------- */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .sch-day.fade{animation:none}
+  .sch-tab,.sch-btn,.btn-solid,a.sp-when,.day-themes summary::after{transition:none}
+  .btn-solid:hover{transform:none}
+  .sp-card:target{animation:none;box-shadow:0 0 0 3px var(--blue),var(--shadow-md)}
+}
+
+/* ---------- print: only the schedule, all days (spec 3.7) ---------- */
+@media print{
+  @page{size:A4;margin:14mm}
+  html,body{background:var(--white);overflow:visible}
+  body{font-size:10pt;line-height:1.35;color:var(--ink)}
+  header,.hero,.stats,footer,section:not(#schedule),.sch-actions,.sch-tabs,.day-nav,.day-people,.sch-ripples,.signup-cta,.st-today,img,
+  #schedule .sec-kicker,#schedule h2,#schedule .sec-lede,.sch-bar{display:none!important}
+  section#schedule{padding:0;background:var(--white);overflow:visible}
+  #schedule .container{max-width:none;padding:0}
+  .print-only{display:block}
+  .print-head{font-size:15pt;font-weight:800;margin-bottom:8pt}
+  .print-foot{font-size:9pt;color:var(--ink-dim);margin-top:8pt}
+  .reveal{opacity:1!important;transform:none!important}
+  a{color:var(--ink)!important;text-decoration:none!important}
+  .sch-panels{display:block}
+  .sch-day + .sch-day{margin-top:6pt}
+  .sch-day,.sch-day[hidden]{display:block!important;box-shadow:none;border:0.5pt solid var(--ink-dim);border-radius:6pt;padding:5pt 9pt;break-inside:avoid;page-break-inside:avoid;animation:none}
+  .day-head{margin-bottom:2pt;display:flex;flex-wrap:wrap;align-items:baseline;gap:0 8pt}
+  .day-h{font-size:13pt;font-weight:800}
+  .day-sub{font-size:9pt;margin:0}
+  .day-grid{display:block}
+  .band{display:grid;grid-template-columns:60pt minmax(0,1fr);gap:6pt;padding:2pt 0}
+  .band + .band{border-top:0.5pt solid var(--line)}
+  .band-ico{display:none}
+  .band-label h4{font-size:9pt;font-weight:700;padding:0}
+  .band-items{gap:1pt}
+  .sch-item{display:block}
+  .sch-item .kind{font-size:8pt;margin-inline-end:4pt}
+  .sch-item .what{font-size:9.5pt;line-height:1.35}
+  .sch-item .what b,.sch-item .what a{font-weight:700}
+  .sch-flight{display:block;background:none;border:0;padding:0}
+  .sch-flight svg{display:none}
+  .fl-route{display:inline;font-size:10pt}
+  .fl-dir{display:inline;font-size:9pt;margin-inline-start:4pt}
+  .day-aside{position:static;background:none;border-radius:0;padding:2pt 0 0;margin-top:2pt;line-height:1.35;border-top:0.5pt solid var(--line);display:block}
+  .day-themes::details-content{content-visibility:visible;display:block}
+  .day-themes summary{display:inline;font-size:9pt;font-weight:700;pointer-events:none}
+  .day-themes summary::after{content:":"!important;display:inline!important;transform:none!important;font-size:9pt;color:var(--ink)}
+  .sum-d{display:inline!important}
+  .sum-m{display:none!important}
+  .day-themes ol{display:inline;margin:0}
+  .day-themes li{display:inline;padding:0;font-size:8.5pt;line-height:1.35}
+  .day-themes li::before{content:none}
+  .day-themes li + li::before{content:" · ";position:static;color:var(--ink-dim);font-family:inherit;font-weight:400}
+  .sch-note{border:0.5pt dashed var(--ink-dim);padding:6pt 8pt;font-size:9pt;margin-top:6pt;max-width:none}
 }
 </style>
 </head>
@@ -263,7 +449,7 @@ footer .ripples-f{position:absolute;left:-130px;top:-60px;width:420px;opacity:.0
       <a href="#induction" data-i18n="nav_induction"></a>
       <a href="#speakers" data-i18n="nav_speakers"></a>
       <a href="#resources" data-i18n="nav_resources"></a>
-      <a href="#practical" data-i18n="nav_practical"></a>
+      <a href="#schedule" data-i18n="nav_schedule"></a>
     </nav>
     <div class="nav-side">
       <button class="lang-btn" id="langBtn" aria-label="Switch language"></button>
@@ -282,7 +468,7 @@ footer .ripples-f{position:absolute;left:-130px;top:-60px;width:420px;opacity:.0
     <h1 data-i18n="h1"></h1>
     <p class="lede" data-i18n="lede"></p>
     <div class="cta-row">
-      <a class="btn btn-primary" href="#induction" data-i18n="cta1"></a>
+      <a class="btn btn-primary" id="cta1" href="#induction" data-i18n="cta1"></a>
       <a class="btn btn-ghost" href="#speakers" data-i18n="cta2"></a>
       <a class="btn btn-ghost" href="teams.html" data-i18n="cta3"></a>
       <a class="btn btn-ghost" href="glossary.html" data-i18n="cta4"></a>
@@ -410,7 +596,7 @@ footer .ripples-f{position:absolute;left:-130px;top:-60px;width:420px;opacity:.0
     <p class="sec-lede reveal" data-i18n="sp_lede"></p>
     <div class="speakers-grid">
 
-      <div class="sp-card reveal">
+      <div class="sp-card reveal" id="sp-brett">
         <div class="sp-photo"><img src="assets/brett.jpg" alt="Brett Wigdortz" loading="lazy"></div>
         <div class="sp-body">
           <div class="sp-name" data-i18n="brett_n"></div>
@@ -425,12 +611,13 @@ footer .ripples-f{position:absolute;left:-130px;top:-60px;width:420px;opacity:.0
         </div>
       </div>
 
-      <div class="sp-card reveal">
+      <div class="sp-card reveal" id="sp-steve">
         <div class="sp-photo"><img src="assets/steve.jpg" alt="Steve Adcock" loading="lazy"></div>
         <div class="sp-body">
           <div class="sp-name" data-i18n="steve_n"></div>
           <div class="sp-name-en">Steve Adcock</div>
           <div class="sp-role" data-i18n="steve_r"></div>
+          <a class="sp-when" href="#sch-day-4" data-i18n="sp_when_steve"></a>
           <p class="sp-topic" data-i18n="steve_t"></p>
           <details>
             <summary data-i18n="steve_more"></summary>
@@ -439,12 +626,13 @@ footer .ripples-f{position:absolute;left:-130px;top:-60px;width:420px;opacity:.0
         </div>
       </div>
 
-      <div class="sp-card reveal">
+      <div class="sp-card reveal" id="sp-daisy">
         <div class="sp-photo"><img src="assets/daisy.jpg" alt="Daisy Christodoulou" loading="lazy"></div>
         <div class="sp-body">
           <div class="sp-name" data-i18n="daisy_n"></div>
           <div class="sp-name-en">Daisy Christodoulou</div>
           <div class="sp-role" data-i18n="daisy_r"></div>
+          <a class="sp-when" href="#sch-day-3" data-i18n="sp_when_daisy"></a>
           <p class="sp-topic" data-i18n="daisy_t"></p>
           <details>
             <summary data-i18n="daisy_more"></summary>
@@ -454,7 +642,7 @@ footer .ripples-f{position:absolute;left:-130px;top:-60px;width:420px;opacity:.0
         </div>
       </div>
 
-      <div class="sp-card reveal">
+      <div class="sp-card reveal" id="sp-caroline">
         <div class="sp-photo"><img src="assets/caroline.jpg" alt="Caroline Doherty" loading="lazy"></div>
         <div class="sp-body">
           <div class="sp-name" data-i18n="caroline_n"></div>
@@ -468,7 +656,7 @@ footer .ripples-f{position:absolute;left:-130px;top:-60px;width:420px;opacity:.0
         </div>
       </div>
 
-      <div class="sp-card reveal">
+      <div class="sp-card reveal" id="sp-isabel">
         <div class="sp-photo"><img src="assets/isabel.jpg" alt="Isabel Instone" loading="lazy"></div>
         <div class="sp-body">
           <div class="sp-name" data-i18n="isabel_n"></div>
@@ -482,7 +670,7 @@ footer .ripples-f{position:absolute;left:-130px;top:-60px;width:420px;opacity:.0
         </div>
       </div>
 
-      <div class="sp-card reveal">
+      <div class="sp-card reveal" id="sp-michael">
         <div class="sp-photo"><img src="assets/michael.jpg" alt="Michael Clarke" loading="lazy"></div>
         <div class="sp-body">
           <div class="sp-name" data-i18n="michael_n"></div>
@@ -507,6 +695,19 @@ footer .ripples-f{position:absolute;left:-130px;top:-60px;width:420px;opacity:.0
     <div class="sec-kicker reveal" data-i18n="res_k"></div>
     <h2 class="reveal" data-i18n="res_h"></h2>
     <p class="res-intro reveal" data-i18n="res_intro"></p>
+    <div class="learn-teaser reveal">
+      <div class="lt-main">
+        <div class="sec-kicker" data-i18n="lt_k"></div>
+        <h3 data-i18n="lt_h"></h3>
+        <p data-i18n="lt_p"></p>
+        <a class="btn-solid" href="learn.html" data-i18n="lt_btn"></a>
+      </div>
+      <ul class="lt-mods" role="list">
+        <li><a href="learn.html#m1"><span class="lt-num" aria-hidden="true">1</span><span class="lt-name" data-i18n="mod1_short"></span><span class="lt-status" id="ltStatus1" data-i18n="mod_status_open"></span></a></li>
+        <li class="soon"><a href="learn.html#m2"><span class="lt-num" aria-hidden="true">2</span><span class="lt-name" data-i18n="mod2_short"></span><span class="lt-status" data-i18n="mod_status_soon"></span></a></li>
+        <li class="soon"><a href="learn.html#m3"><span class="lt-num" aria-hidden="true">3</span><span class="lt-name" data-i18n="mod3_short"></span><span class="lt-status" data-i18n="mod_status_soon"></span></a></li>
+      </ul>
+    </div>
     <div class="signup-cta reveal" style="margin:0 0 40px">
       <img class="ripples-card" src="assets/ripples-white.png" alt="">
       <div class="signup-txt">
@@ -644,11 +845,272 @@ footer .ripples-f{position:absolute;left:-130px;top:-60px;width:420px;opacity:.0
   </div>
 </section>
 
-<!-- ===== practical ===== -->
-<section class="alt" id="practical">
+<!-- ===== schedule (replaces "practical"; the empty #practical keeps old links working) ===== -->
+<section class="alt" id="schedule">
+  <span id="practical"></span>
+  <img class="sch-ripples" src="assets/ripples-blue.png" alt="" aria-hidden="true">
   <div class="container">
-    <div class="sec-kicker reveal" data-i18n="pr_k"></div>
-    <h2 class="reveal" data-i18n="pr_h"></h2>
+    <div class="print-only print-head" data-i18n="print_title"></div>
+    <div class="sec-kicker reveal" data-i18n="sch_k"></div>
+    <h2 class="reveal" id="sch-h" data-i18n="sch_h"></h2>
+    <p class="sec-lede reveal" data-i18n="sch_lede"></p>
+    <div class="sch-bar">
+      <p class="sch-status" id="schStatus" hidden></p>
+      <div class="sch-actions" id="schActions" hidden>
+        <button type="button" class="sch-btn" id="schMode" aria-pressed="false"></button>
+        <button type="button" class="sch-btn" id="schPrint" data-i18n="sch_print"></button>
+      </div>
+    </div>
+    <div class="sch-tabs" id="schTabs" role="tablist" aria-labelledby="sch-h" hidden>
+      <button type="button" class="sch-tab" id="sch-tab-1" role="tab" aria-controls="sch-day-1" aria-selected="false" tabindex="-1">
+        <span class="st-today" hidden data-i18n="sch_today_badge"></span>
+        <span class="st-wd" data-i18n="sch_d1_wd"></span>
+        <span class="st-date" data-i18n="sch_d1_date"></span>
+        <span class="st-title" data-i18n="sch_d1_title"></span>
+      </button>
+      <button type="button" class="sch-tab" id="sch-tab-2" role="tab" aria-controls="sch-day-2" aria-selected="false" tabindex="-1">
+        <span class="st-today" hidden data-i18n="sch_today_badge"></span>
+        <span class="st-wd" data-i18n="sch_d2_wd"></span>
+        <span class="st-date" data-i18n="sch_d2_date"></span>
+        <span class="st-title" data-i18n="sch_d2_title"></span>
+      </button>
+      <button type="button" class="sch-tab" id="sch-tab-3" role="tab" aria-controls="sch-day-3" aria-selected="false" tabindex="-1">
+        <span class="st-today" hidden data-i18n="sch_today_badge"></span>
+        <span class="st-wd" data-i18n="sch_d3_wd"></span>
+        <span class="st-date" data-i18n="sch_d3_date"></span>
+        <span class="st-title" data-i18n="sch_d3_title"></span>
+      </button>
+      <button type="button" class="sch-tab" id="sch-tab-4" role="tab" aria-controls="sch-day-4" aria-selected="false" tabindex="-1">
+        <span class="st-today" hidden data-i18n="sch_today_badge"></span>
+        <span class="st-wd" data-i18n="sch_d4_wd"></span>
+        <span class="st-date" data-i18n="sch_d4_date"></span>
+        <span class="st-title" data-i18n="sch_d4_title"></span>
+      </button>
+      <button type="button" class="sch-tab" id="sch-tab-5" role="tab" aria-controls="sch-day-5" aria-selected="false" tabindex="-1">
+        <span class="st-today" hidden data-i18n="sch_today_badge"></span>
+        <span class="st-wd" data-i18n="sch_d5_wd"></span>
+        <span class="st-date" data-i18n="sch_d5_date"></span>
+        <span class="st-title" data-i18n="sch_d5_title"></span>
+      </button>
+    </div>
+    <div class="sch-panels" id="schPanels">
+      <article class="sch-day" id="sch-day-1" aria-labelledby="sch-dh-1">
+        <div class="day-head">
+          <h3 class="day-h" id="sch-dh-1" data-i18n="sch_d1_full"></h3>
+          <p class="day-sub" data-i18n="sch_d1_title"></p>
+        </div>
+        <div class="day-grid">
+          <div class="day-bands">
+            <div class="band band-am" role="group" aria-labelledby="d1-am">
+              <div class="band-label"><span class="band-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v3M5.6 7.6l1.4 1.4M18.4 7.6L17 9M3 17h18M7 17a5 5 0 0 1 10 0M8 21h8"/></svg></span><h4 id="d1-am" data-i18n="band_am"></h4></div>
+              <ul class="band-items" role="list">
+                  <li class="sch-flight"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div><div class="fl-route" data-i18n="f1_route"></div><div class="fl-dir"><span data-i18n="f1_dir"></span> <span class="code">EL AL 311</span></div></div></li>
+                  <li class="sch-item" data-kind="travel"><span class="kind" data-i18n="kind_travel"></span><span class="what" data-i18n="sch_d1_am_1"></span></li>
+              </ul>
+            </div>
+            <div class="band band-pm" role="group" aria-labelledby="d1-pm">
+              <div class="band-label"><span class="band-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></span><h4 id="d1-pm" data-i18n="band_pm"></h4></div>
+              <ul class="band-items" role="list">
+                  <li class="sch-item" data-kind="workshop"><span class="kind" data-i18n="kind_workshop"></span><span class="what" data-i18n="sch_d1_pm_1"></span></li>
+                  <li class="sch-item" data-kind="free"><span class="kind" data-i18n="kind_free"></span><span class="what" data-i18n="sch_d1_pm_2"></span></li>
+              </ul>
+            </div>
+            <div class="band band-ev" role="group" aria-labelledby="d1-ev">
+              <div class="band-label"><span class="band-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></span><h4 id="d1-ev" data-i18n="band_ev"></h4></div>
+              <ul class="band-items" role="list">
+                  <li class="sch-item" data-kind="meal"><span class="kind" data-i18n="kind_meal"></span><span class="what" data-i18n="sch_d1_ev_1"></span></li>
+              </ul>
+            </div>
+          </div>
+          <aside class="day-aside">
+            <details class="day-themes" open>
+              <summary><span class="sum-d" data-i18n="sch_themes_h"></span><span class="sum-m" data-i18n="sch_themes_summary"></span></summary>
+              <ol>
+                <li data-i18n="sch_d1_th_1"></li>
+                <li data-i18n="sch_d1_th_2"></li>
+                <li data-i18n="sch_d1_th_3"></li>
+              </ol>
+            </details>
+          </aside>
+        </div>
+        <div class="day-nav" hidden><button type="button" class="sch-btn day-next" data-go="2"></button></div>
+      </article>
+      <article class="sch-day" id="sch-day-2" aria-labelledby="sch-dh-2">
+        <div class="day-head">
+          <h3 class="day-h" id="sch-dh-2" data-i18n="sch_d2_full"></h3>
+          <p class="day-sub" data-i18n="sch_d2_title"></p>
+        </div>
+        <div class="day-grid">
+          <div class="day-bands">
+            <div class="band band-am" role="group" aria-labelledby="d2-am">
+              <div class="band-label"><span class="band-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v3M5.6 7.6l1.4 1.4M18.4 7.6L17 9M3 17h18M7 17a5 5 0 0 1 10 0M8 21h8"/></svg></span><h4 id="d2-am" data-i18n="band_am"></h4></div>
+              <ul class="band-items" role="list">
+                  <li class="sch-item" data-kind="visit"><span class="kind" data-i18n="kind_visit"></span><span class="what" data-i18n="sch_d2_am_1"></span></li>
+                  <li class="sch-item" data-kind="workshop"><span class="kind" data-i18n="kind_workshop"></span><span class="what" data-i18n="sch_d2_am_2"></span></li>
+              </ul>
+            </div>
+            <div class="band band-pm" role="group" aria-labelledby="d2-pm">
+              <div class="band-label"><span class="band-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></span><h4 id="d2-pm" data-i18n="band_pm"></h4></div>
+              <ul class="band-items" role="list">
+                  <li class="sch-item" data-kind="meeting"><span class="kind" data-i18n="kind_meeting"></span><span class="what" data-i18n="sch_d2_pm_1"></span></li>
+                  <li class="sch-item" data-kind="meeting"><span class="kind" data-i18n="kind_meeting"></span><span class="what" data-i18n="sch_d2_pm_2"></span></li>
+              </ul>
+            </div>
+            <div class="band band-ev" role="group" aria-labelledby="d2-ev">
+              <div class="band-label"><span class="band-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></span><h4 id="d2-ev" data-i18n="band_ev"></h4></div>
+              <ul class="band-items" role="list">
+                  <li class="sch-item" data-kind="meal"><span class="kind" data-i18n="kind_meal"></span><span class="what" data-i18n="sch_d2_ev_1"></span></li>
+              </ul>
+            </div>
+          </div>
+          <aside class="day-aside">
+            <details class="day-themes" open>
+              <summary><span class="sum-d" data-i18n="sch_themes_h"></span><span class="sum-m" data-i18n="sch_themes_summary"></span></summary>
+              <ol>
+                <li data-i18n="sch_d2_th_1"></li>
+                <li data-i18n="sch_d2_th_2"></li>
+                <li data-i18n="sch_d2_th_3"></li>
+              </ol>
+            </details>
+          </aside>
+        </div>
+        <div class="day-nav" hidden><button type="button" class="sch-btn day-prev" data-go="1"></button><button type="button" class="sch-btn day-next" data-go="3"></button></div>
+      </article>
+      <article class="sch-day" id="sch-day-3" aria-labelledby="sch-dh-3">
+        <div class="day-head">
+          <h3 class="day-h" id="sch-dh-3" data-i18n="sch_d3_full"></h3>
+          <p class="day-sub" data-i18n="sch_d3_title"></p>
+        </div>
+        <div class="day-grid">
+          <div class="day-bands">
+            <div class="band band-am" role="group" aria-labelledby="d3-am">
+              <div class="band-label"><span class="band-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v3M5.6 7.6l1.4 1.4M18.4 7.6L17 9M3 17h18M7 17a5 5 0 0 1 10 0M8 21h8"/></svg></span><h4 id="d3-am" data-i18n="band_am"></h4></div>
+              <ul class="band-items" role="list">
+                  <li class="sch-item" data-kind="visit"><span class="kind" data-i18n="kind_visit"></span><span class="what" data-i18n="sch_d3_am_1"></span></li>
+                  <li class="sch-item" data-kind="workshop"><span class="kind" data-i18n="kind_workshop"></span><span class="what" data-i18n="sch_d3_am_2"></span></li>
+              </ul>
+            </div>
+            <div class="band band-pm" role="group" aria-labelledby="d3-pm">
+              <div class="band-label"><span class="band-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></span><h4 id="d3-pm" data-i18n="band_pm"></h4></div>
+              <ul class="band-items" role="list">
+                  <li class="sch-item" data-kind="visit"><span class="kind" data-i18n="kind_visit"></span><span class="what" data-i18n="sch_d3_pm_1"></span></li>
+                  <li class="sch-item" data-kind="workshop"><span class="kind" data-i18n="kind_workshop"></span><span class="what" data-i18n="sch_d3_pm_2"></span></li>
+              </ul>
+            </div>
+            <div class="band band-ev" role="group" aria-labelledby="d3-ev">
+              <div class="band-label"><span class="band-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></span><h4 id="d3-ev" data-i18n="band_ev"></h4></div>
+              <ul class="band-items" role="list">
+                  <li class="sch-item" data-kind="free"><span class="kind" data-i18n="kind_free"></span><span class="what" data-i18n="sch_d3_ev_1"></span></li>
+                  <li class="sch-item" data-kind="culture"><span class="kind" data-i18n="kind_culture"></span><span class="what" data-i18n="sch_d3_ev_2"></span></li>
+              </ul>
+            </div>
+          </div>
+          <aside class="day-aside">
+            <details class="day-themes" open>
+              <summary><span class="sum-d" data-i18n="sch_themes_h"></span><span class="sum-m" data-i18n="sch_themes_summary"></span></summary>
+              <ol>
+                <li data-i18n="sch_d3_th_1"></li>
+                <li data-i18n="sch_d3_th_2"></li>
+                <li data-i18n="sch_d3_th_3"></li>
+              </ol>
+            </details>
+            <div class="day-people">
+              <h4 data-i18n="sch_people_h"></h4>
+              <ul role="list"><li><a href="#sp-daisy"><img src="assets/daisy.jpg" alt="" width="40" height="40" loading="lazy"><span data-i18n="daisy_n"></span></a></li></ul>
+            </div>
+          </aside>
+        </div>
+        <div class="day-nav" hidden><button type="button" class="sch-btn day-prev" data-go="2"></button><button type="button" class="sch-btn day-next" data-go="4"></button></div>
+      </article>
+      <article class="sch-day" id="sch-day-4" aria-labelledby="sch-dh-4">
+        <div class="day-head">
+          <h3 class="day-h" id="sch-dh-4" data-i18n="sch_d4_full"></h3>
+          <p class="day-sub" data-i18n="sch_d4_title"></p>
+        </div>
+        <div class="day-grid">
+          <div class="day-bands">
+            <div class="band band-am" role="group" aria-labelledby="d4-am">
+              <div class="band-label"><span class="band-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v3M5.6 7.6l1.4 1.4M18.4 7.6L17 9M3 17h18M7 17a5 5 0 0 1 10 0M8 21h8"/></svg></span><h4 id="d4-am" data-i18n="band_am"></h4></div>
+              <ul class="band-items" role="list">
+                  <li class="sch-item" data-kind="visit"><span class="kind" data-i18n="kind_visit"></span><span class="what" data-i18n="sch_d4_am_1"></span></li>
+              </ul>
+            </div>
+            <div class="band band-pm" role="group" aria-labelledby="d4-pm">
+              <div class="band-label"><span class="band-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></span><h4 id="d4-pm" data-i18n="band_pm"></h4></div>
+              <ul class="band-items" role="list">
+                  <li class="sch-item" data-kind="meal"><span class="kind" data-i18n="kind_meal"></span><span class="what" data-i18n="sch_d4_pm_1"></span></li>
+                  <li class="sch-item" data-kind="workshop"><span class="kind" data-i18n="kind_workshop"></span><span class="what" data-i18n="sch_d4_pm_2"></span></li>
+                  <li class="sch-item" data-kind="free"><span class="kind" data-i18n="kind_free"></span><span class="what" data-i18n="sch_d4_pm_3"></span></li>
+              </ul>
+            </div>
+            <div class="band band-ev" role="group" aria-labelledby="d4-ev">
+              <div class="band-label"><span class="band-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></span><h4 id="d4-ev" data-i18n="band_ev"></h4></div>
+              <ul class="band-items" role="list">
+                  <li class="sch-item" data-kind="free"><span class="kind" data-i18n="kind_free"></span><span class="what" data-i18n="sch_d4_ev_1"></span></li>
+              </ul>
+            </div>
+          </div>
+          <aside class="day-aside">
+            <details class="day-themes" open>
+              <summary><span class="sum-d" data-i18n="sch_themes_h"></span><span class="sum-m" data-i18n="sch_themes_summary"></span></summary>
+              <ol>
+                <li data-i18n="sch_d4_th_1"></li>
+                <li data-i18n="sch_d4_th_2"></li>
+                <li data-i18n="sch_d4_th_3"></li>
+              </ol>
+            </details>
+            <div class="day-people">
+              <h4 data-i18n="sch_people_h"></h4>
+              <ul role="list"><li><a href="#sp-steve"><img src="assets/steve.jpg" alt="" width="40" height="40" loading="lazy"><span data-i18n="steve_n"></span></a></li></ul>
+            </div>
+          </aside>
+        </div>
+        <div class="day-nav" hidden><button type="button" class="sch-btn day-prev" data-go="3"></button><button type="button" class="sch-btn day-next" data-go="5"></button></div>
+      </article>
+      <article class="sch-day" id="sch-day-5" aria-labelledby="sch-dh-5">
+        <div class="day-head">
+          <h3 class="day-h" id="sch-dh-5" data-i18n="sch_d5_full"></h3>
+          <p class="day-sub" data-i18n="sch_d5_title"></p>
+        </div>
+        <div class="day-grid">
+          <div class="day-bands">
+            <div class="band band-am" role="group" aria-labelledby="d5-am">
+              <div class="band-label"><span class="band-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v3M5.6 7.6l1.4 1.4M18.4 7.6L17 9M3 17h18M7 17a5 5 0 0 1 10 0M8 21h8"/></svg></span><h4 id="d5-am" data-i18n="band_am"></h4></div>
+              <ul class="band-items" role="list">
+                  <li class="sch-item" data-kind="workshop"><span class="kind" data-i18n="kind_workshop"></span><span class="what" data-i18n="sch_d5_am_1"></span></li>
+                  <li class="sch-item" data-kind="workshop"><span class="kind" data-i18n="kind_workshop"></span><span class="what" data-i18n="sch_d5_am_2"></span></li>
+              </ul>
+            </div>
+            <div class="band band-pm" role="group" aria-labelledby="d5-pm">
+              <div class="band-label"><span class="band-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></span><h4 id="d5-pm" data-i18n="band_pm"></h4></div>
+              <ul class="band-items" role="list">
+                  <li class="sch-item" data-kind="meal"><span class="kind" data-i18n="kind_meal"></span><span class="what" data-i18n="sch_d5_pm_1"></span></li>
+                  <li class="sch-item" data-kind="meeting"><span class="kind" data-i18n="kind_meeting"></span><span class="what" data-i18n="sch_d5_pm_2"></span></li>
+              </ul>
+            </div>
+            <div class="band band-ev" role="group" aria-labelledby="d5-ev">
+              <div class="band-label"><span class="band-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></span><h4 id="d5-ev" data-i18n="band_ev"></h4></div>
+              <ul class="band-items" role="list">
+                  <li class="sch-item" data-kind="travel"><span class="kind" data-i18n="kind_travel"></span><span class="what" data-i18n="sch_d5_ev_1"></span></li>
+                  <li class="sch-flight"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div><div class="fl-route" data-i18n="f2_route"></div><div class="fl-dir"><span data-i18n="f2_dir"></span> <span class="code">EL AL 318</span></div></div></li>
+              </ul>
+            </div>
+          </div>
+          <aside class="day-aside">
+            <details class="day-themes" open>
+              <summary><span class="sum-d" data-i18n="sch_themes_h"></span><span class="sum-m" data-i18n="sch_themes_summary"></span></summary>
+              <ol>
+                <li data-i18n="sch_d5_th_1"></li>
+                <li data-i18n="sch_d5_th_2"></li>
+                <li data-i18n="sch_d5_th_3"></li>
+              </ol>
+            </details>
+          </aside>
+        </div>
+        <div class="day-nav" hidden><button type="button" class="sch-btn day-prev" data-go="4"></button></div>
+      </article>
+    </div>
+    <div class="sch-note" data-i18n="sch_logistics_note"></div>
     <div class="signup-cta reveal">
       <img class="ripples-card" src="assets/ripples-white.png" alt="">
       <div class="signup-txt">
@@ -657,19 +1119,7 @@ footer .ripples-f{position:absolute;left:-130px;top:-60px;width:420px;opacity:.0
       </div>
       <a class="btn btn-primary" href="teams.html" data-i18n="su_btn"></a>
     </div>
-    <div class="flights">
-      <div class="flight reveal">
-        <div class="dir" data-i18n="f1_dir"></div>
-        <div class="route" data-i18n="f1_route"></div>
-        <div class="meta"><span data-i18n="f1_meta"></span> <span class="code">EL AL 311</span></div>
-      </div>
-      <div class="flight reveal">
-        <div class="dir" data-i18n="f2_dir"></div>
-        <div class="route" data-i18n="f2_route"></div>
-        <div class="meta"><span data-i18n="f2_meta"></span> <span class="code">EL AL 318</span></div>
-      </div>
-    </div>
-    <div class="tt-note reveal" data-i18n="tt_note"></div>
+    <div class="print-only print-foot" data-i18n="print_footer"></div>
   </div>
 </section>
 
@@ -688,7 +1138,7 @@ footer .ripples-f{position:absolute;left:-130px;top:-60px;width:420px;opacity:.0
 const I18N = {
 he: {
   chip:"לונדון · 22 עד 26 בנובמבר 2026",
-  nav_home:"בית", nav_why:"למה לונדון", nav_do:"מה נעשה", nav_induction:"מפגשי ההכנה", nav_speakers:"הדוברים", nav_resources:"משאבי למידה", nav_practical:"פרטים מעשיים",
+  nav_home:"בית", nav_why:"למה לונדון", nav_do:"מה נעשה", nav_induction:"מפגשי ההכנה", nav_speakers:"הדוברים", nav_resources:"משאבי למידה",
   kicker:"משלחת אדוות · יום ראשון 22 עד יום חמישי 26 בנובמבר 2026",
   h1:"המסע ללונדון",
   lede:"חמישה ימים של גיבוש קבוצתי, למידה הדדית ומפגש עם רעיונות חדשים בתוך מערכת החינוך האנגלית. הזדמנות לקחת צעד אחורה מהיומיום העמוס, להרהר במה שמניע אתכם ולחזור עם כוחות מחודשים.",
@@ -720,7 +1170,6 @@ he: {
   s4_d:"יום רביעי · 4 בנובמבר", s4_1:"גיבוש אמנת הקבוצה", s4_2:"ציפיות משותפות לקבוצה", s4_3:"הגדרת גבולות הקבוצה למסע",
   s5_d:"יום שני · 9 בנובמבר", s5_tag:"מקוון · 15:00 עד 20:00", s5_1:"אוטונומיה, אחריותיות ורשתות בתי ספר (MATs)", s5_2:"לוגיסטיקה תפעולית ומלון", s5_3:"תדריך ביטחוני רשמי של המשרד",
   sp_k:"הדוברים", sp_h:"מי נפגוש בלונדון",
-  sp_lede:"קצת מידע על כל מי שתפגשו, מסודר לפי סדר המפגשים.",
   more_soon:"דוברים נוספים יאושרו בקרוב.",
   brett_n:"ברט ויגדורץ OBE", brett_r:"מייסד Teach First · שותף להקמת Teach For All · סייע בהקמת חותם בישראל · מנכ\"ל tiney",
   brett_t:"ידבר על תוכנית London Challenge ועל הקמת Teach First, שהציבה את המנהיגות במרכז הכשרת המורים.",
@@ -772,7 +1221,6 @@ he: {
   r11:"מאמר דעה חכם על ההצלחות של 25 השנים האחרונות, ועל הבעיות הגדולות שנשארו במערכת.",
   cat3:"בתי ספר: איך הם עובדים ולמה לצפות",
   r12:"משלחת אוסטרלית ביקרה וחקרה את רשתות ה-MAT באנגליה, וכתבה איך הן יכולות לעבוד היטב.",
-  r13:"נפגוש ונשמע את סרג' צפאי כשנבקר בבית הספר שלו ביום שני בבוקר.",
   r14:"בתי ספר מנסים לאמץ פרקטיקה מבוססת ראיות כדי להחליט מה לשפר.",
   r15:"כל בתי הספר מחויבים בחוק להגן על תלמידיהם במגוון דרכים.",
   cat4:"מנהיגות ושיפור הוראה",
@@ -786,17 +1234,125 @@ he: {
   gl_h:"מילון המושגים של המסע",
   gl_p:"יותר מ-280 מונחים שתשמעו בלונדון, מוסברים בעברית. יש בו חיפוש בעברית ובאנגלית, מחשבון שכבות, כרטיסיות לתרגול בטיסה וחידון על מה שהאנגלים לא אומרים במפורש.",
   gl_btn:"למילון",
-  pr_k:"פרטים מעשיים", pr_h:"הטיסות והלו\"ז",
   f1_dir:"הלוך · יום ראשון 22 בנובמבר, מוקדם בבוקר", f1_route:"תל אביב ← לונדון לוטון", f1_meta:"נתב\"ג אל שדה התעופה לוטון · טיסת אל על",
   f2_dir:"חזור · יום חמישי 26 בנובמבר, בערב", f2_route:"לונדון הית'רו ← תל אביב", f2_meta:"הית'רו אל נתב\"ג · טיסת אל על",
-  tt_note:"<strong>הלו\"ז המפורט בבנייה.</strong> פרטי הימים, הביקורים והמפגשים יתפרסמו כאן. הלוגיסטיקה התפעולית ופרטי המלון, יחד עם תדריך ביטחוני רשמי, יימסרו במפגש ההכנה של 9 בנובמבר.",
   f_text:"אדוות · מנהיגות מחוללת שינוי<br>משלחת לונדון · 22 עד 26 בנובמבר 2026",
+  /* gen: from 20-draft/copy-modules-schedule.md (schedule, learn-plan card, r13, sp_lede) */
+  nav_schedule:"לו\"ז",
+  cta1_sched:"ללו\"ז המסע",
+  cta1_today:"הלו\"ז של היום",
+  sch_k:"הלו\"ז",
+  sch_h:"חמישה ימים בלונדון, יום אחרי יום",
+  sch_lede:"כל יום מחולק לבוקר, לאחר הצהריים ולערב, ולצידו מופיעים שלושת הנושאים שנעסוק בהם באותו יום. בחרו יום כדי לראות אותו במלואו.",
+  sch_status_before_one:"טסים מחר",
+  sch_status_before_two:"עוד יומיים טסים",
+  sch_status_before_many:"עוד {n} ימים לטיסה",
+  sch_status_during:"אנחנו ביום {n} מתוך 5",
+  sch_all_days:"כל הימים ברצף",
+  sch_one_day:"יום אחד בכל פעם",
+  sch_print:"הדפסת הלו\"ז",
+  sch_today_badge:"היום",
+  kind_visit:"ביקור",
+  kind_workshop:"סדנה",
+  kind_meeting:"מפגש",
+  kind_meal:"ארוחה",
+  kind_culture:"תרבות",
+  kind_free:"זמן חופשי",
+  kind_travel:"נסיעה",
+  sch_themes_summary:"שלושת נושאי היום",
+  sch_people_h:"דוברים שנפגוש ביום הזה",
+  sch_prev:"הקודם: יום {day}",
+  sch_next:"הבא: יום {day}",
+  print_title:"לו\"ז משלחת אדוות ללונדון · 22 עד 26 בנובמבר 2026",
+  print_footer:"כל הפרטים באתר: <bdi>london.hotam.tech</bdi>",
+  sp_when_daisy:"בלו\"ז: יום שלישי אחר הצהריים",
+  sp_when_steve:"בלו\"ז: יום רביעי אחר הצהריים",
+  lt_h:"שלושה מודולים לקראת המסע",
+  lt_p:"בחרנו מתוך כל החומרים באתר את מה ששווה להעמיק בו, וסידרנו אותו בשלושה מודולים. בכל מודול יש סקירה קולית, מצגת וקריאה מרכזית.",
+  lt_btn:"לתוכנית הלמידה",
+  r13:"נפגוש ונשמע את סרג' צפאי, המנהל הבכיר של <bdi>St Thomas the Apostle College</bdi>, כשנבקר בבית הספר ביום רביעי בבוקר.",
+  sp_lede:"קצת מידע על חלק מהאנשים שנפגוש בלונדון. בכרטיס של מי שמופיע בלו\"ז יש קישור ליום שבו נפגוש אותו.",
+  mod2_short:"מבנה בתי הספר",
+  mod3_short:"אחריותיות",
+  mod_status_open:"אפשר להתחיל",
+  mod_status_progress:"סיימתם {x} מתוך {y}",
+  mod_status_done:"סיימתם",
+  lt_k:"למידה עצמאית",
+  mod1_short:"הסיפור הלונדוני",
+  mod_status_soon:"בקרוב",
+  band_am:"בוקר",
+  band_pm:"אחר הצהריים",
+  band_ev:"ערב",
+  sch_themes_h:"נושאי היום",
+  sch_logistics_note:"זה הלו\"ז הכללי של המסע, בלי שעות מדויקות. הלוגיסטיקה התפעולית ופרטי המלון, יחד עם תדריך ביטחוני רשמי, יימסרו במפגש ההכנה של 9 בנובמבר.",
+  sch_d1_wd:"ראשון",
+  sch_d1_date:"22.11",
+  sch_d1_full:"יום ראשון · 22 בנובמבר",
+  sch_d1_title:"נחיתה ומבט ראשון על בריטניה",
+  sch_d1_am_1:"נחיתה והתמצאות ראשונה",
+  sch_d1_pm_1:"סדנת פתיחה ומפגש עם אלעד שמחיוף, עיתונאי ישראלי בלונדון",
+  sch_d1_pm_2:"מנוחה במלון",
+  sch_d1_ev_1:"ארוחת ערב עם הדוברים במסעדת <b><bdi>Tisch</bdi></b>",
+  sch_d1_th_1:"היכרות עם בריטניה בעיניים ישראליות",
+  sch_d1_th_2:"מפת מערכת החינוך בבריטניה, ומי מחליט בה על מה",
+  sch_d1_th_3:"מתארגנים כקבוצה ומתאמים ציפיות",
+  sch_d2_wd:"שני",
+  sch_d2_date:"23.11",
+  sch_d2_full:"יום שני · 23 בנובמבר",
+  sch_d2_title:"מהשכונה ועד הממשלה",
+  sch_d2_am_1:"ביקור ברשת <b><bdi>Reach Schools</bdi></b>",
+  sch_d2_am_2:"סדנאות וארוחת צהריים",
+  sch_d2_pm_1:"דיון מדיניות ב<b>ווסטמינסטר</b>",
+  sch_d2_pm_2:"מפגש עם לורד מייקל גוב, שר החינוך לשעבר באנגליה",
+  sch_d2_ev_1:"ארוחת ערב עם הדוברים במרכז התרבות <b><bdi>JW3</bdi></b>",
+  sch_d2_th_1:"<bdi>Reach Academy</bdi>: חינוך קהילתי שמלווה ילדים מהלידה ועד שהם יוצאים לעבוד",
+  sch_d2_th_2:"מייקל גוב על ניהול החינוך ברמה הארצית, על הנהגה פוליטית ועל ההיסטוריה של הרפורמות",
+  sch_d2_th_3:"שינוי פדגוגי, ומה המבנה של המערכת מאפשר בפועל",
+  sch_d3_wd:"שלישי",
+  sch_d3_date:"24.11",
+  sch_d3_full:"יום שלישי · 24 בנובמבר",
+  sch_d3_title:"חדשנות, פיתוח מורים ו-<bdi>PISA</bdi>",
+  sch_d3_am_1:"ביקור ב-<b><bdi>Ed City</bdi></b>, מרכז חדשנות ו-<bdi>EdTech</bdi>",
+  sch_d3_am_2:"סדנאות על פיתוח מקצועי של מורים ומנהלים",
+  sch_d3_pm_1:"ארוחת צהריים, סיור במקום וביקור במועדון נוער",
+  sch_d3_pm_2:"סדנה עם <a href=\"#sp-daisy\">דייזי כריסטודולו</a> על <bdi>PISA</bdi>, תוכנית הלימודים וההערכה באנגליה",
+  sch_d3_ev_1:"זמן חופשי",
+  sch_d3_ev_2:"המחזמר \"מטילדה\"",
+  sch_d3_th_1:"חדשנות ב-<bdi>EdTech</bdi> ויזמות חברתית בחינוך",
+  sch_d3_th_2:"איך רשתות בתי הספר מצמיחות מנהלים מתוכן ומפתחות את המורים שלהן",
+  sch_d3_th_3:"למה אנגליה הצליחה ב-<bdi>PISA</bdi>, ומה אפשר ללמוד ממנה על הערכה ועל בניית תוכנית לימודים",
+  sch_d4_wd:"רביעי",
+  sch_d4_date:"25.11",
+  sch_d4_full:"יום רביעי · 25 בנובמבר",
+  sch_d4_title:"בית ספר שעבר מהפך, והפיקוח של <bdi>Ofsted</bdi>",
+  sch_d4_am_1:"ביקור ב-<b><bdi>St Thomas the Apostle College</bdi></b>, בית ספר שעבר מהפך",
+  sch_d4_pm_1:"ארוחת צהריים",
+  sch_d4_pm_2:"סדנה עם <a href=\"#sp-steve\">סטיב אדקוק</a> על <bdi>Ofsted</bdi> ועל האחריותיות של בתי הספר",
+  sch_d4_pm_3:"זמן חופשי",
+  sch_d4_ev_1:"ערב חופשי",
+  sch_d4_th_1:"<bdi>St Thomas the Apostle</bdi>: איך בית ספר עובר מהפך ובונה תרבות לימודית בלי הנחות",
+  sch_d4_th_2:"<bdi>Ofsted</bdi> והאחריותיות: איך עובד הפיקוח ואיך מעריכים בית ספר",
+  sch_d4_th_3:"מה מצפים מההנהלה, איך דואגים לתלמידים גם מעבר ללימודים, ואיזה רף הישגים מציבים להם",
+  sch_d5_wd:"חמישי",
+  sch_d5_date:"26.11",
+  sch_d5_full:"יום חמישי · 26 בנובמבר",
+  sch_d5_title:"הרשות המקומית, ומה לוקחים הביתה",
+  sch_d5_am_1:"סדנה ופאנל עם ג'ייסון מרנץ: מה התפקיד של הרשות המקומית בשיפור בתי הספר",
+  sch_d5_am_2:"ד\"ר כריס וילסון מ-<bdi>ImpactEd</bdi> על המקום של מחקר וראיות בחינוך האנגלי",
+  sch_d5_pm_1:"ארוחת צהריים",
+  sch_d5_pm_2:"שיחת סיכום",
+  sch_d5_ev_1:"חזרה הביתה",
+  sch_d5_th_1:"הרשות המקומית: איך עירייה לוקחת אחריות על בתי הספר שלה ומחברת ביניהם",
+  sch_d5_th_2:"איך מודדים השפעה בחינוך: התערבויות מבוססות ראיות והכלים של <bdi>ImpactEd</bdi>",
+  sch_d5_th_3:"מה לוקחים מלונדון לעבודה שלנו בישראל, ואיזו התחייבות כל אחד מאיתנו מקבל על עצמו",
+  /* gen end */
   title:"אדוות · המסע ללונדון 2026",
-  lang_btn:"English"
+  lang_btn:"English",
+  lang_aria:"החלפת שפה"
 },
 en: {
   chip:"London · 22 to 26 Nov 2026",
-  nav_home:"Home", nav_why:"Why London", nav_do:"What we'll do", nav_induction:"Induction", nav_speakers:"Speakers", nav_resources:"Resources", nav_practical:"Practical",
+  nav_home:"Home", nav_why:"Why London", nav_do:"What we'll do", nav_induction:"Induction", nav_speakers:"Speakers", nav_resources:"Resources",
   kicker:"Advot delegation · Sunday 22 to Thursday 26 November 2026",
   h1:"London Calling!",
   lede:"Five days to bond as a group, learn from each other and encounter new ideas, inside the English school system. A chance to step back from your busy day-to-day tasks, reflect on what motivates you, and return with renewed vigour.",
@@ -828,7 +1384,6 @@ en: {
   s4_d:"Wednesday · 4 November", s4_1:"Developing the Cohort Covenant", s4_2:"Establishing shared group expectations", s4_3:"Defining group boundaries for the trip",
   s5_d:"Monday · 9 November", s5_tag:"Online · 15:00 to 20:00", s5_1:"Autonomy, accountability and MATs", s5_2:"Operational and hotel logistics", s5_3:"Official Ministry security briefing",
   sp_k:"Speakers", sp_h:"Who we'll meet in London",
-  sp_lede:"A bit of information about everyone you will meet, laid out in the order that you will meet them.",
   more_soon:"More confirmed soon.",
   brett_n:"Brett Wigdortz OBE", brett_r:"Founder of Teach First · co-founder of Teach For All · helped found Hotam · CEO of tiney",
   brett_t:"Will speak about the London Challenge and founding Teach First, which placed leadership at the heart of teacher training.",
@@ -880,7 +1435,6 @@ en: {
   r11:"A smart opinion piece reflecting on the successes of the last 25 years, and what remain as the big problems in the system.",
   cat3:"Schools: how they work and what to expect",
   r12:"An Australian delegation visited and studied MATs in England and wrote this report on how they can work well.",
-  r13:"We will meet and hear from Serge Cefai when we visit his school on Monday morning.",
   r14:"Schools are trying to adopt evidence-based practice to make decisions about how to improve.",
   r15:"All schools are legally required to keep their students protected in many ways.",
   cat4:"Leadership and teacher improvement",
@@ -894,13 +1448,121 @@ en: {
   gl_h:"Glossary: British education and policy terms",
   gl_p:"Over 280 terms by chapter, with search in Hebrew and English, a year-group converter, flashcards for the flight and a quiz on what the English really mean. The glossary is in Hebrew.",
   gl_btn:"Open the glossary",
-  pr_k:"Practical", pr_h:"Flights and timetable",
   f1_dir:"Outbound · Sunday 22 November, early morning", f1_route:"Tel Aviv → London Luton", f1_meta:"Ben Gurion Airport to Luton Airport · EL AL flight",
   f2_dir:"Return · Thursday 26 November, evening", f2_route:"London Heathrow → Tel Aviv", f2_meta:"Heathrow to Ben Gurion Airport · EL AL flight",
-  tt_note:"<strong>The detailed timetable is under construction.</strong> Day-by-day visits and sessions will be published here. Operational and hotel logistics, along with an official security briefing, will be covered at the final induction session on 9 November.",
   f_text:"Advot · Leadership that drives change<br>London delegation · 22 to 26 November 2026",
+  /* gen: from 20-draft/copy-modules-schedule.md (schedule, learn-plan card, r13, sp_lede) */
+  nav_schedule:"Schedule",
+  cta1_sched:"Trip schedule",
+  cta1_today:"Today's schedule",
+  sch_k:"Schedule",
+  sch_h:"Five days in London, day by day",
+  sch_lede:"Each day is split into morning, afternoon and evening, with the three themes we will focus on that day shown alongside. Pick a day to see it in full.",
+  sch_status_before_one:"We fly tomorrow",
+  sch_status_before_two:"We fly in two days",
+  sch_status_before_many:"{n} days until we fly",
+  sch_status_during:"Day {n} of 5",
+  sch_all_days:"Show all days",
+  sch_one_day:"One day at a time",
+  sch_print:"Print schedule",
+  sch_today_badge:"Today",
+  kind_visit:"Visit",
+  kind_workshop:"Workshop",
+  kind_meeting:"Meeting",
+  kind_meal:"Meal",
+  kind_culture:"Culture",
+  kind_free:"Free time",
+  kind_travel:"Travel",
+  sch_themes_summary:"The day's three themes",
+  sch_people_h:"Speakers on this day",
+  sch_prev:"Previous: {day}",
+  sch_next:"Next: {day}",
+  print_title:"Advot London delegation · Schedule · 22 to 26 November 2026",
+  print_footer:"Full details: london.hotam.tech",
+  sp_when_daisy:"Schedule: Tuesday afternoon",
+  sp_when_steve:"Schedule: Wednesday afternoon",
+  lt_h:"Three modules before the trip",
+  lt_p:"We picked the materials on this site most worth your time and arranged them in three modules, each with an audio overview, slides and a core reading.",
+  lt_btn:"Open the learning plan",
+  r13:"We will meet and hear from Serge Cefai, Executive Headteacher of St Thomas the Apostle College, when we visit the school on Wednesday morning.",
+  sp_lede:"A little about some of the people we will meet in London. If someone appears in the schedule, their card links to the day we meet them.",
+  mod2_short:"School structures",
+  mod3_short:"Accountability",
+  mod_status_open:"Ready to start",
+  mod_status_progress:"{x} of {y} done",
+  mod_status_done:"Done",
+  lt_k:"Self-study",
+  mod1_short:"The London story",
+  mod_status_soon:"Coming soon",
+  band_am:"Morning",
+  band_pm:"Afternoon",
+  band_ev:"Evening",
+  sch_themes_h:"Key themes",
+  sch_logistics_note:"This is an outline schedule for the trip, without exact times. Operational and hotel logistics, along with an official security briefing, will be covered at the final induction session on 9 November.",
+  sch_d1_wd:"Sun",
+  sch_d1_date:"22 Nov",
+  sch_d1_full:"Sunday · 22 November",
+  sch_d1_title:"Arrival and a first look at the UK",
+  sch_d1_am_1:"Arrival and orientation",
+  sch_d1_pm_1:"Induction workshop and a meeting with Elad Simchayoff, an Israeli journalist in London",
+  sch_d1_pm_2:"Rest time at the hotel",
+  sch_d1_ev_1:"Dinner with speakers at <b>Tisch Restaurant</b>",
+  sch_d1_th_1:"Introduction to the UK through Israeli eyes",
+  sch_d1_th_2:"The UK education landscape and its policy architecture",
+  sch_d1_th_3:"Cohort alignment and orientation",
+  sch_d2_wd:"Mon",
+  sch_d2_date:"23 Nov",
+  sch_d2_full:"Monday · 23 November",
+  sch_d2_title:"From the neighbourhood to Westminster",
+  sch_d2_am_1:"Visit to <b>Reach Schools Multi-Academy Trust</b>",
+  sch_d2_am_2:"Workshops and lunch",
+  sch_d2_pm_1:"Policy discussion in <b>Westminster</b>",
+  sch_d2_pm_2:"Meeting with Lord Michael Gove, former Secretary of State for Education",
+  sch_d2_ev_1:"Dinner with speakers at <b>JW3 Cultural Centre</b>",
+  sch_d2_th_1:"Place-based, cradle-to-career community education (Reach Academy)",
+  sch_d2_th_2:"National governance, political leadership and the history of reform (Michael Gove)",
+  sch_d2_th_3:"Pedagogical change and structural realities",
+  sch_d3_wd:"Tue",
+  sch_d3_date:"24 Nov",
+  sch_d3_full:"Tuesday · 24 November",
+  sch_d3_title:"Innovation, teacher development and PISA",
+  sch_d3_am_1:"Visit to <b>Ed City</b>, an innovation and EdTech hub",
+  sch_d3_am_2:"Workshops on teacher and school leader development",
+  sch_d3_pm_1:"Lunch, a site tour and a visit to a youth club",
+  sch_d3_pm_2:"Workshop with <a href=\"#sp-daisy\">Daisy Christodoulou</a>: PISA, England, curriculum and assessment",
+  sch_d3_ev_1:"Free time",
+  sch_d3_ev_2:"Matilda The Musical",
+  sch_d3_th_1:"EdTech innovation and educational social enterprise",
+  sch_d3_th_2:"Leadership pipelines and teacher development in Multi-Academy Trusts",
+  sch_d3_th_3:"Explaining England's PISA success, assessment ideas and curriculum design",
+  sch_d4_wd:"Wed",
+  sch_d4_date:"25 Nov",
+  sch_d4_full:"Wednesday · 25 November",
+  sch_d4_title:"A school turnaround, and Ofsted inspection",
+  sch_d4_am_1:"Visit to <b>St Thomas the Apostle College</b>, a turnaround school",
+  sch_d4_pm_1:"Lunch",
+  sch_d4_pm_2:"Workshop with <a href=\"#sp-steve\">Steve Adcock</a>: Ofsted and school accountability",
+  sch_d4_pm_3:"Free time",
+  sch_d4_ev_1:"Free evening",
+  sch_d4_th_1:"School turnaround and a relentless academic culture (St Thomas the Apostle College)",
+  sch_d4_th_2:"Ofsted: accountability, how inspection works and how schools are evaluated",
+  sch_d4_th_3:"Leadership expectations, pastoral care and standards for pupil achievement",
+  sch_d5_wd:"Thu",
+  sch_d5_date:"26 Nov",
+  sch_d5_full:"Thursday · 26 November",
+  sch_d5_title:"The local authority, and what we take home",
+  sch_d5_am_1:"Workshop and panel with Jason Marantz: the local authority's role in improving schools",
+  sch_d5_am_2:"The role of evidence in English education, with Dr Chris Wilson (ImpactEd)",
+  sch_d5_pm_1:"Lunch",
+  sch_d5_pm_2:"Final reflections",
+  sch_d5_ev_1:"Travel home",
+  sch_d5_th_1:"Local authority governance, municipal stewardship and school networks",
+  sch_d5_th_2:"Measuring educational impact: evidence-based intervention and ImpactEd frameworks",
+  sch_d5_th_3:"Translating what we learnt in the UK to our own context, and our commitments as leaders",
+  /* gen end */
   title:"Advot · The Journey to London 2026",
-  lang_btn:"עברית"
+  lang_btn:"עברית",
+  lang_aria:"Switch language"
 }
 };
 
@@ -909,6 +1571,8 @@ try{ const saved=localStorage.getItem('advot-lang'); if(saved==='en'||saved==='h
 try{ const qp=new URLSearchParams(location.search).get('lang'); if(qp==='en'||qp==='he') lang=qp; }catch(e){}
 
 const langBtn=document.getElementById('langBtn');
+const langHooks=[];
+function plain(html){ const d=document.createElement('div'); d.innerHTML=html; return d.textContent; }
 function setLang(l){
   lang=l;
   const d=I18N[l];
@@ -920,7 +1584,15 @@ function setLang(l){
   });
   document.title=d.title;
   langBtn.textContent=d.lang_btn;
+  if(d.lang_aria) langBtn.setAttribute('aria-label',d.lang_aria);
+  document.querySelectorAll('.sch-item').forEach(function(li){
+    const k=li.querySelector('.kind'), w=li.querySelector('.what');
+    if(!k||!w) return;
+    const first=(w.textContent.trim().split(/\s+/)[0]||'').toLowerCase();
+    k.hidden = first===k.textContent.trim().toLowerCase();
+  });
   try{ localStorage.setItem('advot-lang',l); }catch(e){}
+  langHooks.forEach(function(f){ f(l); });
 }
 langBtn.addEventListener('click',()=>setLang(lang==='he'?'en':'he'));
 setLang(lang);
@@ -943,6 +1615,166 @@ const spy=()=>{
   navA.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
 };
 addEventListener('scroll',spy,{passive:true});spy();
+
+// learning-plan card: module 1 progress from learn.html (same origin, localStorage 'advot-learn')
+langHooks.push(function(){
+  const el=document.getElementById('ltStatus1'); if(!el) return;
+  const d=I18N[lang], items=['m1-audio','m1-deck','m1-exec','m1-ch5'], y=items.length;
+  let x=0;
+  try{ const o=JSON.parse(localStorage.getItem('advot-learn')||'null'); if(o&&o.v===1&&o.done) items.forEach(function(k){ if(o.done[k]) x++; }); }catch(e){}
+  el.textContent= x===0?d.mod_status_open:(x===y?d.mod_status_done:d.mod_status_progress.replace('{x}',x).replace('{y}',y));
+});
+
+// ===== schedule: tabs, London date, hero button, print (spec 3.5 to 3.7) =====
+// Test hook: ?today=YYYY-MM-DD overrides the London date (e.g. ?today=2026-11-24). Without it, Europe/London time is used.
+(function(){
+  const tabsEl=document.getElementById('schTabs'); if(!tabsEl) return;
+  const DAYS=['2026-11-22','2026-11-23','2026-11-24','2026-11-25','2026-11-26'];
+  const tabs=[].slice.call(tabsEl.querySelectorAll('[role="tab"]'));
+  const panels=DAYS.map(function(_,i){ return document.getElementById('sch-day-'+(i+1)); });
+  const modeBtn=document.getElementById('schMode'), printBtn=document.getElementById('schPrint');
+  const statusEl=document.getElementById('schStatus'), cta1=document.getElementById('cta1');
+  const themes=[].slice.call(document.querySelectorAll('.day-themes'));
+  let sel=0, allMode=false, todayIdx=-1, today='', printing=false;
+
+  function londonToday(){
+    try{ const q=new URLSearchParams(location.search).get('today'); if(q&&/^\d{4}-\d{2}-\d{2}$/.test(q)) return q; }catch(e){}
+    try{
+      const p={}; new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/London',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date()).forEach(function(x){ p[x.type]=x.value; });
+      return p.year+'-'+p.month+'-'+p.day;
+    }catch(e){
+      const n=new Date(); return n.getFullYear()+'-'+String(n.getMonth()+1).padStart(2,'0')+'-'+String(n.getDate()).padStart(2,'0');
+    }
+  }
+  function dayNum(s){ const p=s.split('-').map(Number); return Math.round(Date.UTC(p[0],p[1]-1,p[2])/864e5); }
+
+  function computeDate(){
+    today=londonToday();
+    todayIdx=DAYS.indexOf(today);
+    if(cta1){
+      let key='cta1', href='#induction';
+      if(todayIdx>=0){ key='cta1_today'; href='#sch-day-'+(todayIdx+1); }
+      else if(today>='2026-11-10'){ key='cta1_sched'; href='#schedule'; }
+      cta1.setAttribute('data-i18n',key); cta1.setAttribute('href',href); cta1.innerHTML=I18N[lang][key];
+    }
+  }
+
+  function renderText(){
+    const d=I18N[lang];
+    const diff=dayNum(DAYS[0])-dayNum(today);
+    let s='';
+    if(diff>0) s= diff===1?d.sch_status_before_one:(diff===2?d.sch_status_before_two:d.sch_status_before_many.replace('{n}',diff));
+    else if(todayIdx>=0) s=d.sch_status_during.replace('{n}',todayIdx+1);
+    statusEl.innerHTML=s; statusEl.hidden=!s;
+    tabs.forEach(function(t,i){
+      const isT=i===todayIdx;
+      t.querySelector('.st-today').hidden=!isT;
+      t.setAttribute('aria-label',plain(d['sch_d'+(i+1)+'_full'])+(isT?', '+plain(d.sch_today_badge):''));
+    });
+    panels.forEach(function(p){
+      p.querySelectorAll('[data-go]').forEach(function(b){
+        const n=+b.getAttribute('data-go');
+        b.textContent=(b.classList.contains('day-prev')?d.sch_prev:d.sch_next).replace('{day}',plain(d['sch_d'+n+'_wd']));
+      });
+    });
+    modeBtn.textContent=allMode?d.sch_one_day:d.sch_all_days;
+  }
+
+  function select(i,opt){
+    opt=opt||{};
+    sel=i;
+    tabs.forEach(function(t,j){ const on=j===i; t.setAttribute('aria-selected',on?'true':'false'); t.tabIndex=on?0:-1; });
+    if(!allMode){
+      panels.forEach(function(p,j){ p.hidden=j!==i; });
+      if(opt.anim!==false){ const p=panels[i]; p.classList.remove('fade'); void p.offsetWidth; p.classList.add('fade'); }
+    }
+    if(opt.focus) tabs[i].focus();
+    if(opt.hash!==false){ try{ history.replaceState(null,'','#sch-day-'+(i+1)); }catch(e){} }
+  }
+
+  function setAll(on){
+    allMode=on;
+    modeBtn.setAttribute('aria-pressed',on?'true':'false');
+    tabsEl.hidden=on;
+    panels.forEach(function(p,j){
+      if(on){ p.hidden=false; p.removeAttribute('role'); p.removeAttribute('tabindex'); p.setAttribute('aria-labelledby','sch-dh-'+(j+1)); }
+      else { p.setAttribute('role','tabpanel'); p.setAttribute('aria-labelledby','sch-tab-'+(j+1)); p.tabIndex=0; p.hidden=j!==sel; }
+      p.querySelector('.day-nav').hidden=on;
+    });
+    renderText();
+  }
+
+  // keyboard: WAI-ARIA tabs, automatic activation, direction read at key time (RTL: left = next)
+  tabsEl.addEventListener('keydown',function(e){
+    const i=tabs.indexOf(document.activeElement); if(i<0) return;
+    const rtl=document.documentElement.dir==='rtl'; let n=null;
+    if(e.key==='ArrowRight') n=rtl?i-1:i+1;
+    else if(e.key==='ArrowLeft') n=rtl?i+1:i-1;
+    else if(e.key==='Home') n=0;
+    else if(e.key==='End') n=tabs.length-1;
+    if(n===null) return;
+    e.preventDefault();
+    select((n+tabs.length)%tabs.length,{focus:true});
+  });
+  tabs.forEach(function(t,i){ t.addEventListener('click',function(){ select(i); }); });
+  panels.forEach(function(p){
+    p.querySelectorAll('[data-go]').forEach(function(b){
+      b.addEventListener('click',function(){ select(+b.getAttribute('data-go')-1,{focus:true}); });
+    });
+  });
+  modeBtn.addEventListener('click',function(){ setAll(!allMode); if(!allMode) select(sel,{anim:false}); });
+  printBtn.addEventListener('click',function(){ window.print(); });
+
+  // links to a day (hero button, speaker tags): show the panel before the browser scrolls to it
+  document.addEventListener('click',function(e){
+    const a=e.target.closest&&e.target.closest('a[href^="#sch-day-"]'); if(!a) return;
+    const n=parseInt(a.getAttribute('href').slice(9),10)-1;
+    if(n>=0&&n<5&&!allMode) select(n,{hash:false,anim:false});
+  });
+  addEventListener('hashchange',function(){
+    const m=location.hash.match(/^#sch-day-([1-5])$/);
+    if(m&&!allMode&&+m[1]-1!==sel){ select(+m[1]-1,{hash:false}); panels[sel].scrollIntoView(); }
+  });
+
+  // themes: open and fixed on desktop, collapsed on mobile
+  const mq=matchMedia('(max-width:940px)');
+  function syncThemes(){ if(printing) return; themes.forEach(function(d){ d.open=!mq.matches; }); }
+  if(mq.addEventListener) mq.addEventListener('change',syncThemes); else if(mq.addListener) mq.addListener(syncThemes);
+  themes.forEach(function(d){ d.addEventListener('toggle',function(){ if(!printing&&!mq.matches&&!d.open) d.open=true; }); });
+
+  // print: all days, all themes open; restore afterwards
+  let wasAll=false, openState=[];
+  addEventListener('beforeprint',function(){
+    if(printing) return;
+    printing=true; wasAll=allMode; openState=themes.map(function(d){ return d.open; });
+    if(!allMode) setAll(true);
+    themes.forEach(function(d){ d.open=true; });
+  });
+  addEventListener('afterprint',function(){
+    if(!printing) return;
+    if(!wasAll){ setAll(false); select(sel,{hash:false,anim:false}); }
+    themes.forEach(function(d,i){ d.open=openState[i]; });
+    printing=false;
+  });
+
+  // init
+  tabsEl.hidden=false;
+  document.getElementById('schActions').hidden=false;
+  panels.forEach(function(p,j){ p.setAttribute('role','tabpanel'); p.setAttribute('aria-labelledby','sch-tab-'+(j+1)); p.tabIndex=0; p.querySelector('.day-nav').hidden=false; });
+  computeDate();
+  const h=location.hash.match(/^#sch-day-([1-5])$/);
+  select(h?+h[1]-1:(todayIdx>=0?todayIdx:0),{hash:false,anim:false});
+  syncThemes();
+  renderText();
+  if(h) addEventListener('load',function(){ panels[sel].scrollIntoView(); });
+  langHooks.push(function(){ computeDate(); renderText(); });
+  document.addEventListener('visibilitychange',function(){
+    if(document.hidden) return;
+    const old=todayIdx; computeDate(); renderText();
+    if(todayIdx!==old&&todayIdx>=0&&!/^#sch-day-/.test(location.hash)) select(todayIdx,{hash:false});
+  });
+})();
+langHooks.forEach(function(f){ f(lang); });
 
 // hero background video (desktop only)
 {

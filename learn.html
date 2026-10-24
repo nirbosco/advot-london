@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.className=document.documentElement.className.replace('no-js','js');</script>
+<title>תוכנית הלמידה · אדוות לונדון 2026</title>
+<meta name="description" content="שלושה מודולים ללמידה עצמית לקראת משלחת אדוות ללונדון, ובכל אחד סקירה קולית, מצגת וקריאה מרכזית.">
+<link rel="icon" type="image/png" href="assets/advot-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* tokens: copied as-is from index.html :root (index is the source of truth, see decision log) */
+:root{
+  --blue:#0048FF;
+  --blue-deep:#3B5DEC;
+  --blue-mid:#2680F1;
+  --sky:#0DB4F4;
+  --teal:#41CAC5;
+  --purple:#6536EA;
+  --white:#FEFEFE;
+  --soft:#F3F6FF;
+  --ink:#0B1440;
+  --ink-dim:#4A5580;
+  --line:#DCE3F5;
+  --shadow-sm:0 1px 3px rgba(11,20,64,.08);
+  --shadow-md:0 6px 20px rgba(11,20,64,.10);
+  --shadow-lg:0 16px 40px rgba(11,20,64,.14);
+  --shadow-brand:0 10px 28px rgba(0,72,255,.30);
+  --grad:linear-gradient(105deg,#41CAC5 0%,#0DB4F4 22%,#2680F1 45%,#3B5DEC 66%,#6536EA 85%,#0048FF 100%);
+  --ease:cubic-bezier(0.22,1,0.36,1);
+  --r-card:16px;
+  --r-btn:10px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+html,body{overflow-x:clip}
+body{font-family:'Heebo',sans-serif;color:var(--ink);background:var(--soft);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+html[lang="en"] body{font-family:'Montserrat',sans-serif;font-size:15.5px}
+img{max-width:100%;display:block}
+a{color:var(--blue);text-decoration:none}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.no-js .js-only{display:none!important}
+.container{max-width:980px;margin:0 auto;padding:0 24px}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.ltr{direction:ltr;unicode-bidi:isolate;font-family:'Montserrat','Heebo',sans-serif}
+
+/* ---------- header (index look, secondary-page layout) ---------- */
+body>header{position:sticky;top:0;z-index:100;background:rgba(254,254,254,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.brand{display:flex;align-items:center;min-width:0}
+.brand img{height:34px;width:auto}
+.nav-side{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.lang-btn{font-family:'Montserrat','Heebo',sans-serif;font-size:13.5px;font-weight:700;color:var(--blue);background:var(--white);border:1.5px solid var(--blue);border-radius:999px;padding:6px 18px;min-height:36px;cursor:pointer;transition:background .25s var(--ease),color .25s var(--ease);white-space:nowrap}
+.lang-btn:hover{background:var(--blue);color:var(--white)}
+.back{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;color:var(--blue);background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:5px 16px;min-height:36px;white-space:nowrap}
+.back:hover{background:var(--line)}
+.back svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+html[dir="ltr"] .back svg{transform:scaleX(-1)}
+
+/* ---------- hero ---------- */
+.learn-hero{position:relative;overflow:hidden;background:linear-gradient(rgba(11,20,64,.22),rgba(11,20,64,.22)),var(--grad);color:var(--white);padding:56px 0 104px;text-align:center}
+.learn-hero .rip{position:absolute;left:-120px;top:-60px;width:520px;opacity:.18;pointer-events:none}
+.learn-hero .rip2{position:absolute;right:-160px;bottom:-200px;width:480px;opacity:.12;pointer-events:none;transform:rotate(180deg)}
+.hero-inner{position:relative;z-index:1}
+.kicker{display:inline-block;max-width:100%;font-size:13.5px;font-weight:700;letter-spacing:.02em;background:rgba(254,254,254,.14);border:1px solid rgba(254,254,254,.35);border-radius:999px;padding:4px 15px;margin-bottom:14px}
+.learn-hero h1{font-size:clamp(32px,6vw,52px);font-weight:800;line-height:1.1;margin-bottom:12px}
+.learn-hero .lede{font-size:18.5px;max-width:640px;margin:0 auto}
+html[lang="en"] .learn-hero .lede{font-size:17px}
+
+/* ---------- module overview tiles ---------- */
+.mod-overview{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:-64px;position:relative;z-index:2}
+.mod-tile{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--shadow-md);padding:18px 20px;display:flex;gap:14px;align-items:center;color:var(--ink);transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+.mod-tile:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.mt-num{flex-shrink:0;width:44px;height:44px;border-radius:12px;background:var(--soft);color:var(--blue);display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:800;font-size:18px}
+.mt-num svg{display:none;width:22px;height:22px;stroke:var(--white);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.mod-tile.is-done .mt-num{background:var(--blue)}
+.mod-tile.is-done .mt-num svg{display:block}
+.mod-tile.is-done .mt-digit{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+.mod-tile.is-soon .mt-num{background:var(--white);border:1.5px dashed var(--blue-mid)}
+.mt-txt{min-width:0}
+.mt-txt b{display:block;font-size:16.5px;font-weight:800;line-height:1.3}
+.mt-status{display:block;font-size:13.5px;color:var(--ink-dim);line-height:1.4;margin-top:2px}
+
+/* ---------- main column ---------- */
+main.container{padding-top:32px;padding-bottom:64px}
+.col{max-width:760px;margin:0 auto}
+.learn-how{background:var(--white);border:1px solid var(--line);border-inline-start:4px solid var(--teal);border-radius:var(--r-card);padding:24px 28px;font-size:16.5px;color:var(--ink);box-shadow:var(--shadow-sm)}
+html[lang="en"] .learn-how{font-size:15.5px}
+.learn-how p + p{margin-top:10px}
+
+.module{margin-top:56px;scroll-margin-top:24px}
+.mod-head{margin-bottom:28px}
+.mod-k{font-size:14px;font-weight:700;color:var(--blue);letter-spacing:.06em;margin-bottom:8px}
+.module h2{font-size:clamp(26px,3.2vw,38px);font-weight:800;line-height:1.2;margin-bottom:10px}
+.mod-scope{font-size:17px;color:var(--ink-dim);max-width:680px}
+html[lang="en"] .mod-scope{font-size:16px}
+.mod-progress{margin-top:18px;max-width:360px}
+.mp-txt{display:flex;align-items:center;gap:6px;font-size:14px;font-weight:700;color:var(--ink)}
+.mp-txt svg{width:16px;height:16px;stroke:var(--blue);fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.mp-bar{height:6px;border-radius:999px;background:var(--soft);border:1px solid var(--line);overflow:hidden;margin-top:6px}
+.mp-bar i{display:block;height:100%;width:0;background:var(--blue);transition:width .35s var(--ease)}
+
+/* steps: same visual language as the induction timeline on index */
+ol.steps{list-style:none;position:relative}
+ol.steps::before{content:"";position:absolute;inset-inline-start:29px;top:24px;bottom:24px;width:2px;background:var(--line)}
+.step{position:relative;padding-inline-start:88px;margin-bottom:28px}
+.step:last-child{margin-bottom:0}
+.step-dot{position:absolute;inset-inline-start:14px;top:24px;width:32px;height:32px;border-radius:50%;background:var(--white);border:2px solid var(--blue);color:var(--blue);font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;z-index:1;transition:box-shadow .25s var(--ease),background .25s var(--ease)}
+.step-dot svg{display:none;width:16px;height:16px;stroke:var(--white);fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.step.is-next .step-dot{box-shadow:0 0 0 5px var(--line)}
+.step.is-done .step-dot{background:var(--blue)}
+.step.is-done .step-dot svg{display:block}
+.step.is-done .sd-n{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+.step-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);padding:24px 28px;box-shadow:var(--shadow-sm)}
+.step-top{display:flex;justify-content:space-between;align-items:baseline;gap:4px 12px;flex-wrap:wrap;margin-bottom:6px}
+.step-kind{font-size:12.5px;font-weight:700;color:var(--ink-dim);letter-spacing:.02em}
+.step-meta{font-family:'Montserrat','Heebo',sans-serif;font-size:13.5px;color:var(--ink-dim)}
+.step-h{font-size:19px;font-weight:800;line-height:1.35;margin-bottom:6px}
+html[lang="en"] .step-h{font-size:17.5px}
+.step-p{font-size:15.5px;color:var(--ink-dim)}
+html[lang="en"] .step-p{font-size:14.5px}
+.step-body{margin-top:16px}
+.step-body audio{display:block;width:100%}
+.dl-link{display:inline-block;margin-top:10px;font-size:14px;font-weight:500;color:var(--blue)}
+.dl-link:hover,.read-more a:hover,.ext-all:hover,.fr-pdf a:hover{text-decoration:underline}
+.deck-tip{display:none;font-size:13.5px;color:var(--ink-dim);margin-top:10px}
+.step-foot{border-top:1px solid var(--line);padding-top:6px;margin-top:18px}
+.read-src{font-family:'Montserrat',sans-serif;font-size:12.5px;font-weight:600;color:var(--blue);margin-bottom:8px}
+
+.btn-solid{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:12px 22px;border-radius:var(--r-btn);background:var(--blue);color:var(--white);font-size:15.5px;font-weight:700;line-height:1.3;transition:filter .2s var(--ease),transform .2s var(--ease)}
+.btn-solid:hover{filter:brightness(.92);transform:translateY(-1px)}
+.btn-line{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border-radius:var(--r-btn);border:1.5px solid var(--blue);background:var(--white);color:var(--blue);font-size:15px;font-weight:700;white-space:nowrap;flex-shrink:0;transition:background .2s var(--ease)}
+.btn-line:hover{background:var(--soft)}
+
+/* done toggle */
+.done-toggle{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 2px;cursor:pointer;font-size:15px;font-weight:700;color:var(--ink);position:relative;user-select:none}
+.done-toggle input{position:absolute;opacity:0;width:24px;height:24px;margin:0;inset-inline-start:2px;top:50%;transform:translateY(-50%);cursor:pointer}
+.done-toggle .box{width:24px;height:24px;border-radius:7px;border:2px solid var(--ink-dim);background:var(--white);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s var(--ease),border-color .2s var(--ease)}
+.done-toggle .box svg{width:16px;height:16px;stroke:var(--white);fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;opacity:0}
+.done-toggle input:checked + .box{background:var(--blue);border-color:var(--blue)}
+.done-toggle input:checked + .box svg{opacity:1}
+.done-toggle input:focus-visible + .box{outline:3px solid var(--blue);outline-offset:2px}
+.row-toggle{width:44px;height:44px;justify-content:center;padding:0;flex-shrink:0}
+.row-toggle input{inset-inline-start:10px}
+
+/* focus box */
+.focus{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-top:16px}
+.focus h4{font-size:15px;font-weight:800;margin-bottom:4px}
+.focus-row{display:flex;align-items:center;gap:14px;padding:12px 0}
+.focus-row + .focus-row{border-top:1px solid var(--line)}
+.fr-info{flex:1;min-width:0}
+.fr-name{font-size:16px;font-weight:700;color:var(--ink);line-height:1.4}
+.fr-pages{font-size:14px;color:var(--ink-dim);line-height:1.5}
+.fr-pdf{font-size:13px;white-space:nowrap}
+.read-more{margin-top:14px;font-size:14.5px;color:var(--ink-dim)}
+.read-more a{font-weight:700}
+.read-invite{margin-top:2px;font-size:14.5px;color:var(--ink-dim)}
+
+/* extras */
+.extras{margin-top:44px}
+.ex-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.extras h3{font-size:20px;font-weight:800;line-height:1.3}
+.opt{font-size:13px;font-weight:700;color:var(--ink-dim);background:var(--white);border:1px solid var(--line);border-radius:999px;padding:1px 12px}
+.ext-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ext-row{position:relative;background:var(--white);border:1px solid var(--line);border-radius:14px;padding:16px 20px;display:flex;flex-direction:column;gap:4px;transition:border-color .25s var(--ease)}
+.ext-row:hover{border-color:var(--blue-mid)}
+.ext-title{font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:var(--ink);line-height:1.45}
+.ext-title.he{font-family:inherit;font-size:15.5px}
+.ext-title.stretch::after{content:"";position:absolute;inset:0;border-radius:14px}
+.ext-row a.ext-title:hover{color:var(--blue)}
+.ext-src{font-family:'Montserrat',sans-serif;font-size:12.5px;font-weight:600;color:var(--blue)}
+.ext-src.he{font-family:inherit}
+.ext-pair + .ext-pair{margin-top:6px}
+.ext-pair{display:flex;flex-direction:column;gap:2px}
+.ext-note{font-size:14.5px;color:var(--ink-dim)}
+html[lang="en"] .ext-note{font-size:13.5px}
+.ext-debate,.ext-links{position:relative;z-index:1;font-size:14px;color:var(--ink-dim)}
+.ext-debate a,.ext-links a{font-weight:700}
+.ext-links{font-size:15px;color:var(--ink);font-weight:500}
+.ext-all{display:inline-block;margin-top:14px;font-size:15px;font-weight:700}
+.mod-closing{margin-top:32px;font-size:17px;font-weight:700;color:var(--ink)}
+
+/* coming soon */
+.module.is-soon{background:var(--white);border:1.5px dashed var(--blue-mid);border-radius:var(--r-card);padding:28px 32px}
+.soon-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.soon-top .mod-k{margin-bottom:0}
+.tag-soon{font-size:13px;font-weight:700;border-radius:999px;padding:3px 14px;background:var(--soft);color:var(--blue);border:1px solid var(--line)}
+.module.is-soon h2{font-size:clamp(22px,2.6vw,30px)}
+.soon-scope{list-style:none;margin:14px 0 12px}
+.soon-scope li{position:relative;padding-inline-start:20px;font-size:16px;margin-bottom:6px}
+html[lang="en"] .soon-scope li{font-size:15px}
+.soon-scope li::before{content:"";position:absolute;inset-inline-start:0;top:11px;width:8px;height:8px;border-radius:50%;background:var(--sky)}
+.soon-includes{font-size:14.5px;color:var(--ink-dim)}
+.soon-meanwhile{margin-top:20px;border-top:1px solid var(--line);padding-top:18px}
+.soon-meanwhile h3{font-size:16px;font-weight:800;margin-bottom:12px}
+.soon-meanwhile .ext-row{background:var(--soft)}
+
+/* footer: index footer (white Advot logo only) */
+footer{background:var(--ink);color:var(--white);padding:48px 0 36px;position:relative;overflow:hidden}
+footer .ripples-f{position:absolute;left:-130px;top:-60px;width:420px;opacity:.07;transform:rotate(12deg);pointer-events:none}
+.f-inner{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:24px 32px;flex-wrap:wrap}
+.f-brand{display:flex;align-items:center;gap:22px}
+.f-brand img{height:52px;width:auto}
+.f-brand .sep{width:1px;height:36px;background:rgba(254,254,254,.25)}
+.f-text{font-size:14px;color:rgba(254,254,254,.75);line-height:1.9}
+.f-link{font-size:14px;font-weight:700;color:var(--white);border-bottom:1px solid rgba(254,254,254,.45);padding-bottom:1px}
+.f-link:hover{border-bottom-color:var(--white)}
+footer :focus-visible{outline-color:var(--white)}
+
+/* ---------- responsive ---------- */
+@media (max-width:940px){
+  html{scroll-padding-top:80px}
+  .container{padding:0 16px}
+  .learn-hero{padding:36px 0 96px}
+  .learn-hero .lede{font-size:16px}
+  html[lang="en"] .learn-hero .lede{font-size:15.5px}
+  .mod-overview{gap:8px}
+  .mod-tile{flex-direction:column;text-align:center;padding:14px 8px;gap:8px}
+  .mt-txt b{font-size:14px}
+  .mt-status{font-size:12.5px}
+  main.container{padding-top:24px;padding-bottom:48px}
+  .step{padding-inline-start:64px}
+  ol.steps::before{inset-inline-start:21px}
+  .step-dot{inset-inline-start:6px}
+  .step-card{padding:20px 18px}
+  .learn-how{padding:20px 20px}
+  .f-inner{flex-direction:column;text-align:center}
+  .f-brand{flex-direction:column;gap:14px}
+  .f-brand .sep{display:none}
+}
+@media (max-width:720px){
+  .deck-tip{display:block}
+  .ext-row{padding:14px 16px}
+  .module.is-soon{padding:22px 18px}
+}
+@media (max-width:480px){
+  .btn-solid,.btn-line{width:100%}
+  .focus-row{flex-wrap:wrap;gap:4px 10px}
+  .focus-row .fr-info{flex:1 1 calc(100% - 60px)}
+  .focus-row .btn-line{flex:1 1 100%}
+  .focus{padding:14px 14px}
+  .step{padding-inline-start:52px}
+  ol.steps::before{inset-inline-start:15px}
+  .step-dot{inset-inline-start:0}
+}
+@media (max-width:380px){
+  .back .back-txt{display:none}
+  .back{padding:5px 10px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+  .mod-tile:hover,.btn-solid:hover{transform:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav-inner">
+    <a class="brand" href="index.html"><img src="assets/advot-logo.png" alt="אדוות · מנהיגות מחוללת שינוי" width="102" height="34"></a>
+    <div class="nav-side">
+      <button class="lang-btn js-only" id="langBtn" type="button" aria-label="החלפת שפה" data-i18n-aria="lang_aria" data-i18n="lang_btn">English</button>
+      <a class="back" href="index.html" data-i18n-aria="learn_back" aria-label="חזרה לאתר המסע"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span class="back-txt" data-i18n="learn_back">חזרה לאתר המסע</span></a>
+    </div>
+  </div>
+</header>
+
+<section class="hero learn-hero">
+  <img class="rip" src="assets/ripples-white.png" alt="">
+  <img class="rip2" src="assets/ripples-white.png" alt="">
+  <div class="container hero-inner">
+    <span class="kicker" data-i18n="learn_kicker">משלחת אדוות · לונדון 2026</span>
+    <h1 data-i18n="learn_h1">תוכנית הלמידה לפני המסע</h1>
+    <p class="lede" data-i18n="learn_lede">בסמינר האחרון ביקשתם דרך מסודרת להתכונן ללונדון, אז בנינו תוכנית ללמידה עצמאית: מתוך כל החומרים באתר, בחרנו את אלה ששווה להעמיק בהם.</p>
+  </div>
+</section>
+
+<nav class="container mod-overview" data-i18n-aria="learn_overview_aria" aria-label="שלושת המודולים">
+  <a class="mod-tile" href="#m1" data-mod="1">
+    <span class="mt-num" aria-hidden="true"><span class="mt-digit">1</span><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+    <span class="mt-txt"><b data-i18n="mod1_short">הסיפור הלונדוני</b><span class="mt-status" id="tile1Status">אפשר להתחיל</span></span>
+  </a>
+  <a class="mod-tile is-soon" href="#m2" data-mod="2">
+    <span class="mt-num" aria-hidden="true"><span class="mt-digit">2</span></span>
+    <span class="mt-txt"><b data-i18n="mod2_short">מבנה בתי הספר</b><span class="mt-status" data-i18n="mod_status_soon">בקרוב</span></span>
+  </a>
+  <a class="mod-tile is-soon" href="#m3" data-mod="3">
+    <span class="mt-num" aria-hidden="true"><span class="mt-digit">3</span></span>
+    <span class="mt-txt"><b data-i18n="mod3_short">אחריותיות</b><span class="mt-status" data-i18n="mod_status_soon">בקרוב</span></span>
+  </a>
+</nav>
+
+<main class="container">
+  <div class="col">
+
+    <aside class="learn-how">
+      <p data-i18n="learn_how_p">בכל מודול תמצאו סקירה קולית, מצגת, טקסט מרכזי לקריאה וטקסטים להרחבה. שלושת הראשונים הם העיקר, וההרחבה למי שרוצה עוד.</p>
+      <p data-i18n="learn_order_p">כדאי להתחיל מהסקירה הקולית, שהיא הכי קצרה ואפשר לשמוע אותה בדרך, ואחר כך לעבור למצגת ולקריאה. זו רק המלצה, ואפשר להתחיל מכל מקום.</p>
+      <p class="js-only" data-i18n="learn_privacy">אפשר לסמן כל פריט שסיימתם. הסימונים נשמרים רק בדפדפן הזה ולא נשלחים לאף אחד.</p>
+    </aside>
+
+    <!-- ===== module 1 ===== -->
+    <section class="module is-open" id="m1" aria-labelledby="m1-h">
+      <header class="mod-head">
+        <div class="mod-k" data-i18n="mod_k" data-n="1">מודול 1 מתוך 3</div>
+        <h2 id="m1-h" data-i18n="mod1_h">הסיפור הלונדוני</h2>
+        <p class="mod-scope" data-i18n="mod1_scope">המודול מתמקד בתוכנית <bdi>London Challenge</bdi> ובשאלה שעדיין מתווכחים עליה: כמה מההצלחה בזכות המדיניות, וכמה בזכות השינויים באוכלוסיית העיר.</p>
+        <div class="mod-progress js-only">
+          <p class="mp-txt" id="m1Prog" aria-live="polite"></p>
+          <div class="mp-bar" id="m1BarWrap" aria-hidden="true" hidden><i id="m1Bar"></i></div>
+        </div>
+      </header>
+
+      <ol class="steps" role="list">
+        <!-- step 1: audio -->
+        <li class="step" data-items="m1-audio">
+          <span class="step-dot"><span class="sd-n">1</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+          <div class="step-card">
+            <div class="step-top"><span class="step-kind" data-i18n="kind_audio">האזנה</span><span class="step-meta" data-i18n="mod1_audio_meta">2 דקות</span></div>
+            <h3 class="step-h" data-i18n="mod1_audio_h">סקירה קולית: <bdi>London Challenge</bdi></h3>
+            <p class="step-p" data-i18n="mod1_audio_p">שתי דקות על <bdi>London Challenge</bdi> ועל השיפור בלונדון, סיפור די מבלבל. טוב להתחיל כאן, לפני המצגת.</p>
+            <div class="step-body">
+              <audio id="m1Audio" controls preload="metadata" src="assets/module1-audio.m4a"><a href="assets/module1-audio.m4a" download data-i18n="audio_fallback">הדפדפן הזה לא מצליח לנגן את ההקלטה. אפשר להוריד אותה כאן.</a></audio>
+              <a class="dl-link" href="assets/module1-audio.m4a" download data-i18n="audio_download">להורדה והאזנה בלי אינטרנט (<bdi>3.9MB</bdi>)</a>
+            </div>
+            <div class="step-foot js-only">
+              <label class="done-toggle"><input type="checkbox" data-item="m1-audio"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span data-i18n="done_label">סיימתי</span><span class="sr-only">: <span data-i18n="mod1_audio_h">סקירה קולית: <bdi>London Challenge</bdi></span></span></label>
+            </div>
+          </div>
+        </li>
+
+        <!-- step 2: slides -->
+        <li class="step" data-items="m1-deck">
+          <span class="step-dot"><span class="sd-n">2</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+          <div class="step-card">
+            <div class="step-top"><span class="step-kind" data-i18n="kind_deck">מצגת</span><span class="step-meta" data-i18n="mod1_deck_meta">12 שקפים · בעברית · <bdi>PDF 1.9MB</bdi></span></div>
+            <h3 class="step-h" data-i18n="mod1_deck_h">למה לבקר בלונדון?</h3>
+            <p class="step-p" data-i18n="mod1_deck_p">מה השתנה בבתי הספר של לונדון מאז 2003, מה הניע את השינוי ואיזה מחיר המערכת שילמה עליו. בשקף האחרון שלוש שאלות לקחת איתכם לביקורים בבתי הספר.</p>
+            <div class="step-body">
+              <a class="btn-solid" href="assets/module1-deck.pdf" target="_blank" rel="noopener" data-i18n="deck_open">למצגת</a>
+              <p class="deck-tip" data-i18n="deck_mobile_tip">נוח יותר לקרוא כשמסובבים את הטלפון לרוחב</p>
+            </div>
+            <div class="step-foot js-only">
+              <label class="done-toggle"><input type="checkbox" data-item="m1-deck"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span data-i18n="done_label">סיימתי</span><span class="sr-only">: <span data-i18n="mod1_deck_h">למה לבקר בלונדון?</span></span></label>
+            </div>
+          </div>
+        </li>
+
+        <!-- step 3: core reading -->
+        <li class="step" data-items="m1-exec,m1-ch5">
+          <span class="step-dot"><span class="sd-n">3</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+          <div class="step-card">
+            <div class="step-top"><span class="step-kind" data-i18n="kind_read">קריאה מרכזית</span></div>
+            <h3 class="step-h"><span class="ltr" lang="en">Lessons from London Schools: Investigating the Success</span></h3>
+            <p class="read-src"><span class="ltr" lang="en">CfBT Education Trust · Centre for London · 2014</span></p>
+            <p class="step-p" data-i18n="mod1_read_p">דוח מקיף שבודק מה הוביל לשיפור הדרמטי בהישגים של בתי הספר בלונדון מאז שנת 2000. הדוח באנגלית וארוך, אז התמקדו בשני חלקים.</p>
+            <div class="focus">
+              <h4 data-i18n="focus_h">במה להתמקד בדוח</h4>
+              <div class="focus-row">
+                <label class="done-toggle row-toggle js-only"><input type="checkbox" data-item="m1-exec" aria-labelledby="fr1-name"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></label>
+                <div class="fr-info">
+                  <div class="fr-name" id="fr1-name" data-i18n="focus1_name">תקציר המנהלים</div>
+                  <div class="fr-pages"><span data-i18n="focus1_pages">עמודים 6-7 · שני עמודים</span> <span class="fr-pdf">(<a href="assets/module1-lessons-from-london-schools.pdf#page=10" target="_blank" rel="noopener" data-i18n="focus1_pdfpage">בקובץ המלא: עמוד 10</a>)</span></div>
+                </div>
+                <a class="btn-line" href="assets/module1-reading-executive-summary.pdf" target="_blank" rel="noopener"><span data-i18n="focus_open">לקריאה</span><span class="sr-only">: <span data-i18n="focus1_name">תקציר המנהלים</span></span></a>
+              </div>
+              <div class="focus-row">
+                <label class="done-toggle row-toggle js-only"><input type="checkbox" data-item="m1-ch5" aria-labelledby="fr2-name"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></label>
+                <div class="fr-info">
+                  <div class="fr-name" id="fr2-name" data-i18n="focus2_name">פרק 5: מנהיגות</div>
+                  <div class="fr-pages"><span data-i18n="focus2_pages">עמודים 96-117 · 22 עמודים</span> <span class="fr-pdf">(<a href="assets/module1-lessons-from-london-schools.pdf#page=100" target="_blank" rel="noopener" data-i18n="focus2_pdfpage">בקובץ המלא: עמוד 100</a>)</span></div>
+                </div>
+                <a class="btn-line" href="assets/module1-reading-chapter5-leadership.pdf" target="_blank" rel="noopener"><span data-i18n="focus_open">לקריאה</span><span class="sr-only">: <span data-i18n="focus2_name">פרק 5: מנהיגות</span></span></a>
+              </div>
+            </div>
+            <p class="read-more"><a href="assets/module1-lessons-from-london-schools.pdf" target="_blank" rel="noopener" data-i18n="read_full">לדוח המלא · 136 עמודים</a></p>
+            <p class="read-invite" data-i18n="read_more_invite">מי שרוצה, מוזמן כמובן לצלול לעוד.</p>
+          </div>
+        </li>
+      </ol>
+
+      <section class="extras" aria-labelledby="m1-ex-h">
+        <div class="ex-head"><h3 id="m1-ex-h" data-i18n="extras_h">טקסטים להרחבה</h3><span class="opt" data-i18n="extras_optional">רשות</span></div>
+        <ul class="ext-list" role="list">
+          <li class="ext-row">
+            <a class="ext-title stretch" href="https://www.instituteforgovernment.org.uk/sites/default/files/publications/Implementing%20the%20London%20Challenge%20-%20final_0.pdf" target="_blank" rel="noopener"><span class="ltr" lang="en">About the London Challenge (2002 to 2011)</span></a>
+            <span class="ext-src"><span class="ltr" lang="en">Institute for Government</span></span>
+            <span class="ext-note" data-i18n="ext_m1_r5">מסמך שמראה איך יושמה <bdi>London Challenge</bdi> בפועל. לצידו שלושה קישורים לוויכוח על הסיבות לשיפור: הגירה, כסף ו-<bdi>Teach First</bdi>.</span>
+            <span class="ext-debate" data-i18n="r5_debate"><a href="https://www.theguardian.com/commentisfree/2014/nov/14/london-schools-immigration-children-education" target="_blank" rel="noopener">הגירה</a> · <a href="https://samfreedman1.blogspot.com/2013/10/why-are-londons-schools-doing-so-well.html" target="_blank" rel="noopener">כסף</a> · <a href="https://www.bbc.co.uk/news/education-28003848" target="_blank" rel="noopener">Teach First</a></span>
+          </li>
+          <li class="ext-row">
+            <a class="ext-title stretch" href="https://www.suttontrust.com/news-opinion/all-news-opinion/london-miles-ahead-of-other-regions-in-providing-best-opportunities-for-the-poorest-young-people/" target="_blank" rel="noopener"><span class="ltr" lang="en">London has the best results for the poorest</span></a>
+            <span class="ext-src"><span class="ltr" lang="en">Sutton Trust · 2025</span></span>
+            <span class="ext-note" data-i18n="ext_m1_r4">דוח שמשלים את השקף על סגירת הפערים במצגת: מה קורה לתלמידים העניים ביותר בלונדון לעומת שאר המדינה.</span>
+          </li>
+          <li class="ext-row">
+            <div class="ext-pair">
+              <a class="ext-title he" href="https://drive.google.com/file/d/1L4Me5AARMjcRdtsN0Cg7_U5gO4zQR618/view?usp=sharing" target="_blank" rel="noopener" data-i18n="p1_t">פודקאסט קצר: החדשנות השמרנית שהזניקה את החינוך באנגליה</a>
+              <span class="ext-src he" data-i18n="p1_s">פודקאסט · בעברית</span>
+            </div>
+            <div class="ext-pair">
+              <a class="ext-title he" href="assets/hadshanut-shamranit.pdf" target="_blank" rel="noopener" data-i18n="p2_t">מצגת: חדשנות שמרנית · אדריכלות הפלא החינוכי של אנגליה</a>
+              <span class="ext-src he" data-i18n="p2_s"><bdi>PDF</bdi> · מלווה את הפודקאסט</span>
+            </div>
+            <span class="ext-note" data-i18n="ext_m1_p12">פודקאסט קצר ומצגת בעברית על סיפור הרפורמות באנגליה, למי שרוצה לראות את התמונה הרחבה ולא רק את לונדון.</span>
+          </li>
+          <li class="ext-row">
+            <a class="ext-title stretch" href="https://schoolsweek.co.uk/goves-traditionalists-won-but-now-they-see-what-was-lost/" target="_blank" rel="noopener"><span class="ltr" lang="en">Opinion: Traditionalists won, but what was lost?</span></a>
+            <span class="ext-src"><span class="ltr" lang="en">Schools Week</span></span>
+            <span class="ext-note" data-i18n="ext_m1_r11">מאמר דעה על מה שהרפורמות של גוב השיגו ועל המחיר ששילמו עליהן. כדאי לקרוא אותו לפני המפגש עם גוב ביום שני.</span>
+          </li>
+        </ul>
+        <a class="ext-all" href="index.html#resources" data-i18n="extras_all">לכל משאבי הלמידה באתר</a>
+      </section>
+
+      <p class="mod-closing" data-i18n="mod1_closing">אז תכינו לכם כוס תה טובה, וצוללים.</p>
+    </section>
+
+    <!-- ===== module 2 (coming soon) ===== -->
+    <section class="module is-soon" id="m2" aria-labelledby="m2-h">
+      <div class="soon-top"><div class="mod-k" data-i18n="mod_k" data-n="2">מודול 2 מתוך 3</div><span class="tag-soon" data-i18n="soon_tag">בקרוב</span></div>
+      <h2 id="m2-h" data-i18n="mod2_h">איך בנויים בתי הספר באנגליה</h2>
+      <ul class="soon-scope">
+        <li data-i18n="mod2_scope_1">המבנה הארגוני של בית ספר באנגליה</li>
+        <li data-i18n="mod2_scope_2">על מה אחראי מנהל בית הספר</li>
+        <li data-i18n="mod2_scope_3">רשתות בתי הספר (<bdi>MAT</bdi>) והאקדמיות, מול בתי הספר של הרשות המקומית</li>
+        <li data-i18n="mod2_scope_4">סקירה כללית של התקציבים</li>
+      </ul>
+      <p class="soon-includes" data-i18n="soon_includes">גם כאן יהיו סקירה קולית, מצגת, קריאה מרכזית וטקסטים להרחבה.</p>
+      <div class="soon-meanwhile">
+        <h3 data-i18n="soon_meanwhile_h">בינתיים, אפשר להתחיל מאלה</h3>
+        <ul class="ext-list" role="list">
+          <li class="ext-row">
+            <a class="ext-title stretch" href="https://www.gov.uk/government/publications/2010-to-2015-government-policy-academies-and-free-schools/2010-to-2015-government-policy-academies-and-free-schools" target="_blank" rel="noopener"><span class="ltr" lang="en">English school structures reforms 2010 to 2015</span></a>
+            <span class="ext-src"><span class="ltr" lang="en">DfE</span></span>
+            <span class="ext-note" data-i18n="ext_m2_r8">המסמך הרשמי של הממשלה שמסביר למה הפכו בתי ספר לאקדמיות. משם כדאי להתחיל כדי להבין איך המערכת בנויה היום.</span>
+          </li>
+          <li class="ext-row">
+            <a class="ext-title stretch" href="https://grattan.edu.au/report/spreading-success-why-australia-should-trial-multi-school-organisations/" target="_blank" rel="noopener"><span class="ltr" lang="en">A positive analysis of Multi-Academy Trusts</span></a>
+            <span class="ext-src"><span class="ltr" lang="en">Grattan · 2024</span></span>
+            <span class="ext-note" data-i18n="ext_m2_r12">משלחת אחרת שעשתה בדיוק מה שאנחנו עושים: באה ללמוד על רשתות בתי הספר, וכתבה למה הן מצליחות.</span>
+          </li>
+          <li class="ext-row">
+            <a class="ext-title stretch" href="https://gpseducation.oecd.org/Content/MapOfEducationSystem/GBR/GBR_2011_EN.pdf" target="_blank" rel="noopener"><span class="ltr" lang="en">Diagram of the UK schools system on one page</span></a>
+            <span class="ext-src"><span class="ltr" lang="en">OECD · 2025</span></span>
+            <span class="ext-note" data-i18n="ext_m2_r1">כל המערכת בעמוד אחד, עם כל השלבים והמסלולים. כדאי שיהיה פתוח לידכם כשאתם קוראים את שאר הטקסטים.</span>
+          </li>
+          <li class="ext-row">
+            <span class="ext-links" data-i18n="s2_links">חומרי המפגש: <a href="https://youtu.be/KAapDrwpbnU" target="_blank" rel="noopener">הקלטת המפגש עם עמוס רבן</a> · <a href="assets/mifgash-2-deck.pdf" target="_blank" rel="noopener">המצגת המלווה (PDF)</a></span>
+            <span class="ext-note" data-i18n="ext_m2_s2">ההקלטה והמצגת ממפגש ההכנה השני עם עמוס רבן, על ההשוואה בין המערכת האנגלית לישראלית.</span>
+          </li>
+          <li class="ext-row">
+            <a class="ext-title stretch" href="https://www.supportingeducation.com/content-hub/safeguarding-in-schools-importance-and-strategies/" target="_blank" rel="noopener"><span class="ltr" lang="en">An introduction to Safeguarding</span></a>
+            <span class="ext-src"><span class="ltr" lang="en">Supporting Education</span></span>
+            <span class="ext-note" data-i18n="ext_m2_r15">מה בית ספר מחויב בחוק לעשות כדי להגן על התלמידים, אחד מתחומי האחריות של המנהל.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== module 3 (coming soon) ===== -->
+    <section class="module is-soon" id="m3" aria-labelledby="m3-h">
+      <div class="soon-top"><div class="mod-k" data-i18n="mod_k" data-n="3">מודול 3 מתוך 3</div><span class="tag-soon" data-i18n="soon_tag">בקרוב</span></div>
+      <h2 id="m3-h" data-i18n="mod3_h">אחריותיות: איך מעריכים בתי ספר באנגליה</h2>
+      <ul class="soon-scope">
+        <li data-i18n="mod3_scope_1">איך בנוי מערך ההערכה והפיקוח</li>
+        <li data-i18n="mod3_scope_2">מסגרת הפיקוח של <bdi>Ofsted</bdi></li>
+        <li data-i18n="mod3_scope_3">מה המשמעות של אחריותיות ביומיום של בית ספר</li>
+      </ul>
+      <p class="soon-includes" data-i18n="soon_includes">גם כאן יהיו סקירה קולית, מצגת, קריאה מרכזית וטקסטים להרחבה.</p>
+      <div class="soon-meanwhile">
+        <h3 data-i18n="soon_meanwhile_h">בינתיים, אפשר להתחיל מאלה</h3>
+        <ul class="ext-list" role="list">
+          <li class="ext-row">
+            <a class="ext-title stretch" href="https://www.gov.uk/government/publications/education-inspection-framework" target="_blank" rel="noopener"><span class="ltr" lang="en">Ofsted Inspection Framework</span></a>
+            <span class="ext-src"><span class="ltr" lang="en">Ofsted · GOV.UK</span></span>
+            <span class="ext-note" data-i18n="ext_m3_r9">מה המפקחים מחפשים כשהם מגיעים לבית ספר, מהמסמך הרשמי של <bdi>Ofsted</bdi>. הכנה טובה לסדנה עם סטיב אדקוק ביום רביעי.</span>
+          </li>
+          <li class="ext-row">
+            <a class="ext-title stretch" href="https://www.impactedgroup.uk/resources/report-mind-the-engagement-gap" target="_blank" rel="noopener"><span class="ltr" lang="en">The Engagement Gap</span></a>
+            <span class="ext-src"><span class="ltr" lang="en">ImpactEd · UCL</span></span>
+            <span class="ext-note" data-i18n="ext_m3_r10">דוח של <bdi>ImpactEd</bdi>, שנפגוש ביום חמישי, על הירידה במחוברות של התלמידים בבית הספר העל-יסודי.</span>
+          </li>
+          <li class="ext-row">
+            <a class="ext-title stretch" href="https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit" target="_blank" rel="noopener"><span class="ltr" lang="en">Teaching &amp; Learning Toolkit</span></a>
+            <span class="ext-src"><span class="ltr" lang="en">EEF</span></span>
+            <span class="ext-note" data-i18n="ext_m3_r7">הכלי של <bdi>EEF</bdi> שמסכם מה המחקר אומר על דרכי הוראה. רקע טוב למפגש על מחקר וראיות ביום חמישי.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<p class="sr-only" id="liveMsg" aria-live="polite"></p>
+
+<footer>
+  <img class="ripples-f" src="assets/ripples-white.png" alt="">
+  <div class="container f-inner">
+    <div class="f-brand">
+      <img src="assets/advot-logo-white.png" alt="אדוות · מנהיגות מחוללת שינוי" width="156" height="52">
+      <span class="sep"></span>
+      <div class="f-text" data-i18n="f_text">אדוות · מנהיגות מחוללת שינוי<br>משלחת לונדון · 22 עד 26 בנובמבר 2026</div>
+    </div>
+    <a class="f-link" href="glossary.html" data-i18n="learn_footer_glossary">למילון המושגים של המסע</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+/* Strings come from 20-draft/copy-modules-schedule.md (generated, word for word). */
+const I18N = {
+"he": {
+"audio_auto_done": "סיימתם להאזין, והסקירה סומנה",
+"audio_download": "להורדה והאזנה בלי אינטרנט (<bdi>3.9MB</bdi>)",
+"audio_fallback": "הדפדפן הזה לא מצליח לנגן את ההקלטה. אפשר להוריד אותה כאן.",
+"deck_mobile_tip": "נוח יותר לקרוא כשמסובבים את הטלפון לרוחב",
+"deck_open": "למצגת",
+"done_label": "סיימתי",
+"ext_m1_p12": "פודקאסט קצר ומצגת בעברית על סיפור הרפורמות באנגליה, למי שרוצה לראות את התמונה הרחבה ולא רק את לונדון.",
+"ext_m1_r11": "מאמר דעה על מה שהרפורמות של גוב השיגו ועל המחיר ששילמו עליהן. כדאי לקרוא אותו לפני המפגש עם גוב ביום שני.",
+"ext_m1_r4": "דוח שמשלים את השקף על סגירת הפערים במצגת: מה קורה לתלמידים העניים ביותר בלונדון לעומת שאר המדינה.",
+"ext_m1_r5": "מסמך שמראה איך יושמה <bdi>London Challenge</bdi> בפועל. לצידו שלושה קישורים לוויכוח על הסיבות לשיפור: הגירה, כסף ו-<bdi>Teach First</bdi>.",
+"ext_m2_r1": "כל המערכת בעמוד אחד, עם כל השלבים והמסלולים. כדאי שיהיה פתוח לידכם כשאתם קוראים את שאר הטקסטים.",
+"ext_m2_r12": "משלחת אחרת שעשתה בדיוק מה שאנחנו עושים: באה ללמוד על רשתות בתי הספר, וכתבה למה הן מצליחות.",
+"ext_m2_r15": "מה בית ספר מחויב בחוק לעשות כדי להגן על התלמידים, אחד מתחומי האחריות של המנהל.",
+"ext_m2_r8": "המסמך הרשמי של הממשלה שמסביר למה הפכו בתי ספר לאקדמיות. משם כדאי להתחיל כדי להבין איך המערכת בנויה היום.",
+"ext_m2_s2": "ההקלטה והמצגת ממפגש ההכנה השני עם עמוס רבן, על ההשוואה בין המערכת האנגלית לישראלית.",
+"ext_m3_r10": "דוח של <bdi>ImpactEd</bdi>, שנפגוש ביום חמישי, על הירידה במחוברות של התלמידים בבית הספר העל-יסודי.",
+"ext_m3_r7": "הכלי של <bdi>EEF</bdi> שמסכם מה המחקר אומר על דרכי הוראה. רקע טוב למפגש על מחקר וראיות ביום חמישי.",
+"ext_m3_r9": "מה המפקחים מחפשים כשהם מגיעים לבית ספר, מהמסמך הרשמי של <bdi>Ofsted</bdi>. הכנה טובה לסדנה עם סטיב אדקוק ביום רביעי.",
+"extras_all": "לכל משאבי הלמידה באתר",
+"extras_h": "טקסטים להרחבה",
+"extras_optional": "רשות",
+"f_text": "אדוות · מנהיגות מחוללת שינוי<br>משלחת לונדון · 22 עד 26 בנובמבר 2026",
+"focus1_name": "תקציר המנהלים",
+"focus1_pages": "עמודים 6-7 · שני עמודים",
+"focus1_pdfpage": "בקובץ המלא: עמוד 10",
+"focus2_name": "פרק 5: מנהיגות",
+"focus2_pages": "עמודים 96-117 · 22 עמודים",
+"focus2_pdfpage": "בקובץ המלא: עמוד 100",
+"focus_h": "במה להתמקד בדוח",
+"focus_open": "לקריאה",
+"kind_audio": "האזנה",
+"kind_deck": "מצגת",
+"kind_read": "קריאה מרכזית",
+"lang_btn": "English",
+"lang_aria": "החלפת שפה",
+"learn_back": "חזרה לאתר המסע",
+"learn_footer_glossary": "למילון המושגים של המסע",
+"learn_h1": "תוכנית הלמידה לפני המסע",
+"learn_how_p": "בכל מודול תמצאו סקירה קולית, מצגת, טקסט מרכזי לקריאה וטקסטים להרחבה. שלושת הראשונים הם העיקר, וההרחבה למי שרוצה עוד.",
+"learn_kicker": "משלחת אדוות · לונדון 2026",
+"learn_lede": "בסמינר האחרון ביקשתם דרך מסודרת להתכונן ללונדון, אז בנינו תוכנית ללמידה עצמאית: מתוך כל החומרים באתר, בחרנו את אלה ששווה להעמיק בהם.",
+"learn_meta_desc": "שלושה מודולים ללמידה עצמית לקראת משלחת אדוות ללונדון, ובכל אחד סקירה קולית, מצגת וקריאה מרכזית.",
+"learn_order_p": "כדאי להתחיל מהסקירה הקולית, שהיא הכי קצרה ואפשר לשמוע אותה בדרך, ואחר כך לעבור למצגת ולקריאה. זו רק המלצה, ואפשר להתחיל מכל מקום.",
+"learn_overview_aria": "שלושת המודולים",
+"learn_privacy": "אפשר לסמן כל פריט שסיימתם. הסימונים נשמרים רק בדפדפן הזה ולא נשלחים לאף אחד.",
+"learn_title": "תוכנית הלמידה · אדוות לונדון 2026",
+"media_artist": "אדוות · לונדון 2026",
+"mod1_audio_h": "סקירה קולית: <bdi>London Challenge</bdi>",
+"mod1_audio_meta": "2 דקות",
+"mod1_audio_p": "שתי דקות על <bdi>London Challenge</bdi> ועל השיפור בלונדון, סיפור די מבלבל. טוב להתחיל כאן, לפני המצגת.",
+"mod1_closing": "אז תכינו לכם כוס תה טובה, וצוללים.",
+"mod1_deck_h": "למה לבקר בלונדון?",
+"mod1_deck_meta": "12 שקפים · בעברית · <bdi>PDF 1.9MB</bdi>",
+"mod1_deck_p": "מה השתנה בבתי הספר של לונדון מאז 2003, מה הניע את השינוי ואיזה מחיר המערכת שילמה עליו. בשקף האחרון שלוש שאלות לקחת איתכם לביקורים בבתי הספר.",
+"mod1_h": "הסיפור הלונדוני",
+"mod1_read_p": "דוח מקיף שבודק מה הוביל לשיפור הדרמטי בהישגים של בתי הספר בלונדון מאז שנת 2000. הדוח באנגלית וארוך, אז התמקדו בשני חלקים.",
+"mod1_scope": "המודול מתמקד בתוכנית <bdi>London Challenge</bdi> ובשאלה שעדיין מתווכחים עליה: כמה מההצלחה בזכות המדיניות, וכמה בזכות השינויים באוכלוסיית העיר.",
+"mod1_short": "הסיפור הלונדוני",
+"mod2_h": "איך בנויים בתי הספר באנגליה",
+"mod2_scope_1": "המבנה הארגוני של בית ספר באנגליה",
+"mod2_scope_2": "על מה אחראי מנהל בית הספר",
+"mod2_scope_3": "רשתות בתי הספר (<bdi>MAT</bdi>) והאקדמיות, מול בתי הספר של הרשות המקומית",
+"mod2_scope_4": "סקירה כללית של התקציבים",
+"mod2_short": "מבנה בתי הספר",
+"mod3_h": "אחריותיות: איך מעריכים בתי ספר באנגליה",
+"mod3_scope_1": "איך בנוי מערך ההערכה והפיקוח",
+"mod3_scope_2": "מסגרת הפיקוח של <bdi>Ofsted</bdi>",
+"mod3_scope_3": "מה המשמעות של אחריותיות ביומיום של בית ספר",
+"mod3_short": "אחריותיות",
+"mod_complete": "סיימתם את המודול",
+"mod_k": "מודול {n} מתוך 3",
+"mod_progress": "סיימתם {x} מתוך {y}",
+"mod_progress_zero": "{y} דברים לסמן במודול, מתחילים מתי שנוח לכם",
+"mod_status_done": "סיימתם",
+"mod_status_open": "אפשר להתחיל",
+"mod_status_progress": "סיימתם {x} מתוך {y}",
+"mod_status_soon": "בקרוב",
+"p1_s": "פודקאסט · בעברית",
+"p1_t": "פודקאסט קצר: החדשנות השמרנית שהזניקה את החינוך באנגליה",
+"p2_s": "<bdi>PDF</bdi> · מלווה את הפודקאסט",
+"p2_t": "מצגת: חדשנות שמרנית · אדריכלות הפלא החינוכי של אנגליה",
+"r5_debate": "<a href=\"https://www.theguardian.com/commentisfree/2014/nov/14/london-schools-immigration-children-education\" target=\"_blank\" rel=\"noopener\">הגירה</a> · <a href=\"https://samfreedman1.blogspot.com/2013/10/why-are-londons-schools-doing-so-well.html\" target=\"_blank\" rel=\"noopener\">כסף</a> · <a href=\"https://www.bbc.co.uk/news/education-28003848\" target=\"_blank\" rel=\"noopener\">Teach First</a>",
+"read_full": "לדוח המלא · 136 עמודים",
+"read_more_invite": "מי שרוצה, מוזמן כמובן לצלול לעוד.",
+"s2_links": "חומרי המפגש: <a href=\"https://youtu.be/KAapDrwpbnU\" target=\"_blank\" rel=\"noopener\">הקלטת המפגש עם עמוס רבן</a> · <a href=\"assets/mifgash-2-deck.pdf\" target=\"_blank\" rel=\"noopener\">המצגת המלווה (PDF)</a>",
+"soon_includes": "גם כאן יהיו סקירה קולית, מצגת, קריאה מרכזית וטקסטים להרחבה.",
+"soon_meanwhile_h": "בינתיים, אפשר להתחיל מאלה",
+"soon_tag": "בקרוב"
+},
+"en": {
+"audio_auto_done": "Finished. The audio overview is marked as done.",
+"audio_download": "Download to listen offline (3.9MB)",
+"audio_fallback": "This browser cannot play the recording. You can download it here.",
+"deck_mobile_tip": "Easier to read with your phone turned sideways",
+"deck_open": "Open the slides",
+"done_label": "Done",
+"ext_m1_p12": "A short podcast and slides in Hebrew on the story of England's reforms, if you want the wider picture beyond London.",
+"ext_m1_r11": "An opinion piece on what Gove's reforms achieved and what they cost. Worth reading before we meet Gove on Monday.",
+"ext_m1_r4": "Goes with the slide on closing the gap: how London's poorest pupils do compared with the rest of the country.",
+"ext_m1_r5": "How the London Challenge was actually put into practice. Alongside it, three links to the debate on what drove the improvement: immigration, money and Teach First.",
+"ext_m2_r1": "The whole system on one page, with every stage and pathway. Worth keeping open while you read the other texts.",
+"ext_m2_r12": "Another delegation that did just what we are doing: it came to learn about Multi-Academy Trusts and wrote about what makes them work.",
+"ext_m2_r15": "What schools are legally required to do to keep pupils safe, one of the areas a headteacher is responsible for.",
+"ext_m2_r8": "Why the government turned schools into academies, from the official source. The starting point for understanding today's structure.",
+"ext_m2_s2": "The recording and slides from the second induction session with Amos Raban, on how the English and Israeli systems compare.",
+"ext_m3_r10": "A report by ImpactEd, whom we meet on Thursday, on how pupil engagement drops in secondary school.",
+"ext_m3_r7": "The EEF's summary of what research says about teaching approaches. Useful background for the session on evidence on Thursday.",
+"ext_m3_r9": "What inspectors look for when they visit a school, from Ofsted's own framework. Good preparation for the workshop with Steve Adcock on Wednesday.",
+"extras_all": "All learning resources",
+"extras_h": "Further reading",
+"extras_optional": "Optional",
+"f_text": "Advot · Leadership that drives change<br>London delegation · 22 to 26 November 2026",
+"focus1_name": "Executive summary",
+"focus1_pages": "Pages 6-7 · 2 pages",
+"focus1_pdfpage": "Page 10 of the full PDF",
+"focus2_name": "Chapter 5: Leadership",
+"focus2_pages": "Pages 96-117 · 22 pages",
+"focus2_pdfpage": "Page 100 of the full PDF",
+"focus_h": "Where to focus",
+"focus_open": "Open",
+"kind_audio": "Audio",
+"kind_deck": "Slides",
+"kind_read": "Core reading",
+"lang_btn": "עברית",
+"lang_aria": "Switch language",
+"learn_back": "Back to the trip site",
+"learn_footer_glossary": "The trip glossary",
+"learn_h1": "Your learning plan before the trip",
+"learn_how_p": "Each module has an audio overview, slides, a core reading and further texts. The first three are the core, and the further texts are there if you want more.",
+"learn_kicker": "Advot delegation · London 2026",
+"learn_lede": "At the last seminar you asked for a structured way to prepare for London, so we built a self-study plan that points you to the materials on this site most worth your time.",
+"learn_meta_desc": "Three self-study modules ahead of the Advot delegation to London, each with an audio overview, slides and a core reading.",
+"learn_order_p": "We suggest starting with the audio overview, the shortest piece and easy to listen to on the go, then moving on to the slides and the reading. It is only a suggestion, so start wherever suits you.",
+"learn_overview_aria": "The three modules",
+"learn_privacy": "You can tick off each item as you finish it. Your ticks are saved only in this browser and are not sent to anyone.",
+"learn_title": "Learning plan · Advot London 2026",
+"media_artist": "Advot · London 2026",
+"mod1_audio_h": "Audio overview: the London Challenge",
+"mod1_audio_meta": "2 minutes",
+"mod1_audio_p": "Two minutes on the London Challenge and the puzzling story of how London improved. A good way in before the slides.",
+"mod1_closing": "So make yourself a good cup of tea, and dive in.",
+"mod1_deck_h": "Why visit London?",
+"mod1_deck_meta": "12 slides · in Hebrew · PDF 1.9MB",
+"mod1_deck_p": "What changed in London's schools after 2003, what drove the change and what it cost the system. The last slide has three questions to take with you into the school visits.",
+"mod1_h": "The London story",
+"mod1_read_p": "A detailed report on what drove the dramatic rise in London's school results since 2000. It is long, so focus on two parts.",
+"mod1_scope": "This module focuses on the London Challenge, and on a question that is still debated: how much of the success came from policy, and how much from changes in the city's population.",
+"mod1_short": "The London story",
+"mod2_h": "How English schools are organised",
+"mod2_scope_1": "How an English school is structured",
+"mod2_scope_2": "What headteachers are responsible for",
+"mod2_scope_3": "Multi-Academy Trusts (MATs) and academies, compared with local authority schools",
+"mod2_scope_4": "An overview of budgets",
+"mod2_short": "School structures",
+"mod3_h": "Accountability: how English schools are measured",
+"mod3_scope_1": "How assessment and inspection are organised",
+"mod3_scope_2": "The Ofsted inspection framework",
+"mod3_scope_3": "What accountability means in a school's day-to-day work",
+"mod3_short": "Accountability",
+"mod_complete": "You have finished this module",
+"mod_k": "Module {n} of 3",
+"mod_progress": "{x} of {y} done",
+"mod_progress_zero": "{y} things to tick off in this module. Start whenever suits you.",
+"mod_status_done": "Done",
+"mod_status_open": "Ready to start",
+"mod_status_progress": "{x} of {y} done",
+"mod_status_soon": "Coming soon",
+"p1_s": "Podcast · Hebrew",
+"p1_t": "Short podcast: the conservative innovation that lifted English education",
+"p2_s": "PDF · accompanies the podcast",
+"p2_t": "Slides: Conservative innovation · the architecture of England's education miracle",
+"r5_debate": "<a href=\"https://www.theguardian.com/commentisfree/2014/nov/14/london-schools-immigration-children-education\" target=\"_blank\" rel=\"noopener\">Immigration</a> · <a href=\"https://samfreedman1.blogspot.com/2013/10/why-are-londons-schools-doing-so-well.html\" target=\"_blank\" rel=\"noopener\">Money</a> · <a href=\"https://www.bbc.co.uk/news/education-28003848\" target=\"_blank\" rel=\"noopener\">Teach First</a>",
+"read_full": "Full report · 136 pages",
+"read_more_invite": "You are of course welcome to read further.",
+"s2_links": "Session materials: <a href=\"https://youtu.be/KAapDrwpbnU\" target=\"_blank\" rel=\"noopener\">the session recording with Amos Raban</a> · <a href=\"assets/mifgash-2-deck.pdf\" target=\"_blank\" rel=\"noopener\">the accompanying slides (PDF)</a>",
+"soon_includes": "Like module 1, it will have an audio overview, slides, a core reading and further texts.",
+"soon_meanwhile_h": "In the meantime, you can start with these",
+"soon_tag": "Coming soon"
+}
+};
+
+const ITEMS=['m1-audio','m1-deck','m1-exec','m1-ch5'];
+const CHECK='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+
+let lang='he';
+try{ const saved=localStorage.getItem('advot-lang'); if(saved==='en'||saved==='he') lang=saved; }catch(e){}
+try{ const qp=new URLSearchParams(location.search).get('lang'); if(qp==='en'||qp==='he') lang=qp; }catch(e){}
+
+function fill(tpl,vars){ return String(tpl).replace(/\{(\w+)\}/g,function(m,k){ return (vars&&vars[k]!=null)?vars[k]:m; }); }
+function t(k,vars){ const v=I18N[lang][k]; return v==null?'['+k+']':fill(v,vars); }
+function plain(html){ const d=document.createElement('div'); d.innerHTML=html; return d.textContent; }
+
+/* progress store: localStorage only, never throws (private mode keeps ticks until reload) */
+let done={};
+try{
+  const raw=localStorage.getItem('advot-learn');
+  if(raw){ const o=JSON.parse(raw); if(o&&o.v===1&&o.done&&typeof o.done==='object') done=o.done; }
+}catch(e){}
+function save(){ try{ localStorage.setItem('advot-learn',JSON.stringify({v:1,done:done})); }catch(e){} }
+
+const langBtn=document.getElementById('langBtn');
+function setLang(l){
+  lang=l;
+  const d=I18N[l];
+  document.documentElement.lang=l;
+  document.documentElement.dir=(l==='he')?'rtl':'ltr';
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    const v=d[el.dataset.i18n];
+    if(v!==undefined) el.innerHTML=fill(v,el.dataset);
+  });
+  document.querySelectorAll('[data-i18n-aria]').forEach(function(el){
+    const v=d[el.dataset.i18nAria];
+    if(v!==undefined) el.setAttribute('aria-label',plain(fill(v,el.dataset)));
+  });
+  document.title=d.learn_title;
+  const md=document.querySelector('meta[name="description"]');
+  if(md) md.setAttribute('content',d.learn_meta_desc);
+  try{ localStorage.setItem('advot-lang',l); }catch(e){}
+  render();
+}
+
+function render(){
+  const y=ITEMS.length;
+  const x=ITEMS.filter(function(k){ return done[k]; }).length;
+  document.querySelectorAll('input[data-item]').forEach(function(i){ i.checked=!!done[i.dataset.item]; });
+  let nextSet=false;
+  document.querySelectorAll('#m1 .step').forEach(function(li){
+    const ks=li.dataset.items.split(',');
+    const all=ks.every(function(k){ return done[k]; });
+    li.classList.toggle('is-done',all);
+    const isNext=!all&&!nextSet;
+    if(isNext) nextSet=true;
+    li.classList.toggle('is-next',isNext);
+  });
+  const txt=document.getElementById('m1Prog'), wrap=document.getElementById('m1BarWrap'), bar=document.getElementById('m1Bar');
+  if(x===0){ txt.textContent=t('mod_progress_zero',{y:y}); wrap.hidden=true; }
+  else if(x===y){ txt.innerHTML=CHECK+'<span>'+t('mod_complete')+'</span>'; wrap.hidden=false; }
+  else { txt.textContent=t('mod_progress',{x:x,y:y}); wrap.hidden=false; }
+  bar.style.width=(x/y*100)+'%';
+  const tile=document.querySelector('.mod-tile[data-mod="1"]');
+  document.getElementById('tile1Status').textContent= x===0?t('mod_status_open'):(x===y?t('mod_status_done'):t('mod_status_progress',{x:x,y:y}));
+  tile.classList.toggle('is-done',x===y);
+}
+
+document.querySelectorAll('input[data-item]').forEach(function(i){
+  i.addEventListener('change',function(){
+    if(i.checked) done[i.dataset.item]=true; else delete done[i.dataset.item];
+    save(); render();
+  });
+});
+
+const live=document.getElementById('liveMsg');
+function announce(msg){ live.textContent=''; setTimeout(function(){ live.textContent=msg; },60); }
+
+const au=document.getElementById('m1Audio');
+if(au){
+  au.addEventListener('play',function(){
+    if('mediaSession' in navigator && typeof MediaMetadata==='function'){
+      try{ navigator.mediaSession.metadata=new MediaMetadata({title:plain(t('mod1_audio_h')),artist:plain(t('media_artist')),artwork:[{src:new URL('assets/advot-logo.png',location.href).href,type:'image/png'}]}); }catch(e){}
+    }
+  });
+  au.addEventListener('ended',function(){
+    if(!done['m1-audio']){ done['m1-audio']=true; save(); render(); announce(t('audio_auto_done')); }
+  });
+}
+
+langBtn.addEventListener('click',function(){ setLang(lang==='he'?'en':'he'); });
+setLang(lang);
+})();
+</script>
+</body>
+</html>
