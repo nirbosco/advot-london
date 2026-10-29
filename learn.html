@@ -156,6 +156,13 @@ html[lang="en"] .step-p{font-size:14.5px}
 .fr-pdf{font-size:13px;white-space:nowrap}
 .read-more{margin-top:14px;font-size:14.5px;color:var(--ink-dim)}
 .read-more a{font-weight:700}
+.read-lang{margin-top:14px;font-size:15px;color:var(--ink)}
+html[lang="en"] .read-lang{font-size:14.5px}
+.btn-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.ai-note{margin-top:10px;font-size:13.5px;color:var(--ink-dim)}
+.read-src.he{font-family:inherit}
+.ext-intro{font-size:15px;color:var(--ink-dim);margin:-6px 0 14px}
+html[lang="en"] .ext-intro{font-size:14.5px}
 .read-invite{margin-top:2px;font-size:14.5px;color:var(--ink-dim)}
 
 /* extras */
@@ -283,9 +290,9 @@ footer :focus-visible{outline-color:var(--white)}
     <span class="mt-num" aria-hidden="true"><span class="mt-digit">1</span><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
     <span class="mt-txt"><b data-i18n="mod1_short">הסיפור הלונדוני</b><span class="mt-status" id="tile1Status">אפשר להתחיל</span></span>
   </a>
-  <a class="mod-tile is-soon" href="#m2" data-mod="2">
-    <span class="mt-num" aria-hidden="true"><span class="mt-digit">2</span></span>
-    <span class="mt-txt"><b data-i18n="mod2_short">מבנה בתי הספר</b><span class="mt-status" data-i18n="mod_status_soon">בקרוב</span></span>
+  <a class="mod-tile" href="#m2" data-mod="2">
+    <span class="mt-num" aria-hidden="true"><span class="mt-digit">2</span><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+    <span class="mt-txt"><b data-i18n="mod2_short">מבנה בתי הספר</b><span class="mt-status" id="tile2Status">אפשר להתחיל</span></span>
   </a>
   <a class="mod-tile is-soon" href="#m3" data-mod="3">
     <span class="mt-num" aria-hidden="true"><span class="mt-digit">3</span></span>
@@ -297,7 +304,7 @@ footer :focus-visible{outline-color:var(--white)}
   <div class="col">
 
     <aside class="learn-how">
-      <p data-i18n="learn_how_p">בכל מודול תמצאו סקירה קולית, מצגת, טקסט מרכזי לקריאה וטקסטים להרחבה. שלושת הראשונים הם העיקר, וההרחבה למי שרוצה עוד.</p>
+      <p data-i18n="learn_how_p">בכל מודול תמצאו סקירה קולית, מצגת, קריאה מרכזית וטקסטים להרחבה. הסקירה, המצגת והקריאה הן העיקר, וההרחבה למי שרוצה עוד.</p>
       <p data-i18n="learn_order_p">כדאי להתחיל מהסקירה הקולית, שהיא הכי קצרה ואפשר לשמוע אותה בדרך, ואחר כך לעבור למצגת ולקריאה. זו רק המלצה, ואפשר להתחיל מכל מקום.</p>
       <p class="js-only" data-i18n="learn_privacy">אפשר לסמן כל פריט שסיימתם. הסימונים נשמרים רק בדפדפן הזה ולא נשלחים לאף אחד.</p>
     </aside>
@@ -323,7 +330,7 @@ footer :focus-visible{outline-color:var(--white)}
             <h3 class="step-h" data-i18n="mod1_audio_h">סקירה קולית: <bdi>London Challenge</bdi></h3>
             <p class="step-p" data-i18n="mod1_audio_p">שתי דקות על <bdi>London Challenge</bdi> ועל השיפור בלונדון, סיפור די מבלבל. טוב להתחיל כאן, לפני המצגת.</p>
             <div class="step-body">
-              <audio id="m1Audio" controls preload="metadata" src="assets/module1-audio.m4a"><a href="assets/module1-audio.m4a" download data-i18n="audio_fallback">הדפדפן הזה לא מצליח לנגן את ההקלטה. אפשר להוריד אותה כאן.</a></audio>
+              <audio id="m1Audio" controls preload="metadata" src="assets/module1-audio.m4a" data-item="m1-audio" data-title-key="mod1_audio_h"><a href="assets/module1-audio.m4a" download data-i18n="audio_fallback">הדפדפן הזה לא מצליח לנגן את ההקלטה. אפשר להוריד אותה כאן.</a></audio>
               <a class="dl-link" href="assets/module1-audio.m4a" download data-i18n="audio_download">להורדה והאזנה בלי אינטרנט (<bdi>3.9MB</bdi>)</a>
             </div>
             <div class="step-foot js-only">
@@ -419,24 +426,102 @@ footer :focus-visible{outline-color:var(--white)}
       <p class="mod-closing" data-i18n="mod1_closing">אז תכינו לכם כוס תה טובה, וצוללים.</p>
     </section>
 
-    <!-- ===== module 2 (coming soon) ===== -->
-    <section class="module is-soon" id="m2" aria-labelledby="m2-h">
-      <div class="soon-top"><div class="mod-k" data-i18n="mod_k" data-n="2">מודול 2 מתוך 3</div><span class="tag-soon" data-i18n="soon_tag">בקרוב</span></div>
-      <h2 id="m2-h" data-i18n="mod2_h">איך בנויים בתי הספר באנגליה</h2>
-      <ul class="soon-scope">
-        <li data-i18n="mod2_scope_1">המבנה הארגוני של בית ספר באנגליה</li>
-        <li data-i18n="mod2_scope_2">על מה אחראי מנהל בית הספר</li>
-        <li data-i18n="mod2_scope_3">רשתות בתי הספר (<bdi>MAT</bdi>) והאקדמיות, מול בתי הספר של הרשות המקומית</li>
-        <li data-i18n="mod2_scope_4">סקירה כללית של התקציבים</li>
-      </ul>
-      <p class="soon-includes" data-i18n="soon_includes">גם כאן יהיו סקירה קולית, מצגת, קריאה מרכזית וטקסטים להרחבה.</p>
-      <div class="soon-meanwhile">
-        <h3 data-i18n="soon_meanwhile_h">בינתיים, אפשר להתחיל מאלה</h3>
+    <!-- ===== module 2 ===== -->
+    <section class="module is-open" id="m2" aria-labelledby="m2-h">
+      <header class="mod-head">
+        <div class="mod-k" data-i18n="mod_k" data-n="2">מודול 2 מתוך 3</div>
+        <h2 id="m2-h" data-i18n="mod2_h">איך בנויים בתי הספר באנגליה</h2>
+        <p class="mod-scope" data-i18n="mod2_scope">המודול מסביר איך המערכת בנויה, איך התקציב עובר מהמדינה דרך הרשתות אל בתי הספר, ועל מה אחראי המנהל.</p>
+        <div class="mod-progress js-only">
+          <p class="mp-txt" id="m2Prog" aria-live="polite"></p>
+          <div class="mp-bar" id="m2BarWrap" aria-hidden="true" hidden><i id="m2Bar"></i></div>
+        </div>
+      </header>
+
+      <ol class="steps" role="list">
+        <!-- step 1: audio -->
+        <li class="step" data-items="m2-audio">
+          <span class="step-dot"><span class="sd-n">1</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+          <div class="step-card">
+            <div class="step-top"><span class="step-kind" data-i18n="kind_audio">האזנה</span><span class="step-meta" data-i18n="mod2_audio_meta">קצת פחות משתי דקות</span></div>
+            <h3 class="step-h" data-i18n="mod2_audio_h">סקירה קולית: איך מנוהל החינוך באנגליה?</h3>
+            <p class="step-p" data-i18n="mod2_audio_p">התמונה הכללית, לפני שנכנסים לפרטים. טוב להתחיל כאן, ורק אחר כך לעבור למצגת.</p>
+            <div class="step-body">
+              <audio id="m2Audio" controls preload="metadata" src="assets/module2-audio.m4a" data-item="m2-audio" data-title-key="mod2_audio_h"><a href="assets/module2-audio.m4a" download data-i18n="audio_fallback">הדפדפן הזה לא מצליח לנגן את ההקלטה. אפשר להוריד אותה כאן.</a></audio>
+              <a class="dl-link" href="assets/module2-audio.m4a" download data-i18n="mod2_audio_download">להורדה והאזנה בלי אינטרנט (<bdi>3.5MB</bdi>)</a>
+            </div>
+            <div class="step-foot js-only">
+              <label class="done-toggle"><input type="checkbox" data-item="m2-audio"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span data-i18n="done_label">סיימתי</span><span class="sr-only">: <span data-i18n="mod2_audio_h">סקירה קולית: איך מנוהל החינוך באנגליה?</span></span></label>
+            </div>
+          </div>
+        </li>
+
+        <!-- step 2: slides -->
+        <li class="step" data-items="m2-deck">
+          <span class="step-dot"><span class="sd-n">2</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+          <div class="step-card">
+            <div class="step-top"><span class="step-kind" data-i18n="kind_deck">מצגת</span><span class="step-meta" data-i18n="mod2_deck_meta">15 שקפים · בעברית · <bdi>PDF 2.1MB</bdi></span></div>
+            <h3 class="step-h" data-i18n="mod2_deck_h">אנטומיה של מערכת החינוך האנגלית</h3>
+            <p class="step-p" data-i18n="mod2_deck_p">איך מתחלקות הסמכויות בין משרד החינוך, הרשויות המקומיות ורשתות בתי הספר, איך התקציב מגיע לבית הספר, ואיך עצמאות רבה של בתי הספר מתקיימת לצד פיקוח ריכוזי. בסוף המצגת יש מדריך קצר לביקור ושאלות שאפשר לשאול בבתי הספר שנבקר בהם.</p>
+            <div class="step-body">
+              <a class="btn-solid" href="assets/module2-deck.pdf" target="_blank" rel="noopener" data-i18n="deck_open">למצגת</a>
+              <p class="deck-tip" data-i18n="deck_mobile_tip">נוח יותר לקרוא כשמסובבים את הטלפון לרוחב</p>
+            </div>
+            <div class="step-foot js-only">
+              <label class="done-toggle"><input type="checkbox" data-item="m2-deck"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span data-i18n="done_label">סיימתי</span><span class="sr-only">: <span data-i18n="mod2_deck_h">אנטומיה של מערכת החינוך האנגלית</span></span></label>
+            </div>
+          </div>
+        </li>
+
+        <!-- step 3: reading 1, Ark decision making framework -->
+        <li class="step" data-items="m2-ark">
+          <span class="step-dot"><span class="sd-n">3</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+          <div class="step-card">
+            <div class="step-top"><span class="step-kind" data-i18n="kind_read1">קריאה 1</span><span class="step-meta" data-i18n="mod2_read1_meta"><bdi>PDF</bdi> · 15 עמודים · באנגלית, עם תרגום לעברית ולערבית</span></div>
+            <h3 class="step-h" data-i18n="mod2_read1_h">מסגרת קבלת ההחלטות של רשת <bdi>Ark</bdi></h3>
+            <p class="read-src"><span class="ltr" lang="en">Ark Schools · Decision Making Framework · 2026-27</span></p>
+            <p class="step-p" data-i18n="mod2_read1_p">במסמך הזה רשת <bdi>Ark</bdi> קובעת מי אחראי על מה. את הרשת נפגוש ביום שלישי, בביקור ב-<bdi>Ed City</bdi>. האחריות מתחלקת בין חמישה גורמים: הדירקטוריון של הרשת, הצוות המרכזי, המנהלים האזוריים, מנהלי בתי הספר והוועדה המקומית של כל בית ספר. בטבלה אחת רואים, תחום אחרי תחום, מה החלק של כל גורם: מהוראה ותוכנית הלימודים ועד תקציב, כוח אדם ומבנים.</p>
+            <p class="read-lang" data-i18n="mod2_read1_lang">ממליצים לקרוא את המקור באנגלית. את המושגים שבו תשמעו שוב ושוב במסע, וכדאי להגיע כשהם כבר מוכרים לכם.</p>
+            <div class="btn-row">
+              <a class="btn-solid" href="assets/module2-ark-framework-en.pdf" hreflang="en" target="_blank" rel="noopener" data-i18n="mod2_read1_btn_en">למקור באנגלית</a>
+              <a class="btn-line" href="assets/module2-ark-framework-he.pdf" hreflang="he" target="_blank" rel="noopener" data-i18n="mod2_read1_btn_he">לתרגום לעברית</a>
+              <a class="btn-line" href="assets/module2-ark-framework-ar.pdf" hreflang="ar" target="_blank" rel="noopener" data-i18n="mod2_read1_btn_ar">לתרגום לערבית</a>
+            </div>
+            <p class="ai-note" data-i18n="mod2_read1_ai_note">את התרגומים הכנו בעזרת בינה מלאכותית, ויכול להיות שנפלו בהם טעויות קטנות.</p>
+            <div class="step-foot js-only">
+              <label class="done-toggle"><input type="checkbox" data-item="m2-ark"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span data-i18n="done_label">סיימתי</span><span class="sr-only">: <span data-i18n="mod2_read1_h">מסגרת קבלת ההחלטות של רשת <bdi>Ark</bdi></span></span></label>
+            </div>
+          </div>
+        </li>
+
+        <!-- step 4: reading 2, Claire Stoneman's blog -->
+        <li class="step" data-items="m2-blog">
+          <span class="step-dot"><span class="sd-n">4</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+          <div class="step-card">
+            <div class="step-top"><span class="step-kind" data-i18n="kind_read2">קריאה 2</span><span class="step-meta" data-i18n="mod2_read2_meta"><bdi>PDF</bdi> · 4 עמודים · בעברית</span></div>
+            <h3 class="step-h" data-i18n="mod2_read2_h">העבר הוא ארץ זרה</h3>
+            <p class="read-src he" data-i18n="mod2_read2_src">קלייר סטונמן · 7 במרץ 2026</p>
+            <p class="step-p" data-i18n="mod2_read2_p">קלייר סטונמן מנהלת בית ספר בברמינגהאם וכותבת בלוג על העבודה שלה. בקיץ 2022, לפני שנכנסה לתפקיד, היא מצאה במשרד את היומנים של המנהלים שקדמו לה, מאז שבית הספר נפתח ב-1940. דרכם היא בוחנת מה השתנה בתפקיד המנהל מאז ועד היום, ומה היא לומדת מאלה שמילאו אותו לפניה. בסוף הקובץ בעברית יש שלוש שאלות להרהור.</p>
+            <div class="btn-row">
+              <a class="btn-solid" href="assets/module2-stoneman-blog-he.pdf" hreflang="he" target="_blank" rel="noopener" data-i18n="mod2_read2_btn_he">לתרגום לעברית (<bdi>PDF</bdi>)</a>
+              <a class="btn-line" href="https://birminghamteacher.substack.com/p/the-past-is-a-foreign-country-they" hreflang="en" target="_blank" rel="noopener" data-i18n="mod2_read2_btn_en">למקור באנגלית, בבלוג</a>
+            </div>
+            <p class="ai-note" data-i18n="mod2_read2_ai_note">גם התרגום הזה נעשה בעזרת בינה מלאכותית.</p>
+            <div class="step-foot js-only">
+              <label class="done-toggle"><input type="checkbox" data-item="m2-blog"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span data-i18n="done_label">סיימתי</span><span class="sr-only">: <span data-i18n="mod2_read2_h">העבר הוא ארץ זרה</span></span></label>
+            </div>
+          </div>
+        </li>
+      </ol>
+
+      <section class="extras" aria-labelledby="m2-ex-h">
+        <div class="ex-head"><h3 id="m2-ex-h" data-i18n="extras_h">טקסטים להרחבה</h3><span class="opt" data-i18n="extras_optional">רשות</span></div>
+        <p class="ext-intro" data-i18n="mod2_more_p">למי שרוצה להעמיק, בחרנו עוד כמה חומרים על המבנה של המערכת. לא צריך לעבור על כולם. בחרו את מה שמעניין אתכם.</p>
         <ul class="ext-list" role="list">
           <li class="ext-row">
             <a class="ext-title stretch" href="https://www.gov.uk/government/publications/2010-to-2015-government-policy-academies-and-free-schools/2010-to-2015-government-policy-academies-and-free-schools" target="_blank" rel="noopener"><span class="ltr" lang="en">English school structures reforms 2010 to 2015</span></a>
             <span class="ext-src"><span class="ltr" lang="en">DfE</span></span>
-            <span class="ext-note" data-i18n="ext_m2_r8">המסמך הרשמי של הממשלה שמסביר למה הפכו בתי ספר לאקדמיות. משם כדאי להתחיל כדי להבין איך המערכת בנויה היום.</span>
+            <span class="ext-note" data-i18n="ext_m2_r8">המסמך הרשמי של הממשלה שמסביר למה בתי ספר הפכו לאקדמיות. רקע טוב למבנה שמתואר במצגת.</span>
           </li>
           <li class="ext-row">
             <a class="ext-title stretch" href="https://grattan.edu.au/report/spreading-success-why-australia-should-trial-multi-school-organisations/" target="_blank" rel="noopener"><span class="ltr" lang="en">A positive analysis of Multi-Academy Trusts</span></a>
@@ -458,7 +543,10 @@ footer :focus-visible{outline-color:var(--white)}
             <span class="ext-note" data-i18n="ext_m2_r15">מה בית ספר מחויב בחוק לעשות כדי להגן על התלמידים, אחד מתחומי האחריות של המנהל.</span>
           </li>
         </ul>
-      </div>
+        <a class="ext-all" href="index.html#resources" data-i18n="extras_all">לכל משאבי הלמידה באתר</a>
+      </section>
+
+      <p class="mod-closing" data-i18n="mod2_closing">יש כאן הרבה חומר, אבל כל מה שתקראו עכשיו יעזור לכם להבין את מה שנראה בלונדון. אפשר להתארגן בקבוצות למידה ולעבור עליו יחד. ואם עוד לא עברתם על מודול 1, כדאי להתחיל ממנו.</p>
     </section>
 
     <!-- ===== module 3 (coming soon) ===== -->
@@ -528,7 +616,7 @@ const I18N = {
 "ext_m2_r1": "כל המערכת בעמוד אחד, עם כל השלבים והמסלולים. כדאי שיהיה פתוח לידכם כשאתם קוראים את שאר הטקסטים.",
 "ext_m2_r12": "משלחת אחרת שעשתה בדיוק מה שאנחנו עושים: באה ללמוד על רשתות בתי הספר, וכתבה למה הן מצליחות.",
 "ext_m2_r15": "מה בית ספר מחויב בחוק לעשות כדי להגן על התלמידים, אחד מתחומי האחריות של המנהל.",
-"ext_m2_r8": "המסמך הרשמי של הממשלה שמסביר למה הפכו בתי ספר לאקדמיות. משם כדאי להתחיל כדי להבין איך המערכת בנויה היום.",
+"ext_m2_r8": "המסמך הרשמי של הממשלה שמסביר למה בתי ספר הפכו לאקדמיות. רקע טוב למבנה שמתואר במצגת.",
 "ext_m2_s2": "ההקלטה והמצגת ממפגש ההכנה השני עם עמוס רבן, על ההשוואה בין המערכת האנגלית לישראלית.",
 "ext_m3_r10": "דוח של <bdi>ImpactEd</bdi>, שנפגוש ביום חמישי, על הירידה במחוברות של התלמידים בבית הספר העל-יסודי.",
 "ext_m3_r7": "הכלי של <bdi>EEF</bdi> שמסכם מה המחקר אומר על דרכי הוראה. רקע טוב למפגש על מחקר וראיות ביום חמישי.",
@@ -553,7 +641,7 @@ const I18N = {
 "learn_back": "חזרה לאתר המסע",
 "learn_footer_glossary": "למילון המושגים של המסע",
 "learn_h1": "תוכנית הלמידה לפני המסע",
-"learn_how_p": "בכל מודול תמצאו סקירה קולית, מצגת, טקסט מרכזי לקריאה וטקסטים להרחבה. שלושת הראשונים הם העיקר, וההרחבה למי שרוצה עוד.",
+"learn_how_p": "בכל מודול תמצאו סקירה קולית, מצגת, קריאה מרכזית וטקסטים להרחבה. הסקירה, המצגת והקריאה הן העיקר, וההרחבה למי שרוצה עוד.",
 "learn_kicker": "משלחת אדוות · לונדון 2026",
 "learn_lede": "בסמינר האחרון ביקשתם דרך מסודרת להתכונן ללונדון, אז בנינו תוכנית ללמידה עצמאית: מתוך כל החומרים באתר, בחרנו את אלה ששווה להעמיק בהם.",
 "learn_meta_desc": "שלושה מודולים ללמידה עצמית לקראת משלחת אדוות ללונדון, ובכל אחד סקירה קולית, מצגת וקריאה מרכזית.",
@@ -574,10 +662,6 @@ const I18N = {
 "mod1_scope": "המודול מתמקד בתוכנית <bdi>London Challenge</bdi> ובשאלה שעדיין מתווכחים עליה: כמה מההצלחה בזכות המדיניות, וכמה בזכות השינויים באוכלוסיית העיר.",
 "mod1_short": "הסיפור הלונדוני",
 "mod2_h": "איך בנויים בתי הספר באנגליה",
-"mod2_scope_1": "המבנה הארגוני של בית ספר באנגליה",
-"mod2_scope_2": "על מה אחראי מנהל בית הספר",
-"mod2_scope_3": "רשתות בתי הספר (<bdi>MAT</bdi>) והאקדמיות, מול בתי הספר של הרשות המקומית",
-"mod2_scope_4": "סקירה כללית של התקציבים",
 "mod2_short": "מבנה בתי הספר",
 "mod3_h": "אחריותיות: איך מעריכים בתי ספר באנגליה",
 "mod3_scope_1": "איך בנוי מערך ההערכה והפיקוח",
@@ -602,7 +686,34 @@ const I18N = {
 "s2_links": "חומרי המפגש: <a href=\"https://youtu.be/KAapDrwpbnU\" target=\"_blank\" rel=\"noopener\">הקלטת המפגש עם עמוס רבן</a> · <a href=\"assets/mifgash-2-deck.pdf\" target=\"_blank\" rel=\"noopener\">המצגת המלווה (PDF)</a>",
 "soon_includes": "גם כאן יהיו סקירה קולית, מצגת, קריאה מרכזית וטקסטים להרחבה.",
 "soon_meanwhile_h": "בינתיים, אפשר להתחיל מאלה",
-"soon_tag": "בקרוב"
+"soon_tag": "בקרוב",
+"mod2_scope": "המודול מסביר איך המערכת בנויה, איך התקציב עובר מהמדינה דרך הרשתות אל בתי הספר, ועל מה אחראי המנהל.",
+"mod2_audio_h": "סקירה קולית: איך מנוהל החינוך באנגליה?",
+"mod2_audio_meta": "קצת פחות משתי דקות",
+"mod2_audio_p": "התמונה הכללית, לפני שנכנסים לפרטים. טוב להתחיל כאן, ורק אחר כך לעבור למצגת.",
+"mod2_audio_download": "להורדה והאזנה בלי אינטרנט (<bdi>3.5MB</bdi>)",
+"mod2_deck_h": "אנטומיה של מערכת החינוך האנגלית",
+"mod2_deck_meta": "15 שקפים · בעברית · <bdi>PDF 2.1MB</bdi>",
+"mod2_deck_p": "איך מתחלקות הסמכויות בין משרד החינוך, הרשויות המקומיות ורשתות בתי הספר, איך התקציב מגיע לבית הספר, ואיך עצמאות רבה של בתי הספר מתקיימת לצד פיקוח ריכוזי. בסוף המצגת יש מדריך קצר לביקור ושאלות שאפשר לשאול בבתי הספר שנבקר בהם.",
+"kind_read1": "קריאה 1",
+"mod2_read1_h": "מסגרת קבלת ההחלטות של רשת <bdi>Ark</bdi>",
+"mod2_read1_meta": "<bdi>PDF</bdi> · 15 עמודים · באנגלית, עם תרגום לעברית ולערבית",
+"mod2_read1_p": "במסמך הזה רשת <bdi>Ark</bdi> קובעת מי אחראי על מה. את הרשת נפגוש ביום שלישי, בביקור ב-<bdi>Ed City</bdi>. האחריות מתחלקת בין חמישה גורמים: הדירקטוריון של הרשת, הצוות המרכזי, המנהלים האזוריים, מנהלי בתי הספר והוועדה המקומית של כל בית ספר. בטבלה אחת רואים, תחום אחרי תחום, מה החלק של כל גורם: מהוראה ותוכנית הלימודים ועד תקציב, כוח אדם ומבנים.",
+"mod2_read1_lang": "ממליצים לקרוא את המקור באנגלית. את המושגים שבו תשמעו שוב ושוב במסע, וכדאי להגיע כשהם כבר מוכרים לכם.",
+"mod2_read1_btn_en": "למקור באנגלית",
+"mod2_read1_btn_he": "לתרגום לעברית",
+"mod2_read1_btn_ar": "לתרגום לערבית",
+"mod2_read1_ai_note": "את התרגומים הכנו בעזרת בינה מלאכותית, ויכול להיות שנפלו בהם טעויות קטנות.",
+"kind_read2": "קריאה 2",
+"mod2_read2_h": "העבר הוא ארץ זרה",
+"mod2_read2_src": "קלייר סטונמן · 7 במרץ 2026",
+"mod2_read2_meta": "<bdi>PDF</bdi> · 4 עמודים · בעברית",
+"mod2_read2_p": "קלייר סטונמן מנהלת בית ספר בברמינגהאם וכותבת בלוג על העבודה שלה. בקיץ 2022, לפני שנכנסה לתפקיד, היא מצאה במשרד את היומנים של המנהלים שקדמו לה, מאז שבית הספר נפתח ב-1940. דרכם היא בוחנת מה השתנה בתפקיד המנהל מאז ועד היום, ומה היא לומדת מאלה שמילאו אותו לפניה. בסוף הקובץ בעברית יש שלוש שאלות להרהור.",
+"mod2_read2_btn_he": "לתרגום לעברית (<bdi>PDF</bdi>)",
+"mod2_read2_btn_en": "למקור באנגלית, בבלוג",
+"mod2_read2_ai_note": "גם התרגום הזה נעשה בעזרת בינה מלאכותית.",
+"mod2_more_p": "למי שרוצה להעמיק, בחרנו עוד כמה חומרים על המבנה של המערכת. לא צריך לעבור על כולם. בחרו את מה שמעניין אתכם.",
+"mod2_closing": "יש כאן הרבה חומר, אבל כל מה שתקראו עכשיו יעזור לכם להבין את מה שנראה בלונדון. אפשר להתארגן בקבוצות למידה ולעבור עליו יחד. ואם עוד לא עברתם על מודול 1, כדאי להתחיל ממנו."
 },
 "en": {
 "audio_auto_done": "Finished. The audio overview is marked as done.",
@@ -618,7 +729,7 @@ const I18N = {
 "ext_m2_r1": "The whole system on one page, with every stage and pathway. Worth keeping open while you read the other texts.",
 "ext_m2_r12": "Another delegation that did just what we are doing: it came to learn about Multi-Academy Trusts and wrote about what makes them work.",
 "ext_m2_r15": "What schools are legally required to do to keep pupils safe, one of the areas a headteacher is responsible for.",
-"ext_m2_r8": "Why the government turned schools into academies, from the official source. The starting point for understanding today's structure.",
+"ext_m2_r8": "The government's own explanation of why schools became academies. Useful background to the structure described in the slides.",
 "ext_m2_s2": "The recording and slides from the second induction session with Amos Raban, on how the English and Israeli systems compare.",
 "ext_m3_r10": "A report by ImpactEd, whom we meet on Thursday, on how pupil engagement drops in secondary school.",
 "ext_m3_r7": "The EEF's summary of what research says about teaching approaches. Useful background for the session on evidence on Thursday.",
@@ -643,7 +754,7 @@ const I18N = {
 "learn_back": "Back to the trip site",
 "learn_footer_glossary": "The trip glossary",
 "learn_h1": "Your learning plan before the trip",
-"learn_how_p": "Each module has an audio overview, slides, a core reading and further texts. The first three are the core, and the further texts are there if you want more.",
+"learn_how_p": "Each module has an audio overview, slides, core reading and further texts. The audio, slides and reading are the core, and the further texts are there if you want more.",
 "learn_kicker": "Advot delegation · London 2026",
 "learn_lede": "At the last seminar you asked for a structured way to prepare for London, so we built a self-study plan that points you to the materials on this site most worth your time.",
 "learn_meta_desc": "Three self-study modules ahead of the Advot delegation to London, each with an audio overview, slides and a core reading.",
@@ -664,10 +775,6 @@ const I18N = {
 "mod1_scope": "This module focuses on the London Challenge, and on a question that is still debated: how much of the success came from policy, and how much from changes in the city's population.",
 "mod1_short": "The London story",
 "mod2_h": "How English schools are organised",
-"mod2_scope_1": "How an English school is structured",
-"mod2_scope_2": "What headteachers are responsible for",
-"mod2_scope_3": "Multi-Academy Trusts (MATs) and academies, compared with local authority schools",
-"mod2_scope_4": "An overview of budgets",
 "mod2_short": "School structures",
 "mod3_h": "Accountability: how English schools are measured",
 "mod3_scope_1": "How assessment and inspection are organised",
@@ -690,13 +797,41 @@ const I18N = {
 "read_full": "Full report · 136 pages",
 "read_more_invite": "You are of course welcome to read further.",
 "s2_links": "Session materials: <a href=\"https://youtu.be/KAapDrwpbnU\" target=\"_blank\" rel=\"noopener\">the session recording with Amos Raban</a> · <a href=\"assets/mifgash-2-deck.pdf\" target=\"_blank\" rel=\"noopener\">the accompanying slides (PDF)</a>",
-"soon_includes": "Like module 1, it will have an audio overview, slides, a core reading and further texts.",
+"soon_includes": "Like modules 1 and 2, it will have an audio overview, slides, a core reading and further texts.",
 "soon_meanwhile_h": "In the meantime, you can start with these",
-"soon_tag": "Coming soon"
+"soon_tag": "Coming soon",
+"mod2_scope": "This module explains how the system is structured, how funding passes from the state through the trusts to schools, and what headteachers are responsible for.",
+"mod2_audio_h": "Audio overview: How is education run in England?",
+"mod2_audio_meta": "Just under 2 minutes",
+"mod2_audio_p": "The big picture, before you get into the detail. A good place to start, then move on to the slides.",
+"mod2_audio_download": "Download to listen offline (3.5MB)",
+"mod2_deck_h": "Anatomy of the English education system",
+"mod2_deck_meta": "15 slides · in Hebrew · PDF 2.1MB",
+"mod2_deck_p": "How authority is shared between the Department for Education, local authorities and academy trusts, how funding reaches schools, and how schools' wide autonomy sits alongside central oversight. The slides end with a short guide for visitors and questions to ask in the schools we visit.",
+"kind_read1": "Reading 1",
+"mod2_read1_h": "Ark Schools: Decision Making Framework",
+"mod2_read1_meta": "PDF · 15 pages · in English, with Hebrew and Arabic translations",
+"mod2_read1_p": "In this document Ark sets out who is responsible for what. We will meet the trust on Tuesday, during our visit to Ed City. Responsibility is shared across five tiers: the trust board, the central team, regional directors, school principals and each school's local governing body. A single table goes through it area by area, from teaching and curriculum to finance, staffing and buildings.",
+"mod2_read1_lang": "We recommend reading the original in English. You will hear these terms again and again on the trip, and it helps to arrive already familiar with them.",
+"mod2_read1_btn_en": "Original (English)",
+"mod2_read1_btn_he": "Hebrew translation",
+"mod2_read1_btn_ar": "Arabic translation",
+"mod2_read1_ai_note": "The translations were made with AI and may contain small errors.",
+"kind_read2": "Reading 2",
+"mod2_read2_h": "The past is a foreign country",
+"mod2_read2_src": "Claire Stoneman · 7 March 2026",
+"mod2_read2_meta": "PDF · 4 pages · in Hebrew",
+"mod2_read2_p": "Claire Stoneman is a headteacher in Birmingham who writes a blog about her work. In the summer of 2022, before she took up the post, she found the logbooks kept by the heads before her, going back to the school's opening in 1940. Through them she looks at how the headteacher's role has changed since then, and what she learns from those who held it before her. The Hebrew version ends with three questions for reflection.",
+"mod2_read2_btn_he": "Hebrew translation (PDF)",
+"mod2_read2_btn_en": "Original blog post (English)",
+"mod2_read2_ai_note": "This translation was also made with AI.",
+"mod2_more_p": "If you want to go further, here are some more materials on how the system is built. There is no need to get through them all, so pick what interests you.",
+"mod2_closing": "There is a lot here, but everything you read now will help you make sense of what we see in London. You might form study groups and work through it together. And if you have not yet done Module 1, start there."
 }
 };
 
-const ITEMS=['m1-audio','m1-deck','m1-exec','m1-ch5'];
+/* ticks per module; keys live together in localStorage 'advot-learn' (module 1 keys unchanged) */
+const MODS={1:['m1-audio','m1-deck','m1-exec','m1-ch5'],2:['m2-audio','m2-deck','m2-ark','m2-blog']};
 const CHECK='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
 
 let lang='he';
@@ -737,26 +872,28 @@ function setLang(l){
 }
 
 function render(){
-  const y=ITEMS.length;
-  const x=ITEMS.filter(function(k){ return done[k]; }).length;
   document.querySelectorAll('input[data-item]').forEach(function(i){ i.checked=!!done[i.dataset.item]; });
-  let nextSet=false;
-  document.querySelectorAll('#m1 .step').forEach(function(li){
-    const ks=li.dataset.items.split(',');
-    const all=ks.every(function(k){ return done[k]; });
-    li.classList.toggle('is-done',all);
-    const isNext=!all&&!nextSet;
-    if(isNext) nextSet=true;
-    li.classList.toggle('is-next',isNext);
+  Object.keys(MODS).forEach(function(n){
+    const items=MODS[n], y=items.length;
+    const x=items.filter(function(k){ return done[k]; }).length;
+    let nextSet=false;
+    document.querySelectorAll('#m'+n+' .step').forEach(function(li){
+      const ks=li.dataset.items.split(',');
+      const all=ks.every(function(k){ return done[k]; });
+      li.classList.toggle('is-done',all);
+      const isNext=!all&&!nextSet;
+      if(isNext) nextSet=true;
+      li.classList.toggle('is-next',isNext);
+    });
+    const txt=document.getElementById('m'+n+'Prog'), wrap=document.getElementById('m'+n+'BarWrap'), bar=document.getElementById('m'+n+'Bar');
+    if(x===0){ txt.textContent=t('mod_progress_zero',{y:y}); wrap.hidden=true; }
+    else if(x===y){ txt.innerHTML=CHECK+'<span>'+t('mod_complete')+'</span>'; wrap.hidden=false; }
+    else { txt.textContent=t('mod_progress',{x:x,y:y}); wrap.hidden=false; }
+    bar.style.width=(x/y*100)+'%';
+    const tile=document.querySelector('.mod-tile[data-mod="'+n+'"]');
+    document.getElementById('tile'+n+'Status').textContent= x===0?t('mod_status_open'):(x===y?t('mod_status_done'):t('mod_status_progress',{x:x,y:y}));
+    tile.classList.toggle('is-done',x===y);
   });
-  const txt=document.getElementById('m1Prog'), wrap=document.getElementById('m1BarWrap'), bar=document.getElementById('m1Bar');
-  if(x===0){ txt.textContent=t('mod_progress_zero',{y:y}); wrap.hidden=true; }
-  else if(x===y){ txt.innerHTML=CHECK+'<span>'+t('mod_complete')+'</span>'; wrap.hidden=false; }
-  else { txt.textContent=t('mod_progress',{x:x,y:y}); wrap.hidden=false; }
-  bar.style.width=(x/y*100)+'%';
-  const tile=document.querySelector('.mod-tile[data-mod="1"]');
-  document.getElementById('tile1Status').textContent= x===0?t('mod_status_open'):(x===y?t('mod_status_done'):t('mod_status_progress',{x:x,y:y}));
-  tile.classList.toggle('is-done',x===y);
 }
 
 document.querySelectorAll('input[data-item]').forEach(function(i){
@@ -769,17 +906,18 @@ document.querySelectorAll('input[data-item]').forEach(function(i){
 const live=document.getElementById('liveMsg');
 function announce(msg){ live.textContent=''; setTimeout(function(){ live.textContent=msg; },60); }
 
-const au=document.getElementById('m1Audio');
-if(au){
+/* each player: its own lock-screen title (data-title-key) and its own tick (data-item) */
+document.querySelectorAll('audio[data-item]').forEach(function(au){
   au.addEventListener('play',function(){
     if('mediaSession' in navigator && typeof MediaMetadata==='function'){
-      try{ navigator.mediaSession.metadata=new MediaMetadata({title:plain(t('mod1_audio_h')),artist:plain(t('media_artist')),artwork:[{src:new URL('assets/advot-logo.png',location.href).href,type:'image/png'}]}); }catch(e){}
+      try{ navigator.mediaSession.metadata=new MediaMetadata({title:plain(t(au.dataset.titleKey)),artist:plain(t('media_artist')),artwork:[{src:new URL('assets/advot-logo.png',location.href).href,type:'image/png'}]}); }catch(e){}
     }
   });
   au.addEventListener('ended',function(){
-    if(!done['m1-audio']){ done['m1-audio']=true; save(); render(); announce(t('audio_auto_done')); }
+    const k=au.dataset.item;
+    if(!done[k]){ done[k]=true; save(); render(); announce(t('audio_auto_done')); }
   });
-}
+});
 
 langBtn.addEventListener('click',function(){ setLang(lang==='he'?'en':'he'); });
 setLang(lang);
