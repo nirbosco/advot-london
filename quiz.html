@@ -130,6 +130,7 @@ main{max-width:620px;margin:0 auto;padding:20px 16px 48px}
 .map .hub{fill:var(--white);stroke:var(--ink);stroke-width:5}
 .map .hub-t{font-family:'Montserrat',sans-serif;font-weight:900;font-size:13px;fill:var(--ink);letter-spacing:.06em}
 .map .num{font-family:'Montserrat',sans-serif;font-weight:900;font-size:12px;fill:#fff}
+.map .tag{font-family:'Heebo',sans-serif;font-weight:700;font-size:9.5px;fill:var(--ink-dim);pointer-events:none}
 .map .soon{fill:none;stroke:var(--ink-dim);stroke-width:5;stroke-dasharray:2 12;stroke-linecap:round;opacity:.5}
 .lines{display:grid;gap:10px}
 .line-btn{display:flex;align-items:center;gap:14px;width:100%;text-align:start;background:var(--white);border:1px solid var(--line);border-radius:18px;padding:14px 16px;box-shadow:var(--shadow-sm);transition:transform .2s var(--ease),box-shadow .2s}
@@ -571,6 +572,8 @@ const PATHS = {
   l4:'M320 25 L250 95 L110 235 L40 305'
 };
 const STOPS = [0.1, 0.24, 0.37, 0.67, 0.83];
+/* where each line's name sits: fraction along the path, which side of it */
+const TAGS = { l1:{f:.235, side:-1}, l2:{f:.92, side:1, flat:true}, l3:{f:.235, side:-1}, l4:{f:.235, side:1} };
 function drawMap(){
   const svg = $('#mapSvg'); const NS = 'http://www.w3.org/2000/svg'; svg.innerHTML = '';
   const soon = document.createElementNS(NS, 'path');
@@ -595,6 +598,17 @@ function drawMap(){
     const p = svg.querySelector(`path[stroke="${L.color}"]`); const pt = p.getPointAtLength(0);
     const c = document.createElementNS(NS, 'circle'); c.setAttribute('cx', pt.x); c.setAttribute('cy', pt.y); c.setAttribute('r', 11); c.setAttribute('fill', L.color); svg.append(c);
     const t = document.createElementNS(NS, 'text'); t.setAttribute('x', pt.x); t.setAttribute('y', pt.y + 4.3); t.setAttribute('text-anchor', 'middle'); t.setAttribute('class', 'num'); t.textContent = k + 1; svg.append(t);
+  });
+  LINES.forEach(L => {
+    const p = svg.querySelector(`path[stroke="${L.color}"]`); const len = p.getTotalLength(), g = TAGS[L.id];
+    const a = p.getPointAtLength(len * g.f - 1), b = p.getPointAtLength(len * g.f + 1);
+    const dx = b.x - a.x, dy = b.y - a.y, n = Math.hypot(dx, dy);
+    const x = (a.x + b.x) / 2 - dy / n * 15 * g.side, y = (a.y + b.y) / 2 + dx / n * 15 * g.side;
+    let deg = Math.atan2(dy, dx) * 180 / Math.PI; if (deg > 90) deg -= 180; if (deg < -90) deg += 180;
+    if (g.flat) deg = 0;
+    const t = document.createElementNS(NS, 'text');
+    t.setAttribute('x', g.flat ? b.x + 12 : x); t.setAttribute('y', g.flat ? b.y : y); t.setAttribute('text-anchor', g.flat ? 'end' : 'middle'); t.setAttribute('dominant-baseline', 'central');
+    t.setAttribute('transform', `rotate(${deg} ${g.flat ? b.x + 12 : x} ${g.flat ? b.y : y})`); t.setAttribute('class', 'tag'); t.textContent = L.name; svg.append(t);
   });
   const hub = document.createElementNS(NS, 'circle'); hub.setAttribute('cx', 180); hub.setAttribute('cy', 165); hub.setAttribute('r', 26); hub.setAttribute('class', 'hub'); svg.append(hub);
   const t = document.createElementNS(NS, 'text'); t.setAttribute('x', 180); t.setAttribute('y', 170); t.setAttribute('text-anchor', 'middle'); t.setAttribute('class', 'hub-t'); t.textContent = 'LDN'; svg.append(t);
