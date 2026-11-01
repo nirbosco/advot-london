@@ -4,8 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>document.documentElement.className=document.documentElement.className.replace('no-js','js');</script>
-<title>תוכנית הלמידה · אדוות לונדון 2026</title>
+<title>תוכנית הלמידה · מרכז הלמידה · אדוות לונדון 2026</title>
 <meta name="description" content="שלושה מודולים ללמידה עצמית לקראת משלחת אדוות ללונדון, ובכל אחד סקירה קולית, מצגת וקריאה מרכזית.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="מרכז הלמידה · אדוות לונדון 2026">
+<meta property="og:description" content="מרכז הלמידה של משלחת אדוות ללונדון: תוכנית למידה בשלושה מודולים, ספרייה של כל החומרים, והכנה לערב המחזמר מטילדה.">
+<meta property="og:image" content="https://london.hotam.tech/assets/advot-logo.png">
+<meta property="og:url" content="https://london.hotam.tech/learn.html">
 <link rel="icon" type="image/png" href="assets/advot-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +39,7 @@
   --r-btn:10px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:88px}
+html{scroll-behavior:smooth;scroll-padding-top:132px}
 html,body{overflow-x:clip}
 body{font-family:'Heebo',sans-serif;color:var(--ink);background:var(--soft);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
 html[lang="en"] body{font-family:'Montserrat',sans-serif;font-size:15.5px}
@@ -218,7 +223,7 @@ footer :focus-visible{outline-color:var(--white)}
 
 /* ---------- responsive ---------- */
 @media (max-width:940px){
-  html{scroll-padding-top:80px}
+  html{scroll-padding-top:124px}
   .container{padding:0 16px}
   .learn-hero{padding:36px 0 96px}
   .learn-hero .lede{font-size:16px}
@@ -256,10 +261,184 @@ footer :focus-visible{outline-color:var(--white)}
   .back .back-txt{display:none}
   .back{padding:5px 10px}
 }
+/* ================= learning hub (design-spec-learning-hub.md) ================= */
+.learn-hero{padding:48px 0 52px}
+.mod-overview{margin-top:28px}
+#hubMain{padding-bottom:64px}
+#hubMain > .view > .container{padding-top:4px}
+.views-on .view:not(.is-active){display:none}
+.view-h:focus{outline:none}
+.view-head{margin-top:36px}
+.view-head .mod-k{margin-bottom:8px}
+.view-head h2{font-size:clamp(26px,3.2vw,38px);font-weight:800;line-height:1.2;margin-bottom:10px}
+.x-ico{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;display:inline-block;vertical-align:-1px;margin-inline-start:5px;opacity:.75}
+.step{scroll-margin-top:24px}
+
+/* tabs */
+.hub-nav{position:sticky;top:64px;z-index:90;background:rgba(254,254,254,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.hub-tabs{display:flex;gap:8px;justify-content:flex-start}
+.hub-tab{display:flex;align-items:center;justify-content:center;height:52px;padding:0 18px;font-size:15.5px;font-weight:700;color:var(--ink-dim);text-align:center;white-space:nowrap;box-shadow:inset 0 -3px 0 transparent;transition:color .2s var(--ease),box-shadow .2s var(--ease)}
+.hub-tab:hover{color:var(--ink)}
+.hub-tab[aria-current="true"]{color:var(--blue);box-shadow:inset 0 -3px 0 var(--blue)}
+.hub-tab:focus-visible{outline-offset:-3px}
+
+/* library */
+.lib-tools{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);padding:20px 22px;box-shadow:var(--shadow-sm);margin:24px 0 36px}
+.lib-label{display:block;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:6px}
+.lib-search{position:relative}
+.lib-search > svg{position:absolute;inset-inline-start:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;stroke:var(--ink-dim);fill:none;stroke-width:2;stroke-linecap:round;pointer-events:none}
+.lib-search input{width:100%;min-height:48px;font-family:inherit;font-size:16px;padding-inline:44px;border:1.5px solid var(--line);border-radius:var(--r-btn);background:var(--white);color:var(--ink);-webkit-appearance:none;appearance:none}
+.lib-search input::placeholder{color:var(--ink-dim);opacity:1}
+.lib-search input:focus{border-color:var(--blue)}
+.lib-search input::-webkit-search-cancel-button{display:none}
+.lib-clear{position:absolute;inset-inline-end:2px;top:50%;transform:translateY(-50%);width:44px;height:44px;border:0;background:none;color:var(--ink-dim);font-size:22px;line-height:1;cursor:pointer;border-radius:var(--r-btn)}
+.lib-clear:hover{color:var(--ink)}
+.lib-clear[hidden]{display:none}
+.lib-filters{margin-top:14px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px}
+.lib-chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:var(--white);color:var(--ink);font-family:inherit;font-size:14.5px;font-weight:500;cursor:pointer;white-space:nowrap;transition:border-color .2s var(--ease),background .2s var(--ease)}
+.chip:hover{border-color:var(--blue-mid)}
+.chip[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:var(--white);font-weight:700}
+.lib-he{font-size:14.5px;font-weight:500}
+.lib-count{font-size:14px;color:var(--ink-dim);margin-top:12px}
+.lib-group{margin-bottom:40px}
+.lib-group[hidden]{display:none}
+.lib-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.lib-card{position:relative;background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);padding:20px 22px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:6px;scroll-margin-top:24px;transition:border-color .25s var(--ease),box-shadow .25s var(--ease)}
+.lib-card[hidden]{display:none}
+.lib-card:not(.is-multi):hover{border-color:var(--blue-mid);box-shadow:var(--shadow-md)}
+.lib-card .stretch::after{content:"";position:absolute;inset:0;border-radius:var(--r-card)}
+.lc-debate a,.lc-mod,.lc-link{position:relative;z-index:1}
+.lc-meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.lc-kind,.lc-lang,.lc-where{font-size:12.5px;font-weight:700;color:var(--ink-dim);letter-spacing:.02em}
+.lc-lang::before,.lc-where::before{content:"·";margin-inline-end:8px}
+.lc-arrow{width:16px;height:16px;stroke:var(--blue);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;margin-inline-start:auto}
+html[dir="rtl"] .lc-arrow{transform:scaleX(-1)}
+.lc-title{font-size:16px;font-weight:700;color:var(--ink);line-height:1.45}
+.lc-title a{color:var(--ink)}
+.lc-title a:hover{color:var(--blue)}
+.lc-title .ltr{font-size:15px}
+.lc-src{font-size:12.5px;font-weight:600;color:var(--blue)}
+.lc-src .ltr{font-family:'Montserrat',sans-serif}
+.lc-note{font-size:14.5px;color:var(--ink-dim)}
+html[lang="en"] .lc-note{font-size:13.5px}
+.lc-debate{font-size:14px;color:var(--ink-dim)}
+.lc-debate a{font-weight:700}
+.lc-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.lc-link{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:var(--r-btn);border:1.5px solid var(--blue);background:var(--white);color:var(--blue);font-size:14px;font-weight:700}
+.lc-link:hover{background:var(--soft)}
+.lc-tags{margin-top:auto;padding-top:8px;display:flex;gap:6px;flex-wrap:wrap}
+.lc-mod{display:inline-flex;align-items:center;min-height:28px;font-size:13px;font-weight:700;color:var(--blue);background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:2px 12px}
+a.lc-mod::before{content:"";position:absolute;inset:-8px -2px}
+a.lc-mod:hover{background:var(--line)}
+.lib-card.is-target{animation:libflash 1.5s var(--ease) forwards}
+@keyframes libflash{0%,70%{box-shadow:0 0 0 3px var(--blue),var(--shadow-md)}100%{box-shadow:var(--shadow-sm)}}
+.lib-empty{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);padding:28px;text-align:center}
+.lib-empty[hidden]{display:none}
+.lib-empty h3{font-size:18px;font-weight:800;margin-bottom:6px}
+.lib-empty p{color:var(--ink-dim);font-size:15px}
+.lib-empty .btn-line{margin-top:14px;font-family:inherit;cursor:pointer}
+.lib-empty-gl{margin-top:12px}
+.lib-empty-gl a{font-weight:700}
+.res-cat-head{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.res-cat-head .bar{width:5px;height:26px;border-radius:3px;background:var(--blue);flex-shrink:0}
+.res-cat-head h3{font-size:clamp(18px,2vw,22px);font-weight:700;line-height:1.35}
+.is-missing{opacity:1;cursor:default}
+
+/* Matilda */
+.mat-when{display:inline-flex;align-items:center;gap:6px;min-height:36px;margin-top:14px;font-size:13px;font-weight:700;color:var(--blue);background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:4px 14px;position:relative}
+.mat-when::before{content:"";position:absolute;inset:-4px 0}
+.mat-when svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
+.mat-when:hover{background:var(--line)}
+.mat-toc{margin-top:16px;font-size:14.5px;font-weight:500;line-height:1.4}
+.mat-toc a{display:inline-block;padding-block:12px}
+.mat-toc a:hover{text-decoration:underline}
+.toc-dot{color:var(--ink-dim);margin:0 4px}
+.mat-trailer{margin:28px 0 8px}
+.yt-frame{position:relative;aspect-ratio:16/9;border-radius:var(--r-card);overflow:hidden;background:var(--ink);box-shadow:var(--shadow-md)}
+.yt-facade,.yt-frame img,.yt-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.yt-frame img{object-fit:cover}
+.yt-facade{display:block}
+.yt-facade:focus-visible{outline:3px solid var(--white);outline-offset:-6px;box-shadow:inset 0 0 0 6px var(--blue)}
+.yt-scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(11,20,64,.62) 0%,rgba(11,20,64,0) 55%)}
+.yt-play{position:absolute;top:50%;left:50%;width:72px;height:72px;margin:-36px 0 0 -36px;border-radius:50%;background:var(--blue);box-shadow:var(--shadow-brand);display:flex;align-items:center;justify-content:center;transition:transform .2s var(--ease),filter .2s var(--ease)}
+.yt-play svg{width:28px;height:28px;fill:var(--white);margin-left:3px}
+.yt-facade:hover .yt-play,.yt-facade:focus-visible .yt-play{transform:scale(1.06);filter:brightness(.92)}
+.yt-cap{position:absolute;inset-inline-start:16px;bottom:14px;color:var(--white);font-size:14px;font-weight:700}
+.yt-note{margin-top:10px;font-size:13.5px;color:var(--ink-dim)}
+.yt-note a{font-weight:700}
+.mat-block{margin-top:48px;scroll-margin-top:24px}
+.mat-block + .mat-block{border-top:1px solid var(--line);padding-top:32px}
+.mat-h{font-size:22px;font-weight:800;line-height:1.3;margin-bottom:10px}
+.mat-h4{font-size:17px;font-weight:800;margin-top:22px;margin-bottom:6px}
+.mat-p{font-size:16.5px;color:var(--ink);line-height:1.8;max-width:680px}
+html[lang="en"] .mat-p{font-size:15.5px}
+.mat-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 24px;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin-top:18px}
+.mat-facts dt{font-size:12.5px;font-weight:700;color:var(--ink-dim)}
+.mat-facts dd{font-size:15.5px;font-weight:500;color:var(--ink)}
+.mat-note{background:var(--white);border:1px solid var(--line);border-inline-start:4px solid var(--ink-dim);border-radius:var(--r-card);padding:22px 26px;margin-top:20px}
+.mat-note h4{font-size:16.5px;font-weight:800;color:var(--ink);margin-bottom:6px}
+.mat-note p{font-size:15.5px;color:var(--ink)}
+details.spoiler{margin-top:18px;background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--shadow-sm)}
+details.spoiler summary{list-style:none;display:flex;align-items:center;gap:10px 12px;flex-wrap:wrap;min-height:60px;padding:14px 22px;cursor:pointer;border-radius:var(--r-card)}
+details.spoiler summary::-webkit-details-marker{display:none}
+.sp-warn{font-size:12.5px;font-weight:700;color:var(--ink);background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:2px 12px}
+.sp-title{font-size:16px;font-weight:700;color:var(--ink);flex:1}
+.sp-state{font-size:14px;font-weight:700;color:var(--blue);display:inline-flex;align-items:center;gap:6px}
+.sp-state::after{content:"+";font-size:18px;transition:transform .25s var(--ease)}
+details.spoiler[open] .sp-state::after{transform:rotate(45deg)}
+.when-open{display:none}
+details.spoiler[open] .when-open{display:inline}
+details.spoiler[open] .when-closed{display:none}
+.spoiler-body{padding:16px 22px 22px;border-top:1px solid var(--line)}
+.spoiler-body p{font-size:16px;line-height:1.8}
+.paper{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);padding:24px 28px;box-shadow:var(--shadow-sm);margin-top:18px}
+.paper + .paper{margin-top:16px}
+.pp-meta{font-family:'Montserrat',sans-serif;font-size:12.5px;font-weight:600;color:var(--blue)}
+.pp-title{font-family:'Montserrat',sans-serif;font-size:17px;font-weight:700;color:var(--ink);line-height:1.4;margin:4px 0 2px}
+.pp-venue{font-size:13.5px;color:var(--ink-dim)}
+.pp-desc{font-size:15.5px;color:var(--ink-dim);margin-top:8px}
+html[lang="en"] .pp-desc{font-size:14.5px}
+.pp-files{font-size:13px;color:var(--ink-dim);margin-top:10px}
+.mat-yt{gap:8px;margin-top:14px}
+.mat-yt svg{width:18px;height:18px;fill:currentColor}
+.mat-back{margin-top:48px;padding-top:24px;border-top:1px solid var(--line)}
+.mat-back a{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:700;min-height:44px}
+.mat-back svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+html[dir="ltr"] .mat-back svg{transform:scaleX(-1)}
+
+@media (max-width:940px){
+  .learn-hero{padding:32px 0 36px}
+  .hub-tab{height:48px}
+}
+@media (max-width:760px){
+  .hub-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+  .hub-tab{padding:0 6px}
+  .lib-grid{grid-template-columns:minmax(0,1fr);gap:12px}
+  .lib-chips{flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:none;margin-inline:-22px;padding-inline:22px;-webkit-mask-image:linear-gradient(to left,transparent,var(--ink) 32px);mask-image:linear-gradient(to left,transparent,var(--ink) 32px)}
+  html[dir="ltr"] .lib-chips{-webkit-mask-image:linear-gradient(to right,transparent,var(--ink) 32px);mask-image:linear-gradient(to right,transparent,var(--ink) 32px)}
+  .lib-chips::-webkit-scrollbar{display:none}
+  .chip{scroll-snap-align:start}
+  .lib-he{flex-basis:100%}
+  .mat-facts{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:480px){
+  .yt-play{width:56px;height:56px;margin:-28px 0 0 -28px}
+  .yt-play svg{width:22px;height:22px}
+  .mat-h{font-size:19px}
+  .lib-tools{padding:16px}
+  .lib-chips{margin-inline:-16px;padding-inline:16px}
+  .paper{padding:20px 18px}
+}
+@media (max-width:380px){
+  .hub-tab{font-size:14px}
+}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{transition:none!important;animation:none!important}
   .mod-tile:hover,.btn-solid:hover{transform:none}
+  .yt-facade:hover .yt-play,.yt-facade:focus-visible .yt-play{transform:none}
+  .lib-card.is-target{animation:none;box-shadow:0 0 0 3px var(--blue),var(--shadow-md)}
 }
 </style>
 </head>
@@ -280,27 +459,38 @@ footer :focus-visible{outline-color:var(--white)}
   <img class="rip2" src="assets/ripples-white.png" alt="">
   <div class="container hero-inner">
     <span class="kicker" data-i18n="learn_kicker">משלחת אדוות · לונדון 2026</span>
-    <h1 data-i18n="learn_h1">תוכנית הלמידה לפני המסע</h1>
-    <p class="lede" data-i18n="learn_lede">בסמינר האחרון ביקשתם דרך מסודרת להתכונן ללונדון, אז בנינו תוכנית ללמידה עצמאית: מתוך כל החומרים באתר, בחרנו את אלה ששווה להעמיק בהם.</p>
+    <h1 data-i18n="hub_h1">מרכז הלמידה לקראת המסע</h1>
+    <p class="lede" data-i18n="hub_lede">בסמינר האחרון ביקשתם דרך מסודרת להתכונן ללונדון. כאן תמצאו את תוכנית הלמידה בשלושה מודולים, ספרייה של כל החומרים באתר ורקע לערב המחזמר מטילדה.</p>
   </div>
 </section>
 
-<nav class="container mod-overview" data-i18n-aria="learn_overview_aria" aria-label="שלושת המודולים">
-  <a class="mod-tile" href="#m1" data-mod="1">
-    <span class="mt-num" aria-hidden="true"><span class="mt-digit">1</span><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
-    <span class="mt-txt"><b data-i18n="mod1_short">הסיפור הלונדוני</b><span class="mt-status" id="tile1Status">אפשר להתחיל</span></span>
-  </a>
-  <a class="mod-tile" href="#m2" data-mod="2">
-    <span class="mt-num" aria-hidden="true"><span class="mt-digit">2</span><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
-    <span class="mt-txt"><b data-i18n="mod2_short">מבנה בתי הספר</b><span class="mt-status" id="tile2Status">אפשר להתחיל</span></span>
-  </a>
-  <a class="mod-tile is-soon" href="#m3" data-mod="3">
-    <span class="mt-num" aria-hidden="true"><span class="mt-digit">3</span></span>
-    <span class="mt-txt"><b data-i18n="mod3_short">אחריותיות</b><span class="mt-status" data-i18n="mod_status_soon">בקרוב</span></span>
-  </a>
+
+<nav class="hub-nav" data-i18n-aria="hubnav_aria" aria-label="חלקי מרכז הלמידה">
+  <div class="container hub-tabs">
+    <a href="#plan" class="hub-tab" data-view="plan" data-i18n="hubnav_plan">תוכנית הלמידה</a>
+    <a href="#library" class="hub-tab" data-view="library" data-i18n="hubnav_library">הספרייה</a>
+    <a href="#matilda" class="hub-tab" data-view="matilda" data-i18n="hubnav_matilda">מטילדה</a>
+  </div>
 </nav>
 
-<main class="container">
+<main id="hubMain">
+  <section class="view" id="plan" aria-labelledby="plan-h">
+  <div class="container">
+    <h2 id="plan-h" class="view-h sr-only" tabindex="-1" data-i18n="plan_h">תוכנית הלמידה</h2>
+    <nav class="mod-overview" data-i18n-aria="learn_overview_aria" aria-label="שלושת המודולים">
+      <a class="mod-tile" href="#m1" data-mod="1">
+        <span class="mt-num" aria-hidden="true"><span class="mt-digit">1</span><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+        <span class="mt-txt"><b data-i18n="mod1_short">הסיפור הלונדוני</b><span class="mt-status" id="tile1Status">אפשר להתחיל</span></span>
+      </a>
+      <a class="mod-tile" href="#m2" data-mod="2">
+        <span class="mt-num" aria-hidden="true"><span class="mt-digit">2</span><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+        <span class="mt-txt"><b data-i18n="mod2_short">מבנה בתי הספר</b><span class="mt-status" id="tile2Status">אפשר להתחיל</span></span>
+      </a>
+      <a class="mod-tile is-soon" href="#m3" data-mod="3">
+        <span class="mt-num" aria-hidden="true"><span class="mt-digit">3</span></span>
+        <span class="mt-txt"><b data-i18n="mod3_short">אחריותיות</b><span class="mt-status" data-i18n="mod_status_soon">בקרוב</span></span>
+      </a>
+    </nav>
   <div class="col">
 
     <aside class="learn-how">
@@ -323,7 +513,7 @@ footer :focus-visible{outline-color:var(--white)}
 
       <ol class="steps" role="list">
         <!-- step 1: audio -->
-        <li class="step" data-items="m1-audio">
+        <li class="step" id="m1-audio" data-items="m1-audio">
           <span class="step-dot"><span class="sd-n">1</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
           <div class="step-card">
             <div class="step-top"><span class="step-kind" data-i18n="kind_audio">האזנה</span><span class="step-meta" data-i18n="mod1_audio_meta">2 דקות</span></div>
@@ -340,7 +530,7 @@ footer :focus-visible{outline-color:var(--white)}
         </li>
 
         <!-- step 2: slides -->
-        <li class="step" data-items="m1-deck">
+        <li class="step" id="m1-deck" data-items="m1-deck">
           <span class="step-dot"><span class="sd-n">2</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
           <div class="step-card">
             <div class="step-top"><span class="step-kind" data-i18n="kind_deck">מצגת</span><span class="step-meta" data-i18n="mod1_deck_meta">12 שקפים · בעברית · <bdi>PDF 1.9MB</bdi></span></div>
@@ -357,7 +547,7 @@ footer :focus-visible{outline-color:var(--white)}
         </li>
 
         <!-- step 3: core reading -->
-        <li class="step" data-items="m1-exec,m1-ch5">
+        <li class="step" id="m1-read" data-items="m1-exec,m1-ch5">
           <span class="step-dot"><span class="sd-n">3</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
           <div class="step-card">
             <div class="step-top"><span class="step-kind" data-i18n="kind_read">קריאה מרכזית</span></div>
@@ -391,36 +581,8 @@ footer :focus-visible{outline-color:var(--white)}
 
       <section class="extras" aria-labelledby="m1-ex-h">
         <div class="ex-head"><h3 id="m1-ex-h" data-i18n="extras_h">טקסטים להרחבה</h3><span class="opt" data-i18n="extras_optional">רשות</span></div>
-        <ul class="ext-list" role="list">
-          <li class="ext-row">
-            <a class="ext-title stretch" href="https://www.instituteforgovernment.org.uk/sites/default/files/publications/Implementing%20the%20London%20Challenge%20-%20final_0.pdf" target="_blank" rel="noopener"><span class="ltr" lang="en">About the London Challenge (2002 to 2011)</span></a>
-            <span class="ext-src"><span class="ltr" lang="en">Institute for Government</span></span>
-            <span class="ext-note" data-i18n="ext_m1_r5">מסמך שמראה איך יושמה <bdi>London Challenge</bdi> בפועל. לצידו שלושה קישורים לוויכוח על הסיבות לשיפור: הגירה, כסף ו-<bdi>Teach First</bdi>.</span>
-            <span class="ext-debate" data-i18n="r5_debate"><a href="https://www.theguardian.com/commentisfree/2014/nov/14/london-schools-immigration-children-education" target="_blank" rel="noopener">הגירה</a> · <a href="https://samfreedman1.blogspot.com/2013/10/why-are-londons-schools-doing-so-well.html" target="_blank" rel="noopener">כסף</a> · <a href="https://www.bbc.co.uk/news/education-28003848" target="_blank" rel="noopener">Teach First</a></span>
-          </li>
-          <li class="ext-row">
-            <a class="ext-title stretch" href="https://www.suttontrust.com/news-opinion/all-news-opinion/london-miles-ahead-of-other-regions-in-providing-best-opportunities-for-the-poorest-young-people/" target="_blank" rel="noopener"><span class="ltr" lang="en">London has the best results for the poorest</span></a>
-            <span class="ext-src"><span class="ltr" lang="en">Sutton Trust · 2025</span></span>
-            <span class="ext-note" data-i18n="ext_m1_r4">דוח שמשלים את השקף על סגירת הפערים במצגת: מה קורה לתלמידים העניים ביותר בלונדון לעומת שאר המדינה.</span>
-          </li>
-          <li class="ext-row">
-            <div class="ext-pair">
-              <a class="ext-title he" href="https://drive.google.com/file/d/1L4Me5AARMjcRdtsN0Cg7_U5gO4zQR618/view?usp=sharing" target="_blank" rel="noopener" data-i18n="p1_t">פודקאסט קצר: החדשנות השמרנית שהזניקה את החינוך באנגליה</a>
-              <span class="ext-src he" data-i18n="p1_s">פודקאסט · בעברית</span>
-            </div>
-            <div class="ext-pair">
-              <a class="ext-title he" href="assets/hadshanut-shamranit.pdf" target="_blank" rel="noopener" data-i18n="p2_t">מצגת: חדשנות שמרנית · אדריכלות הפלא החינוכי של אנגליה</a>
-              <span class="ext-src he" data-i18n="p2_s"><bdi>PDF</bdi> · מלווה את הפודקאסט</span>
-            </div>
-            <span class="ext-note" data-i18n="ext_m1_p12">פודקאסט קצר ומצגת בעברית על סיפור הרפורמות באנגליה, למי שרוצה לראות את התמונה הרחבה ולא רק את לונדון.</span>
-          </li>
-          <li class="ext-row">
-            <a class="ext-title stretch" href="https://schoolsweek.co.uk/goves-traditionalists-won-but-now-they-see-what-was-lost/" target="_blank" rel="noopener"><span class="ltr" lang="en">Opinion: Traditionalists won, but what was lost?</span></a>
-            <span class="ext-src"><span class="ltr" lang="en">Schools Week</span></span>
-            <span class="ext-note" data-i18n="ext_m1_r11">מאמר דעה על מה שהרפורמות של גוב השיגו ועל המחיר ששילמו עליהן. כדאי לקרוא אותו לפני המפגש עם גוב ביום שני.</span>
-          </li>
-        </ul>
-        <a class="ext-all" href="index.html#resources" data-i18n="extras_all">לכל משאבי הלמידה באתר</a>
+        <ul class="ext-list" role="list" data-from="m1"><li class="ext-row ext-nojs" data-i18n="extras_nojs">את הטקסטים להרחבה של המודול תמצאו <a href="#library">בספרייה</a>.</li></ul>
+        <a class="ext-all" href="#library" data-i18n="extras_all">לכל החומרים בספרייה</a>
       </section>
 
       <p class="mod-closing" data-i18n="mod1_closing">אז תכינו לכם כוס תה טובה, וצוללים.</p>
@@ -440,7 +602,7 @@ footer :focus-visible{outline-color:var(--white)}
 
       <ol class="steps" role="list">
         <!-- step 1: audio -->
-        <li class="step" data-items="m2-audio">
+        <li class="step" id="m2-audio" data-items="m2-audio">
           <span class="step-dot"><span class="sd-n">1</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
           <div class="step-card">
             <div class="step-top"><span class="step-kind" data-i18n="kind_audio">האזנה</span><span class="step-meta" data-i18n="mod2_audio_meta">קצת פחות משתי דקות</span></div>
@@ -457,7 +619,7 @@ footer :focus-visible{outline-color:var(--white)}
         </li>
 
         <!-- step 2: slides -->
-        <li class="step" data-items="m2-deck">
+        <li class="step" id="m2-deck" data-items="m2-deck">
           <span class="step-dot"><span class="sd-n">2</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
           <div class="step-card">
             <div class="step-top"><span class="step-kind" data-i18n="kind_deck">מצגת</span><span class="step-meta" data-i18n="mod2_deck_meta">15 שקפים · בעברית · <bdi>PDF 2.1MB</bdi></span></div>
@@ -474,7 +636,7 @@ footer :focus-visible{outline-color:var(--white)}
         </li>
 
         <!-- step 3: reading 1, Ark decision making framework -->
-        <li class="step" data-items="m2-ark">
+        <li class="step" id="m2-ark" data-items="m2-ark">
           <span class="step-dot"><span class="sd-n">3</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
           <div class="step-card">
             <div class="step-top"><span class="step-kind" data-i18n="kind_read1">קריאה 1</span><span class="step-meta" data-i18n="mod2_read1_meta"><bdi>PDF</bdi> · 15 עמודים · באנגלית, עם תרגום לעברית ולערבית</span></div>
@@ -495,7 +657,7 @@ footer :focus-visible{outline-color:var(--white)}
         </li>
 
         <!-- step 4: reading 2, Claire Stoneman's blog -->
-        <li class="step" data-items="m2-blog">
+        <li class="step" id="m2-blog" data-items="m2-blog">
           <span class="step-dot"><span class="sd-n">4</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
           <div class="step-card">
             <div class="step-top"><span class="step-kind" data-i18n="kind_read2">קריאה 2</span><span class="step-meta" data-i18n="mod2_read2_meta"><bdi>PDF</bdi> · 4 עמודים · בעברית</span></div>
@@ -517,33 +679,8 @@ footer :focus-visible{outline-color:var(--white)}
       <section class="extras" aria-labelledby="m2-ex-h">
         <div class="ex-head"><h3 id="m2-ex-h" data-i18n="extras_h">טקסטים להרחבה</h3><span class="opt" data-i18n="extras_optional">רשות</span></div>
         <p class="ext-intro" data-i18n="mod2_more_p">למי שרוצה להעמיק, בחרנו עוד כמה חומרים על המבנה של המערכת. לא צריך לעבור על כולם. בחרו את מה שמעניין אתכם.</p>
-        <ul class="ext-list" role="list">
-          <li class="ext-row">
-            <a class="ext-title stretch" href="https://www.gov.uk/government/publications/2010-to-2015-government-policy-academies-and-free-schools/2010-to-2015-government-policy-academies-and-free-schools" target="_blank" rel="noopener"><span class="ltr" lang="en">English school structures reforms 2010 to 2015</span></a>
-            <span class="ext-src"><span class="ltr" lang="en">DfE</span></span>
-            <span class="ext-note" data-i18n="ext_m2_r8">המסמך הרשמי של הממשלה שמסביר למה בתי ספר הפכו לאקדמיות. רקע טוב למבנה שמתואר במצגת.</span>
-          </li>
-          <li class="ext-row">
-            <a class="ext-title stretch" href="https://grattan.edu.au/report/spreading-success-why-australia-should-trial-multi-school-organisations/" target="_blank" rel="noopener"><span class="ltr" lang="en">A positive analysis of Multi-Academy Trusts</span></a>
-            <span class="ext-src"><span class="ltr" lang="en">Grattan · 2024</span></span>
-            <span class="ext-note" data-i18n="ext_m2_r12">משלחת אחרת שעשתה בדיוק מה שאנחנו עושים: באה ללמוד על רשתות בתי הספר, וכתבה למה הן מצליחות.</span>
-          </li>
-          <li class="ext-row">
-            <a class="ext-title stretch" href="https://gpseducation.oecd.org/Content/MapOfEducationSystem/GBR/GBR_2011_EN.pdf" target="_blank" rel="noopener"><span class="ltr" lang="en">Diagram of the UK schools system on one page</span></a>
-            <span class="ext-src"><span class="ltr" lang="en">OECD · 2025</span></span>
-            <span class="ext-note" data-i18n="ext_m2_r1">כל המערכת בעמוד אחד, עם כל השלבים והמסלולים. כדאי שיהיה פתוח לידכם כשאתם קוראים את שאר הטקסטים.</span>
-          </li>
-          <li class="ext-row">
-            <span class="ext-links" data-i18n="s2_links">חומרי המפגש: <a href="https://youtu.be/KAapDrwpbnU" target="_blank" rel="noopener">הקלטת המפגש עם עמוס רבן</a> · <a href="assets/mifgash-2-deck.pdf" target="_blank" rel="noopener">המצגת המלווה (PDF)</a></span>
-            <span class="ext-note" data-i18n="ext_m2_s2">ההקלטה והמצגת ממפגש ההכנה השני עם עמוס רבן, על ההשוואה בין המערכת האנגלית לישראלית.</span>
-          </li>
-          <li class="ext-row">
-            <a class="ext-title stretch" href="https://www.supportingeducation.com/content-hub/safeguarding-in-schools-importance-and-strategies/" target="_blank" rel="noopener"><span class="ltr" lang="en">An introduction to Safeguarding</span></a>
-            <span class="ext-src"><span class="ltr" lang="en">Supporting Education</span></span>
-            <span class="ext-note" data-i18n="ext_m2_r15">מה בית ספר מחויב בחוק לעשות כדי להגן על התלמידים, אחד מתחומי האחריות של המנהל.</span>
-          </li>
-        </ul>
-        <a class="ext-all" href="index.html#resources" data-i18n="extras_all">לכל משאבי הלמידה באתר</a>
+        <ul class="ext-list" role="list" data-from="m2"><li class="ext-row ext-nojs" data-i18n="extras_nojs">את הטקסטים להרחבה של המודול תמצאו <a href="#library">בספרייה</a>.</li></ul>
+        <a class="ext-all" href="#library" data-i18n="extras_all">לכל החומרים בספרייה</a>
       </section>
 
       <p class="mod-closing" data-i18n="mod2_closing">יש כאן הרבה חומר, אבל כל מה שתקראו עכשיו יעזור לכם להבין את מה שנראה בלונדון. אפשר להתארגן בקבוצות למידה ולעבור עליו יחד. ואם עוד לא עברתם על מודול 1, כדאי להתחיל ממנו.</p>
@@ -561,27 +698,354 @@ footer :focus-visible{outline-color:var(--white)}
       <p class="soon-includes" data-i18n="soon_includes">גם כאן יהיו סקירה קולית, מצגת, קריאה מרכזית וטקסטים להרחבה.</p>
       <div class="soon-meanwhile">
         <h3 data-i18n="soon_meanwhile_h">בינתיים, אפשר להתחיל מאלה</h3>
-        <ul class="ext-list" role="list">
-          <li class="ext-row">
-            <a class="ext-title stretch" href="https://www.gov.uk/government/publications/education-inspection-framework" target="_blank" rel="noopener"><span class="ltr" lang="en">Ofsted Inspection Framework</span></a>
-            <span class="ext-src"><span class="ltr" lang="en">Ofsted · GOV.UK</span></span>
-            <span class="ext-note" data-i18n="ext_m3_r9">מה המפקחים מחפשים כשהם מגיעים לבית ספר, מהמסמך הרשמי של <bdi>Ofsted</bdi>. הכנה טובה לסדנה עם סטיב אדקוק ביום רביעי.</span>
-          </li>
-          <li class="ext-row">
-            <a class="ext-title stretch" href="https://www.impactedgroup.uk/resources/report-mind-the-engagement-gap" target="_blank" rel="noopener"><span class="ltr" lang="en">The Engagement Gap</span></a>
-            <span class="ext-src"><span class="ltr" lang="en">ImpactEd · UCL</span></span>
-            <span class="ext-note" data-i18n="ext_m3_r10">דוח של <bdi>ImpactEd</bdi>, שנפגוש ביום חמישי, על הירידה במחוברות של התלמידים בבית הספר העל-יסודי.</span>
-          </li>
-          <li class="ext-row">
-            <a class="ext-title stretch" href="https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit" target="_blank" rel="noopener"><span class="ltr" lang="en">Teaching &amp; Learning Toolkit</span></a>
-            <span class="ext-src"><span class="ltr" lang="en">EEF</span></span>
-            <span class="ext-note" data-i18n="ext_m3_r7">הכלי של <bdi>EEF</bdi> שמסכם מה המחקר אומר על דרכי הוראה. רקע טוב למפגש על מחקר וראיות ביום חמישי.</span>
-          </li>
-        </ul>
+        <ul class="ext-list" role="list" data-from="m3"><li class="ext-row ext-nojs" data-i18n="extras_nojs">את הטקסטים להרחבה של המודול תמצאו <a href="#library">בספרייה</a>.</li></ul>
       </div>
     </section>
 
   </div>
+  </div>
+  </section>
+
+  <!-- ===== library: the single source of every resource link ===== -->
+  <section class="view" id="library" aria-labelledby="lib-h">
+    <div class="container">
+      <header class="view-head">
+        <div class="mod-k" data-i18n="lib_k">משאבי למידה</div>
+        <h2 id="lib-h" class="view-h" tabindex="-1" data-i18n="lib_h">הספרייה</h2>
+        <p class="mod-scope" data-i18n="lib_intro">אנגליה, סקוטלנד, ויילס וצפון אירלנד מקיימות מערכות חינוך שונות, ובביקור בלונדון תלמדו בהקשר של המערכת האנגלית. ההבדלים ביניהן יצרו ניסוי טבעי: מדינות דומות למדי שבחרו דרכים שונות באחריותיות, בתוכנית הלימודים ובתקצוב. כאן תמצאו את כל החומרים שבאתר. אפשר לחפש לפי שם, נושא או מקור, ולסנן לחומרים שיש להם גרסה בעברית.</p>
+      </header>
+      <div class="lib-tools js-only" role="search">
+        <label for="libQ" class="lib-label" data-i18n="lib_search_label">חיפוש בספרייה</label>
+        <div class="lib-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="libQ" type="search" autocomplete="off" enterkeyhint="search" data-i18n-ph="lib_search_ph" placeholder="למשל: אופסטד או Ark"><button type="button" class="lib-clear" id="libClear" data-i18n-aria="lib_search_clear" aria-label="ניקוי החיפוש" hidden>×</button></div>
+        <div class="lib-filters">
+          <div class="lib-chips" role="group" data-i18n-aria="lib_topics_aria" aria-label="סינון לפי נושא"><button type="button" class="chip" aria-pressed="true" data-topic="all" data-i18n="lib_topic_all">הכול</button><button type="button" class="chip" aria-pressed="false" data-topic="plan" data-i18n="lib_topic_plan">תוכנית הלמידה</button><button type="button" class="chip" aria-pressed="false" data-topic="sessions" data-i18n="lib_topic_sessions">מפגשי ההכנה</button><button type="button" class="chip" aria-pressed="false" data-topic="innovation" data-i18n="lib_topic_innovation">חדשנות שמרנית</button><button type="button" class="chip" aria-pressed="false" data-topic="uk" data-i18n="lib_topic_uk">לונדון ובריטניה</button><button type="button" class="chip" aria-pressed="false" data-topic="policy" data-i18n="lib_topic_policy">מדיניות</button><button type="button" class="chip" aria-pressed="false" data-topic="schools" data-i18n="lib_topic_schools">בתי ספר</button><button type="button" class="chip" aria-pressed="false" data-topic="leadership" data-i18n="lib_topic_leadership">מנהיגות והוראה</button><button type="button" class="chip" aria-pressed="false" data-topic="matilda" data-i18n="lib_topic_matilda">מטילדה</button></div>
+          <label class="done-toggle lib-he"><input type="checkbox" id="libHe"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span data-i18n="lib_he_only">רק חומרים עם גרסה בעברית</span></label>
+        </div>
+        <p class="lib-count" id="libCount" aria-live="polite"></p>
+      </div>
+      <div class="lib-group" data-topic="plan">
+        <div class="res-cat-head"><span class="bar"></span><h3 data-i18n="lib_cat_plan">החומרים המרכזיים של שלושת המודולים</h3></div>
+        <div class="lib-grid">
+        <article class="lib-card is-core" id="res-m1-audio" data-core="m1-audio" data-topic="plan" data-kind="listen" data-langs="" data-mods="m1" data-kw="">
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_listen">האזנה</span><span class="lc-where" data-i18n="lib_core_where">בתוכנית הלמידה</span><svg class="lc-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+          <h4 class="lc-title"><a class="stretch" href="#m1-audio"><span class="lc-t" data-i18n="mod1_audio_h">סקירה קולית: <bdi>London Challenge</bdi></span></a></h4>
+          <p class="lc-note" data-i18n="mod1_audio_p">שתי דקות על <bdi>London Challenge</bdi> ועל השיפור בלונדון, סיפור די מבלבל. טוב להתחיל כאן, לפני המצגת.</p>
+          <div class="lc-tags"><span class="lc-mod is-core" data-i18n="lib_core_tag" data-n="1">מודול 1 · חומר ליבה</span></div>
+        </article>
+        <article class="lib-card is-core" id="res-m1-deck" data-core="m1-deck" data-topic="plan" data-kind="deck" data-langs="he" data-mods="m1" data-kw="">
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_deck">מצגת</span><span class="lc-where" data-i18n="lib_core_where">בתוכנית הלמידה</span><svg class="lc-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+          <h4 class="lc-title"><a class="stretch" href="#m1-deck"><span class="lc-t" data-i18n="mod1_deck_h">למה לבקר בלונדון?</span></a></h4>
+          <p class="lc-note" data-i18n="mod1_deck_p">מה השתנה בבתי הספר של לונדון מאז 2003, מה הניע את השינוי ואיזה מחיר המערכת שילמה עליו. בשקף האחרון שלוש שאלות לקחת איתכם לביקורים בבתי הספר.</p>
+          <div class="lc-tags"><span class="lc-mod is-core" data-i18n="lib_core_tag" data-n="1">מודול 1 · חומר ליבה</span></div>
+        </article>
+        <article class="lib-card is-core" id="res-m1-read" data-core="m1-read" data-topic="plan" data-kind="read" data-langs="en" data-mods="m1" data-kw="דוח לונדון תקציר מנהלים מנהיגות">
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_read">קריאה</span><span class="lc-where" data-i18n="lib_core_where">בתוכנית הלמידה</span><svg class="lc-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+          <h4 class="lc-title"><a class="stretch" href="#m1-read"><span class="lc-t"><span class="ltr" lang="en">Lessons from London Schools: Investigating the Success</span></span></a></h4>
+          <p class="lc-note" data-i18n="mod1_read_p">דוח מקיף שבודק מה הוביל לשיפור הדרמטי בהישגים של בתי הספר בלונדון מאז שנת 2000. הדוח באנגלית וארוך, אז התמקדו בשני חלקים.</p>
+          <div class="lc-tags"><span class="lc-mod is-core" data-i18n="lib_core_tag" data-n="1">מודול 1 · חומר ליבה</span></div>
+        </article>
+        <article class="lib-card is-core" id="res-m2-audio" data-core="m2-audio" data-topic="plan" data-kind="listen" data-langs="" data-mods="m2" data-kw="">
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_listen">האזנה</span><span class="lc-where" data-i18n="lib_core_where">בתוכנית הלמידה</span><svg class="lc-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+          <h4 class="lc-title"><a class="stretch" href="#m2-audio"><span class="lc-t" data-i18n="mod2_audio_h">סקירה קולית: איך מנוהל החינוך באנגליה?</span></a></h4>
+          <p class="lc-note" data-i18n="mod2_audio_p">התמונה הכללית, לפני שנכנסים לפרטים. טוב להתחיל כאן, ורק אחר כך לעבור למצגת.</p>
+          <div class="lc-tags"><span class="lc-mod is-core" data-i18n="lib_core_tag" data-n="2">מודול 2 · חומר ליבה</span></div>
+        </article>
+        <article class="lib-card is-core" id="res-m2-deck" data-core="m2-deck" data-topic="plan" data-kind="deck" data-langs="he" data-mods="m2" data-kw="">
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_deck">מצגת</span><span class="lc-where" data-i18n="lib_core_where">בתוכנית הלמידה</span><svg class="lc-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+          <h4 class="lc-title"><a class="stretch" href="#m2-deck"><span class="lc-t" data-i18n="mod2_deck_h">אנטומיה של מערכת החינוך האנגלית</span></a></h4>
+          <p class="lc-note" data-i18n="mod2_deck_p">איך מתחלקות הסמכויות בין משרד החינוך, הרשויות המקומיות ורשתות בתי הספר, איך התקציב מגיע לבית הספר, ואיך עצמאות רבה של בתי הספר מתקיימת לצד פיקוח ריכוזי. בסוף המצגת יש מדריך קצר לביקור ושאלות שאפשר לשאול בבתי הספר שנבקר בהם.</p>
+          <div class="lc-tags"><span class="lc-mod is-core" data-i18n="lib_core_tag" data-n="2">מודול 2 · חומר ליבה</span></div>
+        </article>
+        <article class="lib-card is-core" id="res-m2-ark" data-core="m2-ark" data-topic="plan" data-kind="read" data-langs="en he ar" data-mods="m2" data-kw="ארק רשת אקדמיות">
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_read">קריאה</span><span class="lc-where" data-i18n="lib_core_where">בתוכנית הלמידה</span><svg class="lc-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+          <h4 class="lc-title"><a class="stretch" href="#m2-ark"><span class="lc-t" data-i18n="mod2_read1_h">מסגרת קבלת ההחלטות של רשת <bdi>Ark</bdi></span></a></h4>
+          <p class="lc-note" data-i18n="mod2_read1_p">במסמך הזה רשת <bdi>Ark</bdi> קובעת מי אחראי על מה. את הרשת נפגוש ביום שלישי, בביקור ב-<bdi>Ed City</bdi>. האחריות מתחלקת בין חמישה גורמים: הדירקטוריון של הרשת, הצוות המרכזי, המנהלים האזוריים, מנהלי בתי הספר והוועדה המקומית של כל בית ספר. בטבלה אחת רואים, תחום אחרי תחום, מה החלק של כל גורם: מהוראה ותוכנית הלימודים ועד תקציב, כוח אדם ומבנים.</p>
+          <div class="lc-tags"><span class="lc-mod is-core" data-i18n="lib_core_tag" data-n="2">מודול 2 · חומר ליבה</span></div>
+        </article>
+        <article class="lib-card is-core" id="res-m2-blog" data-core="m2-blog" data-topic="plan" data-kind="read" data-langs="he en" data-mods="m2" data-kw="סטונמן בלוג מנהלת ברמינגהאם יומנים">
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_read">קריאה</span><span class="lc-where" data-i18n="lib_core_where">בתוכנית הלמידה</span><svg class="lc-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+          <h4 class="lc-title"><a class="stretch" href="#m2-blog"><span class="lc-t" data-i18n="mod2_read2_h">העבר הוא ארץ זרה</span></a></h4>
+          <p class="lc-note" data-i18n="mod2_read2_p">קלייר סטונמן מנהלת בית ספר בברמינגהאם וכותבת בלוג על העבודה שלה. בקיץ 2022, לפני שנכנסה לתפקיד, היא מצאה במשרד את היומנים של המנהלים שקדמו לה, מאז שבית הספר נפתח ב-1940. דרכם היא בוחנת מה השתנה בתפקיד המנהל מאז ועד היום, ומה היא לומדת מאלה שמילאו אותו לפניה. בסוף הקובץ בעברית יש שלוש שאלות להרהור.</p>
+          <div class="lc-tags"><span class="lc-mod is-core" data-i18n="lib_core_tag" data-n="2">מודול 2 · חומר ליבה</span></div>
+        </article>
+        </div>
+      </div>
+      <div class="lib-group" data-topic="sessions">
+        <div class="res-cat-head"><span class="bar"></span><h3 data-i18n="lib_cat_sessions">חומרים ממפגשי ההכנה</h3></div>
+        <div class="lib-grid">
+        <article class="lib-card is-multi" id="res-s2" data-topic="sessions" data-kind="watch" data-langs="he" data-mods="m2" data-ext-m2="4" data-ctx-m2="ext_m2_s2" data-kw="עמוס רבן מפגש הכנה השוואה">
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_watch">צפייה</span><span class="lc-lang" data-i18n="lib_lang_he">בעברית</span></div>
+          <h4 class="lc-title"><span class="lc-t" data-i18n="lib_s2_t">מפגש ההכנה השני, עם עמוס רבן</span></h4>
+          <p class="lc-note" data-i18n="lib_s2_n">ההקלטה והמצגת מהמפגש, שעסק בהשוואה בין מערכת החינוך האנגלית לישראלית.</p>
+          <div class="lc-links"><a class="lc-link" data-role="rec" href="https://youtu.be/KAapDrwpbnU" target="_blank" rel="noopener"><span data-i18n="lib_link_recording">להקלטת המפגש</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a><a class="lc-link" data-role="deck" href="assets/mifgash-2-deck.pdf" target="_blank" rel="noopener"><span data-i18n="lib_link_deck">למצגת</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></div>
+          <div class="lc-tags"><a class="lc-mod" href="#m2" data-i18n="lib_mod_tag" data-n="2">מודול 2</a></div>
+        </article>
+        </div>
+      </div>
+      <div class="lib-group" data-topic="innovation">
+        <div class="res-cat-head"><span class="bar"></span><h3 data-i18n="cat0">חדשנות שמרנית: פודקאסט ומצגת בעברית</h3></div>
+        <div class="lib-grid">
+        <article class="lib-card" id="res-p1" data-topic="innovation" data-kind="listen" data-langs="he" data-mods="m1" data-ext-m1="3" data-ctx-m1="ext_m1_p12" data-kw="חדשנות שמרנית פודקאסט">
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_listen">האזנה</span><span class="lc-lang" data-i18n="lib_lang_he">בעברית</span></div>
+          <h4 class="lc-title"><a class="stretch" href="https://drive.google.com/file/d/1L4Me5AARMjcRdtsN0Cg7_U5gO4zQR618/view?usp=sharing" target="_blank" rel="noopener"><span class="lc-t he" data-i18n="p1_t">פודקאסט קצר: החדשנות השמרנית שהזניקה את החינוך באנגליה</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></h4>
+          <p class="lc-src he" data-i18n="p1_s">פודקאסט · בעברית</p>
+          <p class="lc-note" data-i18n="p1_n">האזנה קצרה ומעניינת לסיפור הרפורמות, נקודת פתיחה טובה לפני חומרי הקריאה באנגלית.</p>
+          <div class="lc-tags"><a class="lc-mod" href="#m1" data-i18n="lib_mod_tag" data-n="1">מודול 1</a></div>
+        </article>
+        <article class="lib-card" id="res-p2" data-topic="innovation" data-kind="deck" data-langs="he" data-mods="m1" data-ext-m1="3" data-ctx-m1="ext_m1_p12" data-kw="חדשנות שמרנית מצגת">
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_deck">מצגת</span><span class="lc-lang" data-i18n="lib_lang_he">בעברית</span></div>
+          <h4 class="lc-title"><a class="stretch" href="assets/hadshanut-shamranit.pdf" target="_blank" rel="noopener"><span class="lc-t he" data-i18n="p2_t">מצגת: חדשנות שמרנית · אדריכלות הפלא החינוכי של אנגליה</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></h4>
+          <p class="lc-src he" data-i18n="p2_s">PDF · מלווה את הפודקאסט</p>
+          <p class="lc-note" data-i18n="p2_n">מבט ישראלי על רפורמות העומק 2003 עד 2025. המצגת מלווה את הפודקאסט הקצר.</p>
+          <div class="lc-tags"><a class="lc-mod" href="#m1" data-i18n="lib_mod_tag" data-n="1">מודול 1</a></div>
+        </article>
+        </div>
+      </div>
+      <div class="lib-group" data-topic="uk">
+        <div class="res-cat-head"><span class="bar"></span><h3 data-i18n="cat1">לונדון ובריטניה: מערכת החינוך וההקשר החברתי</h3></div>
+        <div class="lib-grid">
+        <article class="lib-card" id="res-r1" data-topic="uk" data-kind="doc" data-langs="en" data-mods="m2" data-ext-m2="3" data-ctx-m2="ext_m2_r1" data-kw="תרשים מערכת שלבים">
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_doc">מסמך</span><span class="lc-lang" data-i18n="lib_lang_en">באנגלית</span></div>
+          <h4 class="lc-title"><a class="stretch" href="https://gpseducation.oecd.org/Content/MapOfEducationSystem/GBR/GBR_2011_EN.pdf" target="_blank" rel="noopener"><span class="lc-t"><span class="ltr" lang="en">Diagram of the UK schools system on one page</span></span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></h4>
+          <p class="lc-src"><span class="ltr" lang="en">OECD · 2025</span></p>
+          <p class="lc-note" data-i18n="r1">כאן אפשר לראות את כל המסלולים שתלמידים יכולים לעבור במערכות החינוך של בריטניה.</p>
+          <div class="lc-tags"><a class="lc-mod" href="#m2" data-i18n="lib_mod_tag" data-n="2">מודול 2</a></div>
+        </article>
+        <article class="lib-card" id="res-r2" data-topic="uk" data-kind="read" data-langs="en" data-mods="" data-kw="ניידות חברתית">
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_read">קריאה</span><span class="lc-lang" data-i18n="lib_lang_en">באנגלית</span></div>
+          <h4 class="lc-title"><a class="stretch" href="https://www.suttontrust.com/our-research/what-is-social-mobility/" target="_blank" rel="noopener"><span class="lc-t"><span class="ltr" lang="en">What is Social Mobility?</span></span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></h4>
+          <p class="lc-src"><span class="ltr" lang="en">Sutton Trust · 2025</span></p>
+          <p class="lc-note" data-i18n="r2">רבים משתמשים בניידות חברתית כמבחן: האם מערכת החינוך עובדת בשביל צעירים או לא.</p>
+          
+        </article>
+        <article class="lib-card" id="res-r3" data-topic="uk" data-kind="doc" data-langs="en" data-mods="" data-kw="תוכנית לימודים">
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_doc">מסמך</span><span class="lc-lang" data-i18n="lib_lang_en">באנגלית</span></div>
+          <h4 class="lc-title"><a class="stretch" href="https://3a551fc8-7675-4cc5-9ecd-8697a47d348f.filesusr.com/ugd/5d3f2a_9ed3efcaa0ae4950bfcc2c26a4b7312d.pdf" target="_blank" rel="noopener"><span class="lc-t"><span class="ltr" lang="en">English Curriculum Overview (3 pages)</span></span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></h4>
+          <p class="lc-src"><span class="ltr" lang="en">CES · 2025</span></p>
+          <p class="lc-note" data-i18n="r3">נוצר בעזרת AI ונבדק בידי אדם. בעמוד האחרון ציר זמן שימושי של הרפורמות בתוכנית הלימודים.</p>
+          
+        </article>
+        <article class="lib-card" id="res-r4" data-topic="uk" data-kind="read" data-langs="en" data-mods="m1" data-ext-m1="2" data-ctx-m1="ext_m1_r4" data-kw="עוני פערים לונדון">
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_read">קריאה</span><span class="lc-lang" data-i18n="lib_lang_en">באנגלית</span></div>
+          <h4 class="lc-title"><a class="stretch" href="https://www.suttontrust.com/news-opinion/all-news-opinion/london-miles-ahead-of-other-regions-in-providing-best-opportunities-for-the-poorest-young-people/" target="_blank" rel="noopener"><span class="lc-t"><span class="ltr" lang="en">London has the best results for the poorest</span></span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></h4>
+          <p class="lc-src"><span class="ltr" lang="en">Sutton Trust · 2025</span></p>
+          <p class="lc-note" data-i18n="r4">דוח שמראה איך התלמידים העניים ביותר בלונדון מצליחים יותר מתלמידים מבוססים באזורים אחרים בבריטניה.</p>
+          <div class="lc-tags"><a class="lc-mod" href="#m1" data-i18n="lib_mod_tag" data-n="1">מודול 1</a></div>
+        </article>
+        <article class="lib-card" id="res-r5" data-topic="uk" data-kind="read" data-langs="en" data-mods="m1" data-ext-m1="1" data-ctx-m1="ext_m1_r5" data-kw="אתגר לונדון לונדון צלנג">
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_read">קריאה</span><span class="lc-lang" data-i18n="lib_lang_en">באנגלית</span></div>
+          <h4 class="lc-title"><a class="stretch" href="https://www.instituteforgovernment.org.uk/sites/default/files/publications/Implementing%20the%20London%20Challenge%20-%20final_0.pdf" target="_blank" rel="noopener"><span class="lc-t"><span class="ltr" lang="en">About the London Challenge (2002 to 2011)</span></span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></h4>
+          <p class="lc-src"><span class="ltr" lang="en">Institute for Government</span></p>
+          <p class="lc-note" data-i18n="r5">איש אינו מסכים למה בתי הספר בלונדון טובים בהרבה משאר המדינה. שלושה הסברים אפשריים:</p>
+          <p class="lc-debate" data-i18n="r5_debate"><a href="https://www.theguardian.com/commentisfree/2014/nov/14/london-schools-immigration-children-education" target="_blank" rel="noopener">הגירה</a> · <a href="https://samfreedman1.blogspot.com/2013/10/why-are-londons-schools-doing-so-well.html" target="_blank" rel="noopener">כסף</a> · <a href="https://www.bbc.co.uk/news/education-28003848" target="_blank" rel="noopener">Teach First</a></p>
+          <div class="lc-tags"><a class="lc-mod" href="#m1" data-i18n="lib_mod_tag" data-n="1">מודול 1</a></div>
+        </article>
+        </div>
+      </div>
+      <div class="lib-group" data-topic="policy">
+        <div class="res-cat-head"><span class="bar"></span><h3 data-i18n="cat2">מדיניות חינוך</h3></div>
+        <div class="lib-grid">
+        <article class="lib-card" id="res-r6" data-topic="policy" data-kind="read" data-langs="en" data-mods="" data-kw="לייבור ממשלה משימות">
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_read">קריאה</span><span class="lc-lang" data-i18n="lib_lang_en">באנגלית</span></div>
+          <h4 class="lc-title"><a class="stretch" href="https://labour.org.uk/change/mission-driven-government/" target="_blank" rel="noopener"><span class="lc-t"><span class="ltr" lang="en">The five missions of the current government</span></span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></h4>
+          <p class="lc-src"><span class="ltr" lang="en">Labour</span></p>
+          <p class="lc-note" data-i18n="r6">ביעד החינוך: אזכור מפורש של מעמד ושל ניידות חברתית.</p>
+          
+        </article>
+        <article class="lib-card" id="res-r7" data-topic="policy" data-kind="read" data-langs="en" data-mods="m3" data-ext-m3="3" data-ctx-m3="ext_m3_r7" data-kw="ראיות מחקר הוראה">
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_read">קריאה</span><span class="lc-lang" data-i18n="lib_lang_en">באנגלית</span></div>
+          <h4 class="lc-title"><a class="stretch" href="https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit" target="_blank" rel="noopener"><span class="lc-t"><span class="ltr" lang="en">Teaching &amp; Learning Toolkit</span></span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></h4>
+          <p class="lc-src"><span class="ltr" lang="en">EEF</span></p>
+          <p class="lc-note" data-i18n="r7">סיכום הראיות המחקריות על הוראה מה-EEF, הגוף שהממשלה הקימה ב-2011 כדי לחבר מחקר לכיתה.</p>
+          <div class="lc-tags"><a class="lc-mod" href="#m3" data-i18n="lib_mod_tag" data-n="3">מודול 3</a></div>
+        </article>
+        <article class="lib-card" id="res-r8" data-topic="policy" data-kind="doc" data-langs="en" data-mods="m2" data-ext-m2="1" data-ctx-m2="ext_m2_r8" data-kw="אקדמיות רפורמה מבנה">
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_doc">מסמך</span><span class="lc-lang" data-i18n="lib_lang_en">באנגלית</span></div>
+          <h4 class="lc-title"><a class="stretch" href="https://www.gov.uk/government/publications/2010-to-2015-government-policy-academies-and-free-schools/2010-to-2015-government-policy-academies-and-free-schools" target="_blank" rel="noopener"><span class="lc-t"><span class="ltr" lang="en">English school structures reforms 2010 to 2015</span></span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></h4>
+          <p class="lc-src"><span class="ltr" lang="en">DfE</span></p>
+          <p class="lc-note" data-i18n="r8">מסמך קצר שמסביר למה הממשלה הקימה אקדמיות: בתי ספר עצמאיים במימון המדינה.</p>
+          <div class="lc-tags"><a class="lc-mod" href="#m2" data-i18n="lib_mod_tag" data-n="2">מודול 2</a></div>
+        </article>
+        <article class="lib-card" id="res-r9" data-topic="policy" data-kind="doc" data-langs="en" data-mods="m3" data-ext-m3="1" data-ctx-m3="ext_m3_r9" data-kw="אופסטד פיקוח מפקחים הערכה">
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_doc">מסמך</span><span class="lc-lang" data-i18n="lib_lang_en">באנגלית</span></div>
+          <h4 class="lc-title"><a class="stretch" href="https://www.gov.uk/government/publications/education-inspection-framework" target="_blank" rel="noopener"><span class="lc-t"><span class="ltr" lang="en">Ofsted Inspection Framework</span></span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></h4>
+          <p class="lc-src"><span class="ltr" lang="en">Ofsted · GOV.UK</span></p>
+          <p class="lc-note" data-i18n="r9">מה מחפשים מפקחי Ofsted כשהם מעריכים בית ספר, בסיכום קצר.</p>
+          <div class="lc-tags"><a class="lc-mod" href="#m3" data-i18n="lib_mod_tag" data-n="3">מודול 3</a></div>
+        </article>
+        <article class="lib-card" id="res-r10" data-topic="policy" data-kind="read" data-langs="en" data-mods="m3" data-ext-m3="2" data-ctx-m3="ext_m3_r10" data-kw="מחוברות תלמידים אימפקטאד">
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_read">קריאה</span><span class="lc-lang" data-i18n="lib_lang_en">באנגלית</span></div>
+          <h4 class="lc-title"><a class="stretch" href="https://www.impactedgroup.uk/resources/report-mind-the-engagement-gap" target="_blank" rel="noopener"><span class="lc-t"><span class="ltr" lang="en">The Engagement Gap</span></span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></h4>
+          <p class="lc-src"><span class="ltr" lang="en">ImpactEd · UCL</span></p>
+          <p class="lc-note" data-i18n="r10">איך מחוברות התלמידים יורדת בבית הספר העל-יסודי. אתגר חשוב שבתי ספר רבים מתמודדים איתו.</p>
+          <div class="lc-tags"><a class="lc-mod" href="#m3" data-i18n="lib_mod_tag" data-n="3">מודול 3</a></div>
+        </article>
+        <article class="lib-card" id="res-r11" data-topic="policy" data-kind="read" data-langs="en" data-mods="m1" data-ext-m1="4" data-ctx-m1="ext_m1_r11" data-kw="גוב רפורמות">
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_read">קריאה</span><span class="lc-lang" data-i18n="lib_lang_en">באנגלית</span></div>
+          <h4 class="lc-title"><a class="stretch" href="https://schoolsweek.co.uk/goves-traditionalists-won-but-now-they-see-what-was-lost/" target="_blank" rel="noopener"><span class="lc-t"><span class="ltr" lang="en">Opinion: Traditionalists won, but what was lost?</span></span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></h4>
+          <p class="lc-src"><span class="ltr" lang="en">Schools Week</span></p>
+          <p class="lc-note" data-i18n="r11">מאמר דעה חכם על ההצלחות של 25 השנים האחרונות, ועל הבעיות הגדולות שנשארו במערכת.</p>
+          <div class="lc-tags"><a class="lc-mod" href="#m1" data-i18n="lib_mod_tag" data-n="1">מודול 1</a></div>
+        </article>
+        </div>
+      </div>
+      <div class="lib-group" data-topic="schools">
+        <div class="res-cat-head"><span class="bar"></span><h3 data-i18n="cat3">בתי ספר: איך הם עובדים ולמה לצפות</h3></div>
+        <div class="lib-grid">
+        <article class="lib-card" id="res-r12" data-topic="schools" data-kind="read" data-langs="en" data-mods="m2" data-ext-m2="2" data-ctx-m2="ext_m2_r12" data-kw="רשתות מאט אקדמיות אוסטרליה">
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_read">קריאה</span><span class="lc-lang" data-i18n="lib_lang_en">באנגלית</span></div>
+          <h4 class="lc-title"><a class="stretch" href="https://grattan.edu.au/report/spreading-success-why-australia-should-trial-multi-school-organisations/" target="_blank" rel="noopener"><span class="lc-t"><span class="ltr" lang="en">A positive analysis of Multi-Academy Trusts</span></span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></h4>
+          <p class="lc-src"><span class="ltr" lang="en">Grattan · 2024</span></p>
+          <p class="lc-note" data-i18n="r12">משלחת אוסטרלית ביקרה וחקרה את רשתות ה-MAT באנגליה, וכתבה איך הן יכולות לעבוד היטב.</p>
+          <div class="lc-tags"><a class="lc-mod" href="#m2" data-i18n="lib_mod_tag" data-n="2">מודול 2</a></div>
+        </article>
+        <article class="lib-card" id="res-r13" data-topic="schools" data-kind="read" data-langs="en" data-mods="" data-kw="התנהגות משמעת סרג צפאי">
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_read">קריאה</span><span class="lc-lang" data-i18n="lib_lang_en">באנגלית</span></div>
+          <h4 class="lc-title"><a class="stretch" href="https://www.thesun.co.uk/news/36872904/strictest-headteacher-hate-wokeness/" target="_blank" rel="noopener"><span class="lc-t"><span class="ltr" lang="en">Behaviour: is it the single biggest thing to get right?</span></span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></h4>
+          <p class="lc-src"><span class="ltr" lang="en">The Sun</span></p>
+          <p class="lc-note" data-i18n="r13">נפגוש ונשמע את סרג' צפאי, המנהל הבכיר של <bdi>St Thomas the Apostle College</bdi>, כשנבקר בבית הספר ביום רביעי בבוקר.</p>
+          
+        </article>
+        <article class="lib-card" id="res-r14" data-topic="schools" data-kind="read" data-langs="en" data-mods="" data-kw="מוטיבציה">
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_read">קריאה</span><span class="lc-lang" data-i18n="lib_lang_en">באנגלית</span></div>
+          <h4 class="lc-title"><a class="stretch" href="https://www.ambition.org.uk/pupil-engagement-guide/" target="_blank" rel="noopener"><span class="lc-t"><span class="ltr" lang="en">Research-based guide to pupil motivation</span></span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></h4>
+          <p class="lc-src"><span class="ltr" lang="en">Ambition Institute</span></p>
+          <p class="lc-note" data-i18n="r14">בתי ספר מנסים לאמץ פרקטיקה מבוססת ראיות כדי להחליט מה לשפר.</p>
+          
+        </article>
+        <article class="lib-card" id="res-r15" data-topic="schools" data-kind="read" data-langs="en" data-mods="m2" data-ext-m2="5" data-ctx-m2="ext_m2_r15" data-kw="הגנה על תלמידים ביטחון">
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_read">קריאה</span><span class="lc-lang" data-i18n="lib_lang_en">באנגלית</span></div>
+          <h4 class="lc-title"><a class="stretch" href="https://www.supportingeducation.com/content-hub/safeguarding-in-schools-importance-and-strategies/" target="_blank" rel="noopener"><span class="lc-t"><span class="ltr" lang="en">An introduction to Safeguarding</span></span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></h4>
+          <p class="lc-src"><span class="ltr" lang="en">Supporting Education</span></p>
+          <p class="lc-note" data-i18n="r15">כל בתי הספר מחויבים בחוק להגן על תלמידיהם במגוון דרכים.</p>
+          <div class="lc-tags"><a class="lc-mod" href="#m2" data-i18n="lib_mod_tag" data-n="2">מודול 2</a></div>
+        </article>
+        </div>
+      </div>
+      <div class="lib-group" data-topic="leadership">
+        <div class="res-cat-head"><span class="bar"></span><h3 data-i18n="cat4">מנהיגות ושיפור הוראה</h3></div>
+        <div class="lib-grid">
+        <article class="lib-card" id="res-r16" data-topic="leadership" data-kind="doc" data-langs="en" data-mods="" data-kw="סטנדרטים מורים הכשרה">
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_doc">מסמך</span><span class="lc-lang" data-i18n="lib_lang_en">באנגלית</span></div>
+          <h4 class="lc-title"><a class="stretch" href="https://assets.publishing.service.gov.uk/media/661d24ac08c3be25cfbd3e61/Initial_Teacher_Training_and_Early_Career_Framework.pdf" target="_blank" rel="noopener"><span class="lc-t"><span class="ltr" lang="en">What all teachers need to know</span></span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></h4>
+          <p class="lc-src"><span class="ltr" lang="en">DfE · 2024</span></p>
+          <p class="lc-note" data-i18n="r16">הסטנדרטים המקצועיים, הגדרה של למידה ורשימת קריאה מומלצת, במסמך אחד.</p>
+          
+        </article>
+        <article class="lib-card" id="res-r17" data-topic="leadership" data-kind="read" data-langs="en" data-mods="" data-kw="אימון הוראה קואצינג">
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_read">קריאה</span><span class="lc-lang" data-i18n="lib_lang_en">באנגלית</span></div>
+          <h4 class="lc-title"><a class="stretch" href="https://steplab.co/resources/the-science-behind-steplab-how-it-includes-all-14-mechanisms-of-effective-pd/66d9c86d0982810001156b52" target="_blank" rel="noopener"><span class="lc-t"><span class="ltr" lang="en">The evidence-based case for instructional coaching</span></span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></h4>
+          <p class="lc-src"><span class="ltr" lang="en">Steplab · 2024</span></p>
+          <p class="lc-note" data-i18n="r17">איך אימון הוראה (Instructional Coaching) עובד, ולמה הראיות תומכות בו.</p>
+          
+        </article>
+        </div>
+      </div>
+      <div class="lib-group" data-topic="matilda">
+        <div class="res-cat-head"><span class="bar"></span><h3 data-i18n="lib_cat_matilda">מטילדה: מאמרים ורקע לערב בתיאטרון</h3></div>
+        <div class="lib-grid">
+        <article class="lib-card is-core" id="res-mat" data-core="matilda" data-topic="matilda" data-kind="watch" data-langs="he en" data-mods="" data-kw="מטילדה Matilda דאל Dahl האני Honey טראנצ&#x27;בול Trunchbull דיואי Dewey מחזמר musical">
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_watch">צפייה</span><span class="lc-where" data-i18n="hubnav_matilda">מטילדה</span><svg class="lc-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+          <h4 class="lc-title"><a class="stretch" href="#matilda"><span class="lc-t" data-i18n="lib_mat_ptr_t">מטילדה: טריילר, רקע ושירים</span></a></h4>
+          <p class="lc-note" data-i18n="lib_mat_ptr_n">לקראת יום שלישי בערב ריכזנו רקע על הספר ועל הסופר, את העלילה, את הטריילר הרשמי ואת השירים.</p>
+        </article>
+        </div>
+      </div>
+      <div class="lib-empty" id="libEmpty" hidden>
+        <h3 id="libEmptyH"></h3>
+        <p data-i18n="lib_empty_p">אפשר לנסות מילה אחרת, בעברית או באנגלית, או לבטל את הסינון.</p>
+        <button type="button" class="btn-line" id="libReset" data-i18n="lib_empty_reset">ניקוי החיפוש והסינון</button>
+        <p class="lib-empty-gl"><a href="glossary.html" data-i18n="lib_empty_glossary">חיפשתם מונח? אולי הוא במילון המושגים</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Matilda: cultural enrichment for Tuesday evening (no progress ticks) ===== -->
+  <section class="view" id="matilda" aria-labelledby="mat-h">
+    <div class="container"><div class="col">
+      <header class="view-head mat-head">
+        <div class="mod-k" data-i18n="matui_kicker">ערב תרבות · יום שלישי</div>
+        <h2 id="mat-h" class="view-h" tabindex="-1" data-i18n="matilda_h">לקראת מטילדה</h2>
+        <p class="mod-scope" data-i18n="matilda_lede">ביום שלישי בערב, 24 בנובמבר, נלך יחד לראות את המחזמר "מטילדה". הגיבורה היא ילדה, אבל זה גם סיפור על מורים ועל בית ספר: על מורה שרואה באמת את התלמידה שלה, ועל מנהלת שמטילה אימה על כולם.</p>
+        <a class="mat-when" href="index.html#sch-day-3"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span data-i18n="matui_when">בלו"ז: יום שלישי, 24 בנובמבר, בערב</span></a>
+        <nav class="mat-toc" data-i18n-aria="matui_toc_aria" aria-label="בעמוד הזה"><a href="#matilda-book" data-i18n="matui_toc_book">הספר</a> <span class="toc-dot" aria-hidden="true">·</span> <a href="#matilda-author" data-i18n="matui_toc_author">הסופר</a> <span class="toc-dot" aria-hidden="true">·</span> <a href="#matilda-story" data-i18n="matui_toc_story">העלילה</a> <span class="toc-dot" aria-hidden="true">·</span> <a href="#matilda-papers" data-i18n="matui_toc_papers">המאמרים</a> <span class="toc-dot" aria-hidden="true">·</span> <a href="#matilda-songs" data-i18n="matui_toc_songs">השירים</a></nav>
+      </header>
+
+      <figure class="mat-trailer">
+        <div class="yt-frame" id="ytFrame">
+          <a class="yt-facade" id="ytFacade" href="https://www.youtube.com/watch?v=6tOk_HeD0AI" target="_blank" rel="noopener" data-yt="6tOk_HeD0AI" data-i18n-aria="matui_trailer_play" aria-label="להפעלת הטריילר הרשמי של המחזמר">
+            <img src="assets/matilda-trailer-thumb.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
+            <span class="yt-scrim" aria-hidden="true"></span>
+            <span class="yt-play" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+            <span class="yt-cap" aria-hidden="true" data-i18n="matui_trailer_cap">טריילר רשמי · 1:01</span>
+          </a>
+        </div>
+        <figcaption class="yt-note"><span data-i18n="matui_trailer_note">הסרטון נטען מיוטיוב רק אחרי שלוחצים עליו</span> · <a href="https://www.youtube.com/watch?v=6tOk_HeD0AI" target="_blank" rel="noopener"><span data-i18n="matui_trailer_yt">לצפייה ביוטיוב</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></figcaption>
+      </figure>
+
+      <section class="mat-block" id="matilda-book" aria-labelledby="mat-book-h">
+        <h3 id="mat-book-h" class="mat-h" data-i18n="matilda_book_h">הספר</h3>
+        <p class="mat-p" data-i18n="matilda_book_p">רואלד דאל פרסם את "מטילדה" (<bdi>Matilda</bdi>) ב-1988, וקוונטין בלייק אייר אותו. גיבורת הספר היא ילדה בת חמש, חכמה ואוהבת לקרוא. ההורים שלה לא שמים לב אליה, ומנהלת בית הספר שלה מתעללת בילדים. רק המורה שלה, העלמה האני, רואה מי היא באמת. בבריטניה הוא מהספרים שמורים ביסודי אוהבים במיוחד לקרוא עם הכיתה.</p>
+        <h4 class="mat-h4" data-i18n="matilda_musical_h">המחזמר</h4>
+        <p class="mat-p" data-i18n="matilda_musical_p">המחזמר הוא הפקה של <bdi>Royal Shakespeare Company</bdi>, להקת שייקספיר המלכותית. טים מינצ'ין כתב את המוזיקה ואת המילים, ודניס קלי את המחזה. ההצגה עלתה לראשונה בסוף 2010 בסטרטפורד-אפון-אייבון, ומאז 2011 משחקים אותה בווסט אנד בלונדון. בערב שלנו ימלאו בדיוק 15 שנה לבכורה הרשמית בלונדון, שהייתה ב-24 בנובמבר 2011.</p>
+        <dl class="mat-facts"><div><dt data-i18n="matilda_fact_1_k">הספר יצא לאור</dt><dd data-i18n="matilda_fact_1_v">1988</dd></div><div><dt data-i18n="matilda_fact_2_k">איורים</dt><dd data-i18n="matilda_fact_2_v">קוונטין בלייק</dd></div><div><dt data-i18n="matilda_fact_3_k">מוזיקה ומילים</dt><dd data-i18n="matilda_fact_3_v">טים מינצ'ין</dd></div><div><dt data-i18n="matilda_fact_4_k">מחזה</dt><dd data-i18n="matilda_fact_4_v">דניס קלי</dd></div></dl>
+      </section>
+
+      <section class="mat-block" id="matilda-author" aria-labelledby="mat-author-h">
+        <h3 id="mat-author-h" class="mat-h" data-i18n="matilda_author_h">רואלד דאל</h3>
+        <p class="mat-p" data-i18n="matilda_author_p1">רואלד דאל (1916-1990) נולד בוויילס להורים נורווגים, ובמלחמת העולם השנייה היה טייס קרב בחיל האוויר הבריטי. הוא נחשב לאחד מגדולי סופרי הילדים של המאה העשרים, ועד היום קוראים את ספריו בכל העולם.</p>
+        <aside class="mat-note" aria-labelledby="mat-note-h">
+          <h4 id="mat-note-h" data-i18n="matilda_author_note_h">האמירות האנטישמיות של דאל</h4>
+          <p data-i18n="matilda_author_p2">דאל השמיע בפומבי אמירות אנטישמיות. הידועה שבהן נאמרה ב-1983, בראיון לשבועון הבריטי <bdi>New Statesman</bdi>. הוא אמר שם שיש באופי היהודי תכונה שמעוררת איבה, והוסיף שגם היטלר לא רדף את היהודים בלי סיבה. בדצמבר 2020 התנצלו משפחתו וחברת <bdi>Roald Dahl Story Company</bdi>, שמנהלת את יצירתו, על הפגיעה שגרמו חלק מאמירותיו. הם כתבו שהפגיעה הזאת מובנת, ושהיא נמשכת עד היום.</p>
+        </aside>
+      </section>
+
+      <section class="mat-block" id="matilda-story" aria-labelledby="mat-story-h">
+        <h3 id="mat-story-h" class="mat-h" data-i18n="matilda_plot_h">עלילת הספר</h3>
+        <p class="mat-p" data-i18n="matilda_plot_teaser">מטילדה וורמווד בת חמש. היא קוראת כל ספר שנופל לידיה, ובבית אף אחד לא שם לב אליה. בבית הספר היא פוגשת את המורה שלה, העלמה האני, שמבינה מהר מאוד מי עומדת מולה, ואת המנהלת, העלמה טראנצ'בול, שכל בית הספר חי בפחד ממנה.</p>
+        <details class="spoiler">
+          <summary><span class="sp-warn" data-i18n="matui_spoiler_tag">ספוילר</span><span class="sp-title" data-i18n="matui_spoiler_summary">התקציר המלא, כולל הסוף</span><span class="sp-state" aria-hidden="true"><span class="when-closed" data-i18n="matui_spoiler_open">לפתיחה</span><span class="when-open" data-i18n="matui_spoiler_close">לסגירה</span></span></summary>
+          <div class="spoiler-body"><p data-i18n="matilda_plot_p">עוד לפני שהתחילה ללכת לבית הספר, מטילדה כבר קראה את כל ספרי הילדים בספרייה הציבורית ועברה לספרים למבוגרים, כמו "חוות החיות" של אורוול. בבית לא מתעניינים בה: אבא שלה מוכר מכוניות משומשות ומרמה את הלקוחות, ואמא שלה עסוקה בבינגו ובטלוויזיה. בבית הספר, קראנצ'ם הול, מטילדה פוגשת את המורה שלה, העלמה האני, שמזהה מיד את הכישרון שלה, ואת המנהלת, העלמה טראנצ'בול, שמענישה את הילדים באכזריות. טראנצ'בול תופסת ילדה בצמות, מסובבת אותה ומעיפה אותה מעבר לגדר. את ברוס בוגטרוטר היא מכריחה לאכול עוגת שוקולד ענקית מול כל בית הספר. מטילדה מגלה שהיא יכולה להזיז חפצים במבט, ובאותם ימים נודע לה גם הסוד של העלמה האני: טראנצ'בול היא הדודה שגידלה אותה בהתעללות, השתלטה על הבית של אביה ועד היום לוקחת לה את המשכורת. יום אחד, כשטראנצ'בול באה ללמד בכיתה, מטילדה מזיזה במבט את הגיר וכותבת על הלוח הודעה בשמו של אביה המת של העלמה האני. טראנצ'בול בורחת ונעלמת, והעלמה האני מקבלת בחזרה את הבית של אביה. משפחת וורמווד נמלטת לספרד מפני המשטרה, ומטילדה נשארת לגור אצל העלמה האני.</p><p data-i18n="matilda_plot_stage_p">העלילה במחזמר נאמנה לספר, אבל יש כמה הבדלים שכדאי להכיר מראש. אמא של מטילדה שקועה בריקודים סלוניים ולא בבינגו. מטילדה מספרת לספרנית, גברת פלפס, סיפור בהמשכים על אמן בריחה ועל אקרובטית, ומתברר שזה סיפור הילדות של העלמה האני. בסוף, כשמשפחת וורמווד מנסה לברוח לספרד, מגיעים אנשי המאפיה הרוסית. אחד מהם, סרגיי, מתרשם מהחוכמה של מטילדה ומניח להם לנסוע. העלמה האני מתמנה למנהלת בית הספר.</p></div>
+        </details>
+      </section>
+
+      <section class="mat-block" id="matilda-papers" aria-labelledby="mat-papers-h">
+        <h3 id="mat-papers-h" class="mat-h" data-i18n="matui_papers_h">שני מאמרים אקדמיים</h3>
+        <p class="mat-p" data-i18n="matui_papers_intro">שני המאמרים קוראים את הספר בעין חינוכית: מה הוא אומר על הוראה ועל בית ספר, ולמה קשה לשכוח את המורות שבו.</p>
+        <article class="paper" id="matilda-paper-bingle" aria-labelledby="pp1-t" data-res="res-mat-bingle" data-topic="matilda" data-kind="read" data-langs="he en" data-mods="">
+          <p class="pp-meta"><span class="ltr" lang="en">Branwen Bingle · 2017</span></p>
+          <h4 id="pp1-t" class="pp-title"><span class="ltr" lang="en">Matilda and the Mythologisation of Miss Honey and Miss Trunchbull</span></h4>
+          <p class="pp-venue" data-i18n="matilda_paper1_venue">מאמר בכתב עת שפיט · <bdi>Mousaion</bdi>, בהוצאת <bdi>Unisa Press</bdi> · כרך 35, גיליון 2 · עמ' 41-55</p>
+          <p class="pp-desc" data-i18n="matilda_art2_p">ברנוון בינגל, מאוניברסיטת גריניץ' בלונדון, מראה שמורים רבים בבריטניה מביאים את הספר לכיתה, ושיש אנשים שבחרו להיות מורים בזכות העלמה האני. לטענתה, שתי המורות בספר קיצוניות מכדי שמורה אמיתי יהיה כמו אחת מהן: טראנצ'בול רעה מדי, והעלמה האני טובה מדי. בעיניה זה בעיקר סיפור על ילדה שמצליחה להתעלות מעל בית ספר פגום, ופחות על הכוח של מורה טוב. שאלה שכדאי לחשוב עליה בזמן ההצגה: איזה מורה הסיפור הזה רוצה שנעריץ?</p>
+          <div class="btn-row">
+            <a class="btn-solid" href="https://docs.google.com/document/d/120ndOs3qZWOD9JhJ5yeB82I2cZFKSxgcUIPz7PetEyc/edit" hreflang="he" target="_blank" rel="noopener"><span data-i18n="matui_btn_he">לתרגום לעברית</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
+            <a class="btn-line" href="assets/matilda-mythologisation-bingle-2017.pdf" hreflang="en" target="_blank" rel="noopener"><span data-i18n="matui_btn_en">למקור באנגלית</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
+          </div>
+          <p class="pp-files"><span data-i18n="matui_files_he"><bdi>Google Docs</bdi>, נפתח בדפדפן</span> · <span data-i18n="matui_files_en" data-pages="15" data-size="0.8MB"><bdi>PDF</bdi> · 15 עמודים · 0.8MB</span></p>
+        </article>
+        <article class="paper" id="matilda-paper-setyabudi" aria-labelledby="pp2-t" data-res="res-mat-setyabudi" data-topic="matilda" data-kind="read" data-langs="he en" data-mods="">
+          <p class="pp-meta"><span class="ltr" lang="en">Titis Setyabudi and Luna Puteri Kuncoro · 2025</span></p>
+          <h4 id="pp2-t" class="pp-title"><span class="ltr" lang="en">Matilda as a Representation of Progressive Educational Principles</span></h4>
+          <p class="pp-venue" data-i18n="matilda_paper2_venue">מאמר כנס · <bdi>ICON-ELT</bdi>, כנס בינלאומי להוראת אנגלית · כרך 6, גיליון 1 · עמ' 286-295</p>
+          <p class="pp-desc" data-i18n="matilda_art1_p">את המאמר כתבו באוניברסיטה באינדונזיה, והוא מנתח את הספר לאור תפיסת החינוך של ג'ון דיואי: מטילדה לומדת מתוך סקרנות ועשייה, העלמה האני מלמדת מתוך היכרות עם התלמידה, ובית הספר של טראנצ'בול מייצג את החינוך הנוקשה שעומד מולן. זה מאמר כנס, קצר ותיאורי יותר ממאמר בכתב עת שפיט. הוא מתאים לקריאה ראשונה, ועוזר לחבר את מה שנראה על הבמה למושגים מעולם החינוך.</p>
+          <div class="btn-row">
+            <a class="btn-solid" href="https://docs.google.com/document/d/1htv9dbLOyAQnPblL09SIziLtxDaE7pvYl8jBkdDALWw/edit" hreflang="he" target="_blank" rel="noopener"><span data-i18n="matui_btn_he">לתרגום לעברית</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
+            <a class="btn-line" href="assets/matilda-progressive-education-setyabudi-2025.pdf" hreflang="en" target="_blank" rel="noopener"><span data-i18n="matui_btn_en">למקור באנגלית</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
+          </div>
+          <p class="pp-files"><span data-i18n="matui_files_he"><bdi>Google Docs</bdi>, נפתח בדפדפן</span> · <span data-i18n="matui_files_en" data-pages="10" data-size="0.2MB"><bdi>PDF</bdi> · 10 עמודים · 0.2MB</span></p>
+        </article>
+      </section>
+
+      <section class="mat-block" id="matilda-songs" aria-labelledby="mat-songs-h">
+        <h3 id="mat-songs-h" class="mat-h" data-i18n="matilda_playlist_h">שירי המחזמר</h3>
+        <p class="mat-p" data-i18n="matilda_playlist_p">רוצים להכיר את השירים מראש? ההקלטה מלונדון נמצאת ביוטיוב. כדאי להתחיל מ-<bdi>Naughty</bdi>, <bdi>When I Grow Up</bdi>, <bdi>Quiet</bdi> ו-<bdi>Revolting Children</bdi>.</p>
+        <a class="btn-line mat-yt" href="https://www.youtube.com/playlist?list=PLybPI7Yeye3iYS0nNpYj2OKCWzo1E8fZm" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg><span data-i18n="matilda_playlist_link">לפלייליסט ביוטיוב</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span></a>
+        <p class="pp-files" data-i18n="matui_songs_meta" data-n="16">ההקלטה של ההפקה מלונדון · 16 שירים</p>
+      </section>
+
+      <p class="mat-back"><a href="index.html#sch-day-3"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span data-i18n="matui_back_sched">חזרה ללו"ז של יום שלישי</span></a></p>
+    </div></div>
+  </section>
 </main>
 
 <p class="sr-only" id="liveMsg" aria-live="polite"></p>
@@ -621,7 +1085,7 @@ const I18N = {
 "ext_m3_r10": "דוח של <bdi>ImpactEd</bdi>, שנפגוש ביום חמישי, על הירידה במחוברות של התלמידים בבית הספר העל-יסודי.",
 "ext_m3_r7": "הכלי של <bdi>EEF</bdi> שמסכם מה המחקר אומר על דרכי הוראה. רקע טוב למפגש על מחקר וראיות ביום חמישי.",
 "ext_m3_r9": "מה המפקחים מחפשים כשהם מגיעים לבית ספר, מהמסמך הרשמי של <bdi>Ofsted</bdi>. הכנה טובה לסדנה עם סטיב אדקוק ביום רביעי.",
-"extras_all": "לכל משאבי הלמידה באתר",
+"extras_all": "לכל החומרים בספרייה",
 "extras_h": "טקסטים להרחבה",
 "extras_optional": "רשות",
 "f_text": "אדוות · מנהיגות מחוללת שינוי<br>משלחת לונדון · 22 עד 26 בנובמבר 2026",
@@ -678,12 +1142,12 @@ const I18N = {
 "mod_status_soon": "בקרוב",
 "p1_s": "פודקאסט · בעברית",
 "p1_t": "פודקאסט קצר: החדשנות השמרנית שהזניקה את החינוך באנגליה",
-"p2_s": "<bdi>PDF</bdi> · מלווה את הפודקאסט",
+"p2_s": "PDF · מלווה את הפודקאסט",
 "p2_t": "מצגת: חדשנות שמרנית · אדריכלות הפלא החינוכי של אנגליה",
 "r5_debate": "<a href=\"https://www.theguardian.com/commentisfree/2014/nov/14/london-schools-immigration-children-education\" target=\"_blank\" rel=\"noopener\">הגירה</a> · <a href=\"https://samfreedman1.blogspot.com/2013/10/why-are-londons-schools-doing-so-well.html\" target=\"_blank\" rel=\"noopener\">כסף</a> · <a href=\"https://www.bbc.co.uk/news/education-28003848\" target=\"_blank\" rel=\"noopener\">Teach First</a>",
 "read_full": "לדוח המלא · 136 עמודים",
 "read_more_invite": "מי שרוצה, מוזמן כמובן לצלול לעוד.",
-"s2_links": "חומרי המפגש: <a href=\"https://youtu.be/KAapDrwpbnU\" target=\"_blank\" rel=\"noopener\">הקלטת המפגש עם עמוס רבן</a> · <a href=\"assets/mifgash-2-deck.pdf\" target=\"_blank\" rel=\"noopener\">המצגת המלווה (PDF)</a>",
+"s2_links": "חומרי המפגש: <a href=\"{rec}\" target=\"_blank\" rel=\"noopener\">הקלטת המפגש עם עמוס רבן</a> · <a href=\"{deck}\" target=\"_blank\" rel=\"noopener\">המצגת המלווה (PDF)</a>",
 "soon_includes": "גם כאן יהיו סקירה קולית, מצגת, קריאה מרכזית וטקסטים להרחבה.",
 "soon_meanwhile_h": "בינתיים, אפשר להתחיל מאלה",
 "soon_tag": "בקרוב",
@@ -713,7 +1177,147 @@ const I18N = {
 "mod2_read2_btn_en": "למקור באנגלית, בבלוג",
 "mod2_read2_ai_note": "גם התרגום הזה נעשה בעזרת בינה מלאכותית.",
 "mod2_more_p": "למי שרוצה להעמיק, בחרנו עוד כמה חומרים על המבנה של המערכת. לא צריך לעבור על כולם. בחרו את מה שמעניין אתכם.",
-"mod2_closing": "יש כאן הרבה חומר, אבל כל מה שתקראו עכשיו יעזור לכם להבין את מה שנראה בלונדון. אפשר להתארגן בקבוצות למידה ולעבור עליו יחד. ואם עוד לא עברתם על מודול 1, כדאי להתחיל ממנו."
+"mod2_closing": "יש כאן הרבה חומר, אבל כל מה שתקראו עכשיו יעזור לכם להבין את מה שנראה בלונדון. אפשר להתארגן בקבוצות למידה ולעבור עליו יחד. ואם עוד לא עברתם על מודול 1, כדאי להתחיל ממנו.",
+"matilda_h": "לקראת מטילדה",
+"matilda_book_h": "הספר",
+"matilda_book_p": "רואלד דאל פרסם את \"מטילדה\" (<bdi>Matilda</bdi>) ב-1988, וקוונטין בלייק אייר אותו. גיבורת הספר היא ילדה בת חמש, חכמה ואוהבת לקרוא. ההורים שלה לא שמים לב אליה, ומנהלת בית הספר שלה מתעללת בילדים. רק המורה שלה, העלמה האני, רואה מי היא באמת. בבריטניה הוא מהספרים שמורים ביסודי אוהבים במיוחד לקרוא עם הכיתה.",
+"matilda_musical_h": "המחזמר",
+"matilda_musical_p": "המחזמר הוא הפקה של <bdi>Royal Shakespeare Company</bdi>, להקת שייקספיר המלכותית. טים מינצ'ין כתב את המוזיקה ואת המילים, ודניס קלי את המחזה. ההצגה עלתה לראשונה בסוף 2010 בסטרטפורד-אפון-אייבון, ומאז 2011 משחקים אותה בווסט אנד בלונדון. בערב שלנו ימלאו בדיוק 15 שנה לבכורה הרשמית בלונדון, שהייתה ב-24 בנובמבר 2011.",
+"matilda_author_h": "רואלד דאל",
+"matilda_author_p1": "רואלד דאל (1916-1990) נולד בוויילס להורים נורווגים, ובמלחמת העולם השנייה היה טייס קרב בחיל האוויר הבריטי. הוא נחשב לאחד מגדולי סופרי הילדים של המאה העשרים, ועד היום קוראים את ספריו בכל העולם.",
+"matilda_author_p2": "דאל השמיע בפומבי אמירות אנטישמיות. הידועה שבהן נאמרה ב-1983, בראיון לשבועון הבריטי <bdi>New Statesman</bdi>. הוא אמר שם שיש באופי היהודי תכונה שמעוררת איבה, והוסיף שגם היטלר לא רדף את היהודים בלי סיבה. בדצמבר 2020 התנצלו משפחתו וחברת <bdi>Roald Dahl Story Company</bdi>, שמנהלת את יצירתו, על הפגיעה שגרמו חלק מאמירותיו. הם כתבו שהפגיעה הזאת מובנת, ושהיא נמשכת עד היום.",
+"matilda_plot_h": "עלילת הספר",
+"matilda_plot_p": "עוד לפני שהתחילה ללכת לבית הספר, מטילדה כבר קראה את כל ספרי הילדים בספרייה הציבורית ועברה לספרים למבוגרים, כמו \"חוות החיות\" של אורוול. בבית לא מתעניינים בה: אבא שלה מוכר מכוניות משומשות ומרמה את הלקוחות, ואמא שלה עסוקה בבינגו ובטלוויזיה. בבית הספר, קראנצ'ם הול, מטילדה פוגשת את המורה שלה, העלמה האני, שמזהה מיד את הכישרון שלה, ואת המנהלת, העלמה טראנצ'בול, שמענישה את הילדים באכזריות. טראנצ'בול תופסת ילדה בצמות, מסובבת אותה ומעיפה אותה מעבר לגדר. את ברוס בוגטרוטר היא מכריחה לאכול עוגת שוקולד ענקית מול כל בית הספר. מטילדה מגלה שהיא יכולה להזיז חפצים במבט, ובאותם ימים נודע לה גם הסוד של העלמה האני: טראנצ'בול היא הדודה שגידלה אותה בהתעללות, השתלטה על הבית של אביה ועד היום לוקחת לה את המשכורת. יום אחד, כשטראנצ'בול באה ללמד בכיתה, מטילדה מזיזה במבט את הגיר וכותבת על הלוח הודעה בשמו של אביה המת של העלמה האני. טראנצ'בול בורחת ונעלמת, והעלמה האני מקבלת בחזרה את הבית של אביה. משפחת וורמווד נמלטת לספרד מפני המשטרה, ומטילדה נשארת לגור אצל העלמה האני.",
+"matilda_plot_stage_p": "העלילה במחזמר נאמנה לספר, אבל יש כמה הבדלים שכדאי להכיר מראש. אמא של מטילדה שקועה בריקודים סלוניים ולא בבינגו. מטילדה מספרת לספרנית, גברת פלפס, סיפור בהמשכים על אמן בריחה ועל אקרובטית, ומתברר שזה סיפור הילדות של העלמה האני. בסוף, כשמשפחת וורמווד מנסה לברוח לספרד, מגיעים אנשי המאפיה הרוסית. אחד מהם, סרגיי, מתרשם מהחוכמה של מטילדה ומניח להם לנסוע. העלמה האני מתמנה למנהלת בית הספר.",
+"matilda_art1_p": "את המאמר כתבו באוניברסיטה באינדונזיה, והוא מנתח את הספר לאור תפיסת החינוך של ג'ון דיואי: מטילדה לומדת מתוך סקרנות ועשייה, העלמה האני מלמדת מתוך היכרות עם התלמידה, ובית הספר של טראנצ'בול מייצג את החינוך הנוקשה שעומד מולן. זה מאמר כנס, קצר ותיאורי יותר ממאמר בכתב עת שפיט. הוא מתאים לקריאה ראשונה, ועוזר לחבר את מה שנראה על הבמה למושגים מעולם החינוך.",
+"matilda_art2_p": "ברנוון בינגל, מאוניברסיטת גריניץ' בלונדון, מראה שמורים רבים בבריטניה מביאים את הספר לכיתה, ושיש אנשים שבחרו להיות מורים בזכות העלמה האני. לטענתה, שתי המורות בספר קיצוניות מכדי שמורה אמיתי יהיה כמו אחת מהן: טראנצ'בול רעה מדי, והעלמה האני טובה מדי. בעיניה זה בעיקר סיפור על ילדה שמצליחה להתעלות מעל בית ספר פגום, ופחות על הכוח של מורה טוב. שאלה שכדאי לחשוב עליה בזמן ההצגה: איזה מורה הסיפור הזה רוצה שנעריץ?",
+"matilda_playlist_h": "שירי המחזמר",
+"matilda_playlist_p": "רוצים להכיר את השירים מראש? ההקלטה מלונדון נמצאת ביוטיוב. כדאי להתחיל מ-<bdi>Naughty</bdi>, <bdi>When I Grow Up</bdi>, <bdi>Quiet</bdi> ו-<bdi>Revolting Children</bdi>.",
+"matilda_playlist_link": "לפלייליסט ביוטיוב",
+"matilda_lede": "ביום שלישי בערב, 24 בנובמבר, נלך יחד לראות את המחזמר \"מטילדה\". הגיבורה היא ילדה, אבל זה גם סיפור על מורים ועל בית ספר: על מורה שרואה באמת את התלמידה שלה, ועל מנהלת שמטילה אימה על כולם.",
+"matilda_fact_1_k": "הספר יצא לאור",
+"matilda_fact_1_v": "1988",
+"matilda_fact_2_k": "איורים",
+"matilda_fact_2_v": "קוונטין בלייק",
+"matilda_fact_3_k": "מוזיקה ומילים",
+"matilda_fact_3_v": "טים מינצ'ין",
+"matilda_fact_4_k": "מחזה",
+"matilda_fact_4_v": "דניס קלי",
+"matilda_author_note_h": "האמירות האנטישמיות של דאל",
+"matilda_plot_teaser": "מטילדה וורמווד בת חמש. היא קוראת כל ספר שנופל לידיה, ובבית אף אחד לא שם לב אליה. בבית הספר היא פוגשת את המורה שלה, העלמה האני, שמבינה מהר מאוד מי עומדת מולה, ואת המנהלת, העלמה טראנצ'בול, שכל בית הספר חי בפחד ממנה.",
+"matilda_paper1_venue": "מאמר בכתב עת שפיט · <bdi>Mousaion</bdi>, בהוצאת <bdi>Unisa Press</bdi> · כרך 35, גיליון 2 · עמ' 41-55",
+"matilda_paper2_venue": "מאמר כנס · <bdi>ICON-ELT</bdi>, כנס בינלאומי להוראת אנגלית · כרך 6, גיליון 1 · עמ' 286-295",
+"matui_kicker": "ערב תרבות · יום שלישי",
+"matui_when": "בלו\"ז: יום שלישי, 24 בנובמבר, בערב",
+"matui_toc_aria": "בעמוד הזה",
+"matui_toc_book": "הספר",
+"matui_toc_author": "הסופר",
+"matui_toc_story": "העלילה",
+"matui_toc_papers": "המאמרים",
+"matui_toc_songs": "השירים",
+"matui_trailer_play": "לצפייה בטריילר הרשמי של המחזמר",
+"matui_trailer_cap": "טריילר רשמי · 1:01",
+"matui_trailer_title": "הטריילר הרשמי של המחזמר \"מטילדה\"",
+"matui_trailer_note": "הסרטון נטען מיוטיוב רק אחרי שלוחצים עליו",
+"matui_trailer_yt": "לצפייה ביוטיוב",
+"matui_spoiler_tag": "ספוילר",
+"matui_spoiler_summary": "התקציר המלא, כולל הסוף",
+"matui_spoiler_open": "לפתיחה",
+"matui_spoiler_close": "לסגירה",
+"matui_papers_h": "שני מאמרים אקדמיים",
+"matui_papers_intro": "שני המאמרים קוראים את הספר בעין חינוכית: מה הוא אומר על הוראה ועל בית ספר, ולמה קשה לשכוח את המורות שבו.",
+"matui_btn_he": "לתרגום לעברית",
+"matui_btn_en": "למקור באנגלית",
+"matui_files_he": "<bdi>Google Docs</bdi>, נפתח בדפדפן",
+"matui_files_en": "<bdi>PDF</bdi> · {pages} עמודים · {size}",
+"matui_songs_meta": "הקלטת ההפקה הלונדונית · {n} שירים",
+"matui_back_sched": "חזרה ללו\"ז של יום שלישי",
+"hub_title_plan": "תוכנית הלמידה · מרכז הלמידה · אדוות לונדון 2026",
+"hub_title_library": "הספרייה · מרכז הלמידה · אדוות לונדון 2026",
+"hub_title_matilda": "מטילדה · מרכז הלמידה · אדוות לונדון 2026",
+"hub_meta_desc": "מרכז הלמידה של משלחת אדוות ללונדון: תוכנית למידה בשלושה מודולים, ספרייה של כל החומרים והכנה לערב המחזמר מטילדה.",
+"hub_og_title": "מרכז הלמידה · אדוות לונדון 2026",
+"hub_h1": "מרכז הלמידה לקראת המסע",
+"hub_lede": "בסמינר האחרון ביקשתם דרך מסודרת להתכונן ללונדון. כאן תמצאו את תוכנית הלמידה בשלושה מודולים, ספרייה של כל החומרים באתר ורקע לערב המחזמר מטילדה.",
+"hubnav_aria": "חלקי מרכז הלמידה",
+"hubnav_plan": "תוכנית הלמידה",
+"hubnav_library": "הספרייה",
+"hubnav_matilda": "מטילדה",
+"plan_h": "תוכנית הלמידה",
+"extras_nojs": "את הטקסטים להרחבה של המודול תמצאו <a href=\"#library\">בספרייה</a>.",
+"a11y_newtab": "(נפתח בלשונית חדשה)",
+"lib_k": "משאבי למידה",
+"lib_h": "הספרייה",
+"lib_intro": "אנגליה, סקוטלנד, ויילס וצפון אירלנד מקיימות מערכות חינוך שונות, ובביקור בלונדון תלמדו בהקשר של המערכת האנגלית. ההבדלים ביניהן יצרו ניסוי טבעי: מדינות דומות למדי שבחרו דרכים שונות באחריותיות, בתוכנית הלימודים ובתקצוב. כאן תמצאו את כל החומרים שבאתר. אפשר לחפש לפי שם, נושא או מקור, ולסנן לחומרים שיש להם גרסה בעברית.",
+"lib_search_label": "חיפוש בספרייה",
+"lib_search_ph": "למשל: אופסטד או <bdi>Ark</bdi>",
+"lib_search_clear": "ניקוי החיפוש",
+"lib_topics_aria": "סינון לפי נושא",
+"lib_topic_all": "הכול",
+"lib_topic_plan": "תוכנית הלמידה",
+"lib_topic_sessions": "מפגשי ההכנה",
+"lib_topic_innovation": "חדשנות שמרנית",
+"lib_topic_uk": "לונדון ובריטניה",
+"lib_topic_policy": "מדיניות",
+"lib_topic_schools": "בתי ספר",
+"lib_topic_leadership": "מנהיגות והוראה",
+"lib_topic_matilda": "מטילדה",
+"lib_cat_plan": "החומרים המרכזיים של שלושת המודולים",
+"lib_cat_sessions": "חומרים ממפגשי ההכנה",
+"lib_cat_matilda": "מטילדה: מאמרים ורקע לערב בתיאטרון",
+"lib_he_only": "רק חומרים עם גרסה בעברית",
+"lib_count": "{n} חומרים בספרייה",
+"lib_count_filtered": "{n} מתוך {total}",
+"lib_empty_h": "לא מצאנו חומר שמתאים ל\"{q}\"",
+"lib_empty_h_filter": "אין חומרים שמתאימים לסינון הזה",
+"lib_empty_p": "אפשר לנסות מילה אחרת, בעברית או באנגלית, או לבטל את הסינון.",
+"lib_empty_reset": "ניקוי החיפוש והסינון",
+"lib_empty_glossary": "חיפשתם מונח? אולי הוא במילון המושגים",
+"lib_kind_listen": "האזנה",
+"lib_kind_read": "קריאה",
+"lib_kind_deck": "מצגת",
+"lib_kind_watch": "צפייה",
+"lib_kind_doc": "מסמך",
+"lib_lang_he": "בעברית",
+"lib_lang_en": "באנגלית",
+"lib_lang_he_en": "באנגלית ובעברית",
+"lib_lang_multi": "בכמה שפות",
+"lib_mod_tag": "מודול {n}",
+"lib_core_tag": "מודול {n} · חומר ליבה",
+"lib_core_where": "בתוכנית הלמידה",
+"lib_link_he": "לתרגום לעברית",
+"lib_link_en": "למקור באנגלית",
+"lib_link_ar": "לתרגום לערבית",
+"lib_link_recording": "להקלטת המפגש",
+"lib_link_deck": "למצגת",
+"lib_s2_t": "מפגש ההכנה השני, עם עמוס רבן",
+"lib_s2_n": "ההקלטה והמצגת מהמפגש, שעסק בהשוואה בין מערכת החינוך האנגלית לישראלית.",
+"lib_mat_ptr_t": "מטילדה: טריילר, רקע ושירים",
+"lib_mat_ptr_n": "לקראת יום שלישי בערב ריכזנו רקע על הספר ועל הסופר, את העלילה, את הטריילר הרשמי ואת השירים.",
+"cat0": "חדשנות שמרנית: פודקאסט ומצגת בעברית",
+"cat1": "לונדון ובריטניה: מערכת החינוך וההקשר החברתי",
+"cat2": "מדיניות חינוך",
+"cat3": "בתי ספר: איך הם עובדים ולמה לצפות",
+"cat4": "מנהיגות ושיפור הוראה",
+"p1_n": "האזנה קצרה ומעניינת לסיפור הרפורמות, נקודת פתיחה טובה לפני חומרי הקריאה באנגלית.",
+"p2_n": "מבט ישראלי על רפורמות העומק 2003 עד 2025. המצגת מלווה את הפודקאסט הקצר.",
+"r1": "כאן אפשר לראות את כל המסלולים שתלמידים יכולים לעבור במערכות החינוך של בריטניה.",
+"r2": "רבים משתמשים בניידות חברתית כמבחן: האם מערכת החינוך עובדת בשביל צעירים או לא.",
+"r3": "נוצר בעזרת AI ונבדק בידי אדם. בעמוד האחרון ציר זמן שימושי של הרפורמות בתוכנית הלימודים.",
+"r4": "דוח שמראה איך התלמידים העניים ביותר בלונדון מצליחים יותר מתלמידים מבוססים באזורים אחרים בבריטניה.",
+"r5": "איש אינו מסכים למה בתי הספר בלונדון טובים בהרבה משאר המדינה. שלושה הסברים אפשריים:",
+"r6": "ביעד החינוך: אזכור מפורש של מעמד ושל ניידות חברתית.",
+"r7": "סיכום הראיות המחקריות על הוראה מה-EEF, הגוף שהממשלה הקימה ב-2011 כדי לחבר מחקר לכיתה.",
+"r8": "מסמך קצר שמסביר למה הממשלה הקימה אקדמיות: בתי ספר עצמאיים במימון המדינה.",
+"r9": "מה מחפשים מפקחי Ofsted כשהם מעריכים בית ספר, בסיכום קצר.",
+"r10": "איך מחוברות התלמידים יורדת בבית הספר העל-יסודי. אתגר חשוב שבתי ספר רבים מתמודדים איתו.",
+"r11": "מאמר דעה חכם על ההצלחות של 25 השנים האחרונות, ועל הבעיות הגדולות שנשארו במערכת.",
+"r12": "משלחת אוסטרלית ביקרה וחקרה את רשתות ה-MAT באנגליה, וכתבה איך הן יכולות לעבוד היטב.",
+"r13": "נפגוש ונשמע את סרג' צפאי, המנהל הבכיר של <bdi>St Thomas the Apostle College</bdi>, כשנבקר בבית הספר ביום רביעי בבוקר.",
+"r14": "בתי ספר מנסים לאמץ פרקטיקה מבוססת ראיות כדי להחליט מה לשפר.",
+"r15": "כל בתי הספר מחויבים בחוק להגן על תלמידיהם במגוון דרכים.",
+"r16": "הסטנדרטים המקצועיים, הגדרה של למידה ורשימת קריאה מומלצת, במסמך אחד.",
+"r17": "איך אימון הוראה (Instructional Coaching) עובד, ולמה הראיות תומכות בו."
 },
 "en": {
 "audio_auto_done": "Finished. The audio overview is marked as done.",
@@ -734,7 +1338,7 @@ const I18N = {
 "ext_m3_r10": "A report by ImpactEd, whom we meet on Thursday, on how pupil engagement drops in secondary school.",
 "ext_m3_r7": "The EEF's summary of what research says about teaching approaches. Useful background for the session on evidence on Thursday.",
 "ext_m3_r9": "What inspectors look for when they visit a school, from Ofsted's own framework. Good preparation for the workshop with Steve Adcock on Wednesday.",
-"extras_all": "All learning resources",
+"extras_all": "All resources in the library",
 "extras_h": "Further reading",
 "extras_optional": "Optional",
 "f_text": "Advot · Leadership that drives change<br>London delegation · 22 to 26 November 2026",
@@ -796,7 +1400,7 @@ const I18N = {
 "r5_debate": "<a href=\"https://www.theguardian.com/commentisfree/2014/nov/14/london-schools-immigration-children-education\" target=\"_blank\" rel=\"noopener\">Immigration</a> · <a href=\"https://samfreedman1.blogspot.com/2013/10/why-are-londons-schools-doing-so-well.html\" target=\"_blank\" rel=\"noopener\">Money</a> · <a href=\"https://www.bbc.co.uk/news/education-28003848\" target=\"_blank\" rel=\"noopener\">Teach First</a>",
 "read_full": "Full report · 136 pages",
 "read_more_invite": "You are of course welcome to read further.",
-"s2_links": "Session materials: <a href=\"https://youtu.be/KAapDrwpbnU\" target=\"_blank\" rel=\"noopener\">the session recording with Amos Raban</a> · <a href=\"assets/mifgash-2-deck.pdf\" target=\"_blank\" rel=\"noopener\">the accompanying slides (PDF)</a>",
+"s2_links": "Session materials: <a href=\"{rec}\" target=\"_blank\" rel=\"noopener\">the session recording with Amos Raban</a> · <a href=\"{deck}\" target=\"_blank\" rel=\"noopener\">the accompanying slides (PDF)</a>",
 "soon_includes": "Like modules 1 and 2, it will have an audio overview, slides, a core reading and further texts.",
 "soon_meanwhile_h": "In the meantime, you can start with these",
 "soon_tag": "Coming soon",
@@ -826,7 +1430,147 @@ const I18N = {
 "mod2_read2_btn_en": "Original blog post (English)",
 "mod2_read2_ai_note": "This translation was also made with AI.",
 "mod2_more_p": "If you want to go further, here are some more materials on how the system is built. There is no need to get through them all, so pick what interests you.",
-"mod2_closing": "There is a lot here, but everything you read now will help you make sense of what we see in London. You might form study groups and work through it together. And if you have not yet done Module 1, start there."
+"mod2_closing": "There is a lot here, but everything you read now will help you make sense of what we see in London. You might form study groups and work through it together. And if you have not yet done Module 1, start there.",
+"matilda_h": "Matilda, before the show",
+"matilda_book_h": "The book",
+"matilda_book_p": "Roald Dahl's Matilda was published in 1988, with illustrations by Quentin Blake. It tells the story of a brilliant five-year-old who loves to read, whose parents barely notice her, and whose headmistress terrorises the children. Only her teacher, Miss Honey, sees who she really is. In Britain it is one of the books primary teachers most like to share with their classes.",
+"matilda_musical_h": "The musical",
+"matilda_musical_p": "The musical was produced by the Royal Shakespeare Company, with music and lyrics by Tim Minchin and a book by Dennis Kelly. It premiered in Stratford-upon-Avon at the end of 2010 and has been running in London's West End since 2011. Its official West End opening night was 24 November 2011, so we will see it exactly fifteen years on.",
+"matilda_author_h": "About Roald Dahl",
+"matilda_author_p1": "Roald Dahl (1916-1990) was born in Wales to Norwegian parents and served as a fighter pilot in the RAF during the Second World War. He is regarded as one of the great children's writers of the twentieth century, and his books are still read all over the world.",
+"matilda_author_p2": "Dahl made antisemitic remarks in public. The best known came in a 1983 interview with the New Statesman, in which he claimed there was a trait in the Jewish character that provoked animosity, and added that even Hitler had not persecuted Jews for no reason. In December 2020 his family and the Roald Dahl Story Company, which manages his work, published an apology for the lasting and understandable hurt caused by some of his statements.",
+"matilda_plot_h": "The story in the book",
+"matilda_plot_p": "Matilda Wormwood is five, and before she even starts school she has read every children's book in the public library and moved on to grown-up books such as Orwell's Animal Farm. At home nobody notices: her father sells used cars and cheats his customers, and her mother prefers bingo and television. At Crunchem Hall she meets her teacher, Miss Honey, who spots her gift at once, and the headmistress, Miss Trunchbull, who punishes children cruelly. Trunchbull grabs a girl by her pigtails, swings her round and hurls her over the fence, and forces Bruce Bogtrotter to eat an enormous chocolate cake in front of the whole school. Matilda discovers she can move objects with her eyes, and at the same time learns Miss Honey's secret: Trunchbull is her aunt, who brought her up with cruelty, took over her father's house and still takes her salary. During a lesson Trunchbull is teaching, Matilda moves the chalk with her eyes and writes a message on the blackboard, as if from Miss Honey's dead father. Trunchbull flees and never returns, and Miss Honey gets her house back. The Wormwoods escape to Spain ahead of the police, and Matilda stays to live with Miss Honey.",
+"matilda_plot_stage_p": "The musical keeps the book's storyline, with a few differences worth knowing. Matilda's mother is taken up with ballroom dancing rather than bingo. Matilda tells the librarian, Mrs Phelps, a serialised story about an escapologist and an acrobat, which turns out to be the story of Miss Honey's childhood. At the end, as the Wormwoods try to flee to Spain, the Russian mafia arrive, and one of them, Sergei, is so impressed by Matilda that he lets them go. Miss Honey becomes the new headmistress.",
+"matilda_art1_p": "A paper from an Indonesian university that reads the novel through John Dewey's ideas: Matilda learns through curiosity and doing, Miss Honey teaches by getting to know her pupil, and Trunchbull's school stands for the rigid education they are up against. It is a conference paper, shorter and more descriptive than a peer-reviewed journal article, and a good first read that offers a pedagogical vocabulary for what we will see on stage.",
+"matilda_art2_p": "Branwen Bingle of the University of Greenwich shows that many teachers in the UK bring the book into the classroom, and that some chose teaching because of Miss Honey. She argues that the two teachers are extremes no real teacher could ever match, and that the story is less about the power of a good teacher than about a child's ability to rise above a flawed school. A good question to take with us to the show: what kind of teacher does this story teach us to admire?",
+"matilda_playlist_h": "Songs from the show",
+"matilda_playlist_p": "If you would like to get to know the songs before the show, the London recording is on YouTube. Good places to start: Naughty, When I Grow Up, Quiet and Revolting Children.",
+"matilda_playlist_link": "Listen on YouTube",
+"matilda_lede": "On Tuesday evening, 24 November, we will go together to Matilda The Musical. At its heart is a little girl, but it has a great deal to say about teachers and schools: a teacher who truly sees her pupil, and a headmistress who runs the school through fear.",
+"matilda_fact_1_k": "Published",
+"matilda_fact_1_v": "1988",
+"matilda_fact_2_k": "Illustrations",
+"matilda_fact_2_v": "Quentin Blake",
+"matilda_fact_3_k": "Music and lyrics",
+"matilda_fact_3_v": "Tim Minchin",
+"matilda_fact_4_k": "Book",
+"matilda_fact_4_v": "Dennis Kelly",
+"matilda_author_note_h": "Dahl's antisemitic remarks",
+"matilda_plot_teaser": "Matilda Wormwood is a five-year-old who reads every book she can find, in a home where nobody notices her. At school she meets her teacher, Miss Honey, who sees at once what she is capable of, and the headmistress, Miss Trunchbull, who rules the school through fear.",
+"matilda_paper1_venue": "Mousaion, a peer-reviewed journal (Unisa Press) · vol. 35, no. 2 · pp. 41-55",
+"matilda_paper2_venue": "Conference paper · ICON-ELT, International Conference on English Language Teaching · vol. 6, no. 1 · pp. 286-295",
+"matui_kicker": "Cultural enrichment · Tuesday evening",
+"matui_when": "In the schedule: Tuesday 24 November, evening",
+"matui_toc_aria": "On this page",
+"matui_toc_book": "The book",
+"matui_toc_author": "The author",
+"matui_toc_story": "The story",
+"matui_toc_papers": "Articles",
+"matui_toc_songs": "Songs",
+"matui_trailer_play": "Play the official trailer for the musical",
+"matui_trailer_cap": "Official trailer · 1:01",
+"matui_trailer_title": "Matilda The Musical: official trailer",
+"matui_trailer_note": "The video loads from YouTube only when you press play",
+"matui_trailer_yt": "Watch on YouTube",
+"matui_spoiler_tag": "Spoiler",
+"matui_spoiler_summary": "The full summary, including the ending",
+"matui_spoiler_open": "Show",
+"matui_spoiler_close": "Hide",
+"matui_papers_h": "Two academic articles",
+"matui_papers_intro": "Two articles that read the book through an educator's eyes: what it says about teaching and schools, and why its teachers have stayed with us.",
+"matui_btn_he": "Hebrew translation",
+"matui_btn_en": "Original (English)",
+"matui_files_he": "Google Docs, opens in your browser",
+"matui_files_en": "PDF · {pages} pages · {size}",
+"matui_songs_meta": "The London production recording · {n} songs",
+"matui_back_sched": "Back to Tuesday's schedule",
+"hub_title_plan": "Learning plan · Learning hub · Advot London 2026",
+"hub_title_library": "Library · Learning hub · Advot London 2026",
+"hub_title_matilda": "Matilda · Learning hub · Advot London 2026",
+"hub_meta_desc": "The learning hub for the Advot delegation to London: a three-module learning plan, a library of every resource, and background for our evening at Matilda The Musical.",
+"hub_og_title": "Learning hub · Advot London 2026",
+"hub_h1": "Your learning hub for the trip",
+"hub_lede": "At the last seminar you asked for a structured way to prepare for London. Here you will find the three-module learning plan, a library of every resource on the site, and background for our evening at Matilda The Musical.",
+"hubnav_aria": "Learning hub sections",
+"hubnav_plan": "Learning plan",
+"hubnav_library": "Library",
+"hubnav_matilda": "Matilda",
+"plan_h": "Learning plan",
+"extras_nojs": "You will find this module's further reading <a href=\"#library\">in the library</a>.",
+"a11y_newtab": "(opens in a new tab)",
+"lib_k": "Learning resources",
+"lib_h": "The library",
+"lib_intro": "England, Scotland, Wales and Northern Ireland have different education systems, and on your visit to London you will be learning in the context of the English system. The differences have created a natural experiment, as broadly similar nations have taken different paths on accountability, curriculum and funding. Here you will find every resource on the site. You can search by title, topic or source, and filter for items available in Hebrew.",
+"lib_search_label": "Search the library",
+"lib_search_ph": "For example: Ofsted or Ark",
+"lib_search_clear": "Clear search",
+"lib_topics_aria": "Filter by topic",
+"lib_topic_all": "All",
+"lib_topic_plan": "Learning plan",
+"lib_topic_sessions": "Induction sessions",
+"lib_topic_innovation": "Conservative innovation",
+"lib_topic_uk": "London and the UK",
+"lib_topic_policy": "Policy",
+"lib_topic_schools": "Schools",
+"lib_topic_leadership": "Leadership and teaching",
+"lib_topic_matilda": "Matilda",
+"lib_cat_plan": "Core materials from the three modules",
+"lib_cat_sessions": "From the induction sessions",
+"lib_cat_matilda": "Matilda: articles and background for our evening at the theatre",
+"lib_he_only": "Only items available in Hebrew",
+"lib_count": "{n} resources in the library",
+"lib_count_filtered": "{n} of {total}",
+"lib_empty_h": "Nothing found for \"{q}\"",
+"lib_empty_h_filter": "No resources match this filter",
+"lib_empty_p": "Try a different word, in Hebrew or English, or clear the filter.",
+"lib_empty_reset": "Clear search and filters",
+"lib_empty_glossary": "Looking for a term? Try the glossary",
+"lib_kind_listen": "Audio",
+"lib_kind_read": "Reading",
+"lib_kind_deck": "Slides",
+"lib_kind_watch": "Video",
+"lib_kind_doc": "Document",
+"lib_lang_he": "Hebrew",
+"lib_lang_en": "English",
+"lib_lang_he_en": "English and Hebrew",
+"lib_lang_multi": "Several languages",
+"lib_mod_tag": "Module {n}",
+"lib_core_tag": "Module {n} · core material",
+"lib_core_where": "In the learning plan",
+"lib_link_he": "Hebrew translation",
+"lib_link_en": "Original (English)",
+"lib_link_ar": "Arabic translation",
+"lib_link_recording": "Watch the recording",
+"lib_link_deck": "Open the slides",
+"lib_s2_t": "Second induction session, with Amos Raban",
+"lib_s2_n": "The recording and slides from the session, which compared the English and Israeli education systems.",
+"lib_mat_ptr_t": "Matilda: trailer, background and songs",
+"lib_mat_ptr_n": "The book, the author, the story, the official trailer and the songs, ahead of Tuesday evening.",
+"cat0": "Conservative innovation: a podcast and slides in Hebrew",
+"cat1": "London and the UK: the education system and social context",
+"cat2": "Education policy",
+"cat3": "Schools: how they work and what to expect",
+"cat4": "Leadership and teacher improvement",
+"p1_n": "A short, engaging listen on the story of the reforms, a good starting point before the English readings.",
+"p2_n": "An Israeli look at the deep reforms of 2003 to 2025. The deck accompanies the short podcast.",
+"r1": "Here you can see all the pathways that students can take through the education systems of the UK.",
+"r2": "Many people use social mobility as a test of whether the education system works for young people or not.",
+"r3": "AI-generated, but human checked. A useful timeline of curriculum reform on the last page.",
+"r4": "A report that shows how the poorest students in London do better than wealthier students in other parts of the UK.",
+"r5": "No one agrees why London schools are so much better than the rest of the country. Three possible explanations:",
+"r6": "On education: an explicit mention of class and social mobility.",
+"r7": "In 2011, the government established an NGO focused on education research. The EEF applies research to teaching.",
+"r8": "A short document summarising why the government created academies: state-funded, autonomous schools.",
+"r9": "A short summary of what school inspectors (known as Ofsted) are looking for when they evaluate a school.",
+"r10": "How student engagement drops in secondary school. An important challenge that many schools are facing.",
+"r11": "A smart opinion piece reflecting on the successes of the last 25 years, and what remain as the big problems in the system.",
+"r12": "An Australian delegation visited and studied MATs in England and wrote this report on how they can work well.",
+"r13": "We will meet and hear from Serge Cefai, Executive Headteacher of St Thomas the Apostle College, when we visit the school on Wednesday morning.",
+"r14": "Schools are trying to adopt evidence-based practice to make decisions about how to improve.",
+"r15": "All schools are legally required to keep their students protected in many ways.",
+"r16": "The professional standards, a definition of learning, and a recommended reading list, in one document.",
+"r17": "How instructional coaching works, and why the evidence supports it."
 }
 };
 
@@ -864,9 +1608,9 @@ function setLang(l){
     const v=d[el.dataset.i18nAria];
     if(v!==undefined) el.setAttribute('aria-label',plain(fill(v,el.dataset)));
   });
-  document.title=d.learn_title;
+  hubLangHook(d);
   const md=document.querySelector('meta[name="description"]');
-  if(md) md.setAttribute('content',d.learn_meta_desc);
+  if(md) md.setAttribute('content',plain(d.hub_meta_desc));
   try{ localStorage.setItem('advot-lang',l); }catch(e){}
   render();
 }
@@ -919,8 +1663,187 @@ document.querySelectorAll('audio[data-item]').forEach(function(au){
   });
 });
 
+/* ===================== learning hub: library, module lists, views, Matilda ===================== */
+var HUB={view:'plan',ready:false};
+var hubMain=document.getElementById('hubMain');
+var VIEWS=['plan','library','matilda'];
+var cards=[].slice.call(document.querySelectorAll('.lib-card'));
+
+/* 1. Matilda papers become library cards (their URLs stay written once, in the paper) */
+(function(){
+  var grid=document.querySelector('.lib-group[data-topic="matilda"] .lib-grid'), ptr=document.getElementById('res-mat');
+  document.querySelectorAll('article.paper[data-res]').forEach(function(p){
+    var c=document.createElement('article');
+    c.className='lib-card is-multi'; c.id=p.dataset.res;
+    ['topic','kind','langs','mods'].forEach(function(k){ c.dataset[k]=p.dataset[k]; });
+    c.dataset.kw=ptr.dataset.kw;
+    c.innerHTML='<div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_read"></span><span class="lc-lang" data-i18n="lib_lang_he_en"></span></div>'+
+      '<h4 class="lc-title"><span class="lc-t">'+p.querySelector('.pp-title').innerHTML+'</span></h4>'+
+      '<p class="lc-src">'+p.querySelector('.pp-meta').innerHTML+'</p>'+
+      '<p class="lc-note" data-i18n="'+p.querySelector('.pp-desc').dataset.i18n+'"></p><div class="lc-links"></div>';
+    var box=c.querySelector('.lc-links');
+    p.querySelectorAll('.btn-row a').forEach(function(a){ var l=a.cloneNode(true); l.className='lc-link'+(a.classList.contains('is-missing')?' is-missing':''); box.appendChild(l); });
+    grid.insertBefore(c,ptr);
+    cards.splice(cards.indexOf(ptr),0,c);
+  });
+})();
+
+/* 2. "Further reading" in each module is built from the library cards, with the module's own note */
+document.querySelectorAll('ul.ext-list[data-from]').forEach(function(ul){
+  var m=ul.dataset.from, rows={};
+  cards.forEach(function(c){ var n=c.getAttribute('data-ext-'+m); if(n){ (rows[n]=rows[n]||[]).push(c); } });
+  ul.innerHTML='';
+  Object.keys(rows).sort(function(a,b){ return a-b; }).forEach(function(n){
+    var g=rows[n], li=document.createElement('li'), c=g[0];
+    li.className='ext-row';
+    if(c.id==='res-s2'){
+      var sp=document.createElement('span'); sp.className='ext-links'; sp.dataset.i18n='s2_links';
+      sp.dataset.rec=c.querySelector('[data-role="rec"]').getAttribute('href');
+      sp.dataset.deck=c.querySelector('[data-role="deck"]').getAttribute('href');
+      li.appendChild(sp);
+    } else if(g.length>1){
+      g.forEach(function(x){
+        var pair=document.createElement('div'); pair.className='ext-pair';
+        var a=document.createElement('a'); a.className='ext-title he'; a.target='_blank'; a.rel='noopener';
+        a.setAttribute('href',x.querySelector('a.stretch').getAttribute('href')); a.dataset.i18n=x.querySelector('.lc-t').dataset.i18n;
+        var s=document.createElement('span'); s.className='ext-src he'; s.dataset.i18n=x.querySelector('.lc-src').dataset.i18n;
+        pair.appendChild(a); pair.appendChild(s); li.appendChild(pair);
+      });
+    } else {
+      var t=c.querySelector('.lc-t'), src=c.querySelector('.lc-src');
+      var a=document.createElement('a'); a.className='ext-title stretch'; a.target='_blank'; a.rel='noopener';
+      a.setAttribute('href',c.querySelector('a.stretch').getAttribute('href'));
+      if(t.dataset.i18n){ a.classList.add('he'); a.dataset.i18n=t.dataset.i18n; } else a.innerHTML=t.innerHTML;
+      var s=document.createElement('span'); s.className='ext-src';
+      if(src.dataset.i18n){ s.classList.add('he'); s.dataset.i18n=src.dataset.i18n; } else s.innerHTML=src.innerHTML;
+      li.appendChild(a); li.appendChild(s);
+    }
+    var note=document.createElement('span'); note.className='ext-note'; note.dataset.i18n=c.getAttribute('data-ctx-'+m); li.appendChild(note);
+    var deb=c.querySelector('.lc-debate');
+    if(deb && g.length===1){ var d=document.createElement('span'); d.className='ext-debate'; d.dataset.i18n=deb.dataset.i18n; li.appendChild(d); }
+    ul.appendChild(li);
+  });
+});
+
+/* 3. Library search: normalised text of every card, in both languages, built once */
+var FINALS={'ם':'מ','ן':'נ','ץ':'צ','ף':'פ','ך':'כ'};
+function norm(s){
+  return String(s||'').toLowerCase().normalize('NFKD').replace(/[֑-ׇ̀-ͯ]/g,'')
+    .replace(/['"׳״`’‘“”]/g,'').replace(/[-–]/g,'').replace(/[םןץףך]/g,function(ch){ return FINALS[ch]; }).replace(/\s+/g,' ').trim();
+}
+function cardText(c){
+  var parts=[c.dataset.kw||''];
+  c.querySelectorAll('[data-i18n]').forEach(function(el){ var k=el.dataset.i18n; ['he','en'].forEach(function(l){ if(I18N[l][k]) parts.push(plain(fill(I18N[l][k],el.dataset))); }); });
+  var clone=c.cloneNode(true); clone.querySelectorAll('[data-i18n]').forEach(function(el){ el.remove(); }); parts.push(clone.textContent);
+  ['he','en'].forEach(function(l){ parts.push(I18N[l]['lib_topic_'+c.dataset.topic]||''); });
+  (c.dataset.mods||'').split(' ').filter(Boolean).forEach(function(m){ parts.push('modtag'+m); });
+  return norm(parts.join(' '));
+}
+cards.forEach(function(c){ c._idx=cardText(c); });
+
+var libQ=document.getElementById('libQ'), libClear=document.getElementById('libClear'), libHe=document.getElementById('libHe');
+var libCount=document.getElementById('libCount'), libEmpty=document.getElementById('libEmpty'), libEmptyH=document.getElementById('libEmptyH');
+var chipsEl=[].slice.call(document.querySelectorAll('.chip')), groupsEl=[].slice.call(document.querySelectorAll('.lib-group'));
+var F={q:'',topic:'all',he:false}, countTimer=null;
+function applyFilter(now){
+  /* "מודול 2" / "module 2" means the module tag, not any text containing a 2 */
+  var toks=norm(F.q).replace(/(?:מודול|module)\s*(\d)/g,'modtagm$1').split(' ').filter(Boolean), shown=0;
+  cards.forEach(function(c){
+    var ok=(F.topic==='all'||c.dataset.topic===F.topic)&&(!F.he||(' '+c.dataset.langs+' ').indexOf(' he ')>=0)&&toks.every(function(t){ return c._idx.indexOf(t)>=0; });
+    c.hidden=!ok; if(ok) shown++;
+  });
+  groupsEl.forEach(function(g){ g.hidden=!g.querySelector('.lib-card:not([hidden])'); });
+  libEmpty.hidden=shown>0;
+  libEmptyH.textContent=F.q?fill(plain(t('lib_empty_h')),{q:F.q}):plain(t('lib_empty_h_filter'));
+  libClear.hidden=!F.q;
+  var filtered=F.q||F.topic!=='all'||F.he;
+  var txt=filtered?fill(t('lib_count_filtered'),{n:shown,total:cards.length}):fill(t('lib_count'),{n:cards.length});
+  clearTimeout(countTimer);
+  if(now) libCount.textContent=txt; else countTimer=setTimeout(function(){ libCount.textContent=txt; },400);
+}
+var qTimer=null;
+libQ.addEventListener('input',function(){ clearTimeout(qTimer); qTimer=setTimeout(function(){ F.q=libQ.value; applyFilter(false); },150); });
+libQ.addEventListener('keydown',function(e){ if(e.key==='Escape'&&libQ.value){ e.preventDefault(); libQ.value=''; F.q=''; applyFilter(true); } });
+libClear.addEventListener('click',function(){ libQ.value=''; F.q=''; applyFilter(true); libQ.focus(); });
+function setTopic(tp){ F.topic=tp; chipsEl.forEach(function(ch){ ch.setAttribute('aria-pressed',ch.dataset.topic===tp?'true':'false'); }); }
+chipsEl.forEach(function(ch){ ch.addEventListener('click',function(){
+  setTopic(ch.dataset.topic===F.topic&&F.topic!=='all'?'all':ch.dataset.topic); applyFilter(true);
+  try{ ch.scrollIntoView({block:'nearest',inline:'nearest'}); }catch(e){}
+}); });
+libHe.addEventListener('change',function(){ F.he=libHe.checked; applyFilter(true); });
+function resetFilters(){ libQ.value=''; F.q=''; libHe.checked=false; F.he=false; setTopic('all'); applyFilter(true); }
+document.getElementById('libReset').addEventListener('click',function(){ resetFilters(); libQ.focus(); });
+
+/* 4. Trailer: our own thumbnail; the YouTube player loads only after a click */
+var ytFrame=document.getElementById('ytFrame'), ytFacade=document.getElementById('ytFacade');
+ytFacade.addEventListener('click',function(e){
+  if(e.metaKey||e.ctrlKey||e.shiftKey||e.button===1) return;
+  e.preventDefault();
+  var f=document.createElement('iframe');
+  f.src='https://www.youtube-nocookie.com/embed/'+ytFacade.dataset.yt+'?autoplay=1&rel=0&playsinline=1&hl='+lang;
+  f.title=plain(t('matui_trailer_title'));
+  f.setAttribute('allow','autoplay; encrypted-media; picture-in-picture; fullscreen');
+  f.setAttribute('allowfullscreen',''); f.setAttribute('referrerpolicy','strict-origin-when-cross-origin');
+  ytFrame.replaceChild(f,ytFacade); f.focus();
+});
+function resetTrailer(){ var f=ytFrame.querySelector('iframe'); if(f) ytFrame.replaceChild(ytFacade,f); }
+
+/* 5. Views: one per URL hash (#plan, #library, #matilda, #res-*, #m1 …); back button returns to the previous view */
+function hubLangHook(d){
+  document.title=plain(d['hub_title_'+(HUB&&HUB.view||'plan')]);
+  document.querySelectorAll('[data-i18n-ph]').forEach(function(el){ el.setAttribute('placeholder',plain(d[el.dataset.i18nPh])); });
+  if(HUB&&HUB.ready) applyFilter(true);
+}
+function setView(v){
+  HUB.view=v;
+  VIEWS.forEach(function(id){ document.getElementById(id).classList.toggle('is-active',id===v); });
+  document.querySelectorAll('.hub-tab').forEach(function(a){ if(a.dataset.view===v) a.setAttribute('aria-current','true'); else a.removeAttribute('aria-current'); });
+  if(v!=='matilda') resetTrailer();
+  document.title=plain(t('hub_title_'+v));
+}
+var reduceMotion=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+function highlight(c){
+  cards.forEach(function(x){ x.classList.remove('is-target'); });
+  c.classList.add('is-target');
+  if(!reduceMotion) setTimeout(function(){ c.classList.remove('is-target'); },1500);
+  else document.addEventListener('click',function off(){ c.classList.remove('is-target'); document.removeEventListener('click',off); },{once:true});
+  var main=c.querySelector('a.stretch,.lc-link'); if(main) main.focus({preventScroll:true});
+}
+function route(opt){
+  opt=opt||{};
+  var h=''; try{ h=decodeURIComponent(location.hash.slice(1)); }catch(e){}
+  var el=h?document.getElementById(h):null, v='plan', target=null;
+  if(h==='library'||h==='matilda') v=h;
+  else if(el&&el.closest('#library')){ v='library'; target=el; }
+  else if(el&&el.closest('#matilda')){ v='matilda'; target=el; }
+  else if(el&&el.closest('#plan')&&h!=='plan'){ target=el; }
+  setView(v);
+  /* the view swap changes the page height, so jumps are instant (a smooth scroll started mid-swap lands in the wrong place) */
+  var how='instant';
+  if(target){
+    if(target.classList.contains('lib-card')){ resetFilters(); target.scrollIntoView({behavior:how}); highlight(target); }
+    else target.scrollIntoView({behavior:how});
+  } else {
+    var nav=document.querySelector('.hub-nav'), navH=nav.offsetHeight;
+    var heroVisible=document.querySelector('.learn-hero').getBoundingClientRect().bottom>64+navH;
+    var doScroll=opt.click?!heroVisible:(v!=='plan');
+    if(doScroll){ var top=document.getElementById(v).getBoundingClientRect().top+window.scrollY-64-navH; window.scrollTo({top:Math.max(0,top),behavior:how}); }
+    if(opt.click){ var hh=document.getElementById(v).querySelector('.view-h'); if(hh) hh.focus({preventScroll:true}); }
+  }
+}
+var tabClick=false;
+document.querySelectorAll('.hub-tab').forEach(function(a){
+  a.addEventListener('click',function(){ tabClick=true; if(location.hash==='#'+a.dataset.view){ setTimeout(function(){ route({click:true}); tabClick=false; },0); } });
+});
+addEventListener('hashchange',function(){ route({click:tabClick}); tabClick=false; });
+
 langBtn.addEventListener('click',function(){ setLang(lang==='he'?'en':'he'); });
 setLang(lang);
+hubMain.classList.add('views-on');
+HUB.ready=true;
+applyFilter(true);
+route({load:true});
+if(location.hash) addEventListener('load',function(){ route({load:true}); });
 })();
 </script>
 </body>

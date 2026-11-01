@@ -211,6 +211,10 @@ html[lang="en"] .learn-teaser p{font-size:15px}
 .lt-name{flex:1;font-size:15.5px;font-weight:700;line-height:1.35}
 .lt-status{font-size:13px;color:var(--ink-dim);white-space:nowrap}
 .lt-mods a:hover .lt-name{color:var(--blue)}
+.lt-mods .lt-sep{border-top:2px solid var(--line);height:0;margin-top:4px}
+.lt-mods .lt-sep + li{border-top:0}
+.lt-num svg{width:18px;height:18px;stroke:var(--blue);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.sch-item .what-more{font-size:13.5px;color:var(--ink-dim)}
 
 /* schedule (spec 3) */
 #schedule{position:relative;overflow:hidden}
@@ -448,7 +452,7 @@ footer .ripples-f{position:absolute;left:-130px;top:-60px;width:420px;opacity:.0
       <a href="#do" data-i18n="nav_do"></a>
       <a href="#induction" data-i18n="nav_induction"></a>
       <a href="#speakers" data-i18n="nav_speakers"></a>
-      <a href="#resources" data-i18n="nav_resources"></a>
+      <a href="learn.html" data-i18n="nav_resources"></a>
       <a href="#schedule" data-i18n="nav_schedule"></a>
     </nav>
     <div class="nav-side">
@@ -689,8 +693,9 @@ footer .ripples-f{position:absolute;left:-130px;top:-60px;width:420px;opacity:.0
   </div>
 </section>
 
-<!-- ===== resources ===== -->
-<section id="resources">
+<!-- ===== learning (was "resources"; the reading list moved to learn.html#library) ===== -->
+<section id="learning">
+  <span id="resources"></span>
   <div class="container">
     <div class="sec-kicker reveal" data-i18n="res_k"></div>
     <h2 class="reveal" data-i18n="res_h"></h2>
@@ -706,6 +711,9 @@ footer .ripples-f{position:absolute;left:-130px;top:-60px;width:420px;opacity:.0
         <li><a href="learn.html#m1"><span class="lt-num" aria-hidden="true">1</span><span class="lt-name" data-i18n="mod1_short"></span><span class="lt-status" id="ltStatus1" data-i18n="mod_status_open"></span></a></li>
         <li><a href="learn.html#m2"><span class="lt-num" aria-hidden="true">2</span><span class="lt-name" data-i18n="mod2_short"></span><span class="lt-status" id="ltStatus2" data-i18n="mod_status_open"></span></a></li>
         <li class="soon"><a href="learn.html#m3"><span class="lt-num" aria-hidden="true">3</span><span class="lt-name" data-i18n="mod3_short"></span><span class="lt-status" data-i18n="mod_status_soon"></span></a></li>
+        <li class="lt-sep" role="presentation" aria-hidden="true"></li>
+        <li><a href="learn.html#library"><span class="lt-num" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 6.5C10.5 5.3 8.3 4.5 4 4.5v13c4.3 0 6.5.8 8 2 1.5-1.2 3.7-2 8-2v-13c-4.3 0-6.5.8-8 2zM12 6.5v13"/></svg></span><span class="lt-name" data-i18n="lt_row_library"></span><span class="lt-status" data-i18n="lt_status_library"></span></a></li>
+        <li><a href="learn.html#matilda"><span class="lt-num" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v4a2 2 0 0 0 0 4v4H4v-4a2 2 0 0 0 0-4z"/><path d="M14 5v12" stroke-dasharray="2 2"/></svg></span><span class="lt-name" data-i18n="lt_row_matilda"></span><span class="lt-status" data-i18n="lt_status_matilda"></span></a></li>
       </ul>
     </div>
     <div class="signup-cta reveal" style="margin:0 0 40px">
@@ -717,131 +725,6 @@ footer .ripples-f{position:absolute;left:-130px;top:-60px;width:420px;opacity:.0
       <a class="btn btn-primary" href="glossary.html" data-i18n="gl_btn"></a>
     </div>
 
-    <div class="res-cat reveal">
-      <div class="res-cat-head"><span class="bar"></span><h3 data-i18n="cat0"></h3></div>
-      <div class="res-grid">
-        <a class="res-card" href="https://drive.google.com/file/d/1L4Me5AARMjcRdtsN0Cg7_U5gO4zQR618/view?usp=sharing" target="_blank" rel="noopener">
-          <span class="res-title dyn" data-i18n="p1_t"></span>
-          <span class="res-src dyn" data-i18n="p1_s"></span>
-          <span class="res-note" data-i18n="p1_n"></span>
-        </a>
-        <a class="res-card" href="assets/hadshanut-shamranit.pdf" target="_blank" rel="noopener">
-          <span class="res-title dyn" data-i18n="p2_t"></span>
-          <span class="res-src dyn" data-i18n="p2_s"></span>
-          <span class="res-note" data-i18n="p2_n"></span>
-        </a>
-      </div>
-    </div>
-
-    <div class="res-cat reveal">
-      <div class="res-cat-head"><span class="bar"></span><h3 data-i18n="cat1"></h3></div>
-      <div class="res-grid">
-        <a class="res-card" href="https://gpseducation.oecd.org/Content/MapOfEducationSystem/GBR/GBR_2011_EN.pdf" target="_blank" rel="noopener">
-          <span class="res-title">Diagram of the UK schools system on one page</span>
-          <span class="res-src">OECD · 2025</span>
-          <span class="res-note" data-i18n="r1"></span>
-        </a>
-        <a class="res-card" href="https://www.suttontrust.com/our-research/what-is-social-mobility/" target="_blank" rel="noopener">
-          <span class="res-title">What is Social Mobility?</span>
-          <span class="res-src">Sutton Trust · 2025</span>
-          <span class="res-note" data-i18n="r2"></span>
-        </a>
-        <a class="res-card" href="https://3a551fc8-7675-4cc5-9ecd-8697a47d348f.filesusr.com/ugd/5d3f2a_9ed3efcaa0ae4950bfcc2c26a4b7312d.pdf" target="_blank" rel="noopener">
-          <span class="res-title">English Curriculum Overview (3 pages)</span>
-          <span class="res-src">CES · 2025</span>
-          <span class="res-note" data-i18n="r3"></span>
-        </a>
-        <a class="res-card" href="https://www.suttontrust.com/news-opinion/all-news-opinion/london-miles-ahead-of-other-regions-in-providing-best-opportunities-for-the-poorest-young-people/" target="_blank" rel="noopener">
-          <span class="res-title">London has the best results for the poorest</span>
-          <span class="res-src">Sutton Trust · 2025</span>
-          <span class="res-note" data-i18n="r4"></span>
-        </a>
-        <a class="res-card" href="https://www.instituteforgovernment.org.uk/sites/default/files/publications/Implementing%20the%20London%20Challenge%20-%20final_0.pdf" target="_blank" rel="noopener">
-          <span class="res-title">About the London Challenge (2002 to 2011)</span>
-          <span class="res-src">Institute for Government</span>
-          <span class="res-note" data-i18n="r5"></span>
-          <span class="res-debate" data-i18n="r5_debate"></span>
-        </a>
-      </div>
-    </div>
-
-    <div class="res-cat reveal">
-      <div class="res-cat-head"><span class="bar"></span><h3 data-i18n="cat2"></h3></div>
-      <div class="res-grid">
-        <a class="res-card" href="https://labour.org.uk/change/mission-driven-government/" target="_blank" rel="noopener">
-          <span class="res-title">The five missions of the current government</span>
-          <span class="res-src">Labour</span>
-          <span class="res-note" data-i18n="r6"></span>
-        </a>
-        <a class="res-card" href="https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit" target="_blank" rel="noopener">
-          <span class="res-title">Teaching &amp; Learning Toolkit</span>
-          <span class="res-src">EEF</span>
-          <span class="res-note" data-i18n="r7"></span>
-        </a>
-        <a class="res-card" href="https://www.gov.uk/government/publications/2010-to-2015-government-policy-academies-and-free-schools/2010-to-2015-government-policy-academies-and-free-schools" target="_blank" rel="noopener">
-          <span class="res-title">English school structures reforms 2010 to 2015</span>
-          <span class="res-src">DfE</span>
-          <span class="res-note" data-i18n="r8"></span>
-        </a>
-        <a class="res-card" href="https://www.gov.uk/government/publications/education-inspection-framework" target="_blank" rel="noopener">
-          <span class="res-title">Ofsted Inspection Framework</span>
-          <span class="res-src">Ofsted · GOV.UK</span>
-          <span class="res-note" data-i18n="r9"></span>
-        </a>
-        <a class="res-card" href="https://www.impactedgroup.uk/resources/report-mind-the-engagement-gap" target="_blank" rel="noopener">
-          <span class="res-title">The Engagement Gap</span>
-          <span class="res-src">ImpactEd · UCL</span>
-          <span class="res-note" data-i18n="r10"></span>
-        </a>
-        <a class="res-card" href="https://schoolsweek.co.uk/goves-traditionalists-won-but-now-they-see-what-was-lost/" target="_blank" rel="noopener">
-          <span class="res-title">Opinion: Traditionalists won, but what was lost?</span>
-          <span class="res-src">Schools Week</span>
-          <span class="res-note" data-i18n="r11"></span>
-        </a>
-      </div>
-    </div>
-
-    <div class="res-cat reveal">
-      <div class="res-cat-head"><span class="bar"></span><h3 data-i18n="cat3"></h3></div>
-      <div class="res-grid">
-        <a class="res-card" href="https://grattan.edu.au/report/spreading-success-why-australia-should-trial-multi-school-organisations/" target="_blank" rel="noopener">
-          <span class="res-title">A positive analysis of Multi-Academy Trusts</span>
-          <span class="res-src">Grattan · 2024</span>
-          <span class="res-note" data-i18n="r12"></span>
-        </a>
-        <a class="res-card" href="https://www.thesun.co.uk/news/36872904/strictest-headteacher-hate-wokeness/" target="_blank" rel="noopener">
-          <span class="res-title">Behaviour: is it the single biggest thing to get right?</span>
-          <span class="res-src">The Sun</span>
-          <span class="res-note" data-i18n="r13"></span>
-        </a>
-        <a class="res-card" href="https://www.ambition.org.uk/pupil-engagement-guide/" target="_blank" rel="noopener">
-          <span class="res-title">Research-based guide to pupil motivation</span>
-          <span class="res-src">Ambition Institute</span>
-          <span class="res-note" data-i18n="r14"></span>
-        </a>
-        <a class="res-card" href="https://www.supportingeducation.com/content-hub/safeguarding-in-schools-importance-and-strategies/" target="_blank" rel="noopener">
-          <span class="res-title">An introduction to Safeguarding</span>
-          <span class="res-src">Supporting Education</span>
-          <span class="res-note" data-i18n="r15"></span>
-        </a>
-      </div>
-    </div>
-
-    <div class="res-cat reveal">
-      <div class="res-cat-head"><span class="bar"></span><h3 data-i18n="cat4"></h3></div>
-      <div class="res-grid">
-        <a class="res-card" href="https://assets.publishing.service.gov.uk/media/661d24ac08c3be25cfbd3e61/Initial_Teacher_Training_and_Early_Career_Framework.pdf" target="_blank" rel="noopener">
-          <span class="res-title">What all teachers need to know</span>
-          <span class="res-src">DfE · 2024</span>
-          <span class="res-note" data-i18n="r16"></span>
-        </a>
-        <a class="res-card" href="https://steplab.co/resources/the-science-behind-steplab-how-it-includes-all-14-mechanisms-of-effective-pd/66d9c86d0982810001156b52" target="_blank" rel="noopener">
-          <span class="res-title">The evidence-based case for instructional coaching</span>
-          <span class="res-src">Steplab · 2024</span>
-          <span class="res-note" data-i18n="r17"></span>
-        </a>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -1001,7 +884,7 @@ footer .ripples-f{position:absolute;left:-130px;top:-60px;width:420px;opacity:.0
               <div class="band-label"><span class="band-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></span><h4 id="d3-ev" data-i18n="band_ev"></h4></div>
               <ul class="band-items" role="list">
                   <li class="sch-item" data-kind="free"><span class="kind" data-i18n="kind_free"></span><span class="what" data-i18n="sch_d3_ev_1"></span></li>
-                  <li class="sch-item" data-kind="culture"><span class="kind" data-i18n="kind_culture"></span><span class="what" data-i18n="sch_d3_ev_2"></span></li>
+                  <li class="sch-item" data-kind="culture"><span class="kind" data-i18n="kind_culture"></span><span class="what"><a href="learn.html#matilda" data-i18n="sch_d3_ev_2"></a></span><span class="what-more" data-i18n="sch_d3_ev_2_more"></span></li>
               </ul>
             </div>
           </div>
@@ -1135,10 +1018,13 @@ footer .ripples-f{position:absolute;left:-130px;top:-60px;width:420px;opacity:.0
 </footer>
 
 <script>
+// old links to the reading list: index.html#resources -> learn.html#library (keeps ?lang)
+function goLibrary(){ if(location.hash==='#resources') location.replace('learn.html'+location.search+'#library'); }
+goLibrary(); addEventListener('hashchange',goLibrary);
 const I18N = {
 he: {
   chip:"לונדון · 22 עד 26 בנובמבר 2026",
-  nav_home:"בית", nav_why:"למה לונדון", nav_do:"מה נעשה", nav_induction:"מפגשי ההכנה", nav_speakers:"הדוברים", nav_resources:"משאבי למידה",
+  nav_home:"בית", nav_why:"למה לונדון", nav_do:"מה נעשה", nav_induction:"מפגשי ההכנה", nav_speakers:"הדוברים", nav_resources:"למידה",
   kicker:"משלחת אדוות · יום ראשון 22 עד יום חמישי 26 בנובמבר 2026",
   h1:"המסע ללונדון",
   lede:"חמישה ימים של גיבוש קבוצתי, למידה הדדית ומפגש עם רעיונות חדשים בתוך מערכת החינוך האנגלית. הזדמנות לקחת צעד אחורה מהיומיום העמוס, להרהר במה שמניע אתכם ולחזור עם כוחות מחודשים.",
@@ -1196,36 +1082,6 @@ he: {
   michael_t:"יציג את החדשנות בתחום ה-EdTech ואת השינוי הקהילתי-מקומי ב-Ed City.",
   michael_more:"עוד על מייקל",
   michael_bio:"מייקל מוביל את Purposeful Ventures, ארגון שפועל לקידום השפעה חברתית חיובית בהיקף רחב. קודם לכן כיהן כסגן מנכ\"ל Ark, שם הקים והוביל את Ark Ventures וליווה את הקמתם של 15 ארגונים ללא כוונת רווח בין 2012 ל-2023. מוקדם יותר בקריירה היה שותף זוטר ב-McKinsey, שם ניהל במשותף את זרוע החינוך של החברה בבריטניה, והיה חלק מהצוות המייסד של Ed City.",
-  res_k:"משאבי למידה", res_h:"קריאה מקדימה",
-  res_intro:"אנגליה, סקוטלנד, ויילס וצפון אירלנד מקיימות מערכות חינוך שונות, ובביקור בלונדון תלמדו בהקשר של המערכת האנגלית. ההבדלים ביניהן יצרו ניסוי טבעי: מדינות דומות למדי שבחרו דרכים שונות באחריותיות, בתוכנית הלימודים, בתקצוב ועוד. המשאבים כאן, כולם באנגלית, יציגו לכם חלק מההקשר של מערכת החינוך שבה תבקרו.",
-  cat0:"חדשנות שמרנית: פודקאסט ומצגת בעברית",
-  p1_t:"פודקאסט קצר: החדשנות השמרנית שהזניקה את החינוך באנגליה",
-  p1_s:"פודקאסט · בעברית",
-  p1_n:"האזנה קצרה ומעניינת לסיפור הרפורמות, נקודת פתיחה טובה לפני חומרי הקריאה באנגלית.",
-  p2_t:"מצגת: חדשנות שמרנית · אדריכלות הפלא החינוכי של אנגליה",
-  p2_s:"PDF · מלווה את הפודקאסט",
-  p2_n:"מבט ישראלי על רפורמות העומק 2003 עד 2025. המצגת מלווה את הפודקאסט הקצר.",
-  cat1:"לונדון ובריטניה: מערכת החינוך וההקשר החברתי",
-  r1:"כאן אפשר לראות את כל המסלולים שתלמידים יכולים לעבור במערכות החינוך של בריטניה.",
-  r2:"רבים משתמשים בניידות חברתית כמבחן: האם מערכת החינוך עובדת בשביל צעירים או לא.",
-  r3:"נוצר בעזרת AI ונבדק בידי אדם. בעמוד האחרון ציר זמן שימושי של הרפורמות בתוכנית הלימודים.",
-  r4:"דוח שמראה איך התלמידים העניים ביותר בלונדון מצליחים יותר מתלמידים מבוססים באזורים אחרים בבריטניה.",
-  r5:"איש אינו מסכים למה בתי הספר בלונדון טובים בהרבה משאר המדינה. שלושה הסברים אפשריים:",
-  r5_debate:'<a href="https://www.theguardian.com/commentisfree/2014/nov/14/london-schools-immigration-children-education" target="_blank" rel="noopener">הגירה</a> · <a href="https://samfreedman1.blogspot.com/2013/10/why-are-londons-schools-doing-so-well.html" target="_blank" rel="noopener">כסף</a> · <a href="https://www.bbc.co.uk/news/education-28003848" target="_blank" rel="noopener">Teach First</a>',
-  cat2:"מדיניות חינוך",
-  r6:"ביעד החינוך: אזכור מפורש של מעמד ושל ניידות חברתית.",
-  r7:"סיכום הראיות המחקריות על הוראה מה-EEF, הגוף שהממשלה הקימה ב-2011 כדי לחבר מחקר לכיתה.",
-  r8:"מסמך קצר שמסביר למה הממשלה הקימה אקדמיות: בתי ספר עצמאיים במימון המדינה.",
-  r9:"מה מחפשים מפקחי Ofsted כשהם מעריכים בית ספר, בסיכום קצר.",
-  r10:"איך מחוברות התלמידים יורדת בבית הספר העל-יסודי. אתגר חשוב שבתי ספר רבים מתמודדים איתו.",
-  r11:"מאמר דעה חכם על ההצלחות של 25 השנים האחרונות, ועל הבעיות הגדולות שנשארו במערכת.",
-  cat3:"בתי ספר: איך הם עובדים ולמה לצפות",
-  r12:"משלחת אוסטרלית ביקרה וחקרה את רשתות ה-MAT באנגליה, וכתבה איך הן יכולות לעבוד היטב.",
-  r14:"בתי ספר מנסים לאמץ פרקטיקה מבוססת ראיות כדי להחליט מה לשפר.",
-  r15:"כל בתי הספר מחויבים בחוק להגן על תלמידיהם במגוון דרכים.",
-  cat4:"מנהיגות ושיפור הוראה",
-  r16:"הסטנדרטים המקצועיים, הגדרה של למידה ורשימת קריאה מומלצת, במסמך אחד.",
-  r17:"איך אימון הוראה (Instructional Coaching) עובד, ולמה הראיות תומכות בו.",
   cta3:"השתבצות לצוותים",
   su_h:"השתבצות לצוותי המשלחת",
   su_p:"לכל צוות יש מלווה ומספר מקומות. בוחרים צוות, רושמים שם, ורואים מי כבר בפנים ומה נשאר פתוח.",
@@ -1267,10 +1123,6 @@ he: {
   print_footer:"כל הפרטים באתר: <bdi>london.hotam.tech</bdi>",
   sp_when_daisy:"בלו\"ז: יום שלישי אחר הצהריים",
   sp_when_steve:"בלו\"ז: יום רביעי אחר הצהריים",
-  lt_h:"שלושה מודולים לקראת המסע",
-  lt_p:"בחרנו מתוך כל החומרים באתר את מה ששווה להעמיק בו, וסידרנו אותו בשלושה מודולים. בכל מודול יש סקירה קולית, מצגת וקריאה מרכזית.",
-  lt_btn:"לתוכנית הלמידה",
-  r13:"נפגוש ונשמע את סרג' צפאי, המנהל הבכיר של <bdi>St Thomas the Apostle College</bdi>, כשנבקר בבית הספר ביום רביעי בבוקר.",
   sp_lede:"קצת מידע על חלק מהאנשים שנפגוש בלונדון. בכרטיס של מי שמופיע בלו\"ז יש קישור ליום שבו נפגוש אותו.",
   mod2_short:"מבנה בתי הספר",
   mod3_short:"אחריותיות",
@@ -1346,13 +1198,26 @@ he: {
   sch_d5_th_2:"איך מודדים השפעה בחינוך: התערבויות מבוססות ראיות והכלים של <bdi>ImpactEd</bdi>",
   sch_d5_th_3:"מה לוקחים מלונדון לעבודה שלנו בישראל, ואיזו התחייבות כל אחד מאיתנו מקבל על עצמו",
   /* gen end */
+  /* gen: learning hub (20-draft/copy-matilda.md) */
+  res_k:"לקראת המסע",
+  res_h:"מרכז הלמידה",
+  res_intro:"כל חומרי הלמידה של המסע נמצאים עכשיו במקום אחד: תוכנית בשלושה מודולים, ספרייה עם חיפוש והכנה לערב מטילדה.",
+  lt_h:"תוכנית הלמידה, הספרייה ומטילדה",
+  lt_p:"בחרנו מתוך כל החומרים את מה ששווה להעמיק בו, וסידרנו אותו בשלושה מודולים. לצידם הספרייה, עם כל החומרים שבאתר, ורקע לערב המחזמר מטילדה.",
+  lt_btn:"למרכז הלמידה",
+  lt_row_library:"הספרייה",
+  lt_status_library:"כל החומרים",
+  lt_row_matilda:"מטילדה",
+  lt_status_matilda:"יום שלישי בערב",
+  sch_d3_ev_2_more:"רקע, טריילר ושירים במרכז הלמידה",
+  /* gen end */
   title:"אדוות · המסע ללונדון 2026",
   lang_btn:"English",
   lang_aria:"החלפת שפה"
 },
 en: {
   chip:"London · 22 to 26 Nov 2026",
-  nav_home:"Home", nav_why:"Why London", nav_do:"What we'll do", nav_induction:"Induction", nav_speakers:"Speakers", nav_resources:"Resources",
+  nav_home:"Home", nav_why:"Why London", nav_do:"What we'll do", nav_induction:"Induction", nav_speakers:"Speakers", nav_resources:"Learning",
   kicker:"Advot delegation · Sunday 22 to Thursday 26 November 2026",
   h1:"London Calling!",
   lede:"Five days to bond as a group, learn from each other and encounter new ideas, inside the English school system. A chance to step back from your busy day-to-day tasks, reflect on what motivates you, and return with renewed vigour.",
@@ -1410,36 +1275,6 @@ en: {
   michael_t:"Will introduce the EdTech innovation and place-based change at Ed City.",
   michael_more:"More about Michael",
   michael_bio:"Michael leads Purposeful Ventures, an organisation dedicated to driving positive, scalable social impact. He previously served as Deputy CEO of Ark, where he established and led Ark Ventures, incubating 15 charities between 2012 and 2023. Earlier in his career he was a junior partner at McKinsey, co-leading its UK education practice, and was part of the founding team of Ed City.",
-  res_k:"Learning resources", res_h:"Pre-reading",
-  res_intro:"England, Scotland, Wales and Northern Ireland have different education systems. On your visit to London you will be learning in the context of the English system. The differences have created a natural experiment of approaches, as broadly similar nations have taken different paths on school accountability, curriculum, funding, and more. The resources below will introduce you to some of the context of the education system you are visiting.",
-  cat0:"Conservative innovation: a podcast and slides in Hebrew",
-  p1_t:"Short podcast: the conservative innovation that lifted English education",
-  p1_s:"Podcast · Hebrew",
-  p1_n:"A short, engaging listen on the story of the reforms, a good starting point before the English readings.",
-  p2_t:"Slides: Conservative innovation · the architecture of England's education miracle",
-  p2_s:"PDF · accompanies the podcast",
-  p2_n:"An Israeli look at the deep reforms of 2003 to 2025. The deck accompanies the short podcast.",
-  cat1:"London and the UK: the education system and social context",
-  r1:"Here you can see all the pathways that students can take through the education systems of the UK.",
-  r2:"Many people use social mobility as a test of whether the education system works for young people or not.",
-  r3:"AI-generated, but human checked. A useful timeline of curriculum reform on the last page.",
-  r4:"A report that shows how the poorest students in London do better than wealthier students in other parts of the UK.",
-  r5:"No one agrees why London schools are so much better than the rest of the country. Three possible explanations:",
-  r5_debate:'<a href="https://www.theguardian.com/commentisfree/2014/nov/14/london-schools-immigration-children-education" target="_blank" rel="noopener">Immigration</a> · <a href="https://samfreedman1.blogspot.com/2013/10/why-are-londons-schools-doing-so-well.html" target="_blank" rel="noopener">Money</a> · <a href="https://www.bbc.co.uk/news/education-28003848" target="_blank" rel="noopener">Teach First</a>',
-  cat2:"Education policy",
-  r6:"On education: an explicit mention of class and social mobility.",
-  r7:"In 2011, the government established an NGO focused on education research. The EEF applies research to teaching.",
-  r8:"A short document summarising why the government created academies: state-funded, autonomous schools.",
-  r9:"A short summary of what school inspectors (known as Ofsted) are looking for when they evaluate a school.",
-  r10:"How student engagement drops in secondary school. An important challenge that many schools are facing.",
-  r11:"A smart opinion piece reflecting on the successes of the last 25 years, and what remain as the big problems in the system.",
-  cat3:"Schools: how they work and what to expect",
-  r12:"An Australian delegation visited and studied MATs in England and wrote this report on how they can work well.",
-  r14:"Schools are trying to adopt evidence-based practice to make decisions about how to improve.",
-  r15:"All schools are legally required to keep their students protected in many ways.",
-  cat4:"Leadership and teacher improvement",
-  r16:"The professional standards, a definition of learning, and a recommended reading list, in one document.",
-  r17:"How instructional coaching works, and why the evidence supports it.",
   cta3:"Team sign-up",
   su_h:"Delegation team sign-up",
   su_p:"Each team has a mentor and a set number of places. Pick a team, add your name, and see who is already in. The form is in Hebrew.",
@@ -1481,10 +1316,6 @@ en: {
   print_footer:"Full details: london.hotam.tech",
   sp_when_daisy:"Schedule: Tuesday afternoon",
   sp_when_steve:"Schedule: Wednesday afternoon",
-  lt_h:"Three modules before the trip",
-  lt_p:"We picked the materials on this site most worth your time and arranged them in three modules, each with an audio overview, slides and a core reading.",
-  lt_btn:"Open the learning plan",
-  r13:"We will meet and hear from Serge Cefai, Executive Headteacher of St Thomas the Apostle College, when we visit the school on Wednesday morning.",
   sp_lede:"A little about some of the people we will meet in London. If someone appears in the schedule, their card links to the day we meet them.",
   mod2_short:"School structures",
   mod3_short:"Accountability",
@@ -1559,6 +1390,19 @@ en: {
   sch_d5_th_1:"Local authority governance, municipal stewardship and school networks",
   sch_d5_th_2:"Measuring educational impact: evidence-based intervention and ImpactEd frameworks",
   sch_d5_th_3:"Translating what we learnt in the UK to our own context, and our commitments as leaders",
+  /* gen end */
+  /* gen: learning hub (20-draft/copy-matilda.md) */
+  res_k:"Before the trip",
+  res_h:"The learning hub",
+  res_intro:"All the learning materials for the trip are now in one place: a three-module plan, a searchable library, and background for our Matilda evening.",
+  lt_h:"The learning plan, the library and Matilda",
+  lt_p:"We picked the materials most worth your time and arranged them in three modules. Alongside them are the library, with every resource on the site, and background for our evening at Matilda The Musical.",
+  lt_btn:"Open the learning hub",
+  lt_row_library:"Library",
+  lt_status_library:"All resources",
+  lt_row_matilda:"Matilda",
+  lt_status_matilda:"Tuesday evening",
+  sch_d3_ev_2_more:"Background, trailer and songs in the learning hub",
   /* gen end */
   title:"Advot · The Journey to London 2026",
   lang_btn:"עברית",
