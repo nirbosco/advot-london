@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>document.documentElement.className=document.documentElement.className.replace('no-js','js');</script>
 <title>תוכנית הלמידה · מרכז הלמידה · אדוות לונדון 2026</title>
-<meta name="description" content="שלושה מודולים ללמידה עצמית לקראת משלחת אדוות ללונדון, ובכל אחד סקירה קולית, מצגת וקריאה מרכזית.">
+<meta name="description" content="מרכז הלמידה של משלחת אדוות ללונדון: תוכנית למידה בשלושה מודולים, ספרייה של כל החומרים, מטילדה ורעיונות לזמן החופשי.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="מרכז הלמידה · אדוות לונדון 2026">
-<meta property="og:description" content="מרכז הלמידה של משלחת אדוות ללונדון: תוכנית למידה בשלושה מודולים, ספרייה של כל החומרים, והכנה לערב המחזמר מטילדה.">
+<meta property="og:description" content="מרכז הלמידה של משלחת אדוות ללונדון: תוכנית למידה בשלושה מודולים, ספרייה של כל החומרים, מטילדה ורעיונות לזמן החופשי.">
 <meta property="og:image" content="https://london.hotam.tech/assets/advot-logo.png">
 <meta property="og:url" content="https://london.hotam.tech/learn.html">
 <link rel="icon" type="image/png" href="assets/advot-logo.png">
@@ -377,7 +377,7 @@ html[lang="en"] .mat-p{font-size:15.5px}
 .mat-facts dt{font-size:12.5px;font-weight:700;color:var(--ink-dim)}
 .mat-facts dd{font-size:15.5px;font-weight:500;color:var(--ink)}
 .mat-note{background:var(--white);border:1px solid var(--line);border-inline-start:4px solid var(--ink-dim);border-radius:var(--r-card);padding:22px 26px;margin-top:20px}
-.mat-note h4{font-size:16.5px;font-weight:800;color:var(--ink);margin-bottom:6px}
+.mat-note h5{font-size:16.5px;font-weight:800;color:var(--ink);margin-bottom:6px}
 .mat-note p{font-size:15.5px;color:var(--ink)}
 details.spoiler{margin-top:18px;background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--shadow-sm)}
 details.spoiler summary{list-style:none;display:flex;align-items:center;gap:10px 12px;flex-wrap:wrap;min-height:60px;padding:14px 22px;cursor:pointer;border-radius:var(--r-card)}
@@ -433,11 +433,85 @@ html[dir="ltr"] .mat-back svg{transform:scaleX(-1)}
 @media (max-width:380px){
   .hub-tab{font-size:14px}
 }
+/* ================= culture and leisure tab (design-spec-culture-leisure.md) ================= */
+.cul-slots{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;list-style:none}
+.cul-slots .mat-when{margin-top:0}
+.cul-toc .toc-item:not([hidden]) ~ .toc-item:not([hidden])::before{content:"·";color:var(--ink-dim);margin:0 8px}
+.cul-toc .toc-item[hidden]{display:none}
+.cul-ch{margin-top:56px;scroll-margin-top:24px}
+.cul-ch[hidden]{display:none}
+.cul-ch + .cul-ch,.cul-free + .cul-ch,.lib-empty + .cul-ch{border-top:1px solid var(--line);padding-top:40px}
+.cul-ch .res-cat-head h3{scroll-margin-top:24px}
+.cul-intro{font-size:15px;color:var(--ink-dim);max-width:680px;margin:-8px 0 18px}
+html[lang="en"] .cul-intro{font-size:14.5px}
+
+/* Matilda chapter */
+.cul-mat .mod-k{margin-top:-6px;margin-bottom:6px}
+.cul-mat .mod-scope{margin-bottom:2px}
+.mat-more{margin-top:20px}
+.mat-more-body{padding:8px 22px 24px;border-top:1px solid var(--line)}
+.mat-more-body > .mat-toc{margin-top:8px}
+.mat-more-body .mat-block:first-of-type{margin-top:8px}
+.mat-more-body .mat-back{margin-top:36px}
+
+/* for your free time */
+.cul-free{max-width:760px;margin-inline:auto;margin-top:56px;padding:24px 26px;background:var(--soft);border:1px solid var(--line);border-radius:var(--r-card);scroll-margin-top:24px}
+.cul-free > .col{max-width:none}
+.cul-free-h{font-size:22px;font-weight:800;color:var(--ink);margin-bottom:6px}
+.cul-tools{margin-top:14px;display:flex;flex-wrap:wrap;align-items:center;gap:4px 18px}
+.cul-eve{font-size:15px;font-weight:500}
+.cul-tools .lib-count{margin-top:0}
+.cul-check{display:flex;gap:6px;align-items:flex-start;margin-top:12px;font-size:13.5px;color:var(--ink-dim)}
+.cul-check svg{width:16px;height:16px;flex-shrink:0;margin-top:3px;stroke:var(--ink-dim);fill:none;stroke-width:2;stroke-linecap:round}
+
+/* place card */
+.cul-card{position:relative;background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);padding:20px 22px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:6px;scroll-margin-top:24px}
+.cul-card[hidden]{display:none}
+.cul-card.is-target{animation:libflash 1.5s var(--ease) forwards}
+.pc-tags{display:flex;gap:6px;flex-wrap:wrap;min-height:24px}
+.pc-tag{display:inline-flex;align-items:center;gap:4px;font-size:12.5px;font-weight:700;border-radius:999px;padding:2px 10px;border:1px solid var(--line)}
+.pc-tag.is-free{color:var(--blue);background:var(--soft)}
+.pc-tag.is-paid,.pc-tag.is-mixed{color:var(--ink-dim);background:var(--white)}
+.pc-tag.is-eve{color:var(--ink);background:var(--soft)}
+.pc-tag svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.pc-name{font-size:17px;font-weight:700;color:var(--ink);line-height:1.4}
+.pc-en{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;color:var(--ink-dim)}
+html[lang="en"] .pc-en{display:none}
+.pc-why{font-size:15px;color:var(--ink);line-height:1.7}
+html[lang="en"] .pc-why{font-size:14px}
+.pc-where,.pc-visit,.pc-dates{display:flex;gap:6px;align-items:center;flex-wrap:wrap;font-size:13.5px;color:var(--ink-dim)}
+.pc-where svg,.pc-visit svg,.pc-dates svg{width:15px;height:15px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.pc-sep{color:var(--ink-dim)}
+.pc-tube bdi{font-family:'Montserrat',sans-serif;font-weight:600}
+.pc-note,.pc-book{font-size:13.5px;color:var(--ink);background:var(--soft);border-radius:10px;padding:8px 12px}
+.cul-card .lc-links{margin-top:auto;padding-top:10px}
+.cul-card.is-feature{grid-column:1 / -1;padding:26px 28px;box-shadow:var(--shadow-md);border-inline-start:4px solid var(--blue)}
+.cul-card.is-feature .pc-name{font-size:22px;font-weight:800}
+.pc-dates{font-size:14px;font-weight:700;color:var(--blue)}
+
+/* good to know */
+.cul-tips{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:6px 20px}
+.cul-tips > div{padding:12px 0}
+.cul-tips > div + div{border-top:1px solid var(--line)}
+.cul-tips dt{font-size:15px;font-weight:700;color:var(--ink)}
+.cul-tips dd{font-size:15px;color:var(--ink-dim);line-height:1.7}
+html[lang="en"] .cul-tips dd{font-size:14.5px}
+.cul-back{max-width:760px;margin-inline:auto}
+#culEmpty{margin-top:40px}
+
+@media (max-width:760px){
+  .mat-more-body{padding-inline:16px}
+  .cul-free{padding:20px 18px}
+  .cul-card.is-feature{padding:20px 18px}
+  .cul-card.is-feature .pc-name{font-size:20px}
+}
+.paper{scroll-margin-top:24px}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{transition:none!important;animation:none!important}
   .mod-tile:hover,.btn-solid:hover{transform:none}
   .yt-facade:hover .yt-play,.yt-facade:focus-visible .yt-play{transform:none}
+  .cul-card.is-target{animation:none;box-shadow:0 0 0 3px var(--blue),var(--shadow-md)}
   .lib-card.is-target{animation:none;box-shadow:0 0 0 3px var(--blue),var(--shadow-md)}
 }
 </style>
@@ -460,7 +534,7 @@ html[dir="ltr"] .mat-back svg{transform:scaleX(-1)}
   <div class="container hero-inner">
     <span class="kicker" data-i18n="learn_kicker">משלחת אדוות · לונדון 2026</span>
     <h1 data-i18n="hub_h1">מרכז הלמידה לקראת המסע</h1>
-    <p class="lede" data-i18n="hub_lede">בסמינר האחרון ביקשתם דרך מסודרת להתכונן ללונדון. כאן תמצאו את תוכנית הלמידה בשלושה מודולים, ספרייה של כל החומרים באתר ורקע לערב המחזמר מטילדה.</p>
+    <p class="lede" data-i18n="hub_lede">בסמינר האחרון ביקשתם דרך מסודרת להתכונן ללונדון. כאן תמצאו את תוכנית הלמידה בשלושה מודולים ואת הספרייה עם כל החומרים שבאתר. בלשונית "תרבות ופנאי" יש רקע למטילדה ורעיונות לזמן החופשי.</p>
   </div>
 </section>
 
@@ -469,7 +543,7 @@ html[dir="ltr"] .mat-back svg{transform:scaleX(-1)}
   <div class="container hub-tabs">
     <a href="#plan" class="hub-tab" data-view="plan" data-i18n="hubnav_plan">תוכנית הלמידה</a>
     <a href="#library" class="hub-tab" data-view="library" data-i18n="hubnav_library">הספרייה</a>
-    <a href="#matilda" class="hub-tab" data-view="matilda" data-i18n="hubnav_matilda">מטילדה</a>
+    <a href="#culture" class="hub-tab" data-view="culture" data-i18n="hubnav_culture">תרבות ופנאי</a>
   </div>
 </nav>
 
@@ -945,7 +1019,7 @@ html[dir="ltr"] .mat-back svg{transform:scaleX(-1)}
         <div class="res-cat-head"><span class="bar"></span><h3 data-i18n="lib_cat_matilda">מטילדה: מאמרים ורקע לערב בתיאטרון</h3></div>
         <div class="lib-grid">
         <article class="lib-card is-core" id="res-mat" data-core="matilda" data-topic="matilda" data-kind="watch" data-langs="he en" data-mods="" data-kw="מטילדה Matilda דאל Dahl האני Honey טראנצ&#x27;בול Trunchbull דיואי Dewey מחזמר musical">
-          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_watch">צפייה</span><span class="lc-where" data-i18n="hubnav_matilda">מטילדה</span><svg class="lc-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_watch">צפייה</span><span class="lc-where" data-i18n="hubnav_culture">תרבות ופנאי</span><svg class="lc-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
           <h4 class="lc-title"><a class="stretch" href="#matilda"><span class="lc-t" data-i18n="lib_mat_ptr_t">מטילדה: טריילר, רקע ושירים</span></a></h4>
           <p class="lc-note" data-i18n="lib_mat_ptr_n">לקראת יום שלישי בערב ריכזנו רקע על הספר ועל הסופר, את העלילה, את הטריילר הרשמי ואת השירים.</p>
         </article>
@@ -961,17 +1035,28 @@ html[dir="ltr"] .mat-back svg{transform:scaleX(-1)}
   </section>
 
   <!-- ===== Matilda: cultural enrichment for Tuesday evening (no progress ticks) ===== -->
-  <section class="view" id="matilda" aria-labelledby="mat-h">
-    <div class="container"><div class="col">
-      <header class="view-head mat-head">
+  <!-- ===== culture and leisure (third tab; Matilda is its first chapter, #matilda keeps working) ===== -->
+  <section class="view" id="culture" aria-labelledby="cul-h">
+    <div class="container">
+    <header class="view-head"><div class="col">
+      <div class="mod-k" data-i18n="culture_kicker">ערב משותף וזמן חופשי</div>
+      <h2 id="cul-h" class="view-h" tabindex="-1" data-i18n="culture_h">תרבות ופנאי בלונדון</h2>
+      <p class="mod-scope" data-i18n="culture_lede">ביום שלישי בערב נלך יחד למחזמר "מטילדה". ביום רביעי אחר הצהריים ובערב אתם חופשיים, ואספנו כאן כמה רעיונות לזמן הזה.</p>
+      <ul class="cul-slots" role="list" data-i18n-aria="culture_slots_aria" aria-label="הזמן הפנוי בלו&quot;ז">
+        <li><a class="mat-when" href="index.html#sch-day-3"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span data-i18n="culture_slot_tue">שלישי בערב · מטילדה</span></a></li>
+        <li><a class="mat-when" href="index.html#sch-day-4"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span data-i18n="culture_slot_wed_pm">רביעי אחר הצהריים</span></a></li>
+        <li><a class="mat-when" href="index.html#sch-day-4"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span data-i18n="culture_slot_wed_ev">רביעי בערב</span></a></li>
+      </ul>
+      <nav class="mat-toc cul-toc" data-i18n-aria="culture_toc_aria" aria-label="בלשונית הזו"><span class="toc-item"><a href="#matilda" data-i18n="culture_toc_matilda">מטילדה</a></span><span class="toc-item"><a href="#culture-winter" data-i18n="culture_toc_winter">לקראת חג המולד</a></span><span class="toc-item"><a href="#culture-sights" data-i18n="culture_toc_sights">מקומות לראות</a></span><span class="toc-item"><a href="#culture-streets" data-i18n="culture_toc_streets">רחובות ושכונות</a></span><span class="toc-item"><a href="#culture-shopping" data-i18n="culture_toc_shopping">קניות</a></span><span class="toc-item"><a href="#culture-practical" data-i18n="culture_toc_practical">שווה לדעת</a></span></nav>
+    </div></header>
+
+    <section class="cul-ch cul-mat" id="matilda" aria-labelledby="mat-h">
+      <div class="col">
+        <div class="res-cat-head"><span class="bar"></span><h3 id="mat-h" data-i18n="matilda_h">לקראת מטילדה</h3></div>
         <div class="mod-k" data-i18n="matui_kicker">ערב תרבות · יום שלישי</div>
-        <h2 id="mat-h" class="view-h" tabindex="-1" data-i18n="matilda_h">לקראת מטילדה</h2>
         <p class="mod-scope" data-i18n="matilda_lede">ביום שלישי בערב, 24 בנובמבר, נלך יחד לראות את המחזמר "מטילדה". הגיבורה היא ילדה, אבל זה גם סיפור על מורים ועל בית ספר: על מורה שרואה באמת את התלמידה שלה, ועל מנהלת שמטילה אימה על כולם.</p>
         <a class="mat-when" href="index.html#sch-day-3"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span data-i18n="matui_when">בלו"ז: יום שלישי, 24 בנובמבר, בערב</span></a>
-        <nav class="mat-toc" data-i18n-aria="matui_toc_aria" aria-label="בעמוד הזה"><a href="#matilda-book" data-i18n="matui_toc_book">הספר</a> <span class="toc-dot" aria-hidden="true">·</span> <a href="#matilda-author" data-i18n="matui_toc_author">הסופר</a> <span class="toc-dot" aria-hidden="true">·</span> <a href="#matilda-story" data-i18n="matui_toc_story">העלילה</a> <span class="toc-dot" aria-hidden="true">·</span> <a href="#matilda-papers" data-i18n="matui_toc_papers">המאמרים</a> <span class="toc-dot" aria-hidden="true">·</span> <a href="#matilda-songs" data-i18n="matui_toc_songs">השירים</a></nav>
-      </header>
-
-      <figure class="mat-trailer">
+        <figure class="mat-trailer">
         <div class="yt-frame" id="ytFrame">
           <a class="yt-facade" id="ytFacade" href="https://www.youtube.com/watch?v=6tOk_HeD0AI" target="_blank" rel="noopener" data-yt="6tOk_HeD0AI" data-i18n-aria="matui_trailer_play" aria-label="להפעלת הטריילר הרשמי של המחזמר">
             <img src="assets/matilda-trailer-thumb.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
@@ -982,26 +1067,29 @@ html[dir="ltr"] .mat-back svg{transform:scaleX(-1)}
         </div>
         <figcaption class="yt-note"><span data-i18n="matui_trailer_note">הסרטון נטען מיוטיוב רק אחרי שלוחצים עליו</span> · <a href="https://www.youtube.com/watch?v=6tOk_HeD0AI" target="_blank" rel="noopener"><span data-i18n="matui_trailer_yt">לצפייה ביוטיוב</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></figcaption>
       </figure>
-
-      <section class="mat-block" id="matilda-book" aria-labelledby="mat-book-h">
-        <h3 id="mat-book-h" class="mat-h" data-i18n="matilda_book_h">הספר</h3>
+        <details class="spoiler mat-more" id="matMore">
+          <summary><span class="sp-title" data-i18n="culture_mat_more">הספר, הסופר רואלד דאל, העלילה, המאמרים והשירים</span><span class="sp-state" aria-hidden="true"><span class="when-closed" data-i18n="matui_spoiler_open">לפתיחה</span><span class="when-open" data-i18n="matui_spoiler_close">לסגירה</span></span></summary>
+          <div class="mat-more-body">
+            <nav class="mat-toc" data-i18n-aria="matui_toc_aria" aria-label="בעמוד הזה"><a href="#matilda-book" data-i18n="matui_toc_book">הספר</a> <span class="toc-dot" aria-hidden="true">·</span> <a href="#matilda-author" data-i18n="matui_toc_author">הסופר</a> <span class="toc-dot" aria-hidden="true">·</span> <a href="#matilda-story" data-i18n="matui_toc_story">העלילה</a> <span class="toc-dot" aria-hidden="true">·</span> <a href="#matilda-papers" data-i18n="matui_toc_papers">המאמרים</a> <span class="toc-dot" aria-hidden="true">·</span> <a href="#matilda-songs" data-i18n="matui_toc_songs">השירים</a></nav>
+            <section class="mat-block" id="matilda-book" aria-labelledby="mat-book-h">
+        <h4 id="mat-book-h" class="mat-h" data-i18n="matilda_book_h">הספר</h4>
         <p class="mat-p" data-i18n="matilda_book_p">רואלד דאל פרסם את "מטילדה" (<bdi>Matilda</bdi>) ב-1988, וקוונטין בלייק אייר אותו. גיבורת הספר היא ילדה בת חמש, חכמה ואוהבת לקרוא. ההורים שלה לא שמים לב אליה, ומנהלת בית הספר שלה מתעללת בילדים. רק המורה שלה, העלמה האני, רואה מי היא באמת. בבריטניה הוא מהספרים שמורים ביסודי אוהבים במיוחד לקרוא עם הכיתה.</p>
-        <h4 class="mat-h4" data-i18n="matilda_musical_h">המחזמר</h4>
+        <h5 class="mat-h4" data-i18n="matilda_musical_h">המחזמר</h5>
         <p class="mat-p" data-i18n="matilda_musical_p">המחזמר הוא הפקה של <bdi>Royal Shakespeare Company</bdi>, להקת שייקספיר המלכותית. טים מינצ'ין כתב את המוזיקה ואת המילים, ודניס קלי את המחזה. ההצגה עלתה לראשונה בסוף 2010 בסטרטפורד-אפון-אייבון, ומאז 2011 משחקים אותה בווסט אנד בלונדון. בערב שלנו ימלאו בדיוק 15 שנה לבכורה הרשמית בלונדון, שהייתה ב-24 בנובמבר 2011.</p>
         <dl class="mat-facts"><div><dt data-i18n="matilda_fact_1_k">הספר יצא לאור</dt><dd data-i18n="matilda_fact_1_v">1988</dd></div><div><dt data-i18n="matilda_fact_2_k">איורים</dt><dd data-i18n="matilda_fact_2_v">קוונטין בלייק</dd></div><div><dt data-i18n="matilda_fact_3_k">מוזיקה ומילים</dt><dd data-i18n="matilda_fact_3_v">טים מינצ'ין</dd></div><div><dt data-i18n="matilda_fact_4_k">מחזה</dt><dd data-i18n="matilda_fact_4_v">דניס קלי</dd></div></dl>
       </section>
 
       <section class="mat-block" id="matilda-author" aria-labelledby="mat-author-h">
-        <h3 id="mat-author-h" class="mat-h" data-i18n="matilda_author_h">רואלד דאל</h3>
+        <h4 id="mat-author-h" class="mat-h" data-i18n="matilda_author_h">רואלד דאל</h4>
         <p class="mat-p" data-i18n="matilda_author_p1">רואלד דאל (1916-1990) נולד בוויילס להורים נורווגים, ובמלחמת העולם השנייה היה טייס קרב בחיל האוויר הבריטי. הוא נחשב לאחד מגדולי סופרי הילדים של המאה העשרים, ועד היום קוראים את ספריו בכל העולם.</p>
         <aside class="mat-note" aria-labelledby="mat-note-h">
-          <h4 id="mat-note-h" data-i18n="matilda_author_note_h">האמירות האנטישמיות של דאל</h4>
+          <h5 id="mat-note-h" data-i18n="matilda_author_note_h">האמירות האנטישמיות של דאל</h5>
           <p data-i18n="matilda_author_p2">דאל השמיע בפומבי אמירות אנטישמיות. הידועה שבהן נאמרה ב-1983, בראיון לשבועון הבריטי <bdi>New Statesman</bdi>. הוא אמר שם שיש באופי היהודי תכונה שמעוררת איבה, והוסיף שגם היטלר לא רדף את היהודים בלי סיבה. בדצמבר 2020 התנצלו משפחתו וחברת <bdi>Roald Dahl Story Company</bdi>, שמנהלת את יצירתו, על הפגיעה שגרמו חלק מאמירותיו. הם כתבו שהפגיעה הזאת מובנת, ושהיא נמשכת עד היום.</p>
         </aside>
       </section>
 
       <section class="mat-block" id="matilda-story" aria-labelledby="mat-story-h">
-        <h3 id="mat-story-h" class="mat-h" data-i18n="matilda_plot_h">עלילת הספר</h3>
+        <h4 id="mat-story-h" class="mat-h" data-i18n="matilda_plot_h">עלילת הספר</h4>
         <p class="mat-p" data-i18n="matilda_plot_teaser">מטילדה וורמווד בת חמש. היא קוראת כל ספר שנופל לידיה, ובבית אף אחד לא שם לב אליה. בבית הספר היא פוגשת את המורה שלה, העלמה האני, שמבינה מהר מאוד מי עומדת מולה, ואת המנהלת, העלמה טראנצ'בול, שכל בית הספר חי בפחד ממנה.</p>
         <details class="spoiler">
           <summary><span class="sp-warn" data-i18n="matui_spoiler_tag">ספוילר</span><span class="sp-title" data-i18n="matui_spoiler_summary">התקציר המלא, כולל הסוף</span><span class="sp-state" aria-hidden="true"><span class="when-closed" data-i18n="matui_spoiler_open">לפתיחה</span><span class="when-open" data-i18n="matui_spoiler_close">לסגירה</span></span></summary>
@@ -1010,11 +1098,11 @@ html[dir="ltr"] .mat-back svg{transform:scaleX(-1)}
       </section>
 
       <section class="mat-block" id="matilda-papers" aria-labelledby="mat-papers-h">
-        <h3 id="mat-papers-h" class="mat-h" data-i18n="matui_papers_h">שני מאמרים אקדמיים</h3>
+        <h4 id="mat-papers-h" class="mat-h" data-i18n="matui_papers_h">שני מאמרים אקדמיים</h4>
         <p class="mat-p" data-i18n="matui_papers_intro">שני המאמרים קוראים את הספר בעין חינוכית: מה הוא אומר על הוראה ועל בית ספר, ולמה קשה לשכוח את המורות שבו.</p>
         <article class="paper" id="matilda-paper-bingle" aria-labelledby="pp1-t" data-res="res-mat-bingle" data-topic="matilda" data-kind="read" data-langs="he en" data-mods="">
           <p class="pp-meta"><span class="ltr" lang="en">Branwen Bingle · 2017</span></p>
-          <h4 id="pp1-t" class="pp-title"><span class="ltr" lang="en">Matilda and the Mythologisation of Miss Honey and Miss Trunchbull</span></h4>
+          <h5 id="pp1-t" class="pp-title"><span class="ltr" lang="en">Matilda and the Mythologisation of Miss Honey and Miss Trunchbull</span></h5>
           <p class="pp-venue" data-i18n="matilda_paper1_venue">מאמר בכתב עת שפיט · <bdi>Mousaion</bdi>, בהוצאת <bdi>Unisa Press</bdi> · כרך 35, גיליון 2 · עמ' 41-55</p>
           <p class="pp-desc" data-i18n="matilda_art2_p">ברנוון בינגל, מאוניברסיטת גריניץ' בלונדון, מראה שמורים רבים בבריטניה מביאים את הספר לכיתה, ושיש אנשים שבחרו להיות מורים בזכות העלמה האני. לטענתה, שתי המורות בספר קיצוניות מכדי שמורה אמיתי יהיה כמו אחת מהן: טראנצ'בול רעה מדי, והעלמה האני טובה מדי. בעיניה זה בעיקר סיפור על ילדה שמצליחה להתעלות מעל בית ספר פגום, ופחות על הכוח של מורה טוב. שאלה שכדאי לחשוב עליה בזמן ההצגה: איזה מורה הסיפור הזה רוצה שנעריץ?</p>
           <div class="btn-row">
@@ -1025,7 +1113,7 @@ html[dir="ltr"] .mat-back svg{transform:scaleX(-1)}
         </article>
         <article class="paper" id="matilda-paper-setyabudi" aria-labelledby="pp2-t" data-res="res-mat-setyabudi" data-topic="matilda" data-kind="read" data-langs="he en" data-mods="">
           <p class="pp-meta"><span class="ltr" lang="en">Titis Setyabudi and Luna Puteri Kuncoro · 2025</span></p>
-          <h4 id="pp2-t" class="pp-title"><span class="ltr" lang="en">Matilda as a Representation of Progressive Educational Principles</span></h4>
+          <h5 id="pp2-t" class="pp-title"><span class="ltr" lang="en">Matilda as a Representation of Progressive Educational Principles</span></h5>
           <p class="pp-venue" data-i18n="matilda_paper2_venue">מאמר כנס · <bdi>ICON-ELT</bdi>, כנס בינלאומי להוראת אנגלית · כרך 6, גיליון 1 · עמ' 286-295</p>
           <p class="pp-desc" data-i18n="matilda_art1_p">את המאמר כתבו באוניברסיטה באינדונזיה, והוא מנתח את הספר לאור תפיסת החינוך של ג'ון דיואי: מטילדה לומדת מתוך סקרנות ועשייה, העלמה האני מלמדת מתוך היכרות עם התלמידה, ובית הספר של טראנצ'בול מייצג את החינוך הנוקשה שעומד מולן. זה מאמר כנס, קצר ותיאורי יותר ממאמר בכתב עת שפיט. הוא מתאים לקריאה ראשונה, ועוזר לחבר את מה שנראה על הבמה למושגים מעולם החינוך.</p>
           <div class="btn-row">
@@ -1037,14 +1125,251 @@ html[dir="ltr"] .mat-back svg{transform:scaleX(-1)}
       </section>
 
       <section class="mat-block" id="matilda-songs" aria-labelledby="mat-songs-h">
-        <h3 id="mat-songs-h" class="mat-h" data-i18n="matilda_playlist_h">שירי המחזמר</h3>
+        <h4 id="mat-songs-h" class="mat-h" data-i18n="matilda_playlist_h">שירי המחזמר</h4>
         <p class="mat-p" data-i18n="matilda_playlist_p">רוצים להכיר את השירים מראש? ההקלטה מלונדון נמצאת ביוטיוב. כדאי להתחיל מ-<bdi>Naughty</bdi>, <bdi>When I Grow Up</bdi>, <bdi>Quiet</bdi> ו-<bdi>Revolting Children</bdi>.</p>
         <a class="btn-line mat-yt" href="https://www.youtube.com/playlist?list=PLybPI7Yeye3iYS0nNpYj2OKCWzo1E8fZm" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg><span data-i18n="matilda_playlist_link">לפלייליסט ביוטיוב</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span></a>
-        <p class="pp-files" data-i18n="matui_songs_meta" data-n="16">ההקלטה של ההפקה מלונדון · 16 שירים</p>
+        <p class="pp-files" data-i18n="matui_songs_meta" data-n="16">הקלטת ההפקה הלונדונית · 16 שירים</p>
       </section>
+            <p class="mat-back"><a href="index.html#sch-day-3"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span data-i18n="matui_back_sched">חזרה ללו"ז של יום שלישי</span></a></p>
+          </div>
+        </details>
+      </div>
+    </section>
 
-      <p class="mat-back"><a href="index.html#sch-day-3"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span data-i18n="matui_back_sched">חזרה ללו"ז של יום שלישי</span></a></p>
-    </div></div>
+    <section class="cul-free" id="culture-free" aria-labelledby="cul-free-h"><div class="col">
+      <h3 id="cul-free-h" class="cul-free-h" data-i18n="culture_free_h">לזמן החופשי</h3>
+      <p class="mod-scope" data-i18n="culture_free_p">ביום רביעי, אחרי הסדנה על <bdi>Ofsted</bdi>, שאר היום והערב פנויים. בסוף נובמבר מחשיך כבר בסביבות ארבע, ורוב המוזיאונים נסגרים בין חמש לשש. כל אחד יוצא ממקום אחר, ולכן סידרנו את המקומות לפי אזור ולפי תחנת הרכבת התחתית הקרובה.</p>
+      <div class="cul-tools js-only">
+        <label class="done-toggle cul-eve"><input type="checkbox" id="culEve"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span data-i18n="culture_filter_evening">רק מה שמתאים לערב</span></label>
+        <p class="lib-count" id="culCount" aria-live="polite"></p>
+      </div>
+      <p class="cul-check"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5M12 8h.01"/></svg><span data-i18n="culture_check_note">שעות ומחירים משתנים, ולכן כדאי לבדוק באתר הרשמי לפני שיוצאים.</span></p>
+    </div></section>
+
+    <section class="cul-ch" id="culture-winter" aria-labelledby="cul-winter-h">
+      <div class="res-cat-head"><span class="bar"></span><h3 id="cul-winter-h" data-i18n="culture_winter_h">לקראת חג המולד</h3></div>
+      <p class="lc-note cul-intro" data-i18n="culture_winter_intro">בשבוע שלנו לונדון כבר מקושטת לחג המולד: האורות ברחובות המרכז דולקים, ושווקי החורף פתוחים.</p>
+      <div class="lib-grid">
+        <article class="cul-card is-feature" id="place-ww" data-type="winter" data-area="kensington" data-price="paid" data-evening="1" aria-labelledby="pl-ww-t">
+          <div class="pc-tags"><span class="pc-tag is-paid" data-i18n="culture_tag_paid">בתשלום</span><span class="pc-tag is-eve"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><span data-i18n="culture_tag_evening">מתאים לערב</span></span></div>
+          <p class="pc-dates"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span data-i18n="culture_place_ww_dates">פתוח מ-19 בנובמבר 2026 עד 3 בינואר 2027</span></p>
+          <h4 class="pc-name" id="pl-ww-t" data-i18n="culture_place_ww_name">ווינטר וונדרלנד בהייד פארק</h4>
+          <p class="pc-en"><span class="ltr" lang="en">Hyde Park Winter Wonderland</span></p>
+          <p class="pc-why" data-i18n="culture_place_ww_why">בתוך הייד פארק פועל יריד חורף עם משטח החלקה על קרח, קרקס, תערוכת פסלי קרח, מתקנים ודוכני אוכל, שתייה ומתנות. אפשר לבוא גם רק כדי להסתובב בין הדוכנים בערב.</p>
+          <p class="pc-book" data-i18n="culture_place_ww_book">נכנסים רק עם כרטיס שמזמינים מראש לתאריך ולשעה. בימים שני עד חמישי בשבוע שלנו הוא זול יותר, והשערים נפתחים בשתים עשרה. האטרקציות בתשלום נפרד.</p>
+          <p class="pc-where"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-i18n="culture_area_kensington">דרום קנזינגטון והייד פארק</span><span class="pc-sep" aria-hidden="true">·</span><span class="pc-tube"><span data-i18n="culture_lbl_tube">תחנה:</span> <bdi>Marble Arch / Hyde Park Corner</bdi></span></p>
+          <p class="pc-visit"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span data-i18n="culture_place_ww_visit">שעתיים</span></p>
+          <div class="lc-links"><a class="lc-link" href="https://www.google.com/maps/search/?api=1&amp;query=Hyde%20Park%20Winter%20Wonderland%2C%20London" target="_blank" rel="noopener"><span data-i18n="culture_lnk_map">במפה</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a><a class="lc-link" href="https://hydeparkwinterwonderland.com/" target="_blank" rel="noopener"><span data-i18n="culture_lnk_site">לאתר הרשמי</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></div>
+        </article>
+        <article class="cul-card" id="place-southbank-winter" data-type="winter" data-area="westminster" data-evening="1" aria-labelledby="pl-southbank-winter-t">
+          <div class="pc-tags"><span class="pc-tag is-eve"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><span data-i18n="culture_tag_evening">מתאים לערב</span></span></div>
+          <h4 class="pc-name" id="pl-southbank-winter-t" data-i18n="culture_place_southbank-winter_name"></h4>
+          <p class="pc-en"><span class="ltr" lang="en">Southbank Centre Winter Market</span></p>
+          <p class="pc-why" data-i18n="culture_place_southbank-winter_why"></p>
+          <p class="pc-where"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-i18n="culture_area_westminster">ווסטמינסטר והגדה הדרומית</span><span class="pc-sep" aria-hidden="true">·</span><span class="pc-tube"><span data-i18n="culture_lbl_tube">תחנה:</span> <bdi>Waterloo / Embankment</bdi></span></p>
+          <p class="pc-visit"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span data-i18n="culture_place_southbank-winter_visit"></span></p>
+          <div class="lc-links"><a class="lc-link" href="https://www.google.com/maps/search/?api=1&amp;query=Southbank%20Centre%2C%20Belvedere%20Road%2C%20London" target="_blank" rel="noopener"><span data-i18n="culture_lnk_map">במפה</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a><a class="lc-link" href="https://southbank.london/whats-on/winter-market" target="_blank" rel="noopener"><span data-i18n="culture_lnk_site">לאתר הרשמי</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></div>
+        </article>
+        <article class="cul-card" id="place-regent-street" data-type="winter" data-area="westend" data-evening="1" aria-labelledby="pl-regent-street-t">
+          <div class="pc-tags"><span class="pc-tag is-eve"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><span data-i18n="culture_tag_evening">מתאים לערב</span></span></div>
+          <h4 class="pc-name" id="pl-regent-street-t" data-i18n="culture_place_regent-street_name"></h4>
+          <p class="pc-en"><span class="ltr" lang="en">Regent Street</span></p>
+          <p class="pc-why" data-i18n="culture_place_regent-street_why"></p>
+          <p class="pc-where"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-i18n="culture_area_westend">הווסט אנד: סוהו וקובנט גארדן</span><span class="pc-sep" aria-hidden="true">·</span><span class="pc-tube"><span data-i18n="culture_lbl_tube">תחנה:</span> <bdi>Oxford Circus / Piccadilly Circus</bdi></span></p>
+          <p class="pc-visit"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span data-i18n="culture_place_regent-street_visit"></span></p>
+          <div class="lc-links"><a class="lc-link" href="https://www.google.com/maps/search/?api=1&amp;query=Regent%20Street%2C%20London" target="_blank" rel="noopener"><span data-i18n="culture_lnk_map">במפה</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a><a class="lc-link" href="https://www.regentstreetonline.com/" target="_blank" rel="noopener"><span data-i18n="culture_lnk_site">לאתר הרשמי</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></div>
+        </article>
+      </div>
+    </section>
+    <section class="cul-ch" id="culture-sights" aria-labelledby="cul-sights-h">
+      <div class="res-cat-head"><span class="bar"></span><h3 id="cul-sights-h" data-i18n="culture_sights_h">מקומות לראות</h3></div>
+      <p class="lc-note cul-intro" data-i18n="culture_sights_intro">במוזיאונים הלאומיים שברשימה הכניסה לאוסף חופשית. ביום רביעי בערב רק הספרייה הבריטית נשארת פתוחה אחרי שש.</p>
+      <div class="lib-grid">
+        <article class="cul-card" id="place-parliament" data-type="sights" data-area="westminster" data-price="free" data-evening="0" aria-labelledby="pl-parliament-t">
+          <div class="pc-tags"><span class="pc-tag is-free" data-i18n="culture_tag_free">כניסה חופשית</span></div>
+          <h4 class="pc-name" id="pl-parliament-t" data-i18n="culture_place_parliament_name">הפרלמנט הבריטי</h4>
+          <p class="pc-en"><span class="ltr" lang="en">Houses of Parliament</span></p>
+          <p class="pc-why" data-i18n="culture_place_parliament_why">אפשר לשבת ביציע הקהל ולצפות בדיוני בית הנבחרים ובית הלורדים. הכניסה חופשית, גם למבקרים מחו"ל. בשבוע שלנו הפרלמנט לא בפגרה, ולכן אין סיורים מודרכים בימי חול.</p>
+          <p class="pc-where"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-i18n="culture_area_westminster">ווסטמינסטר והגדה הדרומית</span><span class="pc-sep" aria-hidden="true">·</span><span class="pc-tube"><span data-i18n="culture_lbl_tube">תחנה:</span> <bdi>Westminster</bdi></span></p>
+          <p class="pc-visit"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span data-i18n="culture_place_parliament_visit">שעה עד שעתיים</span></p>
+          <p class="pc-note" data-i18n="culture_place_parliament_note">הכניסה דרך <bdi>Cromwell Green</bdi>. לשעת השאלות לראש הממשלה מבקרים מחו"ל נכנסים רק אם נשאר מקום.</p>
+          <div class="lc-links"><a class="lc-link" href="https://www.google.com/maps/search/?api=1&amp;query=Houses%20of%20Parliament%2C%20London" target="_blank" rel="noopener"><span data-i18n="culture_lnk_map">במפה</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a><a class="lc-link" href="https://www.parliament.uk/visiting/visiting-and-tours/watch-committees-and-debates/debates/" target="_blank" rel="noopener"><span data-i18n="culture_lnk_site">לאתר הרשמי</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></div>
+        </article>
+        <article class="cul-card" id="place-national-gallery" data-type="sights" data-area="westend" data-price="mixed" data-evening="0" aria-labelledby="pl-national-gallery-t">
+          <div class="pc-tags"><span class="pc-tag is-mixed" data-i18n="culture_tag_mixed">כניסה חופשית, תערוכות בתשלום</span></div>
+          <h4 class="pc-name" id="pl-national-gallery-t" data-i18n="culture_place_national-gallery_name"></h4>
+          <p class="pc-en"><span class="ltr" lang="en">The National Gallery</span></p>
+          <p class="pc-why" data-i18n="culture_place_national-gallery_why"></p>
+          <p class="pc-where"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-i18n="culture_area_westend">הווסט אנד: סוהו וקובנט גארדן</span><span class="pc-sep" aria-hidden="true">·</span><span class="pc-tube"><span data-i18n="culture_lbl_tube">תחנה:</span> <bdi>Charing Cross / Leicester Square</bdi></span></p>
+          <p class="pc-visit"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span data-i18n="culture_place_national-gallery_visit"></span></p>
+          <div class="lc-links"><a class="lc-link" href="https://www.google.com/maps/search/?api=1&amp;query=The%20National%20Gallery%2C%20London" target="_blank" rel="noopener"><span data-i18n="culture_lnk_map">במפה</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a><a class="lc-link" href="https://www.nationalgallery.org.uk/visiting/plan-your-visit" target="_blank" rel="noopener"><span data-i18n="culture_lnk_site">לאתר הרשמי</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></div>
+        </article>
+        <article class="cul-card" id="place-british-museum" data-type="sights" data-area="bloomsbury" data-price="mixed" data-evening="0" aria-labelledby="pl-british-museum-t">
+          <div class="pc-tags"><span class="pc-tag is-mixed" data-i18n="culture_tag_mixed">כניסה חופשית, תערוכות בתשלום</span></div>
+          <h4 class="pc-name" id="pl-british-museum-t" data-i18n="culture_place_british-museum_name"></h4>
+          <p class="pc-en"><span class="ltr" lang="en">The British Museum</span></p>
+          <p class="pc-why" data-i18n="culture_place_british-museum_why"></p>
+          <p class="pc-where"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-i18n="culture_area_bloomsbury">בלומסברי וקינגס קרוס</span><span class="pc-sep" aria-hidden="true">·</span><span class="pc-tube"><span data-i18n="culture_lbl_tube">תחנה:</span> <bdi>Tottenham Court Road / Holborn</bdi></span></p>
+          <p class="pc-visit"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span data-i18n="culture_place_british-museum_visit"></span></p>
+          <p class="pc-note" data-i18n="culture_place_british-museum_note"></p>
+          <div class="lc-links"><a class="lc-link" href="https://www.google.com/maps/search/?api=1&amp;query=The%20British%20Museum%2C%20London" target="_blank" rel="noopener"><span data-i18n="culture_lnk_map">במפה</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a><a class="lc-link" href="https://www.britishmuseum.org/visit" target="_blank" rel="noopener"><span data-i18n="culture_lnk_site">לאתר הרשמי</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></div>
+        </article>
+        <article class="cul-card" id="place-british-library" data-type="sights" data-area="bloomsbury" data-price="mixed" data-evening="1" aria-labelledby="pl-british-library-t">
+          <div class="pc-tags"><span class="pc-tag is-mixed" data-i18n="culture_tag_mixed">כניסה חופשית, תערוכות בתשלום</span><span class="pc-tag is-eve"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><span data-i18n="culture_tag_evening">מתאים לערב</span></span></div>
+          <h4 class="pc-name" id="pl-british-library-t" data-i18n="culture_place_british-library_name"></h4>
+          <p class="pc-en"><span class="ltr" lang="en">The British Library</span></p>
+          <p class="pc-why" data-i18n="culture_place_british-library_why"></p>
+          <p class="pc-where"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-i18n="culture_area_bloomsbury">בלומסברי וקינגס קרוס</span><span class="pc-sep" aria-hidden="true">·</span><span class="pc-tube"><span data-i18n="culture_lbl_tube">תחנה:</span> <bdi>King&#x27;s Cross St Pancras / Euston</bdi></span></p>
+          <p class="pc-visit"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span data-i18n="culture_place_british-library_visit"></span></p>
+          <div class="lc-links"><a class="lc-link" href="https://www.google.com/maps/search/?api=1&amp;query=The%20British%20Library%2C%20London" target="_blank" rel="noopener"><span data-i18n="culture_lnk_map">במפה</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a><a class="lc-link" href="https://www.bl.uk/visit" target="_blank" rel="noopener"><span data-i18n="culture_lnk_site">לאתר הרשמי</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></div>
+        </article>
+        <article class="cul-card" id="place-natural-history-museum" data-type="sights" data-area="kensington" data-price="free" data-evening="0" aria-labelledby="pl-natural-history-museum-t">
+          <div class="pc-tags"><span class="pc-tag is-free" data-i18n="culture_tag_free">כניסה חופשית</span></div>
+          <h4 class="pc-name" id="pl-natural-history-museum-t" data-i18n="culture_place_natural-history-museum_name"></h4>
+          <p class="pc-en"><span class="ltr" lang="en">Natural History Museum</span></p>
+          <p class="pc-why" data-i18n="culture_place_natural-history-museum_why"></p>
+          <p class="pc-where"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-i18n="culture_area_kensington">דרום קנזינגטון והייד פארק</span><span class="pc-sep" aria-hidden="true">·</span><span class="pc-tube"><span data-i18n="culture_lbl_tube">תחנה:</span> <bdi>South Kensington</bdi></span></p>
+          <p class="pc-visit"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span data-i18n="culture_place_natural-history-museum_visit"></span></p>
+          <p class="pc-note" data-i18n="culture_place_natural-history-museum_note"></p>
+          <div class="lc-links"><a class="lc-link" href="https://www.google.com/maps/search/?api=1&amp;query=Natural%20History%20Museum%2C%20London" target="_blank" rel="noopener"><span data-i18n="culture_lnk_map">במפה</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a><a class="lc-link" href="https://www.nhm.ac.uk/visit.html" target="_blank" rel="noopener"><span data-i18n="culture_lnk_site">לאתר הרשמי</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></div>
+        </article>
+        <article class="cul-card" id="place-va" data-type="sights" data-area="kensington" data-price="mixed" data-evening="0" aria-labelledby="pl-va-t">
+          <div class="pc-tags"><span class="pc-tag is-mixed" data-i18n="culture_tag_mixed">כניסה חופשית, תערוכות בתשלום</span></div>
+          <h4 class="pc-name" id="pl-va-t" data-i18n="culture_place_va_name">מוזיאון ויקטוריה ואלברט</h4>
+          <p class="pc-en"><span class="ltr" lang="en">V&amp;A South Kensington</span></p>
+          <p class="pc-why" data-i18n="culture_place_va_why">ה-<bdi>V&A</bdi> הוא המוזיאון הלאומי לאומנות ולעיצוב. הכניסה חופשית ואין צורך להזמין מראש. חלק מהתערוכות בתשלום.</p>
+          <p class="pc-where"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-i18n="culture_area_kensington">דרום קנזינגטון והייד פארק</span><span class="pc-sep" aria-hidden="true">·</span><span class="pc-tube"><span data-i18n="culture_lbl_tube">תחנה:</span> <bdi>South Kensington</bdi></span></p>
+          <p class="pc-visit"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span data-i18n="culture_place_va_visit">שעה וחצי</span></p>
+          <p class="pc-note" data-i18n="culture_place_va_note">גלריית האופנה, גלריית דרום אסיה וגלריית קוריאה סגורות בתקופה הזו.</p>
+          <div class="lc-links"><a class="lc-link" href="https://www.google.com/maps/search/?api=1&amp;query=V%26A%20South%20Kensington%2C%20London" target="_blank" rel="noopener"><span data-i18n="culture_lnk_map">במפה</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a><a class="lc-link" href="https://www.vam.ac.uk/south-kensington/visit" target="_blank" rel="noopener"><span data-i18n="culture_lnk_site">לאתר הרשמי</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></div>
+        </article>
+        <article class="cul-card" id="place-st-pauls" data-type="sights" data-area="city" data-price="paid" data-evening="0" aria-labelledby="pl-st-pauls-t">
+          <div class="pc-tags"><span class="pc-tag is-paid" data-i18n="culture_tag_paid">בתשלום</span></div>
+          <h4 class="pc-name" id="pl-st-pauls-t" data-i18n="culture_place_st-pauls_name"></h4>
+          <p class="pc-en"><span class="ltr" lang="en">St Paul&#x27;s Cathedral</span></p>
+          <p class="pc-why" data-i18n="culture_place_st-pauls_why"></p>
+          <p class="pc-where"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-i18n="culture_area_city">הסיטי, בנקסייד ולונדון ברידג'</span><span class="pc-sep" aria-hidden="true">·</span><span class="pc-tube"><span data-i18n="culture_lbl_tube">תחנה:</span> <bdi>St Paul&#x27;s</bdi></span></p>
+          <p class="pc-visit"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span data-i18n="culture_place_st-pauls_visit"></span></p>
+          <p class="pc-note" data-i18n="culture_place_st-pauls_note"></p>
+          <div class="lc-links"><a class="lc-link" href="https://www.google.com/maps/search/?api=1&amp;query=St%20Paul%27s%20Cathedral%2C%20London" target="_blank" rel="noopener"><span data-i18n="culture_lnk_map">במפה</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a><a class="lc-link" href="https://www.stpauls.co.uk/planning-your-visit" target="_blank" rel="noopener"><span data-i18n="culture_lnk_site">לאתר הרשמי</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></div>
+        </article>
+        <article class="cul-card" id="place-tate-modern" data-type="sights" data-area="city" data-price="mixed" data-evening="0" aria-labelledby="pl-tate-modern-t">
+          <div class="pc-tags"><span class="pc-tag is-mixed" data-i18n="culture_tag_mixed">כניסה חופשית, תערוכות בתשלום</span></div>
+          <h4 class="pc-name" id="pl-tate-modern-t" data-i18n="culture_place_tate-modern_name"></h4>
+          <p class="pc-en"><span class="ltr" lang="en">Tate Modern</span></p>
+          <p class="pc-why" data-i18n="culture_place_tate-modern_why"></p>
+          <p class="pc-where"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-i18n="culture_area_city">הסיטי, בנקסייד ולונדון ברידג'</span><span class="pc-sep" aria-hidden="true">·</span><span class="pc-tube"><span data-i18n="culture_lbl_tube">תחנה:</span> <bdi>Southwark / Blackfriars</bdi></span></p>
+          <p class="pc-visit"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span data-i18n="culture_place_tate-modern_visit"></span></p>
+          <div class="lc-links"><a class="lc-link" href="https://www.google.com/maps/search/?api=1&amp;query=Tate%20Modern%2C%20London" target="_blank" rel="noopener"><span data-i18n="culture_lnk_map">במפה</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a><a class="lc-link" href="https://www.tate.org.uk/visit/tate-modern" target="_blank" rel="noopener"><span data-i18n="culture_lnk_site">לאתר הרשמי</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></div>
+        </article>
+      </div>
+    </section>
+    <section class="cul-ch" id="culture-streets" aria-labelledby="cul-streets-h">
+      <div class="res-cat-head"><span class="bar"></span><h3 id="cul-streets-h" data-i18n="culture_streets_h">רחובות ושכונות</h3></div>
+      <div class="lib-grid">
+        <article class="cul-card" id="place-westminster-walk" data-type="streets" data-area="westminster" data-evening="1" aria-labelledby="pl-westminster-walk-t">
+          <div class="pc-tags"><span class="pc-tag is-eve"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><span data-i18n="culture_tag_evening">מתאים לערב</span></span></div>
+          <h4 class="pc-name" id="pl-westminster-walk-t" data-i18n="culture_place_westminster-walk_name"></h4>
+          <p class="pc-en"><span class="ltr" lang="en">Westminster and the South Bank</span></p>
+          <p class="pc-why" data-i18n="culture_place_westminster-walk_why"></p>
+          <p class="pc-where"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-i18n="culture_area_westminster">ווסטמינסטר והגדה הדרומית</span><span class="pc-sep" aria-hidden="true">·</span><span class="pc-tube"><span data-i18n="culture_lbl_tube">תחנה:</span> <bdi>Westminster / Waterloo</bdi></span></p>
+          <p class="pc-visit"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span data-i18n="culture_place_westminster-walk_visit"></span></p>
+          <div class="lc-links"><a class="lc-link" href="https://www.google.com/maps/search/?api=1&amp;query=Westminster%20Bridge%2C%20London" target="_blank" rel="noopener"><span data-i18n="culture_lnk_map">במפה</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a><a class="lc-link" href="https://southbank.london/" target="_blank" rel="noopener"><span data-i18n="culture_lnk_site">לאתר הרשמי</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></div>
+        </article>
+        <article class="cul-card" id="place-covent-garden" data-type="streets" data-area="westend" data-evening="1" aria-labelledby="pl-covent-garden-t">
+          <div class="pc-tags"><span class="pc-tag is-eve"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><span data-i18n="culture_tag_evening">מתאים לערב</span></span></div>
+          <h4 class="pc-name" id="pl-covent-garden-t" data-i18n="culture_place_covent-garden_name"></h4>
+          <p class="pc-en"><span class="ltr" lang="en">Covent Garden</span></p>
+          <p class="pc-why" data-i18n="culture_place_covent-garden_why"></p>
+          <p class="pc-where"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-i18n="culture_area_westend">הווסט אנד: סוהו וקובנט גארדן</span><span class="pc-sep" aria-hidden="true">·</span><span class="pc-tube"><span data-i18n="culture_lbl_tube">תחנה:</span> <bdi>Covent Garden / Leicester Square</bdi></span></p>
+          <p class="pc-visit"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span data-i18n="culture_place_covent-garden_visit"></span></p>
+          <div class="lc-links"><a class="lc-link" href="https://www.google.com/maps/search/?api=1&amp;query=Covent%20Garden%2C%20London" target="_blank" rel="noopener"><span data-i18n="culture_lnk_map">במפה</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a><a class="lc-link" href="https://www.coventgarden.london/" target="_blank" rel="noopener"><span data-i18n="culture_lnk_site">לאתר הרשמי</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></div>
+        </article>
+        <article class="cul-card" id="place-kings-cross" data-type="streets" data-area="bloomsbury" data-evening="0" aria-labelledby="pl-kings-cross-t">
+          <h4 class="pc-name" id="pl-kings-cross-t" data-i18n="culture_place_kings-cross_name"></h4>
+          <p class="pc-en"><span class="ltr" lang="en">King&#x27;s Cross and Coal Drops Yard</span></p>
+          <p class="pc-why" data-i18n="culture_place_kings-cross_why"></p>
+          <p class="pc-where"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-i18n="culture_area_bloomsbury">בלומסברי וקינגס קרוס</span><span class="pc-sep" aria-hidden="true">·</span><span class="pc-tube"><span data-i18n="culture_lbl_tube">תחנה:</span> <bdi>King&#x27;s Cross St Pancras</bdi></span></p>
+          <p class="pc-visit"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span data-i18n="culture_place_kings-cross_visit"></span></p>
+          <p class="pc-note" data-i18n="culture_place_kings-cross_note"></p>
+          <div class="lc-links"><a class="lc-link" href="https://www.google.com/maps/search/?api=1&amp;query=Coal%20Drops%20Yard%2C%20London" target="_blank" rel="noopener"><span data-i18n="culture_lnk_map">במפה</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a><a class="lc-link" href="https://www.kingscross.co.uk/coal-drops-yard" target="_blank" rel="noopener"><span data-i18n="culture_lnk_site">לאתר הרשמי</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></div>
+        </article>
+        <article class="cul-card" id="place-spitalfields" data-type="streets" data-area="east" data-evening="1" aria-labelledby="pl-spitalfields-t">
+          <div class="pc-tags"><span class="pc-tag is-eve"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><span data-i18n="culture_tag_evening">מתאים לערב</span></span></div>
+          <h4 class="pc-name" id="pl-spitalfields-t" data-i18n="culture_place_spitalfields_name">ספיטלפילדס ושורדיץ'</h4>
+          <p class="pc-en"><span class="ltr" lang="en">Old Spitalfields Market</span></p>
+          <p class="pc-why" data-i18n="culture_place_spitalfields_why">שוק ספיטלפילדס הישן פועל מתחת לגג ויקטוריאני, עם דוכנים וחנויות. משם אפשר להמשיך ברגל לבריק ליין ולרחובות שורדיץ'.</p>
+          <p class="pc-where"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-i18n="culture_area_east">שורדיץ' וספיטלפילדס</span><span class="pc-sep" aria-hidden="true">·</span><span class="pc-tube"><span data-i18n="culture_lbl_tube">תחנה:</span> <bdi>Liverpool Street</bdi></span></p>
+          <p class="pc-visit"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span data-i18n="culture_place_spitalfields_visit">שעה עד שעתיים</span></p>
+          <div class="lc-links"><a class="lc-link" href="https://www.google.com/maps/search/?api=1&amp;query=Old%20Spitalfields%20Market%2C%20London" target="_blank" rel="noopener"><span data-i18n="culture_lnk_map">במפה</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a><a class="lc-link" href="https://oldspitalfieldsmarket.com/visit" target="_blank" rel="noopener"><span data-i18n="culture_lnk_site">לאתר הרשמי</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></div>
+        </article>
+        <article class="cul-card" id="place-camden" data-type="streets" data-area="north" data-evening="0" aria-labelledby="pl-camden-t">
+          <h4 class="pc-name" id="pl-camden-t" data-i18n="culture_place_camden_name">שוק קמדן</h4>
+          <p class="pc-en"><span class="ltr" lang="en">Camden Market</span></p>
+          <p class="pc-why" data-i18n="culture_place_camden_why">השוק נפתח ב-1974 עם 16 דוכנים על גדת תעלת ריג'נט, והיום פועלים בו כאלף סוחרים: חנויות, דוכנים, ברים ובתי קפה.</p>
+          <p class="pc-where"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-i18n="culture_area_north">קמדן וצפון לונדון</span><span class="pc-sep" aria-hidden="true">·</span><span class="pc-tube"><span data-i18n="culture_lbl_tube">תחנה:</span> <bdi>Camden Town</bdi></span></p>
+          <p class="pc-visit"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span data-i18n="culture_place_camden_visit">שעה עד שעתיים</span></p>
+          <div class="lc-links"><a class="lc-link" href="https://www.google.com/maps/search/?api=1&amp;query=Camden%20Market%2C%20London" target="_blank" rel="noopener"><span data-i18n="culture_lnk_map">במפה</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a><a class="lc-link" href="https://camdenmarket.com/visit-us" target="_blank" rel="noopener"><span data-i18n="culture_lnk_site">לאתר הרשמי</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></div>
+        </article>
+      </div>
+    </section>
+    <section class="cul-ch" id="culture-shopping" aria-labelledby="cul-shopping-h">
+      <div class="res-cat-head"><span class="bar"></span><h3 id="cul-shopping-h" data-i18n="culture_shopping_h">קניות</h3></div>
+      <p class="lc-note cul-intro" data-i18n="culture_shopping_intro">בווסט אנד רוב החנויות פתוחות בימי חול עד שמונה בערב.</p>
+      <div class="lib-grid">
+        <article class="cul-card" id="place-oxford-street" data-type="shopping" data-area="westend" data-evening="0" aria-labelledby="pl-oxford-street-t">
+          <h4 class="pc-name" id="pl-oxford-street-t" data-i18n="culture_place_oxford-street_name"></h4>
+          <p class="pc-en"><span class="ltr" lang="en">Oxford Street</span></p>
+          <p class="pc-why" data-i18n="culture_place_oxford-street_why"></p>
+          <p class="pc-where"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-i18n="culture_area_westend">הווסט אנד: סוהו וקובנט גארדן</span><span class="pc-sep" aria-hidden="true">·</span><span class="pc-tube"><span data-i18n="culture_lbl_tube">תחנה:</span> <bdi>Oxford Circus</bdi></span></p>
+          <div class="lc-links"><a class="lc-link" href="https://www.google.com/maps/search/?api=1&amp;query=Oxford%20Street%2C%20London" target="_blank" rel="noopener"><span data-i18n="culture_lnk_map">במפה</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a><a class="lc-link" href="https://www.oxfordstreet.co.uk/" target="_blank" rel="noopener"><span data-i18n="culture_lnk_site">לאתר הרשמי</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></div>
+        </article>
+        <article class="cul-card" id="place-carnaby" data-type="shopping" data-area="westend" data-evening="1" aria-labelledby="pl-carnaby-t">
+          <div class="pc-tags"><span class="pc-tag is-eve"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><span data-i18n="culture_tag_evening">מתאים לערב</span></span></div>
+          <h4 class="pc-name" id="pl-carnaby-t" data-i18n="culture_place_carnaby_name">קרנבי סטריט</h4>
+          <p class="pc-en"><span class="ltr" lang="en">Carnaby Street</span></p>
+          <p class="pc-why" data-i18n="culture_place_carnaby_why">קרנבי הוא רחוב להולכי רגל בסוהו, עם חנויות אופנה ומותגים עצמאיים. אורות חג המולד דולקים ברחוב מ-4 בנובמבר, והשנה הם בהשראת שנות התשעים.</p>
+          <p class="pc-where"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-i18n="culture_area_westend">הווסט אנד: סוהו וקובנט גארדן</span><span class="pc-sep" aria-hidden="true">·</span><span class="pc-tube"><span data-i18n="culture_lbl_tube">תחנה:</span> <bdi>Oxford Circus</bdi></span></p>
+          <div class="lc-links"><a class="lc-link" href="https://www.google.com/maps/search/?api=1&amp;query=Carnaby%20Street%2C%20London" target="_blank" rel="noopener"><span data-i18n="culture_lnk_map">במפה</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a><a class="lc-link" href="https://www.thisissoho.co.uk/carnaby-street/" target="_blank" rel="noopener"><span data-i18n="culture_lnk_site">לאתר הרשמי</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></div>
+        </article>
+        <article class="cul-card" id="place-liberty" data-type="shopping" data-area="westend" data-evening="1" aria-labelledby="pl-liberty-t">
+          <div class="pc-tags"><span class="pc-tag is-eve"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><span data-i18n="culture_tag_evening">מתאים לערב</span></span></div>
+          <h4 class="pc-name" id="pl-liberty-t" data-i18n="culture_place_liberty_name">ליברטי</h4>
+          <p class="pc-en"><span class="ltr" lang="en">Liberty London</span></p>
+          <p class="pc-why" data-i18n="culture_place_liberty_why">חנות הכלבו נוסדה ב-1875, ומאז 1924 היא שוכנת בבניין בסגנון טיודור, שנבנה מהעץ של שתי ספינות מלחמה מהצי המלכותי.</p>
+          <p class="pc-where"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-i18n="culture_area_westend">הווסט אנד: סוהו וקובנט גארדן</span><span class="pc-sep" aria-hidden="true">·</span><span class="pc-tube"><span data-i18n="culture_lbl_tube">תחנה:</span> <bdi>Oxford Circus</bdi></span></p>
+          <div class="lc-links"><a class="lc-link" href="https://www.google.com/maps/search/?api=1&amp;query=Liberty%20London%2C%20London" target="_blank" rel="noopener"><span data-i18n="culture_lnk_map">במפה</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a><a class="lc-link" href="https://www.libertylondon.com/" target="_blank" rel="noopener"><span data-i18n="culture_lnk_site">לאתר הרשמי</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></div>
+        </article>
+        <article class="cul-card" id="place-hamleys" data-type="shopping" data-area="westend" data-evening="0" aria-labelledby="pl-hamleys-t">
+          <h4 class="pc-name" id="pl-hamleys-t" data-i18n="culture_place_hamleys_name">המליס</h4>
+          <p class="pc-en"><span class="ltr" lang="en">Hamleys</span></p>
+          <p class="pc-why" data-i18n="culture_place_hamleys_why">חנות הצעצועים נוסדה ב-1760, ומ-1881 היא ברחוב ריג'נט. יש בה שבע קומות של צעצועים.</p>
+          <p class="pc-where"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-i18n="culture_area_westend">הווסט אנד: סוהו וקובנט גארדן</span><span class="pc-sep" aria-hidden="true">·</span><span class="pc-tube"><span data-i18n="culture_lbl_tube">תחנה:</span> <bdi>Oxford Circus</bdi></span></p>
+          <div class="lc-links"><a class="lc-link" href="https://www.google.com/maps/search/?api=1&amp;query=Hamleys%2C%20188-196%20Regent%20Street%2C%20London" target="_blank" rel="noopener"><span data-i18n="culture_lnk_map">במפה</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></div>
+        </article>
+        <article class="cul-card" id="place-borough-market" data-type="shopping" data-area="city" data-evening="0" aria-labelledby="pl-borough-market-t">
+          <h4 class="pc-name" id="pl-borough-market-t" data-i18n="culture_place_borough-market_name"></h4>
+          <p class="pc-en"><span class="ltr" lang="en">Borough Market</span></p>
+          <p class="pc-why" data-i18n="culture_place_borough-market_why"></p>
+          <p class="pc-where"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-i18n="culture_area_city">הסיטי, בנקסייד ולונדון ברידג'</span><span class="pc-sep" aria-hidden="true">·</span><span class="pc-tube"><span data-i18n="culture_lbl_tube">תחנה:</span> <bdi>London Bridge</bdi></span></p>
+          <p class="pc-note" data-i18n="culture_place_borough-market_note"></p>
+          <div class="lc-links"><a class="lc-link" href="https://www.google.com/maps/search/?api=1&amp;query=Borough%20Market%2C%20London" target="_blank" rel="noopener"><span data-i18n="culture_lnk_map">במפה</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a><a class="lc-link" href="https://boroughmarket.org.uk/visit-us/" target="_blank" rel="noopener"><span data-i18n="culture_lnk_site">לאתר הרשמי</span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></div>
+        </article>
+      </div>
+    </section>
+
+    <div class="lib-empty" id="culEmpty" hidden>
+      <p data-i18n="culture_empty_p">אין מקום שמתאים לסינון הזה.</p>
+      <button type="button" class="btn-line" id="culReset" data-i18n="culture_empty_reset">להציג את כל המקומות</button>
+    </div>
+
+    <section class="cul-ch" id="culture-practical" aria-labelledby="cul-prac-h"><div class="col">
+      <div class="res-cat-head"><span class="bar"></span><h3 id="cul-prac-h" data-i18n="culture_prac_h">שווה לדעת</h3></div>
+      <dl class="cul-tips"><div><dt data-i18n="culture_tip_1_k">נסיעה בתחבורה הציבורית</dt><dd data-i18n="culture_tip_1_v">אין צורך לקנות כרטיס נסיעה. משלמים בכרטיס אשראי או בטלפון, ומצמידים לקורא את אותו אמצעי תשלום בכניסה וביציאה. יש תקרה יומית, ומעבר לה לא מחייבים. כל נוסע צריך אמצעי תשלום משלו.</dd></div><div><dt data-i18n="culture_tip_2_k">כרטיס אשראי ישראלי</dt><dd data-i18n="culture_tip_2_v">בדרך כלל אפשר לשלם גם בכרטיס אשראי ישראלי שתומך בתשלום ללא מגע. חברת האשראי עשויה לגבות עמלה על חיוב בליש"ט, ולכן כדאי לבדוק איתה לפני הנסיעה.</dd></div><div><dt data-i18n="culture_tip_3_k">מתי מחשיך</dt><dd data-i18n="culture_tip_3_v">בימים שלנו השמש שוקעת בסביבות ארבע אחר הצהריים: ב-22 בנובמבר ב-16:02, וב-26 בנובמבר ב-15:59.</dd></div><div><dt data-i18n="culture_tip_4_k">שעות סגירה</dt><dd data-i18n="culture_tip_4_v">רוב המוזיאונים נסגרים בימי חול בין חמש לשש, והחנויות בווסט אנד בשמונה. חלק מהמוזיאונים פתוחים עד מאוחר, אבל רק בימי שישי ושבת, כשאנחנו כבר בבית.</dd></div><div><dt data-i18n="culture_tip_5_k">כניסה למוזיאונים</dt><dd data-i18n="culture_tip_5_v">במוזיאונים הלאומיים הכניסה לאוסף חופשית, והתערוכות המתחלפות בתשלום. במוזיאון המדע צריך כרטיס חינם שמזמינים מראש, ובמוזיאון הבריטי זה מומלץ.</dd></div></dl>
+    </div></section>
+
+    <p class="mat-back cul-back"><a href="index.html#sch-day-4"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span data-i18n="culture_back_sched">חזרה ללו"ז של יום רביעי</span></a></p>
+    </div>
   </section>
 </main>
 
@@ -1234,15 +1559,13 @@ const I18N = {
 "matui_back_sched": "חזרה ללו\"ז של יום שלישי",
 "hub_title_plan": "תוכנית הלמידה · מרכז הלמידה · אדוות לונדון 2026",
 "hub_title_library": "הספרייה · מרכז הלמידה · אדוות לונדון 2026",
-"hub_title_matilda": "מטילדה · מרכז הלמידה · אדוות לונדון 2026",
-"hub_meta_desc": "מרכז הלמידה של משלחת אדוות ללונדון: תוכנית למידה בשלושה מודולים, ספרייה של כל החומרים והכנה לערב המחזמר מטילדה.",
+"hub_meta_desc": "מרכז הלמידה של משלחת אדוות ללונדון: תוכנית למידה בשלושה מודולים, ספרייה של כל החומרים, מטילדה ורעיונות לזמן החופשי.",
 "hub_og_title": "מרכז הלמידה · אדוות לונדון 2026",
 "hub_h1": "מרכז הלמידה לקראת המסע",
-"hub_lede": "בסמינר האחרון ביקשתם דרך מסודרת להתכונן ללונדון. כאן תמצאו את תוכנית הלמידה בשלושה מודולים, ספרייה של כל החומרים באתר ורקע לערב המחזמר מטילדה.",
+"hub_lede": "בסמינר האחרון ביקשתם דרך מסודרת להתכונן ללונדון. כאן תמצאו את תוכנית הלמידה בשלושה מודולים ואת הספרייה עם כל החומרים שבאתר. בלשונית \"תרבות ופנאי\" יש רקע למטילדה ורעיונות לזמן החופשי.",
 "hubnav_aria": "חלקי מרכז הלמידה",
 "hubnav_plan": "תוכנית הלמידה",
 "hubnav_library": "הספרייה",
-"hubnav_matilda": "מטילדה",
 "plan_h": "תוכנית הלמידה",
 "extras_nojs": "את הטקסטים להרחבה של המודול תמצאו <a href=\"#library\">בספרייה</a>.",
 "a11y_newtab": "(נפתח בלשונית חדשה)",
@@ -1317,7 +1640,132 @@ const I18N = {
 "r14": "בתי ספר מנסים לאמץ פרקטיקה מבוססת ראיות כדי להחליט מה לשפר.",
 "r15": "כל בתי הספר מחויבים בחוק להגן על תלמידיהם במגוון דרכים.",
 "r16": "הסטנדרטים המקצועיים, הגדרה של למידה ורשימת קריאה מומלצת, במסמך אחד.",
-"r17": "איך אימון הוראה (Instructional Coaching) עובד, ולמה הראיות תומכות בו."
+"r17": "איך אימון הוראה (Instructional Coaching) עובד, ולמה הראיות תומכות בו.",
+"hubnav_culture": "תרבות ופנאי",
+"hub_title_culture": "תרבות ופנאי · מרכז הלמידה · אדוות לונדון 2026",
+"culture_kicker": "ערב משותף וזמן חופשי",
+"culture_h": "תרבות ופנאי בלונדון",
+"culture_lede": "ביום שלישי בערב נלך יחד למחזמר \"מטילדה\". ביום רביעי אחר הצהריים ובערב אתם חופשיים, ואספנו כאן כמה רעיונות לזמן הזה.",
+"culture_slots_aria": "הזמן הפנוי בלו\"ז",
+"culture_slot_tue": "שלישי בערב · מטילדה",
+"culture_slot_wed_pm": "רביעי אחר הצהריים",
+"culture_slot_wed_ev": "רביעי בערב",
+"culture_toc_aria": "בלשונית הזו",
+"culture_toc_matilda": "מטילדה",
+"culture_toc_winter": "לקראת חג המולד",
+"culture_toc_sights": "מקומות לראות",
+"culture_toc_streets": "רחובות ושכונות",
+"culture_toc_shopping": "קניות",
+"culture_toc_practical": "שווה לדעת",
+"culture_back_sched": "חזרה ללו\"ז של יום רביעי",
+"culture_mat_more": "הספר, הסופר רואלד דאל, העלילה, המאמרים והשירים",
+"culture_free_h": "לזמן החופשי",
+"culture_free_p": "ביום רביעי, אחרי הסדנה על <bdi>Ofsted</bdi>, שאר היום והערב פנויים. בסוף נובמבר מחשיך כבר בסביבות ארבע, ורוב המוזיאונים נסגרים בין חמש לשש. כל אחד יוצא ממקום אחר, ולכן סידרנו את המקומות לפי אזור ולפי תחנת הרכבת התחתית הקרובה.",
+"culture_filter_evening": "רק מה שמתאים לערב",
+"culture_count": "{n} מקומות",
+"culture_count_filtered": "{n} מתוך {total}",
+"culture_check_note": "שעות ומחירים משתנים, ולכן כדאי לבדוק באתר הרשמי לפני שיוצאים.",
+"culture_empty_p": "אין מקום שמתאים לסינון הזה.",
+"culture_empty_reset": "להציג את כל המקומות",
+"culture_winter_h": "לקראת חג המולד",
+"culture_winter_intro": "בשבוע שלנו לונדון כבר מקושטת לחג המולד: האורות ברחובות המרכז דולקים, ושווקי החורף פתוחים.",
+"culture_sights_h": "מקומות לראות",
+"culture_sights_intro": "במוזיאונים הלאומיים שברשימה הכניסה לאוסף חופשית. ביום רביעי בערב רק הספרייה הבריטית נשארת פתוחה אחרי שש.",
+"culture_streets_h": "רחובות ושכונות",
+"culture_shopping_h": "קניות",
+"culture_shopping_intro": "בווסט אנד רוב החנויות פתוחות בימי חול עד שמונה בערב.",
+"culture_tag_free": "כניסה חופשית",
+"culture_tag_paid": "בתשלום",
+"culture_tag_mixed": "כניסה חופשית, תערוכות בתשלום",
+"culture_tag_evening": "מתאים לערב",
+"culture_lbl_tube": "תחנה:",
+"culture_lnk_map": "במפה",
+"culture_lnk_site": "לאתר הרשמי",
+"culture_area_westminster": "ווסטמינסטר והגדה הדרומית",
+"culture_area_westend": "הווסט אנד: סוהו וקובנט גארדן",
+"culture_area_bloomsbury": "בלומסברי וקינגס קרוס",
+"culture_area_kensington": "דרום קנזינגטון והייד פארק",
+"culture_area_city": "הסיטי, בנקסייד ולונדון ברידג'",
+"culture_area_east": "שורדיץ' וספיטלפילדס",
+"culture_area_north": "קמדן וצפון לונדון",
+"culture_place_ww_name": "ווינטר וונדרלנד בהייד פארק",
+"culture_place_ww_dates": "פתוח מ-19 בנובמבר 2026 עד 3 בינואר 2027",
+"culture_place_ww_why": "בתוך הייד פארק פועל יריד חורף עם משטח החלקה על קרח, קרקס, תערוכת פסלי קרח, מתקנים ודוכני אוכל, שתייה ומתנות. אפשר לבוא גם רק כדי להסתובב בין הדוכנים בערב.",
+"culture_place_ww_book": "נכנסים רק עם כרטיס שמזמינים מראש לתאריך ולשעה. בימים שני עד חמישי בשבוע שלנו הוא זול יותר, והשערים נפתחים בשתים עשרה. האטרקציות בתשלום נפרד.",
+"culture_place_ww_visit": "שעתיים",
+"culture_place_southbank-winter_name": "שוק החורף בסאות'בנק סנטר",
+"culture_place_southbank-winter_why": "השוק פועל על טיילת התמזה, מתחת לגשר הנגרפורד, בין רויאל פסטיבל הול לג'ובילי גרדנס. יש בו ביתני אוכל ומשקאות חמים, ודוכני תכשיטים, קישוטים ומתנות.",
+"culture_place_southbank-winter_visit": "כשעה",
+"culture_place_regent-street_name": "ריג'נט סטריט",
+"culture_place_regent-street_why": "הרחוב נבנה ב-1819 לפי תוכנית של האדריכל ג'ון נאש, ונקרא על שם הנסיך העוצר, לימים המלך ג'ורג' הרביעי. השנה דולקים מעליו אורות חג המולד מ-5 בנובמבר.",
+"culture_place_regent-street_visit": "הליכה של חצי שעה",
+"culture_place_parliament_name": "הפרלמנט הבריטי",
+"culture_place_parliament_why": "אפשר לשבת ביציע הקהל ולצפות בדיוני בית הנבחרים ובית הלורדים. הכניסה חופשית, גם למבקרים מחו\"ל. בשבוע שלנו הפרלמנט לא בפגרה, ולכן אין סיורים מודרכים בימי חול.",
+"culture_place_parliament_note": "הכניסה דרך <bdi>Cromwell Green</bdi>. לשעת השאלות לראש הממשלה מבקרים מחו\"ל נכנסים רק אם נשאר מקום.",
+"culture_place_parliament_visit": "שעה עד שעתיים",
+"culture_place_national-gallery_name": "הגלריה הלאומית",
+"culture_place_national-gallery_why": "בגלריה שבכיכר טרפלגר מוצג האוסף הלאומי של ציור אירופי, והכניסה חופשית. מאחורי הבניין יש מרכז נפרד ללמידה יצירתית, שמיועד לקבוצות מבתי ספר.",
+"culture_place_national-gallery_visit": "שעה וחצי",
+"culture_place_british-museum_name": "המוזיאון הבריטי",
+"culture_place_british-museum_why": "במוזיאון מוצגים חפצים מתרבויות מכל העולם, ובהם המומיות המצריות והממצאים מקבר הספינה האנגלו-סקסי בסאטון הו. הכניסה חופשית, והתערוכות המיוחדות בתשלום.",
+"culture_place_british-museum_note": "קבוצה של עשרה ומעלה צריכה כרטיס קבוצתי, ונכנסת דרך <bdi>Montague Place</bdi>.",
+"culture_place_british-museum_visit": "שעתיים ומעלה",
+"culture_place_british-library_name": "הספרייה הבריטית",
+"culture_place_british-library_why": "בגלריית האוצרות מוצגים פריטים נבחרים מאוסף הספרייה, והכניסה חופשית. עד יוני 2027 יש כאן גם תערוכה בתשלום על אגתה כריסטי, ובתי ספר יכולים לבקר בה בחינם, בהזמנה מראש.",
+"culture_place_british-library_visit": "כשעה",
+"culture_place_natural-history-museum_name": "מוזיאון הטבע",
+"culture_place_natural-history-museum_why": "במוזיאון מוצגים שלדי דינוזאורים, מאובנים ומינרלים, ולבתי ספר יש בו סדנאות שבנויות לפי תוכנית הלימודים. הכניסה חופשית.",
+"culture_place_natural-history-museum_note": "מוזיאון המדע נמצא ממש לידו, ב-<bdi>Exhibition Road</bdi>. גם שם הכניסה חופשית, בכרטיס שמזמינים מראש.",
+"culture_place_natural-history-museum_visit": "שעה וחצי",
+"culture_place_va_name": "מוזיאון ויקטוריה ואלברט",
+"culture_place_va_why": "ה-<bdi>V&A</bdi> הוא המוזיאון הלאומי לאומנות ולעיצוב. הכניסה חופשית ואין צורך להזמין מראש. חלק מהתערוכות בתשלום.",
+"culture_place_va_note": "גלריית האופנה, גלריית דרום אסיה וגלריית קוריאה סגורות בתקופה הזו.",
+"culture_place_va_visit": "שעה וחצי",
+"culture_place_st-pauls_name": "קתדרלת סנט פול",
+"culture_place_st-pauls_why": "כריסטופר רן תכנן את הקתדרלה אחרי השריפה הגדולה של 1666. הכרטיס כולל כניסה לאולם המרכזי, לקריפטה ולגלריות שבכיפה.",
+"culture_place_st-pauls_note": "בדרך כלל אפשר להיכנס עד ארבע אחר הצהריים. בימי ראשון אין ביקורים.",
+"culture_place_st-pauls_visit": "שעה וחצי",
+"culture_place_tate-modern_name": "טייט מודרן",
+"culture_place_tate-modern_why": "המוזיאון מציג אומנות מודרנית ועכשווית. הוא שוכן על גדת התמזה, בבניין של תחנת הכוח בנקסייד, שפעלה עד 1981. הכניסה לאוסף חופשית, והתערוכות בתשלום.",
+"culture_place_tate-modern_visit": "שעה וחצי",
+"culture_place_westminster-walk_name": "מווסטמינסטר לאורך הגדה הדרומית",
+"culture_place_westminster-walk_why": "מכיכר הפרלמנט חוצים את גשר ווסטמינסטר וממשיכים בטיילת שלאורך התמזה, על פני סאות'בנק סנטר, עד טייט מודרן. בערב רואים מהטיילת את הפרלמנט ואת הגשרים מוארים.",
+"culture_place_westminster-walk_visit": "הליכה של כ-40 דקות",
+"culture_place_covent-garden_name": "קובנט גארדן",
+"culture_place_covent-garden_why": "קובנט גארדן היא כיכר בלב הווסט אנד, ובמרכזה שוק מקורה עם חנויות ודוכנים. הכיכר פתוחה בכל שעות היממה, והשנה דולקים בה אורות חג המולד מ-12 בנובמבר.",
+"culture_place_covent-garden_visit": "כשעה",
+"culture_place_kings-cross_name": "קינגס קרוס וקול דרופס יארד",
+"culture_place_kings-cross_why": "אזור התעשייה הוויקטוריאני שמאחורי תחנת קינגס קרוס עבר התחדשות עירונית. בכיכר גרנרי, שבה פרקו פעם דוברות, פועלות יותר מאלף מזרקות, ובמחסני הפחם הישנים יש חנויות ומסעדות.",
+"culture_place_kings-cross_note": "הספרייה הבריטית קרובה, ואפשר לשלב את שני המקומות באותו ביקור.",
+"culture_place_kings-cross_visit": "כשעה",
+"culture_place_spitalfields_name": "ספיטלפילדס ושורדיץ'",
+"culture_place_spitalfields_why": "שוק ספיטלפילדס הישן פועל מתחת לגג ויקטוריאני, עם דוכנים וחנויות. משם אפשר להמשיך ברגל לבריק ליין ולרחובות שורדיץ'.",
+"culture_place_spitalfields_visit": "שעה עד שעתיים",
+"culture_place_camden_name": "שוק קמדן",
+"culture_place_camden_why": "השוק נפתח ב-1974 עם 16 דוכנים על גדת תעלת ריג'נט, והיום פועלים בו כאלף סוחרים: חנויות, דוכנים, ברים ובתי קפה.",
+"culture_place_camden_visit": "שעה עד שעתיים",
+"culture_place_oxford-street_name": "אוקספורד סטריט",
+"culture_place_oxford-street_why": "לאורך הרחוב יש חנויות כלבו ורשתות אופנה גדולות. קישוטי חג המולד השנה בהשראת הארי פוטר, ובכיכר הנובר, סמוך לרחוב, עומד עץ חג מולד באותו סגנון.",
+"culture_place_carnaby_name": "קרנבי סטריט",
+"culture_place_carnaby_why": "קרנבי הוא רחוב להולכי רגל בסוהו, עם חנויות אופנה ומותגים עצמאיים. אורות חג המולד דולקים ברחוב מ-4 בנובמבר, והשנה הם בהשראת שנות התשעים.",
+"culture_place_liberty_name": "ליברטי",
+"culture_place_liberty_why": "חנות הכלבו נוסדה ב-1875, ומאז 1924 היא שוכנת בבניין בסגנון טיודור, שנבנה מהעץ של שתי ספינות מלחמה מהצי המלכותי.",
+"culture_place_hamleys_name": "המליס",
+"culture_place_hamleys_why": "חנות הצעצועים נוסדה ב-1760, ומ-1881 היא ברחוב ריג'נט. יש בה שבע קומות של צעצועים.",
+"culture_place_borough-market_name": "בורו מרקט",
+"culture_place_borough-market_why": "שוק האוכל צמוד לתחנת לונדון ברידג', ויש בו דוכני ירקות, גבינות, מאפים ואוכל רחוב.",
+"culture_place_borough-market_note": "השוק סגור בימי שני, ובשאר הימים נסגר כבר בשעות אחר הצהריים.",
+"culture_prac_h": "שווה לדעת",
+"culture_tip_1_k": "נסיעה בתחבורה הציבורית",
+"culture_tip_1_v": "אין צורך לקנות כרטיס נסיעה. משלמים בכרטיס אשראי או בטלפון, ומצמידים לקורא את אותו אמצעי תשלום בכניסה וביציאה. יש תקרה יומית, ומעבר לה לא מחייבים. כל נוסע צריך אמצעי תשלום משלו.",
+"culture_tip_2_k": "כרטיס אשראי ישראלי",
+"culture_tip_2_v": "בדרך כלל אפשר לשלם גם בכרטיס אשראי ישראלי שתומך בתשלום ללא מגע. חברת האשראי עשויה לגבות עמלה על חיוב בליש\"ט, ולכן כדאי לבדוק איתה לפני הנסיעה.",
+"culture_tip_3_k": "מתי מחשיך",
+"culture_tip_3_v": "בימים שלנו השמש שוקעת בסביבות ארבע אחר הצהריים: ב-22 בנובמבר ב-16:02, וב-26 בנובמבר ב-15:59.",
+"culture_tip_4_k": "שעות סגירה",
+"culture_tip_4_v": "רוב המוזיאונים נסגרים בימי חול בין חמש לשש, והחנויות בווסט אנד בשמונה. חלק מהמוזיאונים פתוחים עד מאוחר, אבל רק בימי שישי ושבת, כשאנחנו כבר בבית.",
+"culture_tip_5_k": "כניסה למוזיאונים",
+"culture_tip_5_v": "במוזיאונים הלאומיים הכניסה לאוסף חופשית, והתערוכות המתחלפות בתשלום. במוזיאון המדע צריך כרטיס חינם שמזמינים מראש, ובמוזיאון הבריטי זה מומלץ."
 },
 "en": {
 "audio_auto_done": "Finished. The audio overview is marked as done.",
@@ -1487,15 +1935,13 @@ const I18N = {
 "matui_back_sched": "Back to Tuesday's schedule",
 "hub_title_plan": "Learning plan · Learning hub · Advot London 2026",
 "hub_title_library": "Library · Learning hub · Advot London 2026",
-"hub_title_matilda": "Matilda · Learning hub · Advot London 2026",
-"hub_meta_desc": "The learning hub for the Advot delegation to London: a three-module learning plan, a library of every resource, and background for our evening at Matilda The Musical.",
+"hub_meta_desc": "The learning hub for the Advot delegation to London: a three-module learning plan, a library of every resource, Matilda, and ideas for your free time.",
 "hub_og_title": "Learning hub · Advot London 2026",
 "hub_h1": "Your learning hub for the trip",
-"hub_lede": "At the last seminar you asked for a structured way to prepare for London. Here you will find the three-module learning plan, a library of every resource on the site, and background for our evening at Matilda The Musical.",
+"hub_lede": "At the last seminar you asked for a structured way to prepare for London. Here you will find the three-module learning plan and a library of every resource on the site. The Culture tab has background on Matilda and ideas for your free time.",
 "hubnav_aria": "Learning hub sections",
 "hubnav_plan": "Learning plan",
 "hubnav_library": "Library",
-"hubnav_matilda": "Matilda",
 "plan_h": "Learning plan",
 "extras_nojs": "You will find this module's further reading <a href=\"#library\">in the library</a>.",
 "a11y_newtab": "(opens in a new tab)",
@@ -1570,7 +2016,132 @@ const I18N = {
 "r14": "Schools are trying to adopt evidence-based practice to make decisions about how to improve.",
 "r15": "All schools are legally required to keep their students protected in many ways.",
 "r16": "The professional standards, a definition of learning, and a recommended reading list, in one document.",
-"r17": "How instructional coaching works, and why the evidence supports it."
+"r17": "How instructional coaching works, and why the evidence supports it.",
+"hubnav_culture": "Culture",
+"hub_title_culture": "Culture · Learning hub · Advot London 2026",
+"culture_kicker": "An evening together, and time to explore",
+"culture_h": "Culture and leisure in London",
+"culture_lede": "On Tuesday evening we will go together to Matilda The Musical. On Wednesday afternoon and evening you are free, and we have gathered a few ideas for that time.",
+"culture_slots_aria": "Free time in the schedule",
+"culture_slot_tue": "Tuesday evening · Matilda",
+"culture_slot_wed_pm": "Wednesday afternoon",
+"culture_slot_wed_ev": "Wednesday evening",
+"culture_toc_aria": "On this tab",
+"culture_toc_matilda": "Matilda",
+"culture_toc_winter": "Christmas in London",
+"culture_toc_sights": "Places to visit",
+"culture_toc_streets": "Streets and neighbourhoods",
+"culture_toc_shopping": "Shopping",
+"culture_toc_practical": "Good to know",
+"culture_back_sched": "Back to Wednesday's schedule",
+"culture_mat_more": "The book, its author Roald Dahl, the story, the articles and the songs",
+"culture_free_h": "For your free time",
+"culture_free_p": "On Wednesday, after the Ofsted workshop, the rest of the day and the evening are free. In late November it gets dark at around four, and most museums close between five and six. Everyone will be setting out from a different place, so we have arranged the ideas by area and by nearest Underground station.",
+"culture_filter_evening": "Evening options only",
+"culture_count": "{n} places",
+"culture_count_filtered": "{n} of {total}",
+"culture_check_note": "Opening hours and prices change, so check the official website before you set out.",
+"culture_empty_p": "Nothing matches this filter.",
+"culture_empty_reset": "Show all places",
+"culture_winter_h": "Christmas in London",
+"culture_winter_intro": "By the time we arrive, London is already dressed for Christmas: the lights are up in the central streets and the winter markets are open.",
+"culture_sights_h": "Places to visit",
+"culture_sights_intro": "The national museums on this list are free to enter. On Wednesday evening, the British Library is the only one here that stays open after six.",
+"culture_streets_h": "Streets and neighbourhoods",
+"culture_shopping_h": "Shopping",
+"culture_shopping_intro": "Most shops in the West End stay open until eight on weekdays.",
+"culture_tag_free": "Free entry",
+"culture_tag_paid": "Paid entry",
+"culture_tag_mixed": "Free entry, paid exhibitions",
+"culture_tag_evening": "Evening option",
+"culture_lbl_tube": "Station:",
+"culture_lnk_map": "Map",
+"culture_lnk_site": "Official website",
+"culture_area_westminster": "Westminster and the South Bank",
+"culture_area_westend": "West End: Soho and Covent Garden",
+"culture_area_bloomsbury": "Bloomsbury and King's Cross",
+"culture_area_kensington": "South Kensington and Hyde Park",
+"culture_area_city": "The City, Bankside and London Bridge",
+"culture_area_east": "Shoreditch and Spitalfields",
+"culture_area_north": "Camden and north London",
+"culture_place_ww_name": "Hyde Park Winter Wonderland",
+"culture_place_ww_dates": "Open from 19 November 2026 to 3 January 2027",
+"culture_place_ww_why": "A winter fair in the middle of Hyde Park, with an ice rink, a circus, an ice sculpture show, rides, and stalls selling food, drinks and gifts. You can also come simply to wander among the stalls in the evening.",
+"culture_place_ww_book": "Entry is by a ticket booked in advance for a set date and time. During our week, Monday to Thursday, tickets are cheaper and the gates open at noon. Rides and attractions are paid for separately.",
+"culture_place_ww_visit": "Two hours",
+"culture_place_southbank-winter_name": "Southbank Centre Winter Market",
+"culture_place_southbank-winter_why": "The market runs along the Thames riverside, beneath Hungerford Bridge, between the Royal Festival Hall and Jubilee Gardens. There are chalets serving food and hot drinks, and stalls selling jewellery, decorations and gifts.",
+"culture_place_southbank-winter_visit": "About an hour",
+"culture_place_regent-street_name": "Regent Street",
+"culture_place_regent-street_why": "The street was built in 1819 to a plan by the architect John Nash and named after the Prince Regent, later King George IV. This year its Christmas lights are on from 5 November.",
+"culture_place_regent-street_visit": "A half-hour walk",
+"culture_place_parliament_name": "Houses of Parliament",
+"culture_place_parliament_why": "You can sit in the public galleries and watch debates in the House of Commons and the House of Lords. Entry is free, overseas visitors included. Parliament is not in recess during our week, so there are no guided tours on weekdays.",
+"culture_place_parliament_note": "Visitors enter at Cromwell Green. For Prime Minister's Questions, overseas visitors are admitted only if there is space.",
+"culture_place_parliament_visit": "One to two hours",
+"culture_place_national-gallery_name": "The National Gallery",
+"culture_place_national-gallery_why": "The gallery on Trafalgar Square holds the national collection of European painting, and entry is free. Behind the main building is a separate centre for creative learning, designed for school groups.",
+"culture_place_national-gallery_visit": "An hour and a half",
+"culture_place_british-museum_name": "The British Museum",
+"culture_place_british-museum_why": "The museum shows objects from cultures across the world, among them the Egyptian mummies and the finds from the Anglo-Saxon ship burial at Sutton Hoo. Entry is free; special exhibitions are paid.",
+"culture_place_british-museum_note": "Groups of ten or more need a group ticket and use the Montague Place entrance.",
+"culture_place_british-museum_visit": "Two hours or more",
+"culture_place_british-library_name": "The British Library",
+"culture_place_british-library_why": "The Treasures Gallery shows selected items from the Library's collection, and entry is free. Until June 2027 there is also a paid exhibition on Agatha Christie, which schools can visit free of charge if they book ahead.",
+"culture_place_british-library_visit": "About an hour",
+"culture_place_natural-history-museum_name": "Natural History Museum",
+"culture_place_natural-history-museum_why": "The museum displays dinosaur skeletons, fossils and minerals, and runs curriculum-based workshops for schools. Entry is free.",
+"culture_place_natural-history-museum_note": "The Science Museum is right next door on Exhibition Road. Entry there is also free, with a ticket booked in advance.",
+"culture_place_natural-history-museum_visit": "An hour and a half",
+"culture_place_va_name": "V&A South Kensington",
+"culture_place_va_why": "The V&A is the national museum of art and design. Entry is free and there is no need to book. Some exhibitions are paid.",
+"culture_place_va_note": "The Fashion, South Asia and Korea galleries are closed at present.",
+"culture_place_va_visit": "An hour and a half",
+"culture_place_st-pauls_name": "St Paul's Cathedral",
+"culture_place_st-pauls_why": "Christopher Wren designed the cathedral after the Great Fire of 1666. The ticket covers the cathedral floor, the crypt and the galleries in the dome.",
+"culture_place_st-pauls_note": "Last entry is usually at 4pm, and there is no sightseeing on Sundays.",
+"culture_place_st-pauls_visit": "An hour and a half",
+"culture_place_tate-modern_name": "Tate Modern",
+"culture_place_tate-modern_why": "The museum shows modern and contemporary art. It stands on the Thames in the former Bankside Power Station, which closed in 1981. The collection is free; exhibitions are paid.",
+"culture_place_tate-modern_visit": "An hour and a half",
+"culture_place_westminster-walk_name": "Westminster and the South Bank",
+"culture_place_westminster-walk_why": "From Parliament Square, cross Westminster Bridge and carry on along the Thames riverside, past the Southbank Centre, to Tate Modern. In the evening you can see Parliament and the bridges lit up from the riverside.",
+"culture_place_westminster-walk_visit": "About a 40-minute walk",
+"culture_place_covent-garden_name": "Covent Garden",
+"culture_place_covent-garden_why": "Covent Garden is a square in the heart of the West End, with a covered market at its centre, full of shops and stalls. The square is open at all hours, and this year its Christmas lights are on from 12 November.",
+"culture_place_covent-garden_visit": "About an hour",
+"culture_place_kings-cross_name": "King's Cross and Coal Drops Yard",
+"culture_place_kings-cross_why": "The Victorian industrial land behind King's Cross station has been through urban regeneration. Granary Square, where barges once unloaded, now has more than a thousand fountains, and the old coal warehouses hold shops and restaurants.",
+"culture_place_kings-cross_note": "The British Library is close by, so the two fit easily into one outing.",
+"culture_place_kings-cross_visit": "About an hour",
+"culture_place_spitalfields_name": "Old Spitalfields Market and Shoreditch",
+"culture_place_spitalfields_why": "Old Spitalfields Market trades beneath a Victorian roof, with stalls and shops. From there you can walk on to Brick Lane and the streets of Shoreditch.",
+"culture_place_spitalfields_visit": "One to two hours",
+"culture_place_camden_name": "Camden Market",
+"culture_place_camden_why": "The market opened in 1974 with 16 stalls beside the Regent's Canal, and today it has around a thousand traders, from shops and stalls to bars and cafés.",
+"culture_place_camden_visit": "One to two hours",
+"culture_place_oxford-street_name": "Oxford Street",
+"culture_place_oxford-street_why": "The street is lined with department stores and large fashion chains. This year the Christmas decorations are inspired by Harry Potter, and a Christmas tree in the same style stands in Hanover Square, just off the street.",
+"culture_place_carnaby_name": "Carnaby Street",
+"culture_place_carnaby_why": "Carnaby is a pedestrian street in Soho, with fashion shops and independent brands. Its Christmas lights are on from 4 November, and this year they take their inspiration from the 1990s.",
+"culture_place_liberty_name": "Liberty London",
+"culture_place_liberty_why": "A department store founded in 1875. Since 1924 it has occupied a Tudor-style building made from the timbers of two Royal Navy warships.",
+"culture_place_hamleys_name": "Hamleys",
+"culture_place_hamleys_why": "A toy shop founded in 1760. It has been on Regent Street since 1881 and has seven floors of toys.",
+"culture_place_borough-market_name": "Borough Market",
+"culture_place_borough-market_why": "A food market right beside London Bridge station, with stalls of vegetables, cheese, baked goods and street food.",
+"culture_place_borough-market_note": "The market is closed on Mondays, and on other days it shuts in the late afternoon.",
+"culture_prac_h": "Good to know",
+"culture_tip_1_k": "Getting around",
+"culture_tip_1_v": "There is no need to buy a ticket. Pay with a contactless bank card or your phone, and touch the same one in and out. Daily fares are capped, and each traveller needs their own card or phone.",
+"culture_tip_2_k": "Israeli cards",
+"culture_tip_2_v": "You can usually pay with an Israeli contactless card as well. Your card provider may charge a fee on payments in pounds, so check with them before you travel.",
+"culture_tip_3_k": "When it gets dark",
+"culture_tip_3_v": "During our week the sun sets at around four in the afternoon: 16:02 on 22 November and 15:59 on 26 November.",
+"culture_tip_4_k": "Closing times",
+"culture_tip_4_v": "Most museums close between five and six on weekdays, and West End shops at eight. Some museums open late, but only on Fridays and Saturdays, when we will already be home.",
+"culture_tip_5_k": "Museum entry",
+"culture_tip_5_v": "The national museums are free to enter, and changing exhibitions are paid. At the Science Museum you need a free ticket booked in advance; at the British Museum it is recommended."
 }
 };
 
@@ -1666,7 +2237,7 @@ document.querySelectorAll('audio[data-item]').forEach(function(au){
 /* ===================== learning hub: library, module lists, views, Matilda ===================== */
 var HUB={view:'plan',ready:false};
 var hubMain=document.getElementById('hubMain');
-var VIEWS=['plan','library','matilda'];
+var VIEWS=['plan','library','culture'];
 var cards=[].slice.call(document.querySelectorAll('.lib-card'));
 
 /* 1. Matilda papers become library cards (their URLs stay written once, in the paper) */
@@ -1792,18 +2363,18 @@ function resetTrailer(){ var f=ytFrame.querySelector('iframe'); if(f) ytFrame.re
 function hubLangHook(d){
   document.title=plain(d['hub_title_'+(HUB&&HUB.view||'plan')]);
   document.querySelectorAll('[data-i18n-ph]').forEach(function(el){ el.setAttribute('placeholder',plain(d[el.dataset.i18nPh])); });
-  if(HUB&&HUB.ready) applyFilter(true);
+  if(HUB&&HUB.ready){ applyFilter(true); culFilter(); }
 }
 function setView(v){
   HUB.view=v;
   VIEWS.forEach(function(id){ document.getElementById(id).classList.toggle('is-active',id===v); });
   document.querySelectorAll('.hub-tab').forEach(function(a){ if(a.dataset.view===v) a.setAttribute('aria-current','true'); else a.removeAttribute('aria-current'); });
-  if(v!=='matilda') resetTrailer();
+  if(v!=='culture') resetTrailer();
   document.title=plain(t('hub_title_'+v));
 }
 var reduceMotion=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
 function highlight(c){
-  cards.forEach(function(x){ x.classList.remove('is-target'); });
+  document.querySelectorAll('.is-target').forEach(function(x){ x.classList.remove('is-target'); });
   c.classList.add('is-target');
   if(!reduceMotion) setTimeout(function(){ c.classList.remove('is-target'); },1500);
   else document.addEventListener('click',function off(){ c.classList.remove('is-target'); document.removeEventListener('click',off); },{once:true});
@@ -1813,15 +2384,18 @@ function route(opt){
   opt=opt||{};
   var h=''; try{ h=decodeURIComponent(location.hash.slice(1)); }catch(e){}
   var el=h?document.getElementById(h):null, v='plan', target=null;
-  if(h==='library'||h==='matilda') v=h;
+  if(h==='library'||h==='culture') v=h;
   else if(el&&el.closest('#library')){ v='library'; target=el; }
-  else if(el&&el.closest('#matilda')){ v='matilda'; target=el; }
+  else if(el&&el.closest('#culture')){ v='culture'; target=el; }
   else if(el&&el.closest('#plan')&&h!=='plan'){ target=el; }
   setView(v);
   /* the view swap changes the page height, so jumps are instant (a smooth scroll started mid-swap lands in the wrong place) */
   var how='instant';
   if(target){
+    /* Matilda's background opens by itself when someone arrives with a direct link (#matilda, #matilda-*) */
+    if(target.id==='matilda'||target.closest('#matMore')) document.getElementById('matMore').open=true;
     if(target.classList.contains('lib-card')){ resetFilters(); target.scrollIntoView({behavior:how}); highlight(target); }
+    else if(target.classList.contains('cul-card')){ culReset(); target.scrollIntoView({behavior:how}); highlight(target); }
     else target.scrollIntoView({behavior:how});
   } else {
     var nav=document.querySelector('.hub-nav'), navH=nav.offsetHeight;
@@ -1837,11 +2411,33 @@ document.querySelectorAll('.hub-tab').forEach(function(a){
 });
 addEventListener('hashchange',function(){ route({click:tabClick}); tabClick=false; });
 
+/* culture tab: one filter, "evening options only", over the four place chapters (Matilda and "good to know" are never filtered) */
+var culEve=document.getElementById('culEve'), culCount=document.getElementById('culCount'), culEmpty=document.getElementById('culEmpty');
+var culCards=[].slice.call(document.querySelectorAll('.cul-card')), CUL_CH=['winter','sights','streets','shopping'];
+function culFilter(){
+  if(!culEve) return;
+  var on=culEve.checked, shown=0;
+  culCards.forEach(function(c){ var ok=!on||c.dataset.evening==='1'; c.hidden=!ok; if(ok) shown++; });
+  CUL_CH.forEach(function(ch){
+    var sec=document.getElementById('culture-'+ch), vis=!!sec.querySelector('.cul-card:not([hidden])');
+    sec.hidden=!vis;
+    var a=document.querySelector('.cul-toc a[href="#culture-'+ch+'"]'); if(a) a.parentNode.hidden=!vis;
+  });
+  culEmpty.hidden=shown>0;
+  culCount.textContent=on?fill(t('culture_count_filtered'),{n:shown,total:culCards.length}):fill(t('culture_count'),{n:culCards.length});
+}
+function culReset(){ if(culEve) culEve.checked=false; culFilter(); }
+if(culEve){
+  culEve.addEventListener('change',culFilter);
+  document.getElementById('culReset').addEventListener('click',function(){ culReset(); culEve.focus(); });
+}
+
 langBtn.addEventListener('click',function(){ setLang(lang==='he'?'en':'he'); });
 setLang(lang);
 hubMain.classList.add('views-on');
 HUB.ready=true;
 applyFilter(true);
+culFilter();
 route({load:true});
 if(location.hash) addEventListener('load',function(){ route({load:true}); });
 })();

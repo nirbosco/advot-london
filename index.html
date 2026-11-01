@@ -215,6 +215,8 @@ html[lang="en"] .learn-teaser p{font-size:15px}
 .lt-mods .lt-sep + li{border-top:0}
 .lt-num svg{width:18px;height:18px;stroke:var(--blue);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .sch-item .what-more{font-size:13.5px;color:var(--ink-dim)}
+.sch-item .what-more a{font-weight:700;color:var(--blue)}
+.sch-item .what-more a:hover,.sch-item .what-more a:focus-visible{text-decoration:underline}
 
 /* schedule (spec 3) */
 #schedule{position:relative;overflow:hidden}
@@ -713,7 +715,7 @@ footer .ripples-f{position:absolute;left:-130px;top:-60px;width:420px;opacity:.0
         <li class="soon"><a href="learn.html#m3"><span class="lt-num" aria-hidden="true">3</span><span class="lt-name" data-i18n="mod3_short"></span><span class="lt-status" data-i18n="mod_status_soon"></span></a></li>
         <li class="lt-sep" role="presentation" aria-hidden="true"></li>
         <li><a href="learn.html#library"><span class="lt-num" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 6.5C10.5 5.3 8.3 4.5 4 4.5v13c4.3 0 6.5.8 8 2 1.5-1.2 3.7-2 8-2v-13c-4.3 0-6.5.8-8 2zM12 6.5v13"/></svg></span><span class="lt-name" data-i18n="lt_row_library"></span><span class="lt-status" data-i18n="lt_status_library"></span></a></li>
-        <li><a href="learn.html#matilda"><span class="lt-num" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v4a2 2 0 0 0 0 4v4H4v-4a2 2 0 0 0 0-4z"/><path d="M14 5v12" stroke-dasharray="2 2"/></svg></span><span class="lt-name" data-i18n="lt_row_matilda"></span><span class="lt-status" data-i18n="lt_status_matilda"></span></a></li>
+        <li><a href="learn.html#culture"><span class="lt-num" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v4a2 2 0 0 0 0 4v4H4v-4a2 2 0 0 0 0-4z"/><path d="M14 5v12" stroke-dasharray="2 2"/></svg></span><span class="lt-name" data-i18n="lt_row_culture"></span><span class="lt-status" data-i18n="lt_status_culture"></span></a></li>
       </ul>
     </div>
     <div class="signup-cta reveal" style="margin:0 0 40px">
@@ -923,7 +925,7 @@ footer .ripples-f{position:absolute;left:-130px;top:-60px;width:420px;opacity:.0
               <ul class="band-items" role="list">
                   <li class="sch-item" data-kind="meal"><span class="kind" data-i18n="kind_meal"></span><span class="what" data-i18n="sch_d4_pm_1"></span></li>
                   <li class="sch-item" data-kind="workshop"><span class="kind" data-i18n="kind_workshop"></span><span class="what" data-i18n="sch_d4_pm_2"></span></li>
-                  <li class="sch-item" data-kind="free"><span class="kind" data-i18n="kind_free"></span><span class="what" data-i18n="sch_d4_pm_3"></span></li>
+                  <li class="sch-item" data-kind="free"><span class="kind" data-i18n="kind_free"></span><span class="what" data-i18n="sch_d4_pm_3"></span><span class="what-more"><a href="learn.html#culture-free" data-i18n="sch_d4_free_more"></a></span></li>
               </ul>
             </div>
             <div class="band band-ev" role="group" aria-labelledby="d4-ev">
@@ -1201,15 +1203,18 @@ he: {
   /* gen: learning hub (20-draft/copy-matilda.md) */
   res_k:"לקראת המסע",
   res_h:"מרכז הלמידה",
-  res_intro:"כל חומרי הלמידה של המסע נמצאים עכשיו במקום אחד: תוכנית בשלושה מודולים, ספרייה עם חיפוש והכנה לערב מטילדה.",
-  lt_h:"תוכנית הלמידה, הספרייה ומטילדה",
-  lt_p:"בחרנו מתוך כל החומרים את מה ששווה להעמיק בו, וסידרנו אותו בשלושה מודולים. לצידם הספרייה, עם כל החומרים שבאתר, ורקע לערב המחזמר מטילדה.",
   lt_btn:"למרכז הלמידה",
   lt_row_library:"הספרייה",
   lt_status_library:"כל החומרים",
-  lt_row_matilda:"מטילדה",
-  lt_status_matilda:"יום שלישי בערב",
   sch_d3_ev_2_more:"רקע, טריילר ושירים במרכז הלמידה",
+  /* gen end */
+  /* gen: culture tab (20-draft/copy-culture.md) */
+  lt_row_culture:"תרבות ופנאי",
+  lt_status_culture:"מטילדה וזמן חופשי",
+  lt_h:"תוכנית הלמידה, הספרייה ו\"תרבות ופנאי\"",
+  lt_p:"בחרנו מתוך כל החומרים את מה ששווה להעמיק בו, וסידרנו אותו בשלושה מודולים. לצידם יש ספרייה עם כל החומרים שבאתר, ולשונית \"תרבות ופנאי\" עם רקע לערב מטילדה ורעיונות לזמן החופשי בלונדון.",
+  res_intro:"כל חומרי הלמידה של המסע נמצאים עכשיו במקום אחד: תוכנית בשלושה מודולים, ספרייה עם חיפוש, רקע לערב מטילדה ורעיונות לזמן החופשי.",
+  sch_d4_free_more:"רעיונות לזמן החופשי בלשונית \"תרבות ופנאי\"",
   /* gen end */
   title:"אדוות · המסע ללונדון 2026",
   lang_btn:"English",
@@ -1394,15 +1399,18 @@ en: {
   /* gen: learning hub (20-draft/copy-matilda.md) */
   res_k:"Before the trip",
   res_h:"The learning hub",
-  res_intro:"All the learning materials for the trip are now in one place: a three-module plan, a searchable library, and background for our Matilda evening.",
-  lt_h:"The learning plan, the library and Matilda",
-  lt_p:"We picked the materials most worth your time and arranged them in three modules. Alongside them are the library, with every resource on the site, and background for our evening at Matilda The Musical.",
   lt_btn:"Open the learning hub",
   lt_row_library:"Library",
   lt_status_library:"All resources",
-  lt_row_matilda:"Matilda",
-  lt_status_matilda:"Tuesday evening",
   sch_d3_ev_2_more:"Background, trailer and songs in the learning hub",
+  /* gen end */
+  /* gen: culture tab (20-draft/copy-culture.md) */
+  lt_row_culture:"Culture",
+  lt_status_culture:"Matilda and free time",
+  lt_h:"The learning plan, the library and culture",
+  lt_p:"We picked the materials most worth your time and arranged them in three modules. Alongside them are a library with every resource on the site and a Culture tab with background for our evening at Matilda and ideas for your free time in London.",
+  res_intro:"All the learning materials for the trip are now in one place: a three-module plan, a searchable library, background for the Matilda evening, and ideas for your free time.",
+  sch_d4_free_more:"Ideas for your free time in the Culture tab",
   /* gen end */
   title:"Advot · The Journey to London 2026",
   lang_btn:"עברית",
