@@ -395,6 +395,8 @@ function startHost(){
   $('#hostApp').hidden = false;
   H = store.get('advot-live-host');
   if (!H || !H.pin || !H.perm || H.perm.length !== N) newHost();
+  // recover a game saved past the last question (older bug)
+  if (H.qi >= N){ H.qi = N - 1; H.ph = 'final'; H.paused = 0; saveHost(); }
   connectHost();
   buildRoute();
   render();
@@ -405,7 +407,7 @@ function startHost(){
     if (e.code === 'Space' || e.key === 'ArrowLeft' || e.key === 'Enter'){ e.preventDefault(); if (!H.paused) hostNext(); }
   });
   $('#startBtn').onclick = () => goQuestion(0);
-  $('#toBoard').onclick = () => setPh('board');
+  $('#toBoard').onclick = () => setPh(H.qi >= N - 1 ? 'final' : 'board');
   $('#nextQ').onclick = hostNext;
   $('#pauseBtn').onclick = togglePause;
   $('#restartBtn').onclick = () => { if (confirm('לעצור ולהתחיל מההתחלה? המשתתפים נשארים בפנים, והניקוד מתאפס.')) restartGame(); };
@@ -487,6 +489,7 @@ function sendSnap(extra){
 function setPh(ph){ H.ph = ph; saveHost(); render(); sendSnap(); }
 
 function goQuestion(i){
+  if (i >= N) return setPh('final');
   clearTimeout(tick);
   H.qi = i; H.ans = {}; H.t0 = Date.now(); H.ph = 'ready';
   saveHost(); render(); sendSnap();
@@ -557,7 +560,7 @@ function reveal(){
 function hostNext(){
   if (H.ph === 'lobby'){ if (H.order.length) goQuestion(0); }
   else if (H.ph === 'reveal') setPh(H.qi === N - 1 ? 'final' : 'board');
-  else if (H.ph === 'board') goQuestion(H.qi + 1);
+  else if (H.ph === 'board'){ if (H.qi >= N - 1) setPh('final'); else goQuestion(H.qi + 1); }
 }
 
 /* ---------- host rendering ---------- */
@@ -654,12 +657,13 @@ function rowHtml(pid, i){
 function renderBoard(){
   show('hBoard');
   const q = QS[H.qi], L = DATA.lines[q.li];
-  const lineEnd = H.qi === N - 1 || QS[H.qi + 1].li !== q.li;
+  const isLast = H.qi >= N - 1;
+  const lineEnd = isLast || QS[H.qi + 1].li !== q.li;
   $('#lineDone').innerHTML = lineEnd ? `<span class="chip" style="--lc:${L.color}">סיימנו את ${L.label}: ${L.name}</span>` : '';
   $('#boardTitle').textContent = 'מי מוביל?';
-  const nextL = !lineEnd ? null : DATA.lines[QS[H.qi + 1].li];
-  $('#boardSub').textContent = lineEnd ? `ממשיכים ל${nextL.label}: ${nextL.name}` : `אחרי ${H.qi + 1} מתוך ${N} שאלות`;
-  $('#nextQ').textContent = lineEnd ? `עוברים ל${nextL.label}` : 'לשאלה הבאה';
+  const nextL = !lineEnd || isLast ? null : DATA.lines[QS[H.qi + 1].li];
+  $('#boardSub').textContent = isLast ? 'זו הייתה השאלה האחרונה' : lineEnd ? `ממשיכים ל${nextL.label}: ${nextL.name}` : `אחרי ${H.qi + 1} מתוך ${N} שאלות`;
+  $('#nextQ').textContent = isLast ? 'לפודיום' : lineEnd ? `עוברים ל${nextL.label}` : 'לשאלה הבאה';
   $('#rows').innerHTML = ranking().slice(0, 5).map(rowHtml).join('');
 }
 function renderFinal(){
