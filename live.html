@@ -57,6 +57,12 @@ body.host{font-size:18px}
 .route .stn{width:14px;height:14px;border-radius:50%;background:var(--white);border:3px solid var(--lc);transition:all .3s}
 .route .stn.done{background:var(--lc);border-color:var(--white)}
 .route .stn.now{transform:scale(1.5);box-shadow:0 0 0 4px rgba(11,20,64,.12)}
+.h-ctrl{display:flex;gap:8px}
+.h-ctrl .btn.ghost{min-height:40px;font-size:14px;padding:0 14px;background:var(--white)}
+.paused-tag{position:fixed;top:92px;left:50%;transform:translateX(-50%);z-index:70;background:var(--ink);color:#fff;font-weight:800;font-size:20px;padding:10px 26px;border-radius:999px;box-shadow:var(--shadow-lg)}
+.p-pause{position:fixed;inset:0;z-index:80;background:rgba(243,246,255,.94);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:8px;padding:24px}
+.p-pause h2{font-size:28px;font-weight:900}
+.p-pause p{color:var(--ink-dim);font-size:17px}
 .pin-mini{font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px;color:var(--ink-dim);white-space:nowrap}
 .pin-mini b{color:var(--ink);letter-spacing:.08em}
 .stage{max-width:1280px;margin:0 auto;padding:8px 32px 28px;min-height:calc(100dvh - 76px);flex-direction:column}
@@ -223,8 +229,14 @@ body.host{font-size:18px}
     <img class="logo" src="assets/advot-logo.png" alt="אדוות">
     <div class="h-title en">MIND THE <i>GAP</i> · LIVE</div>
     <div class="route" id="route" aria-hidden="true"></div>
+    <div class="h-ctrl" id="hCtrl" hidden>
+      <button class="btn ghost" id="pauseBtn" type="button">עצירה</button>
+      <button class="btn ghost" id="endBtn" type="button">סיום המשחק</button>
+      <button class="btn ghost" id="restartBtn" type="button">התחלה מחדש</button>
+    </div>
     <div class="pin-mini" id="pinMini"></div>
   </header>
+  <div class="paused-tag" id="pausedTag" hidden>המשחק בהפסקה</div>
 
   <section class="screen stage" id="hLobby">
     <div class="lobby">
@@ -274,7 +286,7 @@ body.host{font-size:18px}
     <div class="board-h"><h2>הגענו ללונדון</h2><p>ואלה שהגיעו ראשונים</p></div>
     <div class="podium" id="podium"></div>
     <div class="rest" id="rest"></div>
-    <div class="h-foot"><button class="btn ghost" id="newGame2" type="button">משחק חדש</button><span></span></div>
+    <div class="h-foot"><button class="btn ghost" id="newGame2" type="button">משחק חדש עם קוד חדש</button><button class="btn" id="restart2" type="button">עוד סיבוב עם אותם משתתפים</button></div>
   </section>
 </div>
 
@@ -329,6 +341,7 @@ body.host{font-size:18px}
       <div class="center" id="endBox" style="justify-content:flex-start;padding-top:10px"></div>
     </section>
   </main>
+  <div class="p-pause" id="pPause" hidden><h2>הפסקה קצרה</h2><p>המשחק ימשיך מאותה נקודה בעוד רגע.</p></div>
   <div class="conn" id="conn" role="status">החיבור נקטע, מתחברים מחדש...</div>
 </div>
 
@@ -372,7 +385,7 @@ let H, outCh, inCh, tick, beat, sendTimer;
 
 function newHost(){
   const pin = String(1000 + Math.floor(Math.random() * 9000));
-  H = { pin, ph:'lobby', qi:-1, t0:0, players:{}, order:[], kick:[], ans:{}, res:{}, prev:{}, perm: QS.map(q => shuffle(q.o.map((_, i) => i))) };
+  H = { pin, gid: 1, ph:'lobby', qi:-1, t0:0, players:{}, order:[], kick:[], ans:{}, res:{}, prev:{}, perm: QS.map(q => shuffle(q.o.map((_, i) => i))) };
   saveHost();
 }
 function saveHost(){ store.set('advot-live-host', H); }
@@ -388,18 +401,26 @@ function startHost(){
   beat = setInterval(() => sendSnap(), 2500);
   document.addEventListener('keydown', e => {
     if (e.target.tagName === 'INPUT') return;
-    if (e.code === 'Space' || e.key === 'ArrowLeft' || e.key === 'Enter'){ e.preventDefault(); hostNext(); }
+    if (e.key === 'p' || e.key === 'P' || e.key === 'פ'){ togglePause(); return; }
+    if (e.code === 'Space' || e.key === 'ArrowLeft' || e.key === 'Enter'){ e.preventDefault(); if (!H.paused) hostNext(); }
   });
   $('#startBtn').onclick = () => goQuestion(0);
   $('#toBoard').onclick = () => setPh('board');
   $('#nextQ').onclick = hostNext;
+  $('#pauseBtn').onclick = togglePause;
+  $('#restartBtn').onclick = () => { if (confirm('לעצור ולהתחיל מההתחלה? המשתתפים נשארים בפנים, והניקוד מתאפס.')) restartGame(); };
+  $('#restart2').onclick = restartGame;
+  $('#endBtn').onclick = () => {
+    if (!confirm('לסיים את המשחק עכשיו ולהציג את המובילים?')) return;
+    endNow();
+  };
   $('#newGame').onclick = $('#newGame2').onclick = () => {
     if (H.order.length && !confirm('להתחיל משחק חדש? המשתתפים יצטרכו להיכנס מחדש עם קוד חדש.')) return;
     sendSnap({ ended: true });
     newHost(); connectHost(); render();
   };
   // resume a question that was running before a refresh
-  if (H.ph === 'ready' || H.ph === 'q') resumeQuestion();
+  if ((H.ph === 'ready' || H.ph === 'q') && !H.paused) resumeQuestion();
 }
 
 function connectHost(){
@@ -430,7 +451,7 @@ function onPlayerMsg(m){
     if (H.ph === 'lobby') renderLobby();
     queueSnap();
   } else if (m.k === 'ans'){
-    if (H.ph !== 'q' || m.qi !== H.qi || !H.players[m.pid] || H.ans[m.pid]) { queueSnap(); return; }
+    if (H.ph !== 'q' || H.paused || m.qi !== H.qi || !H.players[m.pid] || H.ans[m.pid]) { queueSnap(); return; }
     const c = m.c | 0;
     if (c < 0 || c > 3) return;
     const ms = Math.max(0, Math.min(LIMIT, Number(m.ms) || LIMIT));
@@ -446,13 +467,14 @@ function onPlayerMsg(m){
 function queueSnap(){ if (!sendTimer) sendTimer = setTimeout(() => { sendTimer = null; sendSnap(); }, 400); }
 
 function snapshot(extra){
-  const s = { k:'s', pin:H.pin, ph:H.ph, qi:H.qi, n:N, roster:H.order, kick:H.kick };
+  const s = { k:'s', pin:H.pin, gid:H.gid || 1, ph:H.ph, qi:H.qi, n:N, roster:H.order, kick:H.kick, pz: H.paused ? 1 : 0 };
+  const now = H.paused || Date.now();
   if (H.qi >= 0 && H.ph !== 'lobby'){
     const q = QS[H.qi], perm = H.perm[H.qi];
     s.q = { t: q.q, li: q.li };
     if (H.ph !== 'ready') s.q.o = perm.map(i => q.o[i]);
-    if (H.ph === 'ready') s.left = Math.max(0, READY - (Date.now() - H.t0));
-    if (H.ph === 'q'){ s.left = Math.max(0, LIMIT - (Date.now() - H.t0)); s.ans = Object.keys(H.ans); }
+    if (H.ph === 'ready') s.left = Math.max(0, READY - (now - H.t0));
+    if (H.ph === 'q'){ s.left = Math.max(0, LIMIT - (now - H.t0)); s.ans = Object.keys(H.ans); }
     if (H.ph === 'reveal' || H.ph === 'board' || H.ph === 'final'){ s.ca = perm.indexOf(q.a); s.r = H.res; }
   }
   return Object.assign(s, extra || {});
@@ -480,6 +502,35 @@ function resumeQuestion(){
   tick = setTimeout(H.ph === 'ready' ? openAnswers : reveal, left);
 }
 
+/* pause freezes the clock of the current question; ending jumps to the podium */
+function togglePause(){
+  if (H.ph !== 'ready' && H.ph !== 'q') return;
+  if (!H.paused){
+    clearTimeout(tick); H.paused = Date.now();
+  } else {
+    H.t0 += Date.now() - H.paused; H.paused = 0;
+    resumeQuestion();
+  }
+  saveHost(); render(); sendSnap();
+}
+/* same code and same players, scores back to zero, back to the lobby */
+function restartGame(){
+  clearTimeout(tick);
+  Object.values(H.players).forEach(p => { p.score = 0; p.ok = 0; });
+  Object.assign(H, { gid: (H.gid || 1) + 1, ph: 'lobby', qi: -1, t0: 0, paused: 0, ans: {}, res: {}, prev: {}, perm: QS.map(q => shuffle(q.o.map((_, i) => i))) });
+  saveHost(); render(); sendSnap();
+}
+function endNow(){
+  clearTimeout(tick); H.paused = 0;
+  if (H.ph === 'ready' || H.ph === 'q'){
+    // the open question doesn't count; keep scores from the questions already revealed
+    H.ans = {};
+  }
+  if (H.qi < 0) H.qi = 0;
+  H.res = {};
+  ranking().forEach((pid, i) => { H.res[pid] = [-1, 0, H.players[pid].score, i + 1, H.players[pid].ok]; });
+  setPh('final');
+}
 function ranking(){
   return H.order.slice().sort((a, b) => (H.players[b].score - H.players[a].score) || H.players[a].name.localeCompare(H.players[b].name, 'he'));
 }
@@ -524,6 +575,11 @@ function paintRoute(){
 }
 function render(){
   paintRoute();
+  $('#hCtrl').hidden = H.ph === 'lobby' || H.ph === 'final';
+  const canPause = H.ph === 'ready' || H.ph === 'q';
+  $('#pauseBtn').disabled = !canPause;
+  $('#pauseBtn').textContent = H.paused ? 'המשך' : 'עצירה';
+  $('#pausedTag').hidden = !H.paused;
   if (H.ph === 'lobby'){ show('hLobby'); renderLobby(); }
   else if (H.ph === 'ready' || H.ph === 'q' || H.ph === 'reveal') renderQ();
   else if (H.ph === 'board') renderBoard();
@@ -557,9 +613,9 @@ function renderQ(){
   $('#hqReady').hidden = !ready; $('#hqLive').hidden = ready;
   $('#hqFoot').hidden = H.ph !== 'reveal';
   if (ready){
-    const left = Math.max(0, READY - (Date.now() - H.t0));
+    const left = Math.max(0, READY - ((H.paused || Date.now()) - H.t0));
     const f = $('#readyFill'); f.style.transition = 'none'; f.style.width = (left / READY * 100) + '%';
-    requestAnimationFrame(() => requestAnimationFrame(() => { f.style.transition = `width ${left}ms linear`; f.style.width = '0%'; }));
+    if (!H.paused) requestAnimationFrame(() => requestAnimationFrame(() => { f.style.transition = `width ${left}ms linear`; f.style.width = '0%'; }));
     return;
   }
   const rev = H.ph === 'reveal', ca = perm.indexOf(q.a);
@@ -580,11 +636,11 @@ function runTimer(){
   cancelAnimationFrame(timerRaf);
   const step = () => {
     if (H.ph !== 'q') return;
-    const left = Math.max(0, LIMIT - (Date.now() - H.t0));
+    const left = Math.max(0, LIMIT - ((H.paused || Date.now()) - H.t0));
     $('#tNum').textContent = Math.ceil(left / 1000);
     $('#tFill').style.strokeDashoffset = 276.5 * (1 - left / LIMIT);
     $('#tFill').style.stroke = left < 5000 ? 'var(--bad)' : 'var(--blue)';
-    if (left > 0) timerRaf = requestAnimationFrame(step);
+    if (left > 0 || H.paused) timerRaf = requestAnimationFrame(step);
   };
   step();
 }
@@ -637,6 +693,7 @@ function confetti(){
    PLAYER
    ================================================================ */
 let P = store.get('advot-live-me') || {};
+let pausedNow = false;
 let pCh, last = null, lastAt = 0, myAns = {}, lastJoin = 0, lastAnsSend = 0, deadline = 0, pFillRaf, renderedKey = '', found = false;
 
 function startPlayer(){
@@ -697,6 +754,13 @@ function onSnap(s, pin){
   if (s.ended){ endedByHost(); return; }
   if (!P.name) return;
   if (s.kick && s.kick.includes(P.pid)){ kicked(); return; }
+  if (s.gid && P.gid !== s.gid){
+    if (P.gid){ myAns = {}; renderedKey = ''; deadline = 0; $('#pPts').textContent = '0'; }
+    P.gid = s.gid; store.set('advot-live-me', P);
+  }
+  const wasPaused = pausedNow; pausedNow = !!s.pz;
+  $('#pPause').hidden = !pausedNow;
+  if (wasPaused && !pausedNow) deadline = 0;
   const inRoster = s.roster.includes(P.pid);
   if (!inRoster && Date.now() - lastJoin > 1800) sendJoin();
   const mine = myAns[s.qi];
@@ -819,10 +883,12 @@ function runPFill(){
   cancelAnimationFrame(pFillRaf);
   const f = $('#pFill');
   const step = () => {
-    const left = Math.max(0, deadline - Date.now());
-    f.style.transform = `scaleX(${left / LIMIT})`;
-    f.style.background = left < 5000 ? 'var(--bad)' : 'var(--blue)';
-    if (left > 0 && $('#pQ').classList.contains('on')) pFillRaf = requestAnimationFrame(step);
+    if (!pausedNow && deadline){
+      const left = Math.max(0, deadline - Date.now());
+      f.style.transform = `scaleX(${left / LIMIT})`;
+      f.style.background = left < 5000 ? 'var(--bad)' : 'var(--blue)';
+    }
+    if ($('#pQ').classList.contains('on')) pFillRaf = requestAnimationFrame(step);
   };
   step();
 }
