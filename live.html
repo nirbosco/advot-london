@@ -417,6 +417,7 @@ function connectHost(){
 }
 
 function onPlayerMsg(m){
+  if (m && m.k === 'hello'){ sendSnap(); return; }
   if (!m || !m.pid) return;
   if (H.kick.includes(m.pid)) return;
   if (m.k === 'join'){
@@ -672,8 +673,12 @@ function tryPin(pin){
 function listen(pin){
   if (pCh) sb.removeChannel(pCh);
   pCh = sb.channel(topicOut(pin), { config: { broadcast: { self: false } } });
-  pCh.on('broadcast', { event: 'h' }, ({ payload }) => onSnap(payload, pin)).subscribe();
-  pCh._pin = pin;
+  // a new phone asks for the current state instead of waiting for the next heartbeat
+  const hello = () => postTo(pin, { k: 'hello' });
+  pCh.on('broadcast', { event: 'h' }, ({ payload }) => onSnap(payload, pin)).subscribe(st => {
+    if (st !== 'SUBSCRIBED') return;
+    hello(); setTimeout(() => { if (!last || last.pin !== pin) hello(); }, 2000);
+  });
 }
 function ensureChannel(force){
   if (!P.pin) return;
@@ -699,13 +704,14 @@ function onSnap(s, pin){
   renderPlayer(s, inRoster);
 }
 
-async function post(payload){
+function post(payload){ return postTo(P.pin, payload); }
+async function postTo(pin, payload){
   // phones never join the host's inbox channel; they post to it over HTTP so 35 answers don't fan out to everyone
   try {
     await fetch(`${SB_URL}/realtime/v1/api/broadcast`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', apikey: SB_KEY, Authorization: `Bearer ${SB_KEY}` },
-      body: JSON.stringify({ messages: [{ topic: topicIn(P.pin), event: 'p', payload }] })
+      body: JSON.stringify({ messages: [{ topic: topicIn(pin), event: 'p', payload }] })
     });
   } catch(e){}
 }
@@ -722,6 +728,7 @@ function buildPicker(){
   $('#nameIn').addEventListener('input', check);
 }
 function joinGame(){
+  if (!P.pin) return;
   P.name = $('#nameIn').value.trim().slice(0, 16);
   if (!P.name || !P.av) return;
   store.set('advot-live-me', P);
