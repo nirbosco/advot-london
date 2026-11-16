@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>כולם מתקדמים יחד, ולעומק: הוראה לשליטה ברשת Ark · אדוות לונדון 2026</title>
+<meta name="description" content="מאמר קצר לקראת הביקור ב-EdCity: מאיפה בא הרעיון של הוראה לשליטה, איך רשת Ark מיישמת אותו, ואיך הוא מתחבר לשאלה איך מעריכים ומודדים.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="כולם מתקדמים יחד, ולעומק: הוראה לשליטה ברשת Ark">
+<meta property="og:description" content="מאמר קצר לקראת הביקור ב-EdCity, משלחת אדוות ללונדון 2026.">
+<meta property="og:image" content="https://london.hotam.tech/assets/advot-logo.png">
+<meta property="og:url" content="https://london.hotam.tech/ark-mastery.html">
+<link rel="icon" type="image/png" href="assets/advot-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* tokens: copied from index.html :root (index is the source of truth) */
+:root{
+  --blue:#0048FF;--blue-deep:#3B5DEC;--blue-mid:#2680F1;--sky:#0DB4F4;--teal:#41CAC5;--purple:#6536EA;
+  --white:#FEFEFE;--soft:#F3F6FF;--ink:#0B1440;--ink-dim:#4A5580;--line:#DCE3F5;
+  --shadow-sm:0 1px 3px rgba(11,20,64,.08);--shadow-md:0 6px 20px rgba(11,20,64,.10);--shadow-lg:0 16px 40px rgba(11,20,64,.14);
+  --shadow-brand:0 10px 28px rgba(0,72,255,.30);
+  --grad:linear-gradient(105deg,#41CAC5 0%,#0DB4F4 22%,#2680F1 45%,#3B5DEC 66%,#6536EA 85%,#0048FF 100%);
+  --ease:cubic-bezier(0.22,1,0.36,1);--r-card:16px;--r-btn:10px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+html,body{overflow-x:clip}
+body{font-family:'Heebo',sans-serif;color:var(--ink);background:var(--white);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--blue);text-decoration:none}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.container{max-width:980px;margin:0 auto;padding:0 24px}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+bdi{font-family:'Montserrat','Heebo',sans-serif;font-size:.94em;white-space:nowrap}
+::selection{background:rgba(0,72,255,.16);color:var(--ink)}
+.math{font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.x-ico{display:inline-block;width:.8em;height:.8em;margin-inline-start:.25em;vertical-align:-.05em;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
+/* header */
+body>header{position:sticky;top:0;z-index:100;background:rgba(254,254,254,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.brand img{height:34px;width:auto}
+.back{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;color:var(--blue);background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:5px 16px;min-height:36px;white-space:nowrap}
+.back:hover{background:var(--line)}
+.back svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
+/* hero */
+.art-hero{position:relative;overflow:hidden;background:linear-gradient(rgba(11,20,64,.22),rgba(11,20,64,.22)),var(--grad);color:var(--white);padding:56px 0 64px}
+.art-hero .rip{position:absolute;left:-120px;top:-60px;width:520px;opacity:.18;pointer-events:none}
+.hero-inner{position:relative;z-index:1;max-width:760px}
+.kicker{display:inline-block;font-size:13.5px;font-weight:700;letter-spacing:.02em;background:rgba(254,254,254,.14);border:1px solid rgba(254,254,254,.35);border-radius:999px;padding:4px 15px;margin-bottom:16px}
+.art-hero h1{font-size:clamp(30px,5.4vw,48px);font-weight:800;line-height:1.15;margin-bottom:14px;text-wrap:balance}
+.art-meta{font-size:16px;color:rgba(254,254,254,.9)}
+.art-meta bdi{font-size:1em}
+.nw{white-space:nowrap}
+
+/* layout */
+.art-wrap{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:56px;padding-top:48px;padding-bottom:80px;align-items:start}
+.toc{position:sticky;top:96px;grid-column:2;grid-row:1;font-size:14px}
+.toc-h{font-size:12.5px;font-weight:700;color:var(--ink-dim);letter-spacing:.04em;margin-bottom:10px}
+.toc ol{list-style:none;border-inline-start:2px solid var(--line)}
+.toc a{display:block;padding:6px 14px;margin-inline-start:-2px;border-inline-start:2px solid transparent;color:var(--ink-dim);line-height:1.4}
+.toc a:hover{color:var(--blue)}
+.toc a.is-on{color:var(--blue);border-inline-start-color:var(--blue);font-weight:700}
+article{grid-column:1;grid-row:1;max-width:680px}
+
+/* type */
+.en-note{display:none;direction:ltr;text-align:left;font-family:'Montserrat',sans-serif;font-size:14px;background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin-bottom:28px}
+html.lang-en .en-note{display:block}
+.art-sec{scroll-margin-top:84px}
+.art-sec + .art-sec{margin-top:52px}
+article h2{font-size:clamp(23px,2.6vw,29px);font-weight:800;line-height:1.3;margin-bottom:16px;padding-top:4px}
+article h2::before{content:"";display:block;width:36px;height:4px;border-radius:2px;background:linear-gradient(90deg,var(--sky),var(--blue));margin-bottom:14px}
+article p{font-size:17.5px;line-height:1.85;margin-bottom:18px}
+article p a,.read-list a,.q-list a{text-decoration:underline;text-decoration-color:rgba(0,72,255,.35);text-underline-offset:3px;text-decoration-thickness:1.5px}
+article p a:hover,.read-list a:hover,.q-list a:hover{text-decoration-color:var(--blue)}
+article ul{padding-inline-start:22px;margin-bottom:18px;font-size:17px}
+.sub-h{font-size:18px;font-weight:800;margin:28px 0 14px}
+
+/* bar model */
+.bar-fig{margin:6px 0 26px;background:var(--soft);border:1px solid var(--line);border-radius:var(--r-card);padding:22px 22px 16px}
+.bar-fig svg{width:100%;max-width:460px;height:auto;margin:0 auto;display:block}
+.bar-fig figcaption{font-size:14.5px;color:var(--ink-dim);margin-top:10px;line-height:1.6}
+
+/* questions */
+.q-list{list-style:none;display:grid;gap:10px;margin:4px 0 8px}
+.q-list li{display:flex;gap:14px;align-items:flex-start;background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:14px 18px;font-size:16.5px;line-height:1.65}
+.q-n{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--white);border:2px solid var(--blue);color:var(--blue);font-family:'Montserrat',sans-serif;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:1px}
+
+/* videos */
+.vid-grid{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;font-size:15px}
+.vid-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column}
+.yt-frame{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--ink)}
+.yt-facade,.yt-frame img,.yt-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.yt-frame img{object-fit:cover}
+.yt-facade:focus-visible{outline:3px solid var(--white);outline-offset:-6px;box-shadow:inset 0 0 0 6px var(--blue)}
+.yt-scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(11,20,64,.45) 0%,rgba(11,20,64,0) 60%)}
+.yt-play{position:absolute;top:50%;left:50%;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;background:var(--blue);box-shadow:0 6px 16px rgba(11,20,64,.35);display:flex;align-items:center;justify-content:center;transition:transform .2s var(--ease)}
+.yt-play svg{width:22px;height:22px;fill:var(--white);margin-left:3px}
+.yt-facade:hover .yt-play{transform:scale(1.06)}
+.vid-body,.vid-out{display:flex;flex-direction:column;gap:4px;padding:14px 16px 16px}
+.vid-out{height:100%;color:var(--ink)}
+.vid-out:hover b{color:var(--blue)}
+.vid-link{background:var(--soft)}
+.vid-out{padding:0;gap:0}
+.vid-panel{position:relative;display:flex;align-items:center;justify-content:center;aspect-ratio:16/9;overflow:hidden;background:linear-gradient(rgba(11,20,64,.22),rgba(11,20,64,.22)),var(--grad);color:var(--white);font-family:'Montserrat',sans-serif;font-weight:800;font-size:26px;letter-spacing:.04em}
+.vid-panel img{position:absolute;width:140%;max-width:none;opacity:.22;left:-20%;top:-30%;pointer-events:none}
+.vid-panel span{position:relative}
+.vid-tag{font-size:12.5px;font-weight:700;color:var(--blue)}
+.vid-card b{font-size:15.5px;line-height:1.4}
+.vid-note{font-size:14px;color:var(--ink-dim);line-height:1.5}
+.yt-hint{font-size:14px!important;color:var(--ink-dim);margin:-6px 0 14px!important;line-height:1.5!important}
+.read-list{list-style:none;padding:0;font-size:16px}
+.read-list li{padding:10px 0;border-bottom:1px solid var(--line);line-height:1.6}
+.read-list li:last-child{border-bottom:0}
+
+.art-end{margin-top:48px;padding-top:24px;border-top:1px solid var(--line);display:flex;gap:12px;flex-wrap:wrap}
+.btn-line{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:var(--r-btn);border:1.5px solid var(--blue);background:var(--white);color:var(--blue);font-size:15px;font-weight:700}
+.btn-line:hover{background:var(--soft)}
+.btn-solid{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border-radius:var(--r-btn);background:var(--blue);color:var(--white);font-size:15px;font-weight:700;transition:filter .2s var(--ease)}
+.btn-solid:hover{filter:brightness(.92)}
+.toc-fab{display:none}
+
+/* footer */
+footer{background:var(--ink);color:var(--white);padding:48px 0 36px;position:relative;overflow:hidden}
+footer .ripples-f{position:absolute;left:-130px;top:-60px;width:420px;opacity:.07;transform:rotate(12deg);pointer-events:none}
+.f-inner{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:24px 32px;flex-wrap:wrap}
+.f-brand{display:flex;align-items:center;gap:22px}
+.f-brand img{height:52px;width:auto}
+.f-brand .sep{width:1px;height:36px;background:rgba(254,254,254,.25)}
+.f-text{font-size:14px;color:rgba(254,254,254,.75);line-height:1.9}
+.f-link{font-size:14px;font-weight:700;color:var(--white);border-bottom:1px solid rgba(254,254,254,.45);padding-bottom:1px}
+footer :focus-visible{outline-color:var(--white)}
+
+@media (max-width:940px){
+  .art-wrap{grid-template-columns:minmax(0,1fr);gap:0;padding-top:28px}
+  .toc{position:static;grid-column:1;grid-row:1;margin-bottom:32px;background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .toc ol{border:0}
+  .toc a{padding:11px 0;border:0;margin:0;min-height:44px}
+  .toc li + li a{border-top:1px solid var(--line)}
+  .toc-fab{display:inline-flex;align-items:center;gap:6px;position:fixed;inset-inline-end:16px;bottom:16px;z-index:90;min-height:44px;padding:0 18px;border-radius:999px;background:var(--blue);color:var(--white);font-size:14.5px;font-weight:700;box-shadow:0 6px 18px rgba(11,20,64,.22);opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .25s var(--ease),transform .25s var(--ease)}
+  .toc-fab.is-on{opacity:1;transform:none;pointer-events:auto}
+  .toc-fab svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+  .toc a.is-on{border:0}
+  article{grid-row:2}
+}
+@media (max-width:600px){
+  .container{padding:0 16px}
+  .art-hero{padding:36px 0 40px}
+  article p{font-size:17px}
+  .vid-grid{grid-template-columns:minmax(0,1fr)}
+  .bar-fig{padding:16px 12px 12px}
+  .back-txt{display:none}
+  .art-end a{flex:1 1 100%;justify-content:center}
+  .f-brand{gap:14px}
+  .f-brand img{height:42px}
+}
+@media print{
+  body>header,.art-hero .rip,.toc,.toc-fab,.vid-grid,.yt-hint,.art-end,footer{display:none!important}
+  .art-hero{background:none;color:var(--ink);padding:0 0 12px}
+  .art-meta{color:var(--ink-dim)}
+  .art-wrap{display:block;padding:0}
+  article p{font-size:12pt}
+  a{color:var(--ink)}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .yt-play,.toc-fab{transition:none}
+  .yt-facade:hover .yt-play{transform:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav-inner">
+    <a class="brand" href="index.html"><img src="assets/advot-logo.png" alt="אדוות · מנהיגות מחוללת שינוי" width="102" height="34"></a>
+    <a class="back" href="learn.html#library" aria-label="חזרה לספרייה במרכז הלמידה"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span class="back-txt">חזרה לספרייה</span></a>
+  </div>
+</header>
+
+<section class="art-hero">
+  <img class="rip" src="assets/ripples-white.png" alt="">
+  <div class="container"><div class="hero-inner">
+    <h1>כולם מתקדמים יחד, ולעומק: הוראה לשליטה ברשת <bdi>Ark</bdi></h1>
+    <p class="art-meta">משלחת אדוות · קריאה לקראת הביקור ב-<bdi>EdCity</bdi>, יום שלישי 24.11 <span class="nw">· כ-12 דקות קריאה</span></p>
+  </div></div>
+</section>
+
+<main class="container art-wrap">
+  <nav class="toc" id="toc" aria-labelledby="toc-h">
+    <div class="toc-h" id="toc-h">בעמוד הזה</div>
+    <ol><li><a href="#s1">מאיפה זה בא: בלום וההנחה שכל ילד יכול</a></li><li><a href="#s2">הגרסה האנגלית: כל הכיתה באותו קצב</a></li><li><a href="#s3">הרשת: <bdi>Ark</bdi></a></li><li><a href="#s4">איך זה נראה בכיתה</a></li><li><a href="#s5">מה המחקר מצא</a></li><li><a href="#s6">מה מודדים, ובשביל מי</a></li><li><a href="#s7">מה כדאי לחפש ב-<bdi>EdCity</bdi></a></li><li><a href="#s8">לצפייה ולקריאה</a></li></ol>
+  </nav>
+  <article>
+    <p class="en-note" lang="en">This article is available in Hebrew only. The sources and videos it links to are in English.</p>
+<p>ביום שלישי בבוקר נגיע ל-<bdi>EdCity</bdi> שבמערב לונדון. זה מתחם חינוכי חדש שהקימה רשת <bdi>Ark</bdi> יחד עם הרובע המקומי, ובו יושבים מטה הרשת, בית ספר יסודי ועוד ארגוני חינוך. הרשת ידועה, בלונדון ומחוצה לה, בהוראה לשליטה (<bdi>Mastery</bdi>). את התוכנית שלה למתמטיקה מלמדים היום במאות בתי ספר באנגליה, והיא הייתה מהראשונות שהביאו את הגישה הזאת לבתי ספר אנגליים. המאמר הקצר הזה מסביר מאיפה הרעיון בא, איך <bdi>Ark</bdi> פירשה אותו ואיך הוא מתחבר לשאלה שליוותה אותנו במודול 3: איך מעריכים ומודדים, ובשביל מי.</p>
+<section class="art-sec" id="s1" aria-labelledby="s1-h"><h2 id="s1-h">מאיפה זה בא: בלום וההנחה שכל ילד יכול</h2>
+<p>בשנת 1968 פרסם הפסיכולוג החינוכי בנג'מין בלום מאמר קצר בשם <a href="https://eric.ed.gov/?id=ED053419" target="_blank" rel="noopener"><bdi>Learning for Mastery</bdi>&#8288;<span class="sr-only">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>. הוא נשען על רעיון של ג'ון קרול: ההבדל בין תלמידים הוא בעיקר בזמן שהם צריכים כדי ללמוד, ופחות ביכולת שלהם ללמוד. בכיתה רגילה הזמן קבוע והציונים מתפזרים. בלום הציע להפוך את זה: לקבוע רף אחד לכולם, ולשנות את הזמן ואת התמיכה לפי הצורך.</p>
+<p>בפועל זה נראה כך. מחלקים את החומר ליחידות קטנות עם מטרה ברורה. בסוף כל יחידה יש בדיקה קצרה שלא נכנסת לציון. מי שעבר את הרף (בדרך כלל כ-80%) מקבל העשרה, ומי שלא עבר מקבל הסבר נוסף בדרך אחרת ונבחן שוב. רק אחר כך ממשיכים.</p>
+<p>בשנת 1984 בלום פרסם את המאמר המפורסם שלו, <a href="https://journals.sagepub.com/doi/10.3102/0013189X013006004" target="_blank" rel="noopener"><bdi>The 2 Sigma Problem</bdi>&#8288;<span class="sr-only">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>. הוא דיווח שתלמידים שלמדו אחד על אחד עם מורה פרטי הגיעו להישגים גבוהים בשתי סטיות תקן מכיתה רגילה, ושלמידה לשליטה בכיתה הביאה בערך לחצי מזה. השאלה שהשאיר פתוחה מלווה את התחום מאז: איך מתקרבים להשפעה של מורה פרטי כשיש בכיתה שלושים ילדים.</p>
+<p>הממצאים מאז לא חד-משמעיים. סקירות מוקדמות מצאו השפעה חיובית, בעיקר אצל תלמידים חלשים. רוברט סלווין (<a href="https://www.gwern.net/doc/psychology/1987-slavin.pdf" target="_blank" rel="noopener">1987&#8288;<span class="sr-only">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>) הראה שכשמודדים במבחנים סטנדרטיים, ההשפעה קטנה הרבה יותר. ה-<bdi>EEF</bdi>, הגוף הבריטי שמרכז ראיות על הוראה, מעריך בארגז הכלים שלו ש<a href="https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/mastery-learning" target="_blank" rel="noopener">למידה לשליטה&#8288;<span class="sr-only">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a> מוסיפה בממוצע כחמישה חודשי התקדמות (מדד של ה-<bdi>EEF</bdi>: בסוף השנה התלמידים נמצאים במקום שאליו היו מגיעים, בלי התוכנית, רק אחרי עוד כחמישה חודשי לימוד), ומזהיר שקשה ליישם אותה נכון ושהתוצאות משתנות מאוד בין תוכניות.</p>
+</section>
+<section class="art-sec" id="s2" aria-labelledby="s2-h"><h2 id="s2-h">הגרסה האנגלית: כל הכיתה באותו קצב</h2>
+<p>כשאומרים "מאסטרי" בבתי ספר באנגליה, בדרך כלל מתכוונים למשהו קצת אחר ממה שבלום תיאר. כדי להבחין ביניהם, במאמר הזה "למידה לשליטה" היא השיטה של בלום, ו"הוראה לשליטה" (<bdi>Teaching for Mastery</bdi>) היא הגרסה האנגלית. הגרסה האנגלית צמחה בהשראת שנגחאי וסינגפור, שמובילות את מבחני <bdi>PISA</bdi> במתמטיקה. משרד החינוך הבריטי מימן מ-2014 <a href="https://www.ncetm.org.uk/features/england-china-teacher-exchange-201617-seeing-shanghai-teaching-at-first-hand/" target="_blank" rel="noopener">חילופי מורים עם שנגחאי&#8288;<span class="sr-only">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>, והמרכז הלאומי להוראת מתמטיקה (<bdi>NCETM</bdi>) ניסח את הגישה בחמישה רעיונות מרכזיים: "רצף", "ייצוג ומבנה", "שטף", "וריאציה" ו"חשיבה מתמטית" (<a href="https://ncetm.org.uk/teaching-for-mastery/mastery-explained/five-big-ideas-in-teaching-for-mastery/" target="_blank" rel="noopener">חמשת הרעיונות, עם סרטוני הסבר קצרים&#8288;<span class="sr-only">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>).</p>
+<p>ההבדל המרכזי נוגע לקצב. אצל בלום, ובמודלים דיגיטליים כמו קאן אקדמי (<bdi>Khan Academy</bdi>), כל תלמיד מתקדם לפי הקצב שלו. בגרסה האנגלית כמעט כל הכיתה לומדת את אותו נושא באותו זמן. מי שהבין מהר נשאר באותו נושא ומעמיק בו עם בעיות מורכבות יותר, במקום לרוץ לחומר של השנה הבאה. מי שמתקשה מקבל עזרה באותו יום, כדי שלא יישאר מאחור. ההנחה היא שכל הילדים יכולים ללמוד את מה שמצופה מבני גילם, ושהפער נפתח כשמחלקים אותם מוקדם מדי לקבוצות לפי רמה.</p>
+</section>
+<section class="art-sec" id="s3" aria-labelledby="s3-h"><h2 id="s3-h">הרשת: <bdi>Ark</bdi></h2>
+<p><bdi>Ark</bdi> היא עמותה בריטית שהתחילה לפתוח אקדמיות (בתי ספר ציבוריים במימון המדינה ובניהול עצמאי) באמצע שנות האלפיים, בעיקר באזורים מוחלשים. לפי <a href="https://arkonline.org/wp-content/uploads/Ark-Annual-Report-and-Accounts-2025.pdf" target="_blank" rel="noopener">הדוח השנתי של 2025&#8288;<span class="sr-only">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>, ברשת <bdi>Ark Schools</bdi> יש 39 בתי ספר וכ-30,000 תלמידים בלונדון, בברמינגהם, בפורטסמות' ובהייסטינגס. במודול 2 של תוכנית ההכנה קראנו את <a href="learn.html#m2-ark">מסגרת קבלת ההחלטות של הרשת</a>, שמסבירה איך האחריות מתחלקת בין הדירקטוריון, המטה, המנהלים האזוריים ומנהלי בתי הספר. תוכנית לימודים משותפת היא אחד הכלים שבעזרתם רשת כזאת שומרת על איכות אחידה.</p>
+<p>תוכנית <a href="https://www.arkcurriculumplus.org.uk/programmes/primary-programmes/mathematics-mastery/" target="_blank" rel="noopener"><bdi>Mathematics Mastery</bdi>&#8288;<span class="sr-only">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a> נולדה בתוך <bdi>Ark</bdi> בשנת 2012, בהובלת ד"ר הלן דרורי. בהתחלה היא נבנתה לבתי הספר של הרשת עצמה, ומהר מאוד נפתחה גם לבתי ספר אחרים. היום היא חלק מ-<a href="https://arkonline.org/programme/ark-curriculum-plus/" target="_blank" rel="noopener"><bdi>Ark Curriculum Plus</bdi>&#8288;<span class="sr-only">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>, זרוע ללא מטרות רווח שמפתחת תוכניות לימודים גם לאנגלית, למדעים ולגאוגרפיה. לפי הארגון, יותר מ-1,000 בתי ספר נעזרו בתוכניות שלו.</p>
+</section>
+<section class="art-sec" id="s4" aria-labelledby="s4-h"><h2 id="s4-h">איך זה נראה בכיתה</h2>
+<p>בדוח ההערכה של ה-<bdi>EEF</bdi> מופיעה דוגמה טובה. שואלים את הילדים: סכומם של שלושה מספרים עוקבים הוא 42, מה הם? הרבה ילדים ינסו בניסוי וטעייה. בכיתה של <bdi>Mathematics Mastery</bdi> התלמידים מציירים שלושה פסים שווים, ומוסיפים 1 לפס השני ו-2 לפס השלישי. כשמורידים את התוספות נשארים 39, שמתחלקים לשלושה פסים של 13. המספרים הם 13, 14 ו-15. הכלי הזה, מודל הפסים, נלמד כבר בגיל שש או שבע, והוא נשען על מה שהילדים פגשו בשנה הראשונה שלהם בבית הספר: אם <bdi dir="ltr" class="math">7 = 5 + 2</bdi>, אז גם <bdi dir="ltr" class="math">5 = 7 - 2</bdi>.</p>
+
+<figure class="bar-fig" aria-labelledby="barcap">
+  <svg viewBox="0 0 520 210" role="img" aria-label="שלושה פסים שווים זה מתחת לזה. לפס השני נוסף מקטע קטן של 1 ולשלישי מקטע של 2. סוגר מסמן שהכול יחד הוא 42." direction="ltr">
+    <g font-family="Montserrat, Heebo, sans-serif" font-weight="700">
+      <rect x="40" y="20" width="300" height="44" rx="8" fill="#F3F6FF" stroke="#0048FF" stroke-width="2"/>
+      <text x="190" y="49" text-anchor="middle" font-size="20" fill="#0048FF">13</text>
+      <rect x="40" y="80" width="300" height="44" rx="8" fill="#F3F6FF" stroke="#0048FF" stroke-width="2"/>
+      <text x="190" y="109" text-anchor="middle" font-size="20" fill="#0048FF">13</text>
+      <rect x="344" y="80" width="34" height="44" rx="8" fill="#41CAC5"/>
+      <text x="361" y="109" text-anchor="middle" font-size="18" fill="#0B1440">1</text>
+      <rect x="40" y="140" width="300" height="44" rx="8" fill="#F3F6FF" stroke="#0048FF" stroke-width="2"/>
+      <text x="190" y="169" text-anchor="middle" font-size="20" fill="#0048FF">13</text>
+      <rect x="344" y="140" width="72" height="44" rx="8" fill="#41CAC5"/>
+      <text x="380" y="169" text-anchor="middle" font-size="18" fill="#0B1440">2</text>
+      <path d="M438 20 q14 0 14 14 v52 q0 16 14 16 q-14 0 -14 16 v52 q0 14 -14 14" fill="none" stroke="#0B1440" stroke-width="2.2" stroke-linecap="round"/>
+      <text x="476" y="109" font-size="24" fill="#0B1440">42</text>
+    </g>
+  </svg>
+  <figcaption id="barcap">מודל הפסים: שלושה פסים שווים, ועוד 1 ועוד 2. כשמורידים את התוספות נשארים 39, כלומר 13 בכל פס. המספרים הם 13, 14 ו-15.</figcaption>
+</figure>
+<p>הדוגמה מראה כמה עקרונות שחוזרים בתוכנית. מלמדים פחות נושאים בכל שנה, ונותנים לכל נושא יותר זמן. עוברים מחפצים מוחשיים לציור ורק אחר כך לסימנים מופשטים. מקפידים על שפה מתמטית מדויקת, ומבקשים מהילדים להסביר במילים מה הם עשו. ובונים את החומר כך שכל שנה נשענת על הקודמת.</p>
+<p>נוסף על השיעור עצמו יש "מפגש מתמטיקה" (<bdi>Maths Meeting</bdi>), תרגול קצר וקבוע שבו הילדים חוזרים על מה שכבר למדו ומיישמים אותו. בסרטון של <bdi>Ark Curriculum Plus</bdi> אפשר לראות <a href="https://www.youtube.com/watch?v=A-YB4rgiZSk" target="_blank" rel="noopener">איך זה נראה בכיתות של בתי ספר שותפים&#8288;<span class="sr-only">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>. לתלמידים שמתקשים יש תוכנית תגבור בשם <a href="https://www.arkcurriculumplus.org.uk/programmes/primary-programmes/mathematics-mastery/ready-to-progress/" target="_blank" rel="noopener"><bdi>Ready to Progress</bdi>&#8288;<span class="sr-only">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>, עם יותר מ-140 סרטונים קצרים לעבודה אישית או בקבוצה קטנה. המורים לא כותבים כל שיעור מאפס: הם מקבלים מערכי שיעור מוכנים ומתאימים אותם לכיתה שלהם, ונפגשים עם מורים מבתי ספר אחרים שמלמדים את אותה תוכנית.</p>
+</section>
+<section class="art-sec" id="s5" aria-labelledby="s5-h"><h2 id="s5-h">מה המחקר מצא</h2>
+<p>התוכנית נבדקה בשני ניסויים מבוקרים גדולים שמימן ה-<bdi>EEF</bdi>: אחד בשנה הראשונה של בית הספר היסודי (<bdi>Year 1</bdi>, גילאי 5 עד 6) ואחד בשנה הראשונה של העל-יסודי (<bdi>Year 7</bdi>, גילאי 11 עד 12). החוקרים ג'ון ג'רים ואנה ויניולס מצאו ב<a href="https://dera.ioe.ac.uk/29369/1/EEF_Project_Report_MathematicsMasteryPrimary.pdf" target="_blank" rel="noopener">ניסוי ביסודי&#8288;<span class="sr-only">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a> (83 בתי ספר, 2015) שתלמידי התוכנית התקדמו מעט יותר, בהיקף של כחודשיים, אבל ההבדל לא היה מובהק סטטיסטית. גם ב-<bdi>Year 7</bdi> נמדד שיפור קטן ולא מובהק. כשמנתחים את שני הניסויים יחד, ההשפעה הכוללת עברה בקושי את סף המובהקות, והיא קטנה, בערך חודש התקדמות (<a href="https://schoolsweek.co.uk/?p=6375" target="_blank" rel="noopener">ניתוח של <bdi>Schools Week</bdi>&#8288;<span class="sr-only">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>). מצד שני, העלות נמוכה: כ-131 ליש"ט לתלמיד בשנה הראשונה. מעקב מאוחר יותר של <a href="https://ffteducationdatalab.org.uk/wp-content/uploads/2019/10/Mathematics_Mastery_report.pdf" target="_blank" rel="noopener"><bdi>FFT Education Datalab</bdi>&#8288;<span class="sr-only">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a> מצא השפעה חיובית על מספר התלמידים שהגיעו לרמה הגבוהה במבחנים הארציים של גיל שבע, אבל החוקרים עצמם ממליצים להתייחס לממצא בזהירות.</p>
+<p>ניסוי גדול של <a href="https://dera.ioe.ac.uk/id/eprint/41150/1/English-Mastery-Final.pdf" target="_blank" rel="noopener"><bdi>English Mastery</bdi>&#8288;<span class="sr-only">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>, תוכנית האנגלית של הרשת, התחיל ב-2019 ב-97 בתי ספר. בגלל הקורונה לא נערכו מבחני הסיום, ולכן אין ממצא על הישגים. ובכל זאת נאספו נתונים מעניינים מהמורים: 80% מהם אמרו שהתוכנית חסכה להם זמן בתכנון ובבדיקה, וחלק מהמורים הוותיקים אמרו שהיא מכתיבה יותר מדי ומשאירה להם פחות מקום ליצירתיות.</p>
+<p>בשורה התחתונה, התוכנית לא מחוללת קפיצה דרמטית בציונים, אבל היא זולה, אפשר להפעיל אותה בהרבה בתי ספר, והיא מספקת למורים מסגרת משותפת ושפה משותפת. ולרשת של עשרות בתי ספר יש לכך ערך רב.</p>
+</section>
+<section class="art-sec" id="s6" aria-labelledby="s6-h"><h2 id="s6-h">מה מודדים, ובשביל מי</h2>
+<p>במודול 3 ראינו איך אנגליה מעריכה את בתי הספר שלה מבחוץ. יש מבחנים ארציים בגיל 6, 9, 11 ו-16, התוצאות מתפרסמות לפי בית ספר, מדד <bdi>Progress 8</bdi> משווה את ההתקדמות של התלמידים להתקדמות של תלמידים דומים בכל המדינה (המדד הושעה זמנית בשנתיים האחרונות, בגלל השיבוש של תקופת הקורונה), ו-<bdi>Ofsted</bdi> מגיע לביקורת אחת לכמה שנים. ההערכה הזאת נועדה לתת דין וחשבון להורים, לציבור ולמדינה, ורוב הזמן היא מגיעה פעם בשנה או לעיתים רחוקות יותר.</p>
+<p>למידה לשליטה נשענת על הערכה מסוג אחר. בלום היה מהראשונים שדיברו על "הערכה מעצבת" (<bdi>formative assessment</bdi>) בלמידה של תלמידים: בדיקה קצרה ותכופה שלא נכנסת לציון, ותפקידה לתת משוב ותיקון בכל שלב של הלמידה. בלי הבדיקה הזאת אי אפשר לעבוד בשיטה, כי אין דרך לדעת מי מוכן להמשיך ומי צריך עוד זמן.</p>
+<p>שתי ההערכות עונות על שאלות שונות. המבחן הארצי שואל איפה בית הספר עומד ביחס לאחרים. הבדיקה בכיתה שואלת מה הילד הזה צריך מחר בבוקר. אנגליה מתמודדת כבר יותר מעשור עם השאלה איך לחבר ביניהן.</p>
+<p>עד אמצע העשור הקודם העריכו שם את כל התלמידים לפי "רמות" של תוכנית הלימודים הלאומית (<bdi>Level 3</bdi>, <bdi>Level 4</bdi> וכן הלאה). בתי הספר השתמשו ברמות גם בתוך הכיתה, כמה פעמים בשנה, כדי לעקוב אחרי ההתקדמות. ועדה ממשלתית בראשות ג'ון מקינטוש (<a href="https://www.gov.uk/government/publications/commission-on-assessment-without-levels-final-report" target="_blank" rel="noopener">הדוח הסופי, 2015&#8288;<span class="sr-only">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>) קבעה שלרמות הייתה השפעה שלילית עמוקה על ההוראה. הילדים קיבלו תווית, וההוראה התמקדה בהעברת ילדים מעל הסף של הרמה הבאה. הרמות בוטלו, והוועדה המליצה לבתי הספר לבנות את ההערכה החדשה סביב מטרה אחת: שליטה לכולם. כל רשת וכל בית ספר נדרשו לבנות שיטה משלהם.</p>
+<p>כאן נכנסת <bdi>Ark</bdi> לסיפור, דרך מישהי שנפגוש באותו יום אחר הצהריים. דייזי כריסטודולו הייתה ראש תחום ההערכה של הרשת בדיוק בשנים האלה, ועבדה על מה שיבוא במקום הרמות. בספר שלה <a href="https://arkonline.org/news/making-good-progress-daisy-christodoulou-launches-new-book" target="_blank" rel="noopener"><bdi>Making Good Progress</bdi>?&#8288;<span class="sr-only">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a> (2017) היא טוענת שבדיקה בכיתה ומבחן מסכם צריכים להיבנות אחרת. הבדיקה בכיתה צריכה להיות קטנה, תכופה וממוקדת. המבחן המסכם צריך לכסות הרבה חומר, להיערך בתנאים אחידים ולתת ציון שאפשר להשוות. מי שמנסה להשתמש באותו כלי לשתי המטרות פוגע בשתיהן. היא גם מתחה ביקורת על "הערכה לשם למידה" (<bdi>Assessment for Learning</bdi>), הגישה שהתפשטה באנגליה בעקבות <a href="https://teacherhead.com/2021/09/26/inside-the-black-box-classic-education-gold-from-wiliam-and-black/" target="_blank" rel="noopener">המחקר של פול בלק ודילן ויליאם&#8288;<span class="sr-only">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a> מ-1998. לדבריה הרעיון עצמו טוב, אבל הוא נשען על הבנה שגויה של איך ילדים לומדים, ולכן לא הביא את השינוי שקיוו לו.</p>
+<p>אפשר לראות את הרעיונות האלה בתוכניות של <bdi>Ark</bdi>. ב-<bdi>Mathematics Mastery</bdi> יש, לפי <a href="https://www.arkcurriculumplus.org.uk/programmes/primary-programmes/mathematics-mastery/" target="_blank" rel="noopener">תיאור התוכנית&#8288;<span class="sr-only">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>, בדיקות מעצבות בכל שיעור ובכל יחידה, ולצידן מבחנים סטנדרטיים בסוף כל שליש וכל שנה שבנויים לפי התוכנית. ב-<bdi>English Mastery</bdi> מורים יושבים יחד בסדנאות שנקראות <bdi>Assessing for Mastery</bdi>, בודקים עבודות של תלמידים ומשווים את הציונים שנתנו, כדי שציון בבית ספר אחד יהיה שווה ערך לציון בבית ספר אחר. כריסטודולו עצמה עברה אחר כך ל-<a href="https://www.nomoremarking.com/" target="_blank" rel="noopener"><bdi>No More Marking</bdi>&#8288;<span class="sr-only">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>, ומפתחת שם שיטה שנקראת שיפוט השוואתי (<bdi>Comparative Judgement</bdi>). במקום לבדוק עבודה כתובה לפי מחוון, המורה רואה שתי עבודות ומחליטה איזו מהן טובה יותר, ומאלפי השוואות כאלה נבנה סולם. <bdi>Ark</bdi> <a href="https://www.tes.com/magazine/archive/how-shall-i-compare-thee" target="_blank" rel="noopener">ניסתה את השיטה בכמה מבתי הספר שלה&#8288;<span class="sr-only">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>.</p>
+<p>המתח בין שתי ההערכות לא נעלם. הוראה לשליטה מבקשת להאט: פחות נושאים, יותר זמן, לא להתקדם עד שכולם הבינו. מערכת האחריותיות דוחפת לפעמים לכיוון ההפוך. במודול 3 קראנו ש-<bdi>Ofsted</bdi> מצא בתי ספר יסודיים שמקדישים זמן רב מדי להכנה למבחנים, על חשבון מקצועות אחרים. בית ספר שמלמד בגישת הוראה לשליטה צריך להאמין שהעומק ישתלם גם במבחן הארצי, ולעמוד בלחץ עד שהתוצאות יגיעו.</p>
+<p>יש גם נקודות מפגש. המבחנים בסוף היסודי מדווחים כמה תלמידים הגיעו ל"רמה הצפויה" (<bdi>expected standard</bdi>), וזו בדיוק השאיפה של הוראה לשליטה: שכמעט כל ילד יגיע אליה. ומבחן לוח הכפל הארצי, שכל ילד בבתי הספר הממלכתיים באנגליה נבחן בו בגיל תשע, בודק שליטה במובן הכי פשוט: 25 תרגילים על המסך, שש שניות לכל תרגיל. המדינה רוצה לדעת אם הילד יודע את התשובה בעל פה, בלי לחשב אותה מחדש.</p>
+<p>ומכאן שתי שאלות ששווה לשאול על כל מבחן במערכת שלנו: מי משתמש בתוצאות, ומה הוא עושה איתן למחרת.</p>
+</section>
+<section class="art-sec" id="s7" aria-labelledby="s7-h"><h2 id="s7-h">מה כדאי לחפש ב-<bdi>EdCity</bdi></h2>
+<p>בבניין החדש של <bdi>EdCity</bdi> פועל בית הספר <a href="https://arkwhitecity.org/news/new-building-unveiled-ark-white-city-primary-school" target="_blank" rel="noopener"><bdi>Ark White City Primary Academy</bdi>&#8288;<span class="sr-only">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>, שנוצר מאיחוד של שני בתי ספר של הרשת באזור. כמה שאלות שכדאי לקחת איתנו:</p>
+<ol class="q-list" role="list"><li><span class="q-n" aria-hidden="true">1</span><span>מה עושים ביום-יום עם ילד שלא הבין את השיעור? מתי הוא מקבל עזרה, ממי וכמה זמן היא נמשכת?</span></li><li><span class="q-n" aria-hidden="true">2</span><span>איך נראה תלמיד חזק בשיעור כזה? מה הוא עושה כשהוא מסיים לפני כולם?</span></li><li><span class="q-n" aria-hidden="true">3</span><span>כמה חופש יש למורה לשנות את מערך השיעור שקיבלה מהרשת? מי מחליט על זה?</span></li><li><span class="q-n" aria-hidden="true">4</span><span>איך התוכנית המשותפת עוזרת לרשת להכשיר מורים חדשים ומנהלים? (זה הנושא של איזבל אינסטון באותו יום.)</span></li><li><span class="q-n" aria-hidden="true">5</span><span>איך המורה יודעת, בסוף שיעור, מי הבין ומי לא? מה קורה עם המידע הזה למחרת?</span></li><li><span class="q-n" aria-hidden="true">6</span><span>אילו נתונים עוברים מבית הספר למטה של הרשת, באיזו תדירות, ומה עושים איתם שם?</span></li><li><span class="q-n" aria-hidden="true">7</span><span>איך משפיעים המבחנים הארציים והביקורת של <bdi>Ofsted</bdi> על הקצב שבו מלמדים לפי תוכנית המאסטרי?</span></li></ol>
+</section>
+<section class="art-sec" id="s8" aria-labelledby="s8-h"><h2 id="s8-h">לצפייה ולקריאה</h2>
+<h3 class="sub-h">סרטונים</h3><p class="yt-hint">הסרטונים נטענים מיוטיוב רק אחרי שלוחצים עליהם.</p>
+<ul class="vid-grid" role="list"><li class="vid-card"><div class="yt-frame"><a class="yt-facade" href="https://www.youtube.com/watch?v=tQwGdvEc9Qc" target="_blank" rel="noopener" data-yt="tQwGdvEc9Qc" aria-label="להפעלת הסרטון: Maths Mastery: תוכנית להעמקת ההבנה של מושגי יסוד במתמטיקה"><img src="assets/ark-yt-tQwGdvEc9Qc.jpg" alt="" width="480" height="360" loading="lazy" decoding="async"><span class="yt-scrim"></span><span class="yt-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></a></div><div class="vid-body"><span class="vid-tag"><bdi>EEF</bdi></span><b><bdi>Maths Mastery</bdi>: תוכנית להעמקת ההבנה של מושגי יסוד במתמטיקה</b><span class="vid-note">סרטון של ה-<bdi>EEF</bdi> על התוכנית, באנגלית</span></div></li><li class="vid-card"><div class="yt-frame"><a class="yt-facade" href="https://www.youtube.com/watch?v=A-YB4rgiZSk" target="_blank" rel="noopener" data-yt="A-YB4rgiZSk" aria-label="להפעלת הסרטון: Maths Meeting"><img src="assets/ark-yt-A-YB4rgiZSk.jpg" alt="" width="480" height="360" loading="lazy" decoding="async"><span class="yt-scrim"></span><span class="yt-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></a></div><div class="vid-body"><span class="vid-tag"><bdi>Ark Curriculum Plus</bdi></span><b><bdi>Maths Meeting</bdi></b><span class="vid-note"><bdi>Ark Curriculum Plus</bdi> מסבירים את מפגש התרגול, עם צילומים מכיתות</span></div></li><li class="vid-card"><div class="yt-frame"><a class="yt-facade" href="https://www.youtube.com/watch?v=fW95Zkn2dtQ" target="_blank" rel="noopener" data-yt="fW95Zkn2dtQ" aria-label="להפעלת הסרטון: Introduction to Mathematics Mastery Primary"><img src="assets/ark-yt-fW95Zkn2dtQ.jpg" alt="" width="480" height="360" loading="lazy" decoding="async"><span class="yt-scrim"></span><span class="yt-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></a></div><div class="vid-body"><span class="vid-tag"><bdi>Ark Curriculum Plus</bdi></span><b><bdi>Introduction to Mathematics Mastery Primary</bdi></b><span class="vid-note">וובינר מבוא של <bdi>Ark Curriculum Plus</bdi></span></div></li><li class="vid-card vid-link"><a class="vid-out" href="https://ncetm.org.uk/teaching-for-mastery/mastery-explained/five-big-ideas-in-teaching-for-mastery/" target="_blank" rel="noopener"><span class="vid-panel" aria-hidden="true"><img src="assets/ripples-white.png" alt=""><span>NCETM</span></span><span class="vid-body"><span class="vid-tag">סרטונים באתר של <bdi>NCETM</bdi></span><b>חמשת הרעיונות של הוראה לשליטה</b><span class="vid-note">סרטוני הסבר קצרים של ה-<bdi>NCETM</bdi> לכל רעיון&#8288;<span class="sr-only">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></span></span></a></li></ul>
+<h3 class="sub-h">קריאה</h3>
+<ul class="read-list" role="list"><li>בלום, <a href="https://eric.ed.gov/?id=ED053419" target="_blank" rel="noopener"><bdi>Learning for Mastery</bdi>&#8288;<span class="sr-only">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a> (1968), ו-<a href="https://journals.sagepub.com/doi/10.3102/0013189X013006004" target="_blank" rel="noopener"><bdi>The 2 Sigma Problem</bdi>&#8288;<span class="sr-only">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a> (1984)</li><li>ה-<bdi>EEF</bdi>, <a href="https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/mastery-learning" target="_blank" rel="noopener">דף הראיות על למידה לשליטה&#8288;<span class="sr-only">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></li><li>ג'רים וויניולס, <a href="https://dera.ioe.ac.uk/29369/1/EEF_Project_Report_MathematicsMasteryPrimary.pdf" target="_blank" rel="noopener">דוח ההערכה של <bdi>Mathematics Mastery</bdi> ביסודי&#8288;<span class="sr-only">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a> (2015)</li><li><a href="https://dera.ioe.ac.uk/id/eprint/41150/1/English-Mastery-Final.pdf" target="_blank" rel="noopener">דוח ההערכה של <bdi>English Mastery</bdi>&#8288;<span class="sr-only">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a> (2022)</li><li>ועדת מקינטוש, <a href="https://www.gov.uk/government/publications/commission-on-assessment-without-levels-final-report" target="_blank" rel="noopener">הדוח על הערכה בלי רמות&#8288;<span class="sr-only">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a> (2015)</li><li>דייזי כריסטודולו, <bdi>Making Good Progress? The Future of Assessment for Learning</bdi> (2017), ו<a href="https://open.spotify.com/episode/3lcmtjol9n7SZBoGGqAbWh" target="_blank" rel="noopener">הפרק עם עמול ראג'אן&#8288;<span class="sr-only">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a> שהמלצנו עליו במודול 3</li><li><a href="learn.html#m3-doc">מסמך מודול 3: אחריותיות במערכת החינוך האנגלית</a></li><li><bdi>Ark Curriculum Plus</bdi>, <a href="https://www.arkcurriculumplus.org.uk/programme-preview/" target="_blank" rel="noopener">תצוגה מקדימה חינמית של התוכנית&#8288;<span class="sr-only">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>, עם חומרים וסרטוני הדרכה</li></ul>
+</section>
+    <div class="art-end">
+      <a class="btn-solid" href="learn.html#library">לכל החומרים בספרייה</a>
+      <a class="btn-line" href="learn.html#m3">למודול 3: אחריותיות</a>
+    </div>
+  </article>
+</main>
+
+<a class="toc-fab" id="tocFab" href="#toc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>בעמוד הזה</a>
+
+<footer>
+  <img class="ripples-f" src="assets/ripples-white.png" alt="">
+  <div class="container f-inner">
+    <div class="f-brand">
+      <img src="assets/advot-logo-white.png" alt="אדוות · מנהיגות מחוללת שינוי" width="156" height="52">
+      <span class="sep"></span>
+      <div class="f-text">אדוות · מנהיגות מחוללת שינוי<br>משלחת לונדון · 22 עד 26 בנובמבר 2026</div>
+    </div>
+    <a class="f-link" href="glossary.html">למילון המושגים של המסע</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  try{ if(localStorage.getItem('advot-lang')==='en') document.documentElement.classList.add('lang-en'); }catch(e){}
+  /* YouTube loads only on click (privacy-enhanced domain) */
+  document.querySelectorAll('.yt-facade').forEach(function(a){
+    a.addEventListener('click',function(e){
+      if(e.metaKey||e.ctrlKey||e.shiftKey) return;
+      e.preventDefault();
+      var f=document.createElement('iframe');
+      f.src='https://www.youtube-nocookie.com/embed/'+a.dataset.yt+'?autoplay=1&rel=0&playsinline=1';
+      f.title=a.getAttribute('aria-label').replace('להפעלת הסרטון: ','');
+      f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';
+      f.allowFullscreen=true;
+      a.parentNode.replaceChild(f,a); f.focus();
+    });
+  });
+  /* table of contents: highlight the section being read */
+  var links={}; document.querySelectorAll('.toc a').forEach(function(a){ links[a.getAttribute('href').slice(1)]=a; });
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ Object.values(links).forEach(function(l){ l.classList.remove('is-on'); l.removeAttribute('aria-current'); }); var l=links[e.target.id]; if(l){ l.classList.add('is-on'); l.setAttribute('aria-current','location'); } } });
+    },{rootMargin:'-20% 0px -70% 0px'});
+    document.querySelectorAll('.art-sec').forEach(function(s){ io.observe(s); });
+    var fab=document.getElementById('tocFab'), toc=document.getElementById('toc');
+    new IntersectionObserver(function(es){ fab.classList.toggle('is-on', !es[0].isIntersecting && es[0].boundingClientRect.top<0); }).observe(toc);
+  }
+})();
+</script>
+</body>
+</html>
