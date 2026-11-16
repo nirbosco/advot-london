@@ -703,7 +703,8 @@ function connectPhone(){
   try {
     const sb = window.supabase.createClient(SB_URL, SB_KEY, { realtime:{ params:{ eventsPerSecond:10 } } });
     let me = store.get('advot-tour-id'); if (!me){ me = Math.random().toString(36).slice(2,10); store.set('advot-tour-id', me); }
-    ch = sb.channel(TOPIC, { config:{ broadcast:{ self:false }, presence:{ key: me } } });
+    ch = sb.channel(TOPIC, { config:{ broadcast:{ self:false }, presence:{ key: me, enabled: true } } });
+    ch.on('presence', { event:'sync' }, () => {});
     ch.on('broadcast', { event:'state' }, ({ payload }) => payload && applyRemote(payload));
     ch.subscribe(async st => { if (st === 'SUBSCRIBED'){ try { await ch.track({ r:'p' }); } catch(e){} } });
   } catch(e){}
@@ -751,7 +752,7 @@ function startHost(){
   if (!window.supabase) return;
   try {
     const sb = window.supabase.createClient(SB_URL, SB_KEY, { realtime:{ params:{ eventsPerSecond:10 } } });
-    hostCh = sb.channel(TOPIC, { config:{ broadcast:{ self:false }, presence:{ key:'host' } } });
+    hostCh = sb.channel(TOPIC, { config:{ broadcast:{ self:false }, presence:{ key:'host', enabled: true } } });
     const recount = () => { const ps = hostCh.presenceState(); count = Object.keys(ps).filter(k => k !== 'host').length; renderHost(); };
     hostCh.on('presence', { event:'sync' }, recount);
     hostCh.on('presence', { event:'join' }, () => { recount(); hostSend(); });
