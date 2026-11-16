@@ -135,6 +135,10 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stro
 .ms .tagline{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:800;color:var(--sky);border:1px solid rgba(13,180,244,.45);border-radius:99px;padding:3px 12px}
 .ms .intro{font-size:15px;color:var(--ink-2);margin-top:6px}
 .frame{position:relative;flex:1;min-height:0;margin:6px 14px 0;border-radius:12px;overflow:hidden;background:#05091F;border:1px solid var(--line);touch-action:none}
+.lbframe{margin:calc(64px + env(safe-area-inset-top,0px)) 14px 0}
+.hero{cursor:zoom-in}
+.hero .zoomchip{position:absolute;bottom:12px;inset-inline-end:16px;z-index:2;display:flex;align-items:center;gap:6px;font-size:13px;color:var(--ink);background:rgba(7,13,46,.7);border:1px solid var(--line);border-radius:99px;padding:4px 12px;min-height:32px}
+.hero .zoomchip svg{width:16px;height:16px}
 .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transform-origin:0 0;will-change:transform;user-select:none;-webkit-user-drag:none}
 .frame .hint{position:absolute;bottom:10px;inset-inline-end:10px;font-size:13px;color:var(--ink-2);background:rgba(5,9,31,.78);border:1px solid var(--line);border-radius:99px;padding:3px 10px;pointer-events:none;transition:opacity .4s}
 .cap{padding:12px 18px 4px;max-width:520px;width:100%;margin:0 auto}
@@ -274,6 +278,13 @@ body.host .wrap{max-width:560px}
   </div>
 </section>
 
+<!-- image lightbox -->
+<section class="sheet ms" id="lb" role="dialog" aria-modal="true" aria-labelledby="lbTitle">
+  <button class="x" type="button" data-close aria-label="close"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <div class="frame lbframe" id="lbFrame"><img id="lbImg" src="assets/tour/st-kings.webp" alt=""><span class="hint" id="lbHint" data-t="zoom"></span></div>
+  <div class="cap"><h3 id="lbTitle"></h3><div class="meta" id="lbMeta"></div></div>
+</section>
+
 <!-- credits -->
 <section class="sheet" id="cred" role="dialog" aria-modal="true">
   <button class="x" type="button" data-close aria-label="close"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
@@ -290,7 +301,8 @@ body.host .wrap{max-width:560px}
 <script>
 const SB_URL = "https://ndrhiikczkbosentclnh.supabase.co";
 const SB_KEY = "sb_publishable_EckoZz1eIoRjjjQ9XhXhzA_EpuKVWQG";
-const TOPIC = "advot-tour";
+const CH = new URLSearchParams(location.search).get('ch');
+const TOPIC = "advot-tour" + (CH && /^[a-z0-9-]{1,20}$/.test(CH) ? "-" + CH : "");
 
 const ICON = {
   courtyard:'<path d="M3 5h18v14H3z"/><path d="M3 9.7h18M3 14.3h18M9 5v4.7M15 5v4.7M6 9.7v4.6M12 9.7v4.6M18 9.7v4.6M9 14.3V19M15 14.3V19"/>',
@@ -323,7 +335,7 @@ const T = {
     ans_p:'רובם, כ-70 אחוז, בכלל לא כאן. הם שמורים במחסנים של הספרייה ביורקשייר.',
     mine:n=>`ניחשתם ${n}`, ends:['מיליון','500 מיליון'],
     ms_intro:'שלושה ספרים משלוש קהילות רחוקות. כולם שמורים כאן.', zoom:'הגדילו בשתי אצבעות',
-    rest_h:'תרימו את הראש', rest_p:'ממשיכים בעוד רגע.',
+    rest_h:'תרימו את הראש', rest_p:'ממשיכים בעוד רגע.', zoom_open:'הגדלה',
     cred_btn:'מקורות התמונות', cred_h:'מקורות התמונות',
     of:(a,b)=>`${a} מתוך ${b}`,
     h_title:'מסך המנחה', h_count:n=>`${n} מחוברים`, h_off:'אין חיבור',
@@ -347,7 +359,7 @@ const T = {
     ans_p:'Most of them, about 70 percent, are not here at all. They are kept in the library’s stores in Yorkshire.',
     mine:n=>`You guessed ${n}`, ends:['1 million','500 million'],
     ms_intro:'Three books from three distant communities. All of them are kept here.', zoom:'Zoom with two fingers',
-    rest_h:'Look up', rest_p:'We’ll carry on in a moment.',
+    rest_h:'Look up', rest_p:'We’ll carry on in a moment.', zoom_open:'Enlarge',
     cred_btn:'Image sources', cred_h:'Image sources',
     of:(a,b)=>`${a} of ${b}`,
     h_title:'Host screen', h_count:n=>`${n} connected`, h_off:'No connection',
@@ -470,7 +482,8 @@ const save = () => store.set('advot-tour', S);
 const isHost = location.hash === '#host';
 
 /* host-driven state as last received on a phone */
-let remote = { m:'none', i:0, seq:0 }, lastBeat = 0, appliedSeq = -1;
+let remote = { m:'none', i:0, at:0 }, lastBeat = 0, lastAt = +(store.get('advot-tour-at') || 0);
+const STALE = 15 * 60 * 1000;
 const hostLive = () => Date.now() - lastBeat < 9000;
 
 /* ---------------- language ---------------- */
@@ -549,7 +562,7 @@ function fillStop(i){
   hero.className = 'hero';
   hero.style.backgroundImage = s.img ? `url("${s.img}")` : '';
   hero.style.backgroundPosition = s.pos || '';
-  hero.innerHTML = `<span class="cnt">${t('of')(i+1, STOPS.length)}</span>`;
+  hero.innerHTML = (s.img ? `<button type="button" class="zoomchip" aria-label="${t('zoom_open')}"><svg class="i" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5M10.5 8v5M8 10.5h5"/></svg>${t('zoom_open')}</button>` : '') + `<span class="cnt">${t('of')(i+1, STOPS.length)}</span>`;
   $('#stWhere').textContent = c.w;
   const pic = $('#stPic'); pic.hidden = !c.pic; pic.textContent = c.pic || '';
   $('#stTitle').textContent = c.t;
@@ -619,47 +632,62 @@ function closeMs(){
 $('#msPrev').onclick = () => { if (msI > 0){ msI--; fillMs(); } };
 $('#msNext').onclick = () => { if (msI < MSS.length - 1){ msI++; fillMs(); } };
 
-/* pinch / pan / double-tap zoom on the manuscript */
-const Z = { s:1, x:0, y:0 }, ptrs = new Map(); let pinch0 = null, lastTap = 0;
-const frame = $('#msFrame'), zimg = $('#msImg');
-function applyZoom(){ zimg.style.transform = `translate(${Z.x}px,${Z.y}px) scale(${Z.s})`; }
-function clampZoom(){
-  const w = frame.clientWidth, h = frame.clientHeight;
-  Z.s = Math.min(5, Math.max(1, Z.s));
-  if (Z.s === 1){ Z.x = 0; Z.y = 0; return; }
-  Z.x = Math.min(0, Math.max(w - w*Z.s, Z.x));
-  Z.y = Math.min(0, Math.max(h - h*Z.s, Z.y));
+/* pinch / pan / double-tap zoom, shared by the manuscripts viewer and the image lightbox */
+function makeZoom(frame, zimg, hint){
+  const Z = { s:1, x:0, y:0 }, ptrs = new Map(); let pinch0 = null, lastTap = 0;
+  const apply = () => { zimg.style.transform = `translate(${Z.x}px,${Z.y}px) scale(${Z.s})`; };
+  const clamp = () => {
+    const w = frame.clientWidth, h = frame.clientHeight;
+    Z.s = Math.min(5, Math.max(1, Z.s));
+    if (Z.s === 1){ Z.x = 0; Z.y = 0; return; }
+    Z.x = Math.min(0, Math.max(w - w*Z.s, Z.x));
+    Z.y = Math.min(0, Math.max(h - h*Z.s, Z.y));
+  };
+  const at = (cx, cy, ns) => { const k = ns / Z.s; Z.x = cx - (cx - Z.x)*k; Z.y = cy - (cy - Z.y)*k; Z.s = ns; clamp(); apply(); };
+  frame.addEventListener('pointerdown', e => {
+    frame.setPointerCapture(e.pointerId); ptrs.set(e.pointerId, {x:e.clientX, y:e.clientY});
+    if (ptrs.size === 2){ const [a,b] = [...ptrs.values()]; pinch0 = { d:Math.hypot(a.x-b.x,a.y-b.y), s:Z.s }; }
+    if (ptrs.size === 1){
+      const now = Date.now(), r = frame.getBoundingClientRect();
+      if (now - lastTap < 300){ zimg.style.transition = 'transform .3s var(--ease)'; at(e.clientX - r.left, e.clientY - r.top, Z.s > 1.2 ? 1 : 2.6); setTimeout(()=>zimg.style.transition='', 320); hint.style.opacity = 0; }
+      lastTap = now;
+    }
+  });
+  frame.addEventListener('pointermove', e => {
+    if (!ptrs.has(e.pointerId)) return;
+    const prev = ptrs.get(e.pointerId); ptrs.set(e.pointerId, {x:e.clientX, y:e.clientY});
+    const r = frame.getBoundingClientRect();
+    if (ptrs.size === 2 && pinch0){
+      const [a,b] = [...ptrs.values()];
+      at((a.x+b.x)/2 - r.left, (a.y+b.y)/2 - r.top, pinch0.s * Math.hypot(a.x-b.x, a.y-b.y) / pinch0.d);
+      hint.style.opacity = 0;
+    } else if (ptrs.size === 1 && Z.s > 1){
+      Z.x += e.clientX - prev.x; Z.y += e.clientY - prev.y; clamp(); apply();
+    }
+  });
+  const end = e => { ptrs.delete(e.pointerId); if (ptrs.size < 2) pinch0 = null; };
+  frame.addEventListener('pointerup', end); frame.addEventListener('pointercancel', end);
+  return { reset(){ Z.s = 1; Z.x = 0; Z.y = 0; apply(); hint.style.opacity = 1; }, zoomed: () => Z.s !== 1 };
 }
-function zoomAt(cx, cy, ns){ const k = ns / Z.s; Z.x = cx - (cx - Z.x)*k; Z.y = cy - (cy - Z.y)*k; Z.s = ns; clampZoom(); applyZoom(); }
-function resetZoom(){ Z.s = 1; Z.x = 0; Z.y = 0; applyZoom(); $('#msHint').style.opacity = 1; }
-frame.addEventListener('pointerdown', e => {
-  frame.setPointerCapture(e.pointerId); ptrs.set(e.pointerId, {x:e.clientX, y:e.clientY});
-  if (ptrs.size === 2){ const [a,b] = [...ptrs.values()]; pinch0 = { d:Math.hypot(a.x-b.x,a.y-b.y), s:Z.s }; }
-  if (ptrs.size === 1){
-    const now = Date.now(), r = frame.getBoundingClientRect();
-    if (now - lastTap < 300){ zimg.style.transition = 'transform .3s var(--ease)'; zoomAt(e.clientX - r.left, e.clientY - r.top, Z.s > 1.2 ? 1 : 2.6); setTimeout(()=>zimg.style.transition='', 320); $('#msHint').style.opacity = 0; }
-    lastTap = now;
-  }
-});
-frame.addEventListener('pointermove', e => {
-  if (!ptrs.has(e.pointerId)) return;
-  const prev = ptrs.get(e.pointerId); ptrs.set(e.pointerId, {x:e.clientX, y:e.clientY});
-  const r = frame.getBoundingClientRect();
-  if (ptrs.size === 2 && pinch0){
-    const [a,b] = [...ptrs.values()];
-    const d = Math.hypot(a.x-b.x, a.y-b.y);
-    zoomAt((a.x+b.x)/2 - r.left, (a.y+b.y)/2 - r.top, pinch0.s * d / pinch0.d);
-    $('#msHint').style.opacity = 0;
-  } else if (ptrs.size === 1 && Z.s > 1){
-    Z.x += e.clientX - prev.x; Z.y += e.clientY - prev.y; clampZoom(); applyZoom();
-  }
-});
-const endPtr = e => { ptrs.delete(e.pointerId); if (ptrs.size < 2) pinch0 = null; };
-frame.addEventListener('pointerup', endPtr); frame.addEventListener('pointercancel', endPtr);
+const msZoom = makeZoom($('#msFrame'), $('#msImg'), $('#msHint'));
+const lbZoom = makeZoom($('#lbFrame'), $('#lbImg'), $('#lbHint'));
+const frame = $('#msFrame');
+function resetZoom(){ msZoom.reset(); }
+
+/* station image, full screen */
+function openLightbox(i){
+  const s = STOPS[i], c = L(s);
+  const img = $('#lbImg'); img.src = s.img; img.alt = c.t; lbZoom.reset();
+  $('#lbTitle').textContent = c.t;
+  $('#lbMeta').textContent = c.pic || c.w;
+  openSheet($('#lb'));
+}
+$('#stHero').addEventListener('click', () => { if (openStop != null && STOPS[openStop].img) openLightbox(openStop); });
+
 let swipe0 = null;
-frame.addEventListener('touchstart', e => { swipe0 = e.touches.length === 1 && Z.s === 1 ? e.touches[0].clientX : null; }, {passive:true});
+frame.addEventListener('touchstart', e => { swipe0 = e.touches.length === 1 && !msZoom.zoomed() ? e.touches[0].clientX : null; }, {passive:true});
 frame.addEventListener('touchend', e => {
-  if (swipe0 == null || Z.s !== 1) return;
+  if (swipe0 == null || msZoom.zoomed()) return;
   const dx = e.changedTouches[0].clientX - swipe0; swipe0 = null;
   if (Math.abs(dx) < 60) return;
   const forward = lang === 'he' ? dx > 0 : dx < 0;
@@ -677,11 +705,13 @@ function setRest(on){ $('#rest').classList.toggle('on', on); }
 
 /* ---------------- phone: follow the host ---------------- */
 function applyRemote(st){
+  const at = +st.at || 0;
+  if (at < lastAt) return;                       // an older host screen: ignore, never flip back
   lastBeat = Date.now();
-  const changed = st.seq !== appliedSeq;
   remote = st;
-  if (!changed){ if (openStop === 1 && !S.revealed) renderGuess(); return; }
-  appliedSeq = st.seq;
+  if (at === lastAt){ if (openStop === 1 && !S.revealed) renderGuess(); return; }
+  lastAt = at; store.set('advot-tour-at', at);
+  if (Date.now() - at > STALE) return;            // a moment left open long ago: do not pull anyone into it
   setRest(st.m === 'rest');
   if (st.m === 'ms'){
     if (openStop != null) closeStop(false);
@@ -711,14 +741,14 @@ function connectPhone(){
 }
 
 /* ---------------- host ---------------- */
-let H = Object.assign({ m:'none', i:0, seq:1 }, store.get('advot-tour-host') || {});
+let H = Object.assign({ m:'none', i:0, at:0 }, store.get('advot-tour-host') || {});
 let hostCh = null, hostOk = false, count = 0;
 function hostSend(){
   if (!hostCh || !hostOk) return;
-  try { hostCh.send({ type:'broadcast', event:'state', payload:{ m:H.m, i:H.i, seq:H.seq } }); } catch(e){}
+  try { hostCh.send({ type:'broadcast', event:'state', payload:{ m:H.m, i:H.i, at:H.at } }); } catch(e){}
 }
 function hostSet(m, i){
-  H.m = m; if (i != null) H.i = i; H.seq++;
+  H.m = m; if (i != null) H.i = i; H.at = Date.now();
   store.set('advot-tour-host', H); renderHost(); hostSend();
 }
 function renderHost(){
