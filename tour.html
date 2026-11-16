@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0B1440">
+<title>כרטיס קורא · הספרייה הבריטית</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#0048FF; --blue-hi:#2F6BFF; --sky:#0DB4F4; --teal:#41CAC5; --purple:#6536EA;
+  --bg:#0B1440; --bg-deep:#070D2E; --card:#121D52; --card-hi:#17246A;
+  --ink:#F3F6FF; --ink-2:#C9D2F0; --dim:#9AA7D6; --line:rgba(220,227,245,.16);
+  --grad:linear-gradient(105deg,#41CAC5 0%,#0DB4F4 22%,#2680F1 45%,#3B5DEC 66%,#6536EA 85%,#0048FF 100%);
+  --ease:cubic-bezier(0.22,1,0.36,1);
+  --safe-b:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg);-webkit-text-size-adjust:100%}
+body{font-family:Heebo,system-ui,sans-serif;background:var(--bg);color:var(--ink);font-size:17px;line-height:1.55;
+  min-height:100dvh;-webkit-tap-highlight-color:transparent;overscroll-behavior-y:none}
+::selection{background:rgba(13,180,244,.35);color:#fff}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--sky);outline-offset:3px;border-radius:12px}
+.en,.num{font-family:Montserrat,Heebo,sans-serif}
+[hidden]{display:none!important}
+svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+
+/* ---------- shell ---------- */
+.wrap{max-width:480px;margin:0 auto;padding:0 16px calc(28px + var(--safe-b))}
+.top{display:flex;align-items:center;justify-content:space-between;padding:16px 0 10px;color:var(--dim);font-size:14px}
+.lang{min-height:44px;min-width:64px;padding:0 14px;border:1px solid var(--line);border-radius:99px;font-size:14px;font-weight:700;color:var(--ink-2)}
+
+/* ---------- welcome ---------- */
+.welcome{min-height:calc(100dvh - 80px);display:flex;flex-direction:column;justify-content:center;gap:22px;padding-bottom:40px}
+.mini{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;transform:rotate(-2.5deg);margin:6px 8px 10px;box-shadow:0 18px 40px rgba(0,0,0,.4)}
+.mini .strip{height:7px;background:var(--grad)}
+.mini-in{padding:14px 16px 16px}
+.mini-in .en{font-size:12px;letter-spacing:.16em;font-weight:800;color:var(--sky)}
+.mini-slots{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;margin-top:12px}
+.mini-slots i{aspect-ratio:1;border-radius:50%;border:1.5px dashed rgba(220,227,245,.28)}
+.welcome h1{font-size:34px;line-height:1.15;font-weight:900;letter-spacing:-.01em;text-wrap:balance}
+.welcome p{color:var(--ink-2);font-size:18px;max-width:34ch}
+
+/* ---------- reader pass ---------- */
+.pass{position:relative;background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;
+  box-shadow:0 14px 34px rgba(0,0,0,.32)}
+.pass .strip{height:8px;background:var(--grad)}
+.pass .in{padding:16px 18px 18px}
+.pass .row1{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.pass .row1 b{font-size:20px;font-weight:900}
+.pass .row1 .en{font-size:12px;letter-spacing:.16em;font-weight:800;color:var(--sky)}
+.pass .sub{font-size:14px;color:var(--dim);margin-top:2px}
+.stamps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px 8px;margin-top:16px}
+.slot{width:54px;height:54px;margin:0 auto;border-radius:50%;display:grid;place-items:center;position:relative}
+.slot.off{border:1.5px dashed rgba(220,227,245,.28);color:var(--dim);font-size:14px;font-weight:700}
+.slot.on{border:2px solid var(--teal);color:var(--teal);background:rgba(65,202,197,.12);transform:rotate(-8deg)}
+.slot.on::after{content:"";position:absolute;inset:4px;border-radius:50%;border:1px solid rgba(65,202,197,.45)}
+.slot.press{animation:press .62s var(--ease) both}
+@keyframes press{0%{transform:scale(1.6) rotate(-24deg);opacity:0;filter:blur(3px)}55%{transform:scale(.92) rotate(-6deg);opacity:1;filter:blur(0)}100%{transform:scale(1) rotate(-8deg)}}
+.pass .msg{margin-top:14px;font-size:15px;color:var(--ink-2)}
+.pass.full .msg b{display:block;font-size:18px;color:var(--ink)}
+
+/* ---------- list ---------- */
+.list{list-style:none;margin-top:18px;background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.list li+li .item{border-top:1px solid var(--line)}
+.item{width:100%;display:flex;align-items:center;gap:14px;text-align:start;background:transparent;border:0;
+  padding:12px 16px;min-height:64px;transition:background .25s var(--ease)}
+.item:active{background:var(--card-hi)}
+.item .n{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font-size:14px;font-weight:700;color:var(--dim);flex-shrink:0}
+.item.done .n{border-color:var(--teal);color:var(--teal)}
+.item .t{flex:1;min-width:0}
+.item .t b{display:block;font-size:17px;font-weight:700;line-height:1.3}
+.item .t small{display:block;font-size:14px;color:var(--dim);margin-top:1px}
+.item .tag{font-size:13px;font-weight:700;border:1px solid rgba(13,180,244,.6);color:var(--sky);border-radius:99px;padding:2px 10px;flex-shrink:0}
+.item.next{background:rgba(0,72,255,.2)}
+.item.next .n{border-color:var(--blue-hi);color:var(--ink);background:var(--blue)}
+.foot{margin-top:26px;text-align:center}
+.foot button{font-size:14px;color:var(--dim);text-decoration:underline;text-underline-offset:4px;min-height:44px;padding:0 10px}
+
+/* ---------- buttons ---------- */
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:56px;border-radius:99px;
+  background:var(--blue);color:#fff;font-weight:800;font-size:18px;box-shadow:0 8px 22px rgba(0,0,0,.35);
+  transition:transform .2s var(--ease),background .2s var(--ease)}
+.btn:active{transform:scale(.98);background:#003BD6}
+.btn.ghost{background:transparent;border:1.5px solid var(--line);box-shadow:none;color:var(--ink)}
+.btn[disabled]{opacity:.45;pointer-events:none}
+
+/* ---------- sheets (station / moment) ---------- */
+.sheet{--col:max(0px,calc((100vw - 620px) / 2));position:fixed;inset:0;z-index:20;background:var(--bg);display:flex;flex-direction:column;padding-inline:var(--col);
+  transform:translateY(100%);transition:transform .45s var(--ease),visibility 0s linear .45s;visibility:hidden}
+.sheet.on{transform:none;visibility:visible;transition:transform .45s var(--ease)}
+.x{position:absolute;top:calc(12px + env(safe-area-inset-top,0px));inset-inline-end:calc(var(--col) + 12px);z-index:3;width:44px;height:44px;border-radius:50%;
+  background:rgba(7,13,46,.72);border:1px solid var(--line);display:grid;place-items:center;color:var(--ink)}
+.hero{position:relative;height:34dvh;min-height:190px;flex-shrink:0;background:#0E1748 center/cover no-repeat;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(11,20,64,0) 45%,rgba(11,20,64,.94) 100%)}
+.hero .cnt{position:absolute;bottom:12px;inset-inline-start:16px;z-index:2;font-size:13px;color:var(--ink-2);
+  background:rgba(7,13,46,.7);border:1px solid var(--line);border-radius:99px;padding:3px 12px}
+.body{flex:1;overflow-y:auto;padding:16px 18px 10px;display:flex;flex-direction:column;gap:12px;max-width:520px;width:100%;margin:0 auto}
+.body .where{font-size:15px;color:var(--dim);margin-top:-8px}
+.body .pic{font-size:14px;color:var(--dim);margin-top:-10px}
+.body h2{font-size:27px;line-height:1.2;font-weight:900;text-wrap:balance}
+.body .story{font-size:17px;color:var(--ink-2)}
+.fact{background:rgba(13,180,244,.09);border-radius:14px;padding:11px 14px;font-weight:700;font-size:16px;color:var(--ink)}
+.look{background:rgba(65,202,197,.09);border:1px solid rgba(65,202,197,.42);border-radius:16px;padding:12px 14px;display:flex;gap:12px;align-items:flex-start}
+.look svg{color:var(--teal);margin-top:2px}
+.look b{display:block;color:var(--teal);font-size:15px;font-weight:800}
+.look p{font-size:16px;color:var(--ink-2)}
+.dock{padding:10px 18px calc(16px + var(--safe-b));max-width:520px;width:100%;margin:0 auto;flex-shrink:0}
+
+/* guess */
+.guess{display:flex;flex-direction:column;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px 16px}
+.guess .q{font-size:19px;font-weight:800}
+.guess .val{font-size:30px;font-weight:800;color:var(--sky);text-align:center}
+.guess input[type=range]{width:100%;height:44px;background:transparent;-webkit-appearance:none;appearance:none}
+.guess input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:6px;background:var(--grad)}
+.guess input[type=range]::-moz-range-track{height:6px;border-radius:6px;background:var(--grad)}
+.guess input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:30px;height:30px;margin-top:-12px;border-radius:50%;background:#fff;border:4px solid var(--blue);box-shadow:0 2px 8px rgba(0,0,0,.4)}
+.guess input[type=range]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;background:#fff;border:4px solid var(--blue)}
+.guess .ends{display:flex;justify-content:space-between;font-size:13px;color:var(--dim);margin-top:-6px}
+.guess .wait{font-size:16px;color:var(--ink-2);text-align:center;padding:4px 0}
+.answer{text-align:center;padding:4px 0 2px}
+.answer .big{font-size:34px;font-weight:900;line-height:1.15}
+.answer .big .num{color:var(--sky)}
+.answer p{color:var(--ink-2);font-size:16px;margin-top:6px}
+.answer .mine{font-size:14px;color:var(--dim);margin-top:8px}
+
+/* manuscripts moment */
+.ms{background:var(--bg-deep)}
+@media (min-width:700px){.hero{border-radius:0 0 20px 20px}.ms .frame{margin-top:10px}}
+.ms .head{padding:calc(14px + env(safe-area-inset-top,0px)) 0 8px;padding-inline:18px 66px;text-align:start}
+.ms .tagline{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:800;color:var(--sky);border:1px solid rgba(13,180,244,.45);border-radius:99px;padding:3px 12px}
+.ms .intro{font-size:15px;color:var(--ink-2);margin-top:6px}
+.frame{position:relative;flex:1;min-height:0;margin:6px 14px 0;border-radius:12px;overflow:hidden;background:#05091F;border:1px solid var(--line);touch-action:none}
+.frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transform-origin:0 0;will-change:transform;user-select:none;-webkit-user-drag:none}
+.frame .hint{position:absolute;bottom:10px;inset-inline-end:10px;font-size:13px;color:var(--ink-2);background:rgba(5,9,31,.78);border:1px solid var(--line);border-radius:99px;padding:3px 10px;pointer-events:none;transition:opacity .4s}
+.cap{padding:12px 18px 4px;max-width:520px;width:100%;margin:0 auto}
+.cap .meta{font-size:15px;color:var(--dim)}
+.cap h3{font-size:22px;font-weight:900;line-height:1.25}
+.cap p{font-size:16px;color:var(--ink-2);margin-top:4px}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 18px calc(14px + var(--safe-b));max-width:520px;width:100%;margin:0 auto}
+.nav .arr{width:52px;height:52px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;flex-shrink:0}
+.nav .arr[disabled]{opacity:.3}
+.dots{display:flex;gap:7px}
+.dots i{width:8px;height:8px;border-radius:50%;background:rgba(220,227,245,.25);transition:background .3s,width .3s var(--ease)}
+.dots i.on{background:var(--sky);width:22px;border-radius:8px}
+.nav .btn{width:auto;flex:1;min-height:52px}
+
+/* rest */
+.rest{position:fixed;inset:0;z-index:40;background:rgba(5,9,31,.96);display:grid;place-items:center;text-align:center;padding:24px;
+  opacity:0;visibility:hidden;transition:opacity .5s var(--ease),visibility 0s linear .5s}
+.rest.on{opacity:1;visibility:visible;transition:opacity .5s var(--ease)}
+.rest svg{width:56px;height:56px;color:var(--teal);margin:0 auto 14px}
+.rest h2{font-size:34px;font-weight:900}
+.rest p{color:var(--dim);font-size:17px;margin-top:6px}
+
+/* credits */
+.credits{padding:calc(60px + env(safe-area-inset-top,0px)) 18px 30px;overflow-y:auto;max-width:520px;margin:0 auto;width:100%}
+.credits h2{font-size:24px;font-weight:900;margin-bottom:10px}
+.credits li{list-style:none;font-size:14px;color:var(--ink-2);padding:9px 0;border-bottom:1px solid var(--line)}
+.credits li b{color:var(--ink);font-weight:700}
+.credits a{color:var(--sky);text-underline-offset:3px}
+
+/* ---------- host ---------- */
+body.host .wrap{max-width:560px}
+.hhead{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 0 12px;border-bottom:1px solid var(--line)}
+.hhead h1{font-size:24px;font-weight:900}
+.live{display:inline-flex;align-items:center;gap:8px;font-size:15px;color:var(--teal);font-weight:700}
+.live i{width:9px;height:9px;border-radius:50%;background:var(--teal)}
+.live.down{color:#FFB547}.live.down i{background:#FFB547}
+.banner{margin-top:12px;background:rgba(255,181,71,.12);border:1px solid rgba(255,181,71,.55);color:#FFD9A0;border-radius:14px;padding:10px 14px;font-size:15px}
+.hlist{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+.hcard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px}
+.hcard.live-now{border-color:var(--sky);background:linear-gradient(rgba(13,180,244,.08),rgba(13,180,244,.08)),var(--card)}
+.hrow{display:flex;align-items:center;gap:12px}
+.hrow b{flex:1;font-size:17px}
+.push{min-height:48px;padding:0 18px;border-radius:99px;background:var(--blue);color:#fff;font-weight:800;font-size:15px;flex-shrink:0}
+.hcard.live-now .push{background:transparent;border:1.5px solid var(--sky);color:var(--sky)}
+.hsub{display:flex;align-items:center;gap:10px;margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+.hsub .arr{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center}
+.hsub span{flex:1;text-align:center;font-size:15px;color:var(--ink-2)}
+.free{margin-top:14px;width:100%;min-height:56px;border-radius:99px;border:1.5px solid var(--teal);color:var(--teal);font-weight:800;font-size:17px;background:rgba(65,202,197,.08)}
+.qrbox{margin-top:16px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;text-align:center}
+.qrbox #qr{display:inline-block;background:#fff;padding:12px;border-radius:12px;margin-top:10px}
+.qrbox #qr img,.qrbox #qr canvas{display:block;width:200px;height:200px}
+.qrbox .url{font-size:16px;font-weight:700;margin-top:8px;direction:ltr}
+
+@media (max-height:700px){.hero{height:27dvh;min-height:150px}.body{gap:10px;padding-top:12px}.body h2{font-size:24px}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap" id="app">
+  <header class="top">
+    <span id="topline"></span>
+    <button class="lang" id="langBtn" type="button" aria-label="Switch language"></button>
+  </header>
+
+  <!-- welcome -->
+  <section class="welcome" id="welcome" hidden>
+    <h1 data-t="w_h"></h1>
+    <p data-t="w_p"></p>
+    <div class="mini" aria-hidden="true"><div class="strip"></div><div class="mini-in"><span class="en">READER PASS</span><div class="mini-slots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
+    <button class="btn" id="startBtn" type="button" data-t="w_btn"></button>
+  </section>
+
+  <!-- home -->
+  <main id="home" hidden>
+    <section class="pass" id="pass" aria-labelledby="passTitle">
+      <div class="strip"></div>
+      <div class="in">
+        <div class="row1"><b id="passTitle" data-t="pass_t"></b><span class="en">READER PASS</span></div>
+        <div class="sub" data-t="pass_sub"></div>
+        <div class="stamps" id="stamps" role="list"></div>
+        <p class="msg" id="passMsg" aria-live="polite"></p>
+      </div>
+    </section>
+    <ol class="list" id="list"></ol>
+    <div class="foot"><button type="button" id="credBtn" data-t="cred_btn"></button></div>
+  </main>
+
+  <!-- host -->
+  <main id="hostApp" hidden>
+    <div class="hhead"><h1 data-t="h_title"></h1><span class="live" id="liveCount"><i></i><span></span></span></div>
+    <div class="banner" id="hostBanner" data-t="h_offline" hidden></div>
+    <div class="hlist">
+      <div class="hcard" id="hc-ms">
+        <div class="hrow"><b data-t="h_ms"></b><button class="push" type="button" data-push="ms"></button></div>
+        <div class="hsub" id="hMsNav" hidden>
+          <button class="arr" type="button" id="hPrev" aria-label="prev"></button>
+          <span id="hMsName"></span>
+          <button class="arr" type="button" id="hNext" aria-label="next"></button>
+        </div>
+      </div>
+      <div class="hcard" id="hc-guess"><div class="hrow"><b data-t="h_guess"></b><button class="push" type="button" data-push="guess"></button></div></div>
+      <div class="hcard" id="hc-reveal"><div class="hrow"><b data-t="h_reveal"></b><button class="push" type="button" data-push="reveal"></button></div></div>
+      <div class="hcard" id="hc-rest"><div class="hrow"><b data-t="h_rest"></b><button class="push" type="button" data-push="rest"></button></div></div>
+    </div>
+    <button class="free" type="button" id="hFree" data-t="h_free"></button>
+    <div class="qrbox"><div data-t="h_qr"></div><div id="qr"></div><div class="url en">london.hotam.tech/tour</div></div>
+  </main>
+</div>
+
+<!-- station sheet -->
+<section class="sheet" id="st" role="dialog" aria-modal="true" aria-labelledby="stTitle">
+  <button class="x" type="button" data-close aria-label="close"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <div class="hero" id="stHero"><span class="cnt" id="stCnt"></span></div>
+  <div class="body">
+    <h2 id="stTitle"></h2>
+    <div class="where" id="stWhere"></div>
+    <div class="pic" id="stPic"></div>
+    <p class="story" id="stStory"></p>
+    <div class="fact" id="stFact"></div>
+    <div id="stGuess"></div>
+    <div class="look" id="stLook"><svg class="i" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg><div><b data-t="look_t"></b><p id="stLookP"></p></div></div>
+  </div>
+  <div class="dock"><button class="btn" type="button" id="stBtn"></button></div>
+</section>
+
+<!-- manuscripts moment -->
+<section class="sheet ms" id="ms" role="dialog" aria-modal="true" aria-labelledby="msTitle">
+  <button class="x" type="button" data-close aria-label="close"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <div class="head"><span class="tagline"><span data-t="together"></span> · <span id="msCount" class="num"></span></span><p class="intro" data-t="ms_intro"></p></div>
+  <div class="frame" id="msFrame"><img id="msImg" src="assets/tour/ms-golden-haggadah.webp" alt=""><span class="hint" id="msHint" data-t="zoom"></span></div>
+  <div class="cap"><h3 id="msTitle"></h3><div class="meta" id="msMeta"></div><p id="msText"></p></div>
+  <div class="nav">
+    <button class="arr" type="button" id="msPrev"></button>
+    <div class="dots" id="msDots"></div>
+    <button class="arr" type="button" id="msNext"></button>
+  </div>
+</section>
+
+<!-- credits -->
+<section class="sheet" id="cred" role="dialog" aria-modal="true">
+  <button class="x" type="button" data-close aria-label="close"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <div class="credits"><h2 data-t="cred_h"></h2><ul id="credList"></ul></div>
+</section>
+
+<!-- rest overlay -->
+<div class="rest" id="rest" role="status" aria-live="assertive">
+  <div><svg class="i" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg><h2 data-t="rest_h"></h2><p data-t="rest_p"></p></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4/dist/umd/supabase.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+const SB_URL = "https://ndrhiikczkbosentclnh.supabase.co";
+const SB_KEY = "sb_publishable_EckoZz1eIoRjjjQ9XhXhzA_EpuKVWQG";
+const TOPIC = "advot-tour";
+
+const ICON = {
+  courtyard:'<path d="M3 5h18v14H3z"/><path d="M3 9.7h18M3 14.3h18M9 5v4.7M15 5v4.7M6 9.7v4.6M12 9.7v4.6M18 9.7v4.6M9 14.3V19M15 14.3V19"/>',
+  hall:'<path d="M3 15h18l-2.5 4.5h-13z"/><path d="M12 4v11"/><path d="M12 5.5l6 7.5h-6"/>',
+  ms:'<path d="M12 6.5C10 5 7 4.5 3 5v13c4-.5 7 0 9 1.5 2-1.5 5-2 9-1.5V5c-4-.5-7 0-9 1.5z"/><path d="M12 6.5v13"/>',
+  kings:'<path d="M7 3h10v18H7z"/><path d="M7 7.5h10M7 12h10M7 16.5h10M12 3v18"/>',
+  light:'<path d="M19 14.5A7.5 7.5 0 0 1 9.5 5a7.5 7.5 0 1 0 9.5 9.5z"/>',
+  magna:'<circle cx="12" cy="9.5" r="5.5"/><path d="M9 14l-1.5 7 4.5-2.4 4.5 2.4L15 14"/><path d="M10 9.5h4"/>',
+  print:'<rect x="4" y="4.5" width="16" height="11" rx="1.5"/><path d="M7.5 8.5h9M7.5 11.5h6M8 15.5v4h8v-4"/>',
+  hand:'<path d="M4 20l1.2-4.6L15.6 5a2 2 0 0 1 2.8 0l.6.6a2 2 0 0 1 0 2.8L8.6 18.8z"/><path d="M13.8 6.8l3.4 3.4"/>',
+  check:'<path d="M4.5 12.5l5 5 10-11"/>'
+};
+const svg = (k, cls='i') => `<svg class="${cls}" viewBox="0 0 24 24" aria-hidden="true">${ICON[k]}</svg>`;
+
+/* ---------------- content (Hebrew written first; English derived) ---------------- */
+const T = {
+  he:{
+    top:'הספרייה הבריטית · 26.11', langBtn:'EN',
+    w_h:'ברוכים הבאים לספרייה הבריטית',
+    w_p:'מי שרוצה לעיין באוספים כאן מוציא כרטיס קורא, וזה הכרטיס שלכם: שמונה תחנות קצרות, ובכל אחת מקבלים חותמת.',
+    w_btn:'לכרטיס שלי',
+    pass_t:'כרטיס קורא', pass_sub:'משלחת אדוות · לונדון 2026',
+    empty:'הכרטיס עוד ריק. מתחילים בחצר, בתחנה הראשונה.',
+    progress:n=>`${n} מתוך 8 חותמות.`,
+    full_h:'הכרטיס מלא', full_p:'שמונה חותמות. נתראה בחצר.',
+    together:'יחד', look_t:'תרימו את הראש',
+    cont:'ממשיכים', seen:'ראיתי', again:'סגירה',
+    guess_btn:'זה הניחוש שלי', guess_wait:'תכף נגלה את התשובה.', guess_show:'מה התשובה?',
+    mil:n=>`${n} מיליון`, ans_big:'יותר מ-<span class="num">170</span> מיליון',
+    ans_p:'רובם, כ-70 אחוז, בכלל לא כאן. הם שמורים במחסנים של הספרייה ביורקשייר.',
+    mine:n=>`ניחשתם ${n}`, ends:['מיליון','500 מיליון'],
+    ms_intro:'שלושה ספרים משלוש קהילות רחוקות. כולם שמורים כאן.', zoom:'הגדילו בשתי אצבעות',
+    rest_h:'תרימו את הראש', rest_p:'ממשיכים בעוד רגע.',
+    cred_btn:'מקורות התמונות', cred_h:'מקורות התמונות',
+    of:(a,b)=>`${a} מתוך ${b}`,
+    h_title:'מסך המנחה', h_count:n=>`${n} מחוברים`, h_off:'אין חיבור',
+    h_offline:'אין חיבור לרשת. אמרו לקבוצה בקול איזה רגע לפתוח, למשל "פתחו את כתבי היד העבריים", וכל אחד יפתח אותו מהכרטיס שלו.',
+    h_ms:'כתבי היד העבריים', h_guess:'הניחוש: כמה פריטים?', h_reveal:'חשיפת התשובה', h_rest:'תרימו את הראש',
+    h_push:'למסכים', h_on:'על המסכים עכשיו', h_free:'שחרור לסיור חופשי', h_qr:'סריקה למשתתפים'
+  },
+  en:{
+    top:'British Library · 26.11', langBtn:'עב',
+    w_h:'Welcome to the British Library',
+    w_p:'Anyone who wants to use the collections here gets a Reader Pass. This one is yours: eight short stops, and a stamp at each one.',
+    w_btn:'Open my pass',
+    pass_t:'Reader Pass', pass_sub:'Adavot delegation · London 2026',
+    empty:'Your pass is still empty. Start in the courtyard, at the first stop.',
+    progress:n=>`${n} of 8 stamps.`,
+    full_h:'Pass complete', full_p:'Eight stamps. See you in the courtyard.',
+    together:'Together', look_t:'Look up',
+    cont:'Continue', seen:"I've seen it", again:'Close',
+    guess_btn:"That's my guess", guess_wait:"We'll reveal the answer in a moment.", guess_show:"What's the answer?",
+    mil:n=>`${n} million`, ans_big:'More than <span class="num">170</span> million',
+    ans_p:'Most of them, about 70 percent, are not here at all. They are kept in the library’s stores in Yorkshire.',
+    mine:n=>`You guessed ${n}`, ends:['1 million','500 million'],
+    ms_intro:'Three books from three distant communities. All of them are kept here.', zoom:'Zoom with two fingers',
+    rest_h:'Look up', rest_p:'We’ll carry on in a moment.',
+    cred_btn:'Image sources', cred_h:'Image sources',
+    of:(a,b)=>`${a} of ${b}`,
+    h_title:'Host screen', h_count:n=>`${n} connected`, h_off:'No connection',
+    h_offline:'No connection. Tell the group out loud which moment to open, for example "open the Hebrew manuscripts", and everyone can open it from their own pass.',
+    h_ms:'The Hebrew manuscripts', h_guess:'The guess: how many items?', h_reveal:'Reveal the answer', h_rest:'Look up',
+    h_push:'Push to screens', h_on:'On screens now', h_free:'Release to self-guided tour', h_qr:'Scan to join'
+  }
+};
+
+const STOPS = [
+  { id:'courtyard', kind:'walk', img:'assets/tour/st-courtyard.webp',
+    he:{ t:'החצר', w:'בחצר, לפני הכניסה',
+      s:'עשרה מיליון לבנים אדומות, וכל אחת מהן נעשתה ביד. בזמן השריפה בכבשן השתחרר מהן גז, והשאיר בכל לבנה קו מעוקל שנראה כמו חיוך.',
+      f:'ברצפה שאתם עומדים עליה יש מאובנים של חלזונות וצדפות, בני מיליוני שנים.',
+      l:'חפשו לבנה מחייכת בקיר הקרוב. מי שמוצא, מראה למי שעומד לידו.' },
+    en:{ t:'The courtyard', w:'In the courtyard, before the entrance',
+      s:'Ten million red bricks, every one of them made by hand. As they were fired in the kiln, gas escaped and left a curved line in every brick that looks like a smile.',
+      f:'The paving under your feet holds fossils of snails and oysters, millions of years old.',
+      l:'Look for a smiling brick in the nearest wall. If you find one, show whoever is next to you.' } },
+  { id:'hall', kind:'guess', img:'assets/tour/st-hall.webp',
+    he:{ t:'אולם הכניסה', w:'מיד אחרי הדלתות',
+      s:'האדריכל, קולין סנט ג\'ון וילסון, שירת בעבר כקצין בצי, ומהזווית הנכונה הבניין שלו נראה כמו ספינה. מתחת לרגליים יש חמש קומות מרתף, עד עומק 24 מטר. זה עמוק כמו קו הרכבת התחתית שעובר ליד.',
+      q:'כמה פריטים שמורים בספרייה הזאת?' },
+    en:{ t:'The entrance hall', w:'Just inside the doors',
+      s:'The architect, Colin St John Wilson, had served as a naval officer, and from the right angle his building looks like a ship. Under your feet are five basement levels, 24 metres deep. That is as deep as the Underground line that runs nearby.',
+      q:'How many items does this library hold?' } },
+  { id:'ms', kind:'ms',
+    he:{ t:'כתבי היד העבריים', w:'בכניסה לגלריית האוצרות' },
+    en:{ t:'The Hebrew manuscripts', w:'At the entrance to the Treasures Gallery' } },
+  { id:'kings', kind:'stop', img:'assets/tour/st-kings.webp',
+    he:{ t:'מגדל המלך', w:'במרכז הבניין, מגדל הזכוכית',
+      s:'בתוך הזכוכית עומדים הספרים שאסף המלך ג\'ורג\' השלישי. כשבנו מסר אותם לאומה ב-1823, הוא התנה תנאי: האוסף יוצג שלם ונפרד משאר הספרייה. והאוסף מוצג כך עד היום, במגדל הזה.',
+      f:'מי שיקרא ספר אחד ביום מהאוסף הזה יסיים בעוד 219 שנה.',
+      l:'עמדו קרוב לזכוכית והרימו את העיניים עד הקומה העליונה.' },
+    en:{ t:"The King's Library", w:'In the centre of the building, the glass tower',
+      s:'Inside the glass stand the books collected by King George III. When his son gave them to the nation in 1823, he set one condition: the collection would be shown whole, and apart from the rest of the library. And that is how it is shown to this day, in this tower.',
+      f:'Read one book a day from this collection and you will finish in 219 years.',
+      l:'Stand close to the glass and lift your eyes all the way to the top floor.' } },
+  { id:'light', kind:'stop', img:'assets/tour/st-light.webp',
+    he:{ t:'למה כאן חשוך', w:'בכניסה לגלריית האוצרות', pic:'בתמונה: התנ"ך מליסבון, כרך א',
+      s:'הגלריה הזאת חשוכה וקרירה יותר משאר הספרייה, בכוונה. באור חזק כתבי יד דוהים ונפגעים, ולכן הם יוצאים מהוויטרינה לתקופות מנוחה, ואחרים נכנסים במקומם. יכול להיות שפריט שמוצג היום לא יהיה כאן מחר.',
+      f:'לספרייה יש "בית חולים לספרים" לפריטים שנפגעו. ואם מיזוג האוויר קורס, מערכת הקירור לגיבוי עובדת עם תשעה דליי קרח.',
+      l:'תנו לעיניים רגע להתרגל לאור. רק אז רואים את הצבעים.' },
+    en:{ t:'Why it is dark in here', w:'At the entrance to the Treasures Gallery', pic:'Pictured: the Lisbon Bible, volume 1',
+      s:'This gallery is darker and cooler than the rest of the library, on purpose. Bright light fades and damages manuscripts, so they are taken off display for periods of rest and others take their place. An item on show today may not be here tomorrow.',
+      f:'The library has a “book hospital” for damaged items. And if the air conditioning fails, the backup cooling runs on nine buckets of ice.',
+      l:'Give your eyes a moment to adjust. Only then do the colours appear.' } },
+  { id:'magna', kind:'stop', img:'assets/tour/st-magna.webp',
+    he:{ t:'מגנה קרטה', w:'בגלריה',
+      s:'ב-1215 אישר המלך ג\'ון בחותמו מסמך שהגביל את כוחו. מאותה שנה שרדו ארבעה עותקים, ושניים מהם שמורים בספרייה הזאת.',
+      f:'אחד משני העותקים ניזוק בשריפה ב-1731, והכתב בו כמעט נמחק. הספרייה שומרת גם עליו, ובצילום באור אולטרה סגול הצליחה לקרוא בו שוב.',
+      l:'אם מגנה קרטה מוצגת היום, מצאו אותה ושימו לב כמה צפוף הכתב.' },
+    en:{ t:'Magna Carta', w:'In the gallery',
+      s:'In 1215 King John sealed a document that limited his power. Four copies survive from that year, and two of them are kept in this library.',
+      f:'One of the two was damaged in a fire in 1731 and its text is almost gone. The library looks after it too, and with ultraviolet imaging it has managed to read it again.',
+      l:'If Magna Carta is on show today, find it and notice how dense the writing is.' } },
+  { id:'print', kind:'stop', img:'assets/tour/st-sutra.webp',
+    he:{ t:'הספר המודפס הקדום', w:'בגלריה',
+      s:'הספר המודפס הקדום ביותר ששרד עם תאריך הוא סוטרת היהלום, טקסט בודהיסטי שהודפס בסין ב-868 ונמצא במערה ליד דונהואנג. גם הוא כאן, אבל כמו כל פריט רגיש, הוא לא מוצג כל הזמן.',
+      f:'הפריט הקדום ביותר בספרייה בכלל הוא מצבה מצרית בת 3,600 שנה.',
+      l:'חפשו בגלריה את הספר המודפס הקדום ביותר שמוצג היום. מאיזו שנה הוא?' },
+    en:{ t:'The earliest printed book', w:'In the gallery',
+      s:'The earliest dated printed book to survive is the Diamond Sutra, a Buddhist text printed in China in 868 and found in a cave near Dunhuang. It is here too, but like every fragile item it is not always on show.',
+      f:'The oldest item in the whole library is an Egyptian stela, 3,600 years old.',
+      l:'Find the earliest printed book on show in the gallery today. What year is it from?' } },
+  { id:'hand', kind:'stop', img:'assets/tour/st-hand.webp', pos:'center 18%',
+    he:{ t:'בכתב יד', w:'בגלריה', pic:'בתמונה: כתב היד של לואיס קרול ל"אליס"',
+      s:'לצד הספרים המפוארים, הספרייה שומרת גם דפים שנכתבו ביד, ובהם מילים לשירים של הביטלס.',
+      f:'שולחן הכתיבה של ג\'יין אוסטן והמשקפיים שלה שמורים כאן.',
+      l:'מצאו בגלריה דף בכתב יד, ונסו לקרוא ממנו שורה אחת.' },
+    en:{ t:'By hand', w:'In the gallery', pic:"Pictured: Lewis Carroll's handwritten Alice",
+      s:'Alongside the grand books, the library keeps pages written by hand, among them Beatles lyrics.',
+      f:'Jane Austen’s writing desk and her spectacles are kept here.',
+      l:'Find a handwritten page in the gallery and try to read one line of it.' } }
+];
+
+const MSS = [
+  { img:'assets/tour/ms-golden-haggadah.webp',
+    he:{ t:'הגדת הזהב', m:'קטלוניה, 1320 עד 1330 בערך',
+      p:'הגדה מצוירת על רקע של עלי זהב. בדף הזה, למעלה מימין, מרים הנביאה והנשים יוצאות במחול עם תופים. ב-1602 ניתנה ההגדה כמתנת חתונה באיטליה, ומ-1865 היא בלונדון.' },
+    en:{ t:'The Golden Haggadah', m:'Catalonia, around 1320 to 1330',
+      p:'A Haggadah painted on a ground of gold leaf. On this page, top right, Miriam the prophet and the women dance with tambourines. In 1602 it was given as a wedding gift in Italy, and since 1865 it has been in London.' } },
+  { img:'assets/tour/ms-lisbon-bible.webp',
+    he:{ t:'התנ"ך מליסבון', m:'ליסבון, 1482',
+      p:'הסופר שמואל אבן מוסא העתיק אותו בשלושה כרכים, ושלוש-עשרה שנים אחר כך באה הגזירה על יהודי פורטוגל. הנוסח מדויק כל כך שחוקרים עובדים איתו עד היום. בדף הזה מתחיל ספר יהושע: "ויהי אחרי מות משה".' },
+    en:{ t:'The Lisbon Bible', m:'Lisbon, 1482',
+      p:'The scribe Samuel ibn Musa copied it in three volumes, and thirteen years later came the decree against the Jews of Portugal. Its text is so accurate that scholars still work from it. This page opens the Book of Joshua: “After the death of Moses”.' } },
+  { img:'assets/tour/ms-kaifeng-torah.webp',
+    he:{ t:'ספר התורה מקאיפנג', m:'קאיפנג, סין, המאה ה-17',
+      p:'יהודים חיו בקאיפנג מהמאה העשירית. ספר התורה הזה תפור מ-95 רצועות עור בחוט משי, ולא בגידים כמקובל. ב-1851, כשבקהילה כבר לא היה מי שיודע לקרוא עברית, הוא נמכר, ושנה אחר כך הגיע ללונדון. בעמוד הזה פרשת וישלח: יעקב נאבק במלאך, ושמו נקרא ישראל.' },
+    en:{ t:'The Kaifeng Torah Scroll', m:'Kaifeng, China, 17th century',
+      p:'Jews lived in Kaifeng from the tenth century. This scroll is sewn from 95 strips of sheepskin with silk thread, not sinew as is customary. In 1851, when no one left in the community could read Hebrew, it was sold, and a year later it reached London. This column is from Vayishlach: Jacob wrestles with the angel, and his name becomes Israel.' } }
+];
+
+const CREDITS = [
+  ['הגדת הזהב, דף 15 · Golden Haggadah, f.15','British Library Add MS 27210, Public Domain','https://commons.wikimedia.org/wiki/File:Dance_of_Marian._Full_F15_from_Golden_Haggadah.jpg'],
+  ['התנ"ך מליסבון, כרך ב · Lisbon Bible, vol. 2','British Library Or. 2627, Public Domain','https://commons.wikimedia.org/wiki/File:Lisbon_Bible_2.jpg'],
+  ['התנ"ך מליסבון, כרך א (תחנה 5) · Lisbon Bible, vol. 1 (stop 5)','British Library Or. 2626, f.13v, Public Domain','https://commons.wikimedia.org/wiki/File:Lisbon_Bible.jpg'],
+  ['לואיס קרול, הרפתקאות אליס מתחת לאדמה (תחנה 8) · Alice’s Adventures Under Ground (stop 8)','British Library Add MS 46700, f.15v, Public Domain','https://commons.wikimedia.org/wiki/File:Alice%27s_Adventures_Under_Ground_-_Lewis_Carroll_-_British_Library_Add_MS_46700_f15v.jpg'],
+  ['ספר התורה מקאיפנג · Kaifeng Torah Scroll','British Library Add MS 19250, Public Domain','https://www.bl.uk/stories/blogs/posts/the-kaifeng-torah-scroll-a-british-library-treasure'],
+  ['מגנה קרטה · Magna Carta (1215)','British Library Cotton MS Augustus II 106, CC0','https://commons.wikimedia.org/wiki/File:Magna_Carta_(1215)_-_BL_Cotton_MS_Augustus_II_106.jpg'],
+  ['סוטרת היהלום · Diamond Sutra (868)','International Dunhuang Project, Public Domain','https://commons.wikimedia.org/wiki/File:Diamond_sutra_(cropped).jpg'],
+  ['השער, אולם הכניסה ומגדל המלך · Gate, hall, King’s Library','Immanuel Giel, CC0','https://commons.wikimedia.org/wiki/File:British_Library_(17).jpg']
+];
+
+/* ---------------- state ---------------- */
+const $ = s => document.querySelector(s);
+const store = {
+  get(k){ try { return JSON.parse(localStorage.getItem(k)); } catch(e){ return null; } },
+  set(k,v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
+};
+let lang = 'he';
+try { const s = localStorage.getItem('advot-lang'); if (s === 'en' || s === 'he') lang = s; } catch(e){}
+const q = new URLSearchParams(location.search).get('lang'); if (q === 'en' || q === 'he') lang = q;
+const t = k => T[lang][k];
+const L = o => o[lang];
+
+let S = Object.assign({ started:false, done:[], guess:null, revealed:false }, store.get('advot-tour') || {});
+const save = () => store.set('advot-tour', S);
+const isHost = location.hash === '#host';
+
+/* host-driven state as last received on a phone */
+let remote = { m:'none', i:0, seq:0 }, lastBeat = 0, appliedSeq = -1;
+const hostLive = () => Date.now() - lastBeat < 9000;
+
+/* ---------------- language ---------------- */
+function applyLang(){
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'he' ? 'rtl' : 'ltr';
+  document.querySelectorAll('[data-t]').forEach(el => { const v = t(el.dataset.t); if (typeof v === 'string') el.textContent = v; });
+  $('#langBtn').textContent = t('langBtn');
+  $('#topline').textContent = t('top');
+  const prev = lang === 'he' ? 'M9 5l7 7-7 7' : 'M15 5l-7 7 7 7';
+  const next = lang === 'he' ? 'M15 5l-7 7 7 7' : 'M9 5l7 7-7 7';
+  ['#msPrev','#hPrev'].forEach(s => $(s).innerHTML = `<svg class="i" viewBox="0 0 24 24"><path d="${prev}"/></svg>`);
+  ['#msNext','#hNext'].forEach(s => $(s).innerHTML = `<svg class="i" viewBox="0 0 24 24"><path d="${next}"/></svg>`);
+  const he = lang === 'he';
+  document.querySelectorAll('[data-close]').forEach(b => b.setAttribute('aria-label', he ? 'סגירה' : 'Close'));
+  $('#langBtn').setAttribute('aria-label', he ? 'Switch to English' : 'מעבר לעברית');
+  $('#hPrev').setAttribute('aria-label', he ? 'הקודם' : 'Previous');
+  $('#hNext').setAttribute('aria-label', he ? 'הבא' : 'Next');
+  $('#msPrev').setAttribute('aria-label', lang==='he'?'הקודם':'Previous');
+  $('#msNext').setAttribute('aria-label', lang==='he'?'הבא':'Next');
+  renderHome(); renderCredits();
+  if (openStop != null) fillStop(openStop);
+  if ($('#ms').classList.contains('on')) fillMs();
+  if (isHost) renderHost();
+}
+$('#langBtn').onclick = () => { lang = lang === 'he' ? 'en' : 'he'; try{ localStorage.setItem('advot-lang', lang); }catch(e){} applyLang(); };
+
+/* ---------------- home ---------------- */
+function nextIndex(){ return STOPS.findIndex(s => !S.done.includes(s.id)); }
+function renderHome(pressId){
+  const stamps = $('#stamps');
+  stamps.innerHTML = STOPS.map((s, i) => {
+    const on = S.done.includes(s.id);
+    return `<div role="listitem" class="slot ${on?'on':'off'} ${pressId===s.id?'press':''}" aria-label="${L(s).t}${on?' ✓':''}">${on ? svg(s.id) : `<span class="num">${i+1}</span>`}</div>`;
+  }).join('');
+  const n = S.done.length, full = n === STOPS.length;
+  $('#pass').classList.toggle('full', full);
+  $('#passMsg').innerHTML = full ? `<b>${t('full_h')}</b>${t('full_p')}` : (n ? t('progress')(n) : t('empty'));
+  const nx = nextIndex();
+  $('#list').innerHTML = STOPS.map((s, i) => {
+    const done = S.done.includes(s.id);
+    return `<li><button type="button" class="item ${done?'done':''} ${i===nx?'next':''}" data-i="${i}">
+      <span class="n">${done ? svg('check') : `<span class="num">${i+1}</span>`}</span>
+      <span class="t"><b>${L(s).t}</b><small>${L(s).w}</small></span>
+      ${s.kind==='ms' || s.kind==='guess' ? `<span class="tag">${t('together')}</span>` : ''}
+    </button></li>`;
+  }).join('');
+}
+$('#list').addEventListener('click', e => {
+  const b = e.target.closest('.item'); if (!b) return;
+  const s = STOPS[+b.dataset.i];
+  if (s.kind === 'ms') openMs(remote.m === 'ms' ? remote.i : 0, false);
+  else openStopSheet(+b.dataset.i);
+});
+function stamp(id){
+  if (S.done.includes(id)) return false;
+  S.done.push(id); save(); return true;
+}
+
+/* ---------------- sheets ---------------- */
+function openSheet(el){ el.classList.add('on'); document.body.style.overflow='hidden'; setTimeout(()=>{ const x = el.querySelector('[data-close]'); x && x.focus({preventScroll:true}); }, 60); }
+function closeSheet(el){ el.classList.remove('on'); if (!document.querySelector('.sheet.on')) document.body.style.overflow=''; }
+document.querySelectorAll('[data-close]').forEach(b => b.onclick = () => {
+  const el = b.closest('.sheet');
+  if (el.id === 'st') closeStop(false);
+  else if (el.id === 'ms') closeMs();
+  else closeSheet(el);
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape'){ const o = document.querySelector('.sheet.on'); if (o) o.querySelector('[data-close]').click(); } });
+
+/* ---------------- station ---------------- */
+let openStop = null;
+function fillStop(i){
+  const s = STOPS[i], c = L(s);
+  const hero = $('#stHero');
+  hero.className = 'hero';
+  hero.style.backgroundImage = s.img ? `url("${s.img}")` : '';
+  hero.style.backgroundPosition = s.pos || '';
+  hero.innerHTML = `<span class="cnt">${t('of')(i+1, STOPS.length)}</span>`;
+  $('#stWhere').textContent = c.w;
+  const pic = $('#stPic'); pic.hidden = !c.pic; pic.textContent = c.pic || '';
+  $('#stTitle').textContent = c.t;
+  $('#stStory').textContent = c.s;
+  const fact = $('#stFact'); fact.hidden = !c.f; fact.textContent = c.f || '';
+  const look = $('#stLook'); look.hidden = !c.l; $('#stLookP').textContent = c.l || '';
+  const g = $('#stGuess');
+  if (s.kind === 'guess') { g.hidden = false; renderGuess(); } else { g.hidden = true; g.innerHTML = ''; }
+  const btn = $('#stBtn');
+  btn.textContent = s.kind === 'stop' ? t('seen') : t('cont');
+  btn.hidden = s.kind === 'guess' && !S.revealed;
+}
+function openStopSheet(i){ openStop = i; fillStop(i); $('#st .body').scrollTop = 0; openSheet($('#st')); }
+function closeStop(complete){
+  const i = openStop; closeSheet($('#st')); openStop = null;
+  if (complete && i != null){
+    const id = STOPS[i].id;
+    if (stamp(id)) setTimeout(() => { renderHome(id); }, 380); else renderHome();
+  }
+}
+$('#stBtn').onclick = () => closeStop(true);
+
+/* guess (log scale, 1M to 500M) */
+const G_MIN = Math.log(1), G_MAX = Math.log(500);
+const sliderToVal = v => Math.round(Math.exp(G_MIN + (G_MAX - G_MIN) * v / 1000));
+const valToSlider = n => Math.round(1000 * (Math.log(n) - G_MIN) / (G_MAX - G_MIN));
+let draftGuess = 20;
+function renderGuess(){
+  const g = $('#stGuess'), c = L(STOPS[1]);
+  if (S.revealed){
+    g.innerHTML = `<div class="guess answer"><div class="big">${t('ans_big')}</div><p>${t('ans_p')}</p>${S.guess ? `<div class="mine">${t('mine')(t('mil')(S.guess))}</div>` : ''}</div>`;
+    $('#stBtn').hidden = false; return;
+  }
+  if (S.guess){
+    const waiting = hostLive() && remote.m === 'guess';
+    g.innerHTML = `<div class="guess"><div class="q">${c.q}</div><div class="val">${t('mil')(`<span class="num">${S.guess}</span>`)}</div>
+      ${waiting ? `<div class="wait">${t('guess_wait')}</div>` : `<button class="btn ghost" type="button" id="showAns">${t('guess_show')}</button>`}</div>`;
+    const b = $('#showAns'); if (b) b.onclick = () => { S.revealed = true; save(); renderGuess(); };
+    return;
+  }
+  g.innerHTML = `<div class="guess"><div class="q">${c.q}</div>
+    <div class="val" id="gVal">${t('mil')(`<span class="num">${draftGuess}</span>`)}</div>
+    <input type="range" min="0" max="1000" step="1" id="gRange" value="${valToSlider(draftGuess)}" aria-label="${c.q}">
+    <div class="ends"><span>${t('ends')[0]}</span><span>${t('ends')[1]}</span></div>
+    <button class="btn" type="button" id="gGo">${t('guess_btn')}</button></div>`;
+  const r = $('#gRange');
+  r.oninput = () => { draftGuess = sliderToVal(+r.value); $('#gVal').innerHTML = t('mil')(`<span class="num">${draftGuess}</span>`); };
+  $('#gGo').onclick = () => { S.guess = draftGuess; save(); renderGuess(); };
+}
+
+/* ---------------- manuscripts moment ---------------- */
+let msI = 0, msByHost = false;
+function fillMs(){
+  const m = MSS[msI], c = L(m), img = $('#msImg');
+  if (img.getAttribute('src') !== m.img){ img.src = m.img; resetZoom(); }
+  img.alt = c.t;
+  $('#msMeta').textContent = c.m; $('#msTitle').textContent = c.t; $('#msText').textContent = c.p;
+  $('#msCount').textContent = `${msI+1}/${MSS.length}`;
+  $('#msDots').innerHTML = MSS.map((_, i) => `<i class="${i===msI?'on':''}"></i>`).join('');
+  $('#msPrev').disabled = msI === 0; $('#msNext').disabled = msI === MSS.length - 1;
+}
+function openMs(i, byHost){ msI = i; msByHost = byHost; fillMs(); openSheet($('#ms')); }
+function closeMs(){
+  closeSheet($('#ms'));
+  if (stamp('ms')) setTimeout(() => renderHome('ms'), 380); else renderHome();
+}
+$('#msPrev').onclick = () => { if (msI > 0){ msI--; fillMs(); } };
+$('#msNext').onclick = () => { if (msI < MSS.length - 1){ msI++; fillMs(); } };
+
+/* pinch / pan / double-tap zoom on the manuscript */
+const Z = { s:1, x:0, y:0 }, ptrs = new Map(); let pinch0 = null, lastTap = 0;
+const frame = $('#msFrame'), zimg = $('#msImg');
+function applyZoom(){ zimg.style.transform = `translate(${Z.x}px,${Z.y}px) scale(${Z.s})`; }
+function clampZoom(){
+  const w = frame.clientWidth, h = frame.clientHeight;
+  Z.s = Math.min(5, Math.max(1, Z.s));
+  if (Z.s === 1){ Z.x = 0; Z.y = 0; return; }
+  Z.x = Math.min(0, Math.max(w - w*Z.s, Z.x));
+  Z.y = Math.min(0, Math.max(h - h*Z.s, Z.y));
+}
+function zoomAt(cx, cy, ns){ const k = ns / Z.s; Z.x = cx - (cx - Z.x)*k; Z.y = cy - (cy - Z.y)*k; Z.s = ns; clampZoom(); applyZoom(); }
+function resetZoom(){ Z.s = 1; Z.x = 0; Z.y = 0; applyZoom(); $('#msHint').style.opacity = 1; }
+frame.addEventListener('pointerdown', e => {
+  frame.setPointerCapture(e.pointerId); ptrs.set(e.pointerId, {x:e.clientX, y:e.clientY});
+  if (ptrs.size === 2){ const [a,b] = [...ptrs.values()]; pinch0 = { d:Math.hypot(a.x-b.x,a.y-b.y), s:Z.s }; }
+  if (ptrs.size === 1){
+    const now = Date.now(), r = frame.getBoundingClientRect();
+    if (now - lastTap < 300){ zimg.style.transition = 'transform .3s var(--ease)'; zoomAt(e.clientX - r.left, e.clientY - r.top, Z.s > 1.2 ? 1 : 2.6); setTimeout(()=>zimg.style.transition='', 320); $('#msHint').style.opacity = 0; }
+    lastTap = now;
+  }
+});
+frame.addEventListener('pointermove', e => {
+  if (!ptrs.has(e.pointerId)) return;
+  const prev = ptrs.get(e.pointerId); ptrs.set(e.pointerId, {x:e.clientX, y:e.clientY});
+  const r = frame.getBoundingClientRect();
+  if (ptrs.size === 2 && pinch0){
+    const [a,b] = [...ptrs.values()];
+    const d = Math.hypot(a.x-b.x, a.y-b.y);
+    zoomAt((a.x+b.x)/2 - r.left, (a.y+b.y)/2 - r.top, pinch0.s * d / pinch0.d);
+    $('#msHint').style.opacity = 0;
+  } else if (ptrs.size === 1 && Z.s > 1){
+    Z.x += e.clientX - prev.x; Z.y += e.clientY - prev.y; clampZoom(); applyZoom();
+  }
+});
+const endPtr = e => { ptrs.delete(e.pointerId); if (ptrs.size < 2) pinch0 = null; };
+frame.addEventListener('pointerup', endPtr); frame.addEventListener('pointercancel', endPtr);
+let swipe0 = null;
+frame.addEventListener('touchstart', e => { swipe0 = e.touches.length === 1 && Z.s === 1 ? e.touches[0].clientX : null; }, {passive:true});
+frame.addEventListener('touchend', e => {
+  if (swipe0 == null || Z.s !== 1) return;
+  const dx = e.changedTouches[0].clientX - swipe0; swipe0 = null;
+  if (Math.abs(dx) < 60) return;
+  const forward = lang === 'he' ? dx > 0 : dx < 0;
+  (forward ? $('#msNext') : $('#msPrev')).click();
+});
+
+/* ---------------- credits ---------------- */
+function renderCredits(){
+  $('#credList').innerHTML = CREDITS.map(c => `<li><b>${c[0]}</b><br>${c[1]} · <a href="${c[2]}" target="_blank" rel="noopener">${lang==='he'?'מקור':'Source'}</a></li>`).join('');
+}
+$('#credBtn').onclick = () => openSheet($('#cred'));
+
+/* ---------------- rest overlay ---------------- */
+function setRest(on){ $('#rest').classList.toggle('on', on); }
+
+/* ---------------- phone: follow the host ---------------- */
+function applyRemote(st){
+  lastBeat = Date.now();
+  const changed = st.seq !== appliedSeq;
+  remote = st;
+  if (!changed){ if (openStop === 1 && !S.revealed) renderGuess(); return; }
+  appliedSeq = st.seq;
+  setRest(st.m === 'rest');
+  if (st.m === 'ms'){
+    if (openStop != null) closeStop(false);
+    if ($('#ms').classList.contains('on')){ msI = st.i; fillMs(); msByHost = true; } else openMs(st.i, true);
+  } else if (st.m === 'guess' || st.m === 'reveal'){
+    if ($('#ms').classList.contains('on')) closeMs();
+    if (st.m === 'reveal' && S.guess == null && !S.revealed){ /* no guess given: still reveal */ }
+    if (st.m === 'reveal') { S.revealed = true; save(); }
+    if (openStop !== 1) openStopSheet(1); else fillStop(1);
+  } else if (st.m === 'none'){
+    if ($('#ms').classList.contains('on') && msByHost) closeMs();
+    if (openStop === 1 && S.revealed) closeStop(true);
+  }
+}
+
+let ch = null;
+function connectPhone(){
+  if (!window.supabase) return;
+  try {
+    const sb = window.supabase.createClient(SB_URL, SB_KEY, { realtime:{ params:{ eventsPerSecond:10 } } });
+    let me = store.get('advot-tour-id'); if (!me){ me = Math.random().toString(36).slice(2,10); store.set('advot-tour-id', me); }
+    ch = sb.channel(TOPIC, { config:{ broadcast:{ self:false }, presence:{ key: me } } });
+    ch.on('broadcast', { event:'state' }, ({ payload }) => payload && applyRemote(payload));
+    ch.subscribe(async st => { if (st === 'SUBSCRIBED'){ try { await ch.track({ r:'p' }); } catch(e){} } });
+  } catch(e){}
+}
+
+/* ---------------- host ---------------- */
+let H = Object.assign({ m:'none', i:0, seq:1 }, store.get('advot-tour-host') || {});
+let hostCh = null, hostOk = false, count = 0;
+function hostSend(){
+  if (!hostCh || !hostOk) return;
+  try { hostCh.send({ type:'broadcast', event:'state', payload:{ m:H.m, i:H.i, seq:H.seq } }); } catch(e){}
+}
+function hostSet(m, i){
+  H.m = m; if (i != null) H.i = i; H.seq++;
+  store.set('advot-tour-host', H); renderHost(); hostSend();
+}
+function renderHost(){
+  const live = $('#liveCount');
+  live.classList.toggle('down', !hostOk);
+  live.querySelector('span').textContent = hostOk ? t('h_count')(count) : t('h_off');
+  $('#hostBanner').hidden = hostOk;
+  const nowKey = H.m === 'ms' ? 'ms' : H.m;
+  document.querySelectorAll('[data-push]').forEach(b => {
+    const k = b.dataset.push, on = k === nowKey;
+    b.textContent = on ? t('h_on') : t('h_push');
+    b.closest('.hcard').classList.toggle('live-now', on);
+  });
+  $('#hMsNav').hidden = H.m !== 'ms';
+  $('#hMsName').textContent = `${H.i+1}/${MSS.length} · ${L(MSS[H.i]).t}`;
+  $('#hPrev').disabled = H.i === 0; $('#hNext').disabled = H.i === MSS.length - 1;
+}
+function startHost(){
+  document.body.classList.add('host');
+  $('#hostApp').hidden = false;
+  document.querySelectorAll('[data-push]').forEach(b => b.onclick = () => {
+    const k = b.dataset.push;
+    if (H.m === k) return;
+    hostSet(k, k === 'ms' ? 0 : H.i);
+  });
+  $('#hPrev').onclick = () => { if (H.i > 0) hostSet('ms', H.i - 1); };
+  $('#hNext').onclick = () => { if (H.i < MSS.length - 1) hostSet('ms', H.i + 1); };
+  $('#hFree').onclick = () => hostSet('none');
+  if (window.QRCode) new QRCode($('#qr'), { text:'https://london.hotam.tech/tour', width:400, height:400, colorDark:'#0B1440', colorLight:'#ffffff', correctLevel:QRCode.CorrectLevel.M });
+  renderHost();
+  if (!window.supabase) return;
+  try {
+    const sb = window.supabase.createClient(SB_URL, SB_KEY, { realtime:{ params:{ eventsPerSecond:10 } } });
+    hostCh = sb.channel(TOPIC, { config:{ broadcast:{ self:false }, presence:{ key:'host' } } });
+    const recount = () => { const ps = hostCh.presenceState(); count = Object.keys(ps).filter(k => k !== 'host').length; renderHost(); };
+    hostCh.on('presence', { event:'sync' }, recount);
+    hostCh.on('presence', { event:'join' }, () => { recount(); hostSend(); });
+    hostCh.on('presence', { event:'leave' }, recount);
+    hostCh.subscribe(st => {
+      hostOk = st === 'SUBSCRIBED';
+      if (hostOk) hostSend();
+      renderHost();
+    });
+    setInterval(hostSend, 3000);
+    addEventListener('online', renderHost); addEventListener('offline', () => { hostOk = false; renderHost(); });
+  } catch(e){}
+}
+
+/* ---------------- boot ---------------- */
+function preload(){ [...STOPS.map(s => s.img).filter(Boolean), ...MSS.map(m => m.img)].forEach(src => { const im = new Image(); im.src = src; }); }
+function showHome(){ $('#welcome').hidden = true; $('#home').hidden = false; renderHome(); }
+$('#startBtn').onclick = () => { S.started = true; save(); showHome(); };
+
+applyLang();
+preload();
+if (isHost){ startHost(); }
+else {
+  if (S.started) showHome(); else $('#welcome').hidden = false;
+  connectPhone();
+}
+addEventListener('hashchange', () => location.reload());
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('tour-sw.js', { scope: './tour' }).catch(() => {});
+</script>
+</body>
+</html>
