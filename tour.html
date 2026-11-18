@@ -55,7 +55,7 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stro
 .pass .row1 .en{font-size:12px;letter-spacing:.16em;font-weight:800;color:var(--sky)}
 .pass .sub{font-size:14px;color:var(--dim);margin-top:2px}
 .stamps{display:grid;grid-template-columns:repeat(6,1fr);gap:10px 4px;margin-top:16px}
-.slot{width:46px;height:46px;margin:0 auto;border-radius:50%;display:grid;place-items:center;position:relative}
+.slot{width:100%;max-width:46px;aspect-ratio:1;height:auto;margin:0 auto;border-radius:50%;display:grid;place-items:center;position:relative}
 .slot.off{border:1.5px dashed rgba(220,227,245,.28);color:var(--dim);font-size:14px;font-weight:700}
 .slot.on{border:2px solid var(--teal);color:var(--teal);background:rgba(65,202,197,.12);transform:rotate(-8deg)}
 .slot.on::after{content:"";position:absolute;inset:4px;border-radius:50%;border:1px solid rgba(65,202,197,.45)}
@@ -107,10 +107,21 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stro
 .fact{background:rgba(13,180,244,.09);border-radius:14px;padding:11px 14px;font-weight:700;font-size:16px;color:var(--ink)}
 .look{background:rgba(65,202,197,.09);border:1px solid rgba(65,202,197,.42);border-radius:16px;padding:12px 14px;display:flex;gap:12px;align-items:flex-start}
 .look svg{color:var(--teal);margin-top:2px}
+.more{border-top:1px solid var(--line);margin-top:2px}
+.more summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:48px;cursor:pointer;font-weight:800;font-size:16px;color:var(--ink)}
+.more summary::-webkit-details-marker{display:none}
+.more summary svg{transition:transform .3s var(--ease);color:var(--dim)}
+.more[open] summary svg{transform:rotate(180deg)}
+.more-in{display:flex;flex-direction:column;gap:12px;padding:2px 0 14px}
+.more-in p{font-size:16px;line-height:1.6;color:var(--ink-2)}
+.more-in p b{color:var(--ink);font-weight:800}
 .look.tap{cursor:pointer}.look.tap:active{background:rgba(65,202,197,.16)}
 .look b{display:block;color:var(--teal);font-size:15px;font-weight:800}
 .look p{font-size:16px;color:var(--ink-2)}
-.dock{padding:10px 18px calc(16px + var(--safe-b));max-width:520px;width:100%;margin:0 auto;flex-shrink:0}
+.dock{padding:10px 18px calc(16px + var(--safe-b));max-width:520px;width:100%;margin:0 auto;flex-shrink:0;display:flex;gap:10px}
+.dock .btn{flex:1}
+.dock .morebtn{flex:0 0 auto;width:auto;padding:0 18px;font-size:16px}
+.dock .morebtn[hidden]{display:none}
 
 /* guess */
 .guess{display:flex;flex-direction:column;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px 16px}
@@ -141,6 +152,7 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stro
 .hero{cursor:zoom-in}
 .hero .zoomchip{position:absolute;bottom:12px;inset-inline-end:16px;z-index:2;display:flex;align-items:center;gap:6px;font-size:13px;color:var(--ink);background:rgba(7,13,46,.7);border:1px solid var(--line);border-radius:99px;padding:4px 12px;min-height:32px}
 .hero .zoomchip svg{width:16px;height:16px}
+.hero.short .zoomchip{display:none}
 .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transform-origin:0 0;will-change:transform;user-select:none;-webkit-user-drag:none}
 .frame .hint{position:absolute;bottom:10px;inset-inline-end:10px;font-size:13px;color:var(--ink-2);background:rgba(5,9,31,.78);border:1px solid var(--line);border-radius:99px;padding:3px 10px;pointer-events:none;transition:opacity .4s}
 .cap{padding:12px 18px 4px;max-width:520px;width:100%;margin:0 auto}
@@ -263,8 +275,9 @@ body.host .wrap{max-width:560px}
     <div class="fact" id="stFact"></div>
     <div id="stGuess"></div>
     <div class="look" id="stLook"><svg class="i" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg><div><b data-t="look_t"></b><p id="stLookP"></p></div></div>
+    <details class="more" id="stMore"><summary><span data-t="more"></span><svg class="i" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></summary><div class="more-in" id="stMoreBody"></div></details>
   </div>
-  <div class="dock"><button class="btn" type="button" id="stBtn"></button></div>
+  <div class="dock"><button class="btn ghost morebtn" type="button" id="stMoreBtn"><svg class="i" viewBox="0 0 24 24"><path d="M12 6.5C10 5 7 4.5 3 5v13c4-.5 7 0 9 1.5 2-1.5 5-2 9-1.5V5c-4-.5-7 0-9 1.5z"/><path d="M12 6.5v13"/></svg><span data-t="more_btn"></span></button><button class="btn" type="button" id="stBtn"></button></div>
 </section>
 
 <!-- manuscripts moment -->
@@ -340,7 +353,7 @@ const T = {
     ans_p:'רובם, כ-70 אחוז, בכלל לא כאן. הם שמורים במחסנים של הספרייה ביורקשייר.',
     mine:n=>`ניחשתם ${n}`, ends:['מיליון','500 מיליון'],
     ms_intro:'שלושה ספרים משלוש קהילות רחוקות. כולם שמורים כאן.', zoom:'הגדילו בשתי אצבעות',
-    rest_h:'תרימו את הראש', rest_p:'ממשיכים בעוד רגע.', zoom_open:'הגדלה',
+    rest_h:'תרימו את הראש', rest_p:'ממשיכים בעוד רגע.', zoom_open:'הגדלה', more:'להרחבה: מי, מה ולמה זה חשוב', more_btn:'להרחבה',
     cred_btn:'מקורות התמונות', cred_h:'מקורות התמונות',
     of:(a,b)=>`${a} מתוך ${b}`,
     h_title:'מסך המנחה', h_count:n=>`${n} מחוברים`, h_off:'אין חיבור',
@@ -364,7 +377,7 @@ const T = {
     ans_p:'Most of them, about 70 percent, are not here at all. They are kept in the library’s stores in Yorkshire.',
     mine:n=>`You guessed ${n}`, ends:['1 million','500 million'],
     ms_intro:'Three books from three distant communities. All of them are kept here.', zoom:'Zoom with two fingers',
-    rest_h:'Look up', rest_p:'We’ll carry on in a moment.', zoom_open:'Enlarge',
+    rest_h:'Look up', rest_p:'We’ll carry on in a moment.', zoom_open:'Enlarge', more:'Read more: who, what and why it matters', more_btn:'Read more',
     cred_btn:'Image sources', cred_h:'Image sources',
     of:(a,b)=>`${a} of ${b}`,
     h_title:'Host screen', h_count:n=>`${n} connected`, h_off:'No connection',
@@ -467,6 +480,8 @@ const STOPS = [
       f:'The pupil made a mistake, and it has stayed there for 1,800 years: in both copies he left out the first letter of the sentence.',
       l:'Zoom in and compare the teacher\'s lines with the pupil\'s. As far as we know, the tablets are not on show in the gallery right now, so this picture is the place to see them.' } }
 ];
+
+const EXTRA = {"kings": {"he": {"h": ["מי", "האוסף", "למה זה חשוב"], "p": ["ג'ורג' השלישי מלך על בריטניה שישים שנה, מ-1760 עד 1820, ולאורך השנים אסף ספרייה פרטית ענקית.", "יש בו יותר מ-65 אלף כרכים, 17,500 חוברות ו-446 כתבי יד. בינואר 1823 הציע בנו, ג'ורג' הרביעי, לתת אותו לאומה, והפרלמנט החליט לשכן אותו במוזיאון הבריטי.", "כך הפך אוסף פרטי של מלך לרכוש של הציבור. היום הוא עומד במגדל זכוכית וברונזה בן שש קומות, בלב הבניין של הספרייה."]}, "en": {"h": ["Who", "The collection", "Why it matters"], "p": ["George III reigned over Britain for sixty years, from 1760 to 1820, and over those years built a vast private library.", "It holds more than 65,000 volumes, 17,500 pamphlets and 446 manuscripts. In January 1823 his son, George IV, offered it to the nation, and Parliament decided to house it at the British Museum.", "That is how a king's private collection became public property. Today it stands in a six-storey tower of glass and bronze at the heart of the library building."]}}, "magna": {"he": {"h": ["מי", "המסמך", "למה זה חשוב"], "p": ["המלך ג'ון שלט באנגליה מ-1199 עד 1216. מלחמה כושלת בצרפת ומסים כבדים הרחיקו ממנו את הברונים, והם מרדו בו.", "ב-15 ביוני 1215, בראנימיד שליד וינדזור, אישר ג'ון בחותמו את המסמך כדי לעשות שלום עם המורדים. באוגוסט אותה שנה ביטל אותו האפיפיור, אבל הוא הוצא מחדש ב-1216, ב-1217 וב-1225.", "מגנה קרטה הפכה לסמל לרעיון שגם השליט כפוף לחוק. ממנה צמח המושג \"הליך משפטי נאות\", שנכנס לחוקה האמריקאית, ושלושה מהסעיפים שלה עדיין בתוקף באנגליה ובוויילס."]}, "en": {"h": ["Who", "The document", "Why it matters"], "p": ["King John ruled England from 1199 to 1216. A failed war in France and heavy taxes turned the barons against him, and they rebelled.", "On 15 June 1215, at Runnymede near Windsor, John sealed the document to make peace with the rebels. The Pope annulled it in August that year, but it was reissued in 1216, 1217 and 1225.", "Magna Carta became a symbol of the idea that even the ruler is bound by the law. The notion of \"due process of law\" grew from it and entered the American Constitution, and three of its clauses are still in force in England and Wales."]}}, "folio": {"he": {"h": ["מי", "היצירה", "למה זה חשוב"], "p": ["ויליאם שייקספיר נולד ב-1564 בסטרטפורד-על-אייבון ומת שם ב-1616. בלונדון היה שחקן ומחזאי, ושותף בלהקה שבנתה את תיאטרון הגלוב.", "הוא כתב כ-39 מחזות, 154 סונטות ושלוש פואמות. את הפוליו ערכו שניים מחבריו ללהקה, ג'ון המינג'ס והנרי קונדל. הוא נדפס בכ-750 עותקים, וידוע על 235 שנשתמרו.", "המחזות של שייקספיר תורגמו לכל שפה חיה גדולה, ומועלים יותר ממחזות של כל מחזאי אחר. לגבי כעשרים מהם, הפוליו הוא כנראה הנוסח האמין היחיד שיש לנו."]}, "en": {"h": ["Who", "The work", "Why it matters"], "p": ["William Shakespeare was born in 1564 in Stratford-upon-Avon and died there in 1616. In London he was an actor and playwright, and a partner in the company that built the Globe Theatre.", "He wrote about 39 plays, 154 sonnets and three long poems. The Folio was edited by two of his fellow actors, John Heminges and Henry Condell. About 750 copies were printed, and 235 are known to survive.", "Shakespeare's plays have been translated into every major living language and are performed more than those of any other playwright. For about twenty of them, the Folio is arguably the only reliable text we have."]}}, "beatles": {"he": {"h": ["מי", "השיר", "למה זה חשוב"], "p": ["הביטלס הוקמו בליברפול ב-1960: ג'ון לנון, פול מקרטני, ג'ורג' הריסון ורינגו סטאר. לנון ומקרטני כתבו את רוב השירים. הלהקה התפרקה ב-1970, ולנון נרצח בניו יורק ב-1980.", "את Strawberry Fields Forever כתב לנון על בית ילדים של צבא הישע בליברפול, ליד בית ילדותו. כילד הוא שיחק בגן של המקום. השיר יצא ב-1967, והסרט שצולם לו נחשב לחלוץ בעולם הקליפים.", "הביטלס מכרו יותר מ-600 מיליון עותקים, יותר מכל אמן אחר, ונחשבים ללהקה המשפיעה ביותר במוזיקה הפופולרית."]}, "en": {"h": ["Who", "The song", "Why it matters"], "p": ["The Beatles formed in Liverpool in 1960: John Lennon, Paul McCartney, George Harrison and Ringo Starr. Lennon and McCartney wrote most of the songs. The band broke up in 1970, and Lennon was murdered in New York in 1980.", "Lennon wrote Strawberry Fields Forever about a Salvation Army children's home in Liverpool, near his childhood home. As a boy he played in its garden. The song came out in 1967, and the film made for it is seen as a pioneer of the music video.", "The Beatles have sold more than 600 million units, more than any other act, and are regarded as the most influential band in popular music."]}}, "leo": {"he": {"h": ["מי", "המחברות", "למה זה חשוב"], "p": ["לאונרדו דה וינצ'י נולד ב-1452 בווינצ'י שבטוסקנה ומת ב-1519 באמבואז שבצרפת. הוא צייר את המונה ליזה ואת הסעודה האחרונה, ועסק גם בהנדסה, באנטומיה, באופטיקה ובזרימת מים.", "במחברות שלו הגה מכונות מעופפות, שרטט את גוף האדם ורשם תצפיות על מים ועל אור. המחברת שבספרייה, קודקס ארונדל, קרויה על שם האספן תומס הווארד, הרוזן מארונדל.", "דה וינצ'י נחשב לדמות שמגלמת את האידיאל של הרנסנס: אדם שמחבר בין אמנות למדע. במחברות רואים מקרוב איך הוא חשב."]}, "en": {"h": ["Who", "The notebooks", "Why it matters"], "p": ["Leonardo da Vinci was born in 1452 in Vinci, Tuscany, and died in 1519 in Amboise, France. He painted the Mona Lisa and The Last Supper, and also worked in engineering, anatomy, optics and the study of flowing water.", "In his notebooks he conceived flying machines, drew the human body and recorded what he saw of water and light. The notebook at the library, the Codex Arundel, is named after the collector Thomas Howard, Earl of Arundel.", "Da Vinci is seen as the embodiment of the Renaissance ideal: a person who joins art and science. The notebooks let you see up close how he thought."]}}, "austen": {"he": {"h": ["מי", "היצירה", "למה זה חשוב"], "p": ["ג'יין אוסטן נולדה ב-1775 בסטיוונטון שבהמפשייר ומתה ב-1817 בווינצ'סטר, בגיל 41. את ספריה פרסמה בלי שמה: על הראשון נכתב רק \"מאת גברת\", ועל הבאים \"מאת מחברת 'תבונה ורגישות'\".", "היא כתבה שישה רומנים, ביניהם \"תבונה ורגישות\", \"גאווה ודעה קדומה\" ו\"אמה\". בעלילות שלה נשים תלויות בנישואים כדי להבטיח את מעמדן ואת פרנסתן.", "אוסטן הייתה הסופרת האנגלית הראשונה שהרבתה להשתמש במבע משולב, שבו המספר מדבר מתוך התודעה של הדמות. ספריה כמעט לא ירדו מהדפוס מאז מותה, ומ-2017 הדיוקן שלה מופיע על שטר של עשרה פאונד."]}, "en": {"h": ["Who", "The work", "Why it matters"], "p": ["Jane Austen was born in 1775 in Steventon, Hampshire, and died in 1817 in Winchester, aged 41. She published her books without her name: the first said only \"By a Lady\", and the later ones \"by the author of Sense and Sensibility\".", "She wrote six novels, among them Sense and Sensibility, Pride and Prejudice and Emma. In her plots, women depend on marriage to secure their standing and their livelihood.", "Austen was the first English novelist to make extensive use of free indirect speech, where the narrator speaks from within a character's consciousness. Her books have hardly been out of print since her death, and since 2017 her portrait has been on the ten-pound note."]}}, "usa": {"he": {"h": ["מי", "המסמך", "למה זה חשוב"], "p": ["את רוב הטיוטה כתב תומס ג'פרסון בין 11 ל-28 ביוני 1776, לבקשת ועדה של חמישה צירים. הקונגרס ערך את הנוסח וקיצר אותו בכרבע.", "הקונגרס הקונטיננטלי השני אישר את ההכרזה ב-4 ביולי 1776 בפילדלפיה, ו-56 צירים חתמו עליה. היא מסבירה למה שלוש-עשרה המושבות רואות את עצמן עצמאיות מבריטניה.", "המשפט על הזכות ל\"חיים, חירות והשאיפה לאושר\" הפך לאחת ההצהרות המשפיעות בעולם על זכויות האדם. אברהם לינקולן ראה בהכרזה אמת מידה מוסרית שארצות הברית צריכה לשאוף אליה, והעמיד אותה במרכז נאום גטיסברג ב-1863."]}, "en": {"h": ["Who", "The document", "Why it matters"], "p": ["Thomas Jefferson wrote most of the draft between 11 and 28 June 1776, at the request of a committee of five delegates. Congress edited the text and cut it by about a quarter.", "The Second Continental Congress adopted the Declaration on 4 July 1776 in Philadelphia, and 56 delegates signed it. It explains why the thirteen colonies consider themselves independent of Britain.", "The sentence on the right to \"Life, Liberty and the pursuit of Happiness\" became one of the world's most influential statements on human rights. Abraham Lincoln saw the Declaration as the moral standard America should strive towards and placed it at the centre of the Gettysburg Address in 1863."]}}, "tablet": {"he": {"h": ["מי", "המשפטים", "למה זה חשוב"], "p": ["את השורות לקח המורה מהפתגמים של מנאנדרוס, מחזאי קומי מאתונה שחי בסוף המאה הרביעית לפני הספירה וכתב 108 קומדיות.", "הפתגמים שלו היו כל כך שגורים, שהשליח פאולוס מצטט אחד מהם בברית החדשה, על חברה רעה שמשחיתה מידות טובות. רוב המחזות שלו אבדו, וקטעים מהם נמצאו על פפירוסים במצרים.", "לוח כזה מראה איך ילדים למדו לכתוב לפני 1,800 שנה: מעתיקים את השורה של המורה שוב ושוב. בקצה השני של החרט היה מגרד שטוח, ובו החליקו את השעווה ותיקנו טעויות."]}, "en": {"h": ["Who", "The lines", "Why it matters"], "p": ["The teacher took the lines from the maxims of Menander, a comic playwright from Athens who lived in the late fourth century BCE and wrote 108 comedies.", "His maxims were so well known that the apostle Paul quotes one of them in the New Testament, about bad company corrupting good character. Most of his plays were lost, and fragments have been found on papyri in Egypt.", "A tablet like this shows how children learned to write 1,800 years ago: copying the teacher's line again and again. The other end of the stylus was a flat scraper, used to smooth the wax and fix mistakes."]}}};
 
 const MSS = [
   { img:'assets/tour/ms-golden-haggadah.webp',
@@ -577,7 +592,7 @@ $('#list').addEventListener('click', e => {
 function stamp(id){
   if (S.done.includes(id)) return false;
   S.done.push(id); save();
-  $('#pass').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  $('#pass').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
   return true;
 }
 
@@ -628,6 +643,9 @@ function fillStop(i){
   look.classList.toggle('tap', !!c.lt); look.tabIndex = c.lt ? 0 : -1;
   if (c.lt) look.setAttribute('role', 'button'); else look.removeAttribute('role');
   look.querySelector('svg').innerHTML = c.lt ? '<circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5M10.5 8v5M8 10.5h5"/>' : '<path d="M12 19V5M6 11l6-6 6 6"/>';
+  const more = $('#stMore'), x = EXTRA[s.id] && EXTRA[s.id][lang];
+  more.open = false; more.hidden = !x; $('#stMoreBtn').hidden = !x;
+  $('#stMoreBody').innerHTML = x ? x.p.map((p, k) => `<p><b>${x.h[k]}.</b> ${p}</p>`).join('') : '';
   const g = $('#stGuess');
   if (s.kind === 'guess') { g.hidden = false; renderGuess(); } else { g.hidden = true; g.innerHTML = ''; }
   const btn = $('#stBtn');
@@ -637,9 +655,13 @@ function fillStop(i){
 function fitHero(){
   // a longer station gives up image height first, so the whole stop fits one screen without scrolling
   const hero = $('#stHero'), body = $('#st .body');
+  const more = $('#stMore'), wasHidden = more.hidden;
+  more.hidden = true;                             // the read-more row may fall below the fold; the docked pill reaches it
   hero.style.height = ''; hero.style.minHeight = '';
   const over = body.scrollHeight - body.clientHeight;
-  if (over > 0){ hero.style.minHeight = '96px'; hero.style.height = Math.max(96, hero.offsetHeight - over - 6) + 'px'; }
+  if (over > 0){ hero.style.minHeight = '120px'; hero.style.height = Math.max(120, hero.offsetHeight - over - 6) + 'px'; }
+  more.hidden = wasHidden;
+  hero.classList.toggle('short', hero.offsetHeight < 140);
 }
 function openStopSheet(i){ openStop = i; fillStop(i); $('#st .body').scrollTop = 0; openSheet($('#st')); requestAnimationFrame(fitHero); }
 addEventListener('resize', () => { if (openStop != null) fitHero(); });
@@ -750,6 +772,9 @@ function openLightbox(i){
   openSheet($('#lb'));
 }
 $('#stHero').addEventListener('click', () => { if (openStop != null && STOPS[openStop].img) openLightbox(openStop); });
+const motionOK = () => !matchMedia('(prefers-reduced-motion: reduce)').matches;
+$('#stMoreBtn').addEventListener('click', () => { $('#stMore').open = true; });
+$('#stMore').addEventListener('toggle', () => { const o = $('#stMore').open; $('#stMoreBtn').hidden = o || !EXTRA[STOPS[openStop] && STOPS[openStop].id]; if (o) setTimeout(() => $('#stMore').scrollIntoView({ behavior: motionOK() ? 'smooth' : 'auto', block: 'start' }), 60); });
 $('#stLook').addEventListener('click', () => { if ($('#stLook').classList.contains('tap')) openLightbox(openStop); });
 $('#stLook').addEventListener('keydown', e => { if ((e.key === 'Enter' || e.key === ' ') && $('#stLook').classList.contains('tap')){ e.preventDefault(); openLightbox(openStop); } });
 
