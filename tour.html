@@ -40,7 +40,7 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stro
 .mini .strip{height:7px;background:var(--grad)}
 .mini-in{padding:14px 16px 16px}
 .mini-in .en{font-size:12px;letter-spacing:.16em;font-weight:800;color:var(--sky)}
-.mini-slots{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;margin-top:12px}
+.mini-slots{display:grid;grid-template-columns:repeat(5,1fr);gap:8px 10px;margin-top:12px;max-width:240px}
 .mini-slots i{aspect-ratio:1;border-radius:50%;border:1.5px dashed rgba(220,227,245,.28)}
 .welcome h1{font-size:34px;line-height:1.15;font-weight:900;letter-spacing:-.01em;text-wrap:balance}
 .welcome p{color:var(--ink-2);font-size:18px;max-width:34ch}
@@ -54,8 +54,8 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stro
 .pass .row1 b{font-size:20px;font-weight:900}
 .pass .row1 .en{font-size:12px;letter-spacing:.16em;font-weight:800;color:var(--sky)}
 .pass .sub{font-size:14px;color:var(--dim);margin-top:2px}
-.stamps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px 8px;margin-top:16px}
-.slot{width:54px;height:54px;margin:0 auto;border-radius:50%;display:grid;place-items:center;position:relative}
+.stamps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px 6px;margin-top:16px}
+.slot{width:50px;height:50px;margin:0 auto;border-radius:50%;display:grid;place-items:center;position:relative}
 .slot.off{border:1.5px dashed rgba(220,227,245,.28);color:var(--dim);font-size:14px;font-weight:700}
 .slot.on{border:2px solid var(--teal);color:var(--teal);background:rgba(65,202,197,.12);transform:rotate(-8deg)}
 .slot.on::after{content:"";position:absolute;inset:4px;border-radius:50%;border:1px solid rgba(65,202,197,.45)}
@@ -107,6 +107,7 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stro
 .fact{background:rgba(13,180,244,.09);border-radius:14px;padding:11px 14px;font-weight:700;font-size:16px;color:var(--ink)}
 .look{background:rgba(65,202,197,.09);border:1px solid rgba(65,202,197,.42);border-radius:16px;padding:12px 14px;display:flex;gap:12px;align-items:flex-start}
 .look svg{color:var(--teal);margin-top:2px}
+.look.tap{cursor:pointer}.look.tap:active{background:rgba(65,202,197,.16)}
 .look b{display:block;color:var(--teal);font-size:15px;font-weight:800}
 .look p{font-size:16px;color:var(--ink-2)}
 .dock{padding:10px 18px calc(16px + var(--safe-b));max-width:520px;width:100%;margin:0 auto;flex-shrink:0}
@@ -136,6 +137,7 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stro
 .ms .intro{font-size:15px;color:var(--ink-2);margin-top:6px}
 .frame{position:relative;flex:1;min-height:0;margin:6px 14px 0;border-radius:12px;overflow:hidden;background:#05091F;border:1px solid var(--line);touch-action:none}
 .lbframe{margin:calc(64px + env(safe-area-inset-top,0px)) 14px 0}
+#lb .cap{padding-bottom:calc(18px + var(--safe-b))}
 .hero{cursor:zoom-in}
 .hero .zoomchip{position:absolute;bottom:12px;inset-inline-end:16px;z-index:2;display:flex;align-items:center;gap:6px;font-size:13px;color:var(--ink);background:rgba(7,13,46,.7);border:1px solid var(--line);border-radius:99px;padding:4px 12px;min-height:32px}
 .hero .zoomchip svg{width:16px;height:16px}
@@ -208,7 +210,7 @@ body.host .wrap{max-width:560px}
   <section class="welcome" id="welcome" hidden>
     <h1 data-t="w_h"></h1>
     <p data-t="w_p"></p>
-    <div class="mini" aria-hidden="true"><div class="strip"></div><div class="mini-in"><span class="en">READER PASS</span><div class="mini-slots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
+    <div class="mini" aria-hidden="true"><div class="strip"></div><div class="mini-in"><span class="en">READER PASS</span><div class="mini-slots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
     <button class="btn" id="startBtn" type="button" data-t="w_btn"></button>
   </section>
 
@@ -309,10 +311,12 @@ const ICON = {
   hall:'<path d="M3 15h18l-2.5 4.5h-13z"/><path d="M12 4v11"/><path d="M12 5.5l6 7.5h-6"/>',
   ms:'<path d="M12 6.5C10 5 7 4.5 3 5v13c4-.5 7 0 9 1.5 2-1.5 5-2 9-1.5V5c-4-.5-7 0-9 1.5z"/><path d="M12 6.5v13"/>',
   kings:'<path d="M7 3h10v18H7z"/><path d="M7 7.5h10M7 12h10M7 16.5h10M12 3v18"/>',
-  light:'<path d="M19 14.5A7.5 7.5 0 0 1 9.5 5a7.5 7.5 0 1 0 9.5 9.5z"/>',
   magna:'<circle cx="12" cy="9.5" r="5.5"/><path d="M9 14l-1.5 7 4.5-2.4 4.5 2.4L15 14"/><path d="M10 9.5h4"/>',
-  print:'<rect x="4" y="4.5" width="16" height="11" rx="1.5"/><path d="M7.5 8.5h9M7.5 11.5h6M8 15.5v4h8v-4"/>',
-  hand:'<path d="M4 20l1.2-4.6L15.6 5a2 2 0 0 1 2.8 0l.6.6a2 2 0 0 1 0 2.8L8.6 18.8z"/><path d="M13.8 6.8l3.4 3.4"/>',
+  folio:'<path d="M19 4c-6 1.5-10.5 6-12.5 13"/><path d="M19 4c.5 4-2 8-7.5 10.5"/><path d="M6.5 17 5 20.5"/><path d="M4 20.5h9"/>',
+  leo:'<circle cx="12" cy="12" r="8.5"/><rect x="6" y="6" width="12" height="12"/><path d="M12 3.5v17M3.5 12h17"/>',
+  austen:'<circle cx="7" cy="14" r="3.5"/><circle cx="17" cy="14" r="3.5"/><path d="M10.5 14c.5-1 2.5-1 3 0M3.5 13 2.5 9.5M20.5 13l1-3.5"/>',
+  usa:'<path d="M5 21V3"/><path d="M5 4c3-1.5 5 1.5 8 0s4-1 6 0v8c-2-1-3-1.5-6 0s-5-1.5-8 0"/>',
+  tablet:'<rect x="3.5" y="4" width="14" height="16" rx="1.5"/><path d="M6.5 8.5h8M6.5 12h6M6.5 15.5h7"/><path d="M21 3.5 17.5 13"/>',
   check:'<path d="M4.5 12.5l5 5 10-11"/>'
 };
 const svg = (k, cls='i') => `<svg class="${cls}" viewBox="0 0 24 24" aria-hidden="true">${ICON[k]}</svg>`;
@@ -322,12 +326,12 @@ const T = {
   he:{
     top:'הספרייה הבריטית · 26.11', langBtn:'EN',
     w_h:'ברוכים הבאים לספרייה הבריטית',
-    w_p:'מי שרוצה לעיין באוספים כאן מוציא כרטיס קורא, וזה הכרטיס שלכם: שמונה תחנות קצרות, ובכל אחת מקבלים חותמת.',
+    w_p:'מי שרוצה לעיין באוספים כאן מוציא כרטיס קורא, וזה הכרטיס שלכם: עשר תחנות קצרות, ובכל אחת מקבלים חותמת.',
     w_btn:'לכרטיס שלי',
     pass_t:'כרטיס קורא', pass_sub:'משלחת אדוות · לונדון 2026',
     empty:'הכרטיס עוד ריק. מתחילים בחצר, בתחנה הראשונה.',
-    progress:n=>`${n} מתוך 8 חותמות.`,
-    full_h:'הכרטיס מלא', full_p:'שמונה חותמות. נתראה בחצר.',
+    progress:n=>`${n} מתוך ${STOPS.length} חותמות.`,
+    full_h:'הכרטיס מלא', full_p:'עשר חותמות. נתראה בחצר.',
     together:'יחד', look_t:'תרימו את הראש',
     cont:'ממשיכים', seen:'ראיתי', again:'סגירה',
     guess_btn:'זה הניחוש שלי', guess_wait:'תכף נגלה את התשובה.', guess_show:'מה התשובה?',
@@ -346,12 +350,12 @@ const T = {
   en:{
     top:'British Library · 26.11', langBtn:'עב',
     w_h:'Welcome to the British Library',
-    w_p:'Anyone who wants to use the collections here gets a Reader Pass. This one is yours: eight short stops, and a stamp at each one.',
+    w_p:'Anyone who wants to use the collections here gets a Reader Pass. This one is yours: ten short stops, and a stamp at each one.',
     w_btn:'Open my pass',
     pass_t:'Reader Pass', pass_sub:'Adavot delegation · London 2026',
     empty:'Your pass is still empty. Start in the courtyard, at the first stop.',
-    progress:n=>`${n} of 8 stamps.`,
-    full_h:'Pass complete', full_p:'Eight stamps. See you in the courtyard.',
+    progress:n=>`${n} of ${STOPS.length} stamps.`,
+    full_h:'Pass complete', full_p:'Ten stamps. See you in the courtyard.',
     together:'Together', look_t:'Look up',
     cont:'Continue', seen:"I've seen it", again:'Close',
     guess_btn:"That's my guess", guess_wait:"We'll reveal the answer in a moment.", guess_show:"What's the answer?",
@@ -398,42 +402,60 @@ const STOPS = [
       s:'Inside the glass stand the books collected by King George III. When his son gave them to the nation in 1823, he set one condition: the collection would be shown whole, and apart from the rest of the library. And that is how it is shown to this day, in this tower.',
       f:'Read one book a day from this collection and you will finish in 219 years.',
       l:'Stand close to the glass and lift your eyes all the way to the top floor.' } },
-  { id:'light', kind:'stop', img:'assets/tour/st-light.webp',
-    he:{ t:'למה כאן חשוך', w:'בכניסה לגלריית האוצרות', pic:'בתמונה: התנ"ך מליסבון, כרך א',
-      s:'הגלריה הזאת חשוכה וקרירה יותר משאר הספרייה, בכוונה. באור חזק כתבי יד דוהים ונפגעים, ולכן הם יוצאים מהוויטרינה לתקופות מנוחה, ואחרים נכנסים במקומם. יכול להיות שפריט שמוצג היום לא יהיה כאן מחר.',
-      f:'לספרייה יש "בית חולים לספרים" לפריטים שנפגעו. ואם מיזוג האוויר קורס, מערכת הקירור לגיבוי עובדת עם תשעה דליי קרח.',
-      l:'תנו לעיניים רגע להתרגל לאור. רק אז רואים את הצבעים.' },
-    en:{ t:'Why it is dark in here', w:'At the entrance to the Treasures Gallery', pic:'Pictured: the Lisbon Bible, volume 1',
-      s:'This gallery is darker and cooler than the rest of the library, on purpose. Bright light fades and damages manuscripts, so they are taken off display for periods of rest and others take their place. An item on show today may not be here tomorrow.',
-      f:'The library has a “book hospital” for damaged items. And if the air conditioning fails, the backup cooling runs on nine buckets of ice.',
-      l:'Give your eyes a moment to adjust. Only then do the colours appear.' } },
   { id:'magna', kind:'stop', img:'assets/tour/st-magna.webp',
     he:{ t:'מגנה קרטה', w:'בגלריה',
       s:'ב-1215 אישר המלך ג\'ון בחותמו מסמך שהגביל את כוחו. מאותה שנה שרדו ארבעה עותקים, ושניים מהם שמורים בספרייה הזאת.',
       f:'אחד משני העותקים ניזוק בשריפה ב-1731, והכתב בו כמעט נמחק. הספרייה שומרת גם עליו, ובצילום באור אולטרה סגול הצליחה לקרוא בו שוב.',
-      l:'אם מגנה קרטה מוצגת היום, מצאו אותה ושימו לב כמה צפוף הכתב.' },
+      l:'הפריטים בגלריה מתחלפים מדי פעם לשימור. אם מגנה קרטה מוצגת היום, מצאו אותה ושימו לב כמה צפוף הכתב.' },
     en:{ t:'Magna Carta', w:'In the gallery',
       s:'In 1215 King John sealed a document that limited his power. Four copies survive from that year, and two of them are kept in this library.',
       f:'One of the two was damaged in a fire in 1731 and its text is almost gone. The library looks after it too, and with ultraviolet imaging it has managed to read it again.',
-      l:'If Magna Carta is on show today, find it and notice how dense the writing is.' } },
-  { id:'print', kind:'stop', img:'assets/tour/st-sutra.webp',
-    he:{ t:'הספר המודפס הקדום', w:'בגלריה',
-      s:'הספר המודפס הקדום ביותר ששרד עם תאריך הוא סוטרת היהלום, טקסט בודהיסטי שהודפס בסין ב-868 ונמצא במערה ליד דונהואנג. גם הוא כאן, אבל כמו כל פריט רגיש, הוא לא מוצג כל הזמן.',
-      f:'הפריט הקדום ביותר בספרייה בכלל הוא מצבה מצרית בת 3,600 שנה.',
-      l:'חפשו בגלריה את הספר המודפס הקדום ביותר שמוצג היום. מאיזו שנה הוא?' },
-    en:{ t:'The earliest printed book', w:'In the gallery',
-      s:'The earliest dated printed book to survive is the Diamond Sutra, a Buddhist text printed in China in 868 and found in a cave near Dunhuang. It is here too, but like every fragile item it is not always on show.',
-      f:'The oldest item in the whole library is an Egyptian stela, 3,600 years old.',
-      l:'Find the earliest printed book on show in the gallery today. What year is it from?' } },
-  { id:'hand', kind:'stop', img:'assets/tour/st-hand.webp', pos:'center 18%',
-    he:{ t:'בכתב יד', w:'בגלריה', pic:'בתמונה: כתב היד של לואיס קרול ל"אליס"',
-      s:'לצד הספרים המפוארים, הספרייה שומרת גם דפים שנכתבו ביד, ובהם מילים לשירים של הביטלס.',
-      f:'שולחן הכתיבה של ג\'יין אוסטן והמשקפיים שלה שמורים כאן.',
-      l:'מצאו בגלריה דף בכתב יד, ונסו לקרוא ממנו שורה אחת.' },
-    en:{ t:'By hand', w:'In the gallery', pic:"Pictured: Lewis Carroll's handwritten Alice",
-      s:'Alongside the grand books, the library keeps pages written by hand, among them Beatles lyrics.',
-      f:'Jane Austen’s writing desk and her spectacles are kept here.',
-      l:'Find a handwritten page in the gallery and try to read one line of it.' } }
+      l:'Items in the gallery are rotated from time to time to protect them. If Magna Carta is on show today, find it and notice how dense the writing is.' } },
+  { id:'folio', kind:'stop', img:'assets/tour/st-folio.webp', pos:'center 30%',
+    he:{ t:'הפוליו הראשון של שייקספיר', w:'בגלריה', pic:'בתמונה: עמוד השער של העותק שבספרייה הבריטית',
+      s:'שבע שנים אחרי ששייקספיר מת, חברים מלהקת התיאטרון שלו אספו 36 ממחזותיו לספר אחד. זה הפוליו הראשון, מ-1623.',
+      f:'שמונה-עשר מהם לא הודפסו לפני כן, ביניהם מקבת, הסערה והלילה השנים-עשר.',
+      l:'בדקו באיזה עמוד הספר פתוח היום. אם זה עמוד השער, תראו בו את הדיוקן של שייקספיר.' },
+    en:{ t:"Shakespeare's First Folio", w:'In the gallery', pic:"Pictured: the title page of the British Library's copy",
+      s:'Seven years after Shakespeare died, friends from his theatre company gathered 36 of his plays into one book. This is the First Folio, from 1623.',
+      f:'Eighteen of them had never been printed before, among them Macbeth, The Tempest and Twelfth Night.',
+      l:'Check which page the book is open at today. If it is the title page, you will see Shakespeare\'s portrait.' } },
+  { id:'leo', kind:'stop', img:'assets/tour/st-leonardo.webp',
+    he:{ t:'המחברת של דה וינצ\'י', w:'בגלריה', pic:'בתמונה: שני דפים מהמחברת',
+      s:'אחרי מותו של לאונרדו דה וינצ\'י אספו את הדפים המפוזרים שלו, עם ההערות והרישומים, לכרך אחד. הספרייה סרקה 570 דפים, ואפשר לצפות בהם ברשת.',
+      f:'דה וינצ\'י כתב בכתב ראי, מימין לשמאל. לא ברור אם רצה להסתיר את מה שכתב או פשוט לא למרוח את הדיו, כי היה שמאלי.',
+      l:'הסתכלו על הכתב בוויטרינה. אנחנו כותבים מימין לשמאל כל יום, ודה וינצ\'י עשה את זה באיטלקית.' },
+    en:{ t:"Da Vinci's notebook", w:'In the gallery', pic:'Pictured: two pages from the notebook',
+      s:'After Leonardo da Vinci died, his loose pages of notes and drawings were gathered into one volume. The library has scanned 570 pages, and they can be viewed online.',
+      f:'Da Vinci wrote in mirror script, from right to left. It is not clear whether he wanted to hide what he wrote or simply not smudge the ink, since he was left-handed.',
+      l:'Look at the writing in the case. In Hebrew we write right to left every day; da Vinci did it in Italian.' } },
+  { id:'austen', kind:'stop', img:'assets/tour/st-austen.webp', pos:'center 25%',
+    he:{ t:'ג\'יין אוסטן', w:'בגלריה, אם מוצג היום', pic:'בתמונה: ג\'יין אוסטן, רישום של אחותה קסנדרה',
+      s:'את שולחן הכתיבה הנייד קיבלה ג\'יין אוסטן מאביה בדצמבר 1794, והוא נשאר אצלה עד מותה ב-1817. ב-1999 העבירה אותו ג\'ואן אוסטן-לי, מצאצאי המשפחה, לספרייה.',
+      f:'במגירה של השולחן נשמרו במשך דורות שלושה זוגות משקפיים. בבדיקה ב-2017 התברר שבכולם עדשות פלוס, כלומר אוסטן התקשתה לראות מקרוב.',
+      l:'אם השולחן מוצג היום, שימו לב כמה הוא קטן. אפשר היה לקחת אותו לכל מקום.' },
+    en:{ t:'Jane Austen', w:'In the gallery, if on show today', pic:'Pictured: Jane Austen, a sketch by her sister Cassandra',
+      s:'Jane Austen received the portable writing desk from her father in December 1794, and kept it until her death in 1817. In 1999 Joan Austen-Leigh, a descendant of the family, placed it in the library\'s care.',
+      f:'Three pairs of spectacles were kept for generations in the desk\'s drawer. Tests in 2017 showed that all of them have plus lenses, meaning Austen struggled to see close up.',
+      l:'If the desk is on show today, notice how small it is. It could go anywhere with her.' } },
+  { id:'usa', kind:'stop', img:'assets/tour/st-declaration.webp', pos:'center 15%',
+    he:{ t:'250 שנה להכרזת העצמאות', w:'בגלריה, תצוגה זמנית', pic:'בתמונה: הדפסה מ-1776 של הכרזת העצמאות, מהארכיון הלאומי של ארצות הברית',
+      s:'לרגל 250 שנה להכרזת העצמאות האמריקאית, הספרייה מציגה מכתבים, מפות ומסמכים מתקופת המהפכה מתוך האוסף שלה. התצוגה פתוחה עד ינואר 2027.',
+      f:'התצוגה מראה גם איך התווכחו במשך 250 שנה על המשפט "כל בני האדם נבראו שווים", ואיך נשענו עליו מנהיגים כמו פרדריק דאגלס ומרטין לותר קינג במאבק לשוויון.',
+      l:'מצאו את ארבע הוויטרינות של התצוגה, בחרו מסמך אחד ובדקו מאיזו שנה הוא.' },
+    en:{ t:'250 years since the Declaration of Independence', w:'In the gallery, temporary display', pic:'Pictured: a 1776 printing of the Declaration of Independence, from the US National Archives',
+      s:'To mark 250 years since the Declaration of Independence, the library is showing letters, maps and documents from the Revolution, drawn from its collections. The display is open until January 2027.',
+      f:'The display also shows how "all men are created equal" has been argued over for 250 years, and how leaders such as Frederick Douglass and Martin Luther King Jr. drew on it in the struggle for equality.',
+      l:'Find the four cases of the display, pick one document and check what year it is from.' } },
+  { id:'tablet', kind:'stop', img:'assets/tour/st-tablet.webp',
+    he:{ t:'שיעורי בית מלפני 1,800 שנה', w:'מהאוסף, בתמונה בלבד', pic:'בתמונה: הלוח עם השורות של המורה והתלמיד', lt:'נסו בעצמכם',
+      s:'אלה שני לוחות עץ מכוסים שעווה, שנכתבו במצרים במאה השנייה לספירה. על הראשון המורה כתב למעלה שתי שורות ביוונית, ומתחת התלמיד העתיק אותן פעמיים. על השני כתוב לוח כפל.',
+      f:'התלמיד טעה, והטעות נשארה שם 1,800 שנה: בשתי ההעתקות הוא השמיט את האות הראשונה של המשפט.',
+      l:'הגדילו את התמונה והשוו בין השורות של המורה לשורות של התלמיד. ככל הידוע, הלוחות לא מוצגים כרגע בגלריה, אז רואים אותם כאן, בתמונה.' },
+    en:{ t:'Homework from 1,800 years ago', w:'From the collection, in the picture only', pic:'Pictured: the tablet with the teacher\'s and the pupil\'s lines', lt:'Try it yourself',
+      s:'These are two wooden tablets coated in wax, written in Egypt in the second century CE. On the first, the teacher wrote two lines in Greek at the top, and below them the pupil copied them twice. The second carries a multiplication table.',
+      f:'The pupil made a mistake, and it has stayed there for 1,800 years: in both copies he left out the first letter of the sentence.',
+      l:'Zoom in and compare the teacher\'s lines with the pupil\'s. As far as we know, the tablets are not on show in the gallery right now, so this picture is the place to see them.' } }
 ];
 
 const MSS = [
@@ -457,11 +479,13 @@ const MSS = [
 const CREDITS = [
   ['הגדת הזהב, דף 15 · Golden Haggadah, f.15','British Library Add MS 27210, Public Domain','https://commons.wikimedia.org/wiki/File:Dance_of_Marian._Full_F15_from_Golden_Haggadah.jpg'],
   ['התנ"ך מליסבון, כרך ב · Lisbon Bible, vol. 2','British Library Or. 2627, Public Domain','https://commons.wikimedia.org/wiki/File:Lisbon_Bible_2.jpg'],
-  ['התנ"ך מליסבון, כרך א (תחנה 5) · Lisbon Bible, vol. 1 (stop 5)','British Library Or. 2626, f.13v, Public Domain','https://commons.wikimedia.org/wiki/File:Lisbon_Bible.jpg'],
-  ['לואיס קרול, הרפתקאות אליס מתחת לאדמה (תחנה 8) · Alice’s Adventures Under Ground (stop 8)','British Library Add MS 46700, f.15v, Public Domain','https://commons.wikimedia.org/wiki/File:Alice%27s_Adventures_Under_Ground_-_Lewis_Carroll_-_British_Library_Add_MS_46700_f15v.jpg'],
   ['ספר התורה מקאיפנג · Kaifeng Torah Scroll','British Library Add MS 19250, Public Domain','https://www.bl.uk/stories/blogs/posts/the-kaifeng-torah-scroll-a-british-library-treasure'],
   ['מגנה קרטה · Magna Carta (1215)','British Library Cotton MS Augustus II 106, CC0','https://commons.wikimedia.org/wiki/File:Magna_Carta_(1215)_-_BL_Cotton_MS_Augustus_II_106.jpg'],
-  ['סוטרת היהלום · Diamond Sutra (868)','International Dunhuang Project, Public Domain','https://commons.wikimedia.org/wiki/File:Diamond_sutra_(cropped).jpg'],
+  ['הפוליו הראשון, עמוד השער · First Folio, title page','British Library copy, CC0','https://commons.wikimedia.org/wiki/File:Title_Page_-_Shakespeare_First_Folio_(1623),_title_page_-_BL.jpg'],
+  ['המחברת של דה וינצ׳י · Da Vinci, Codex Arundel','British Library Arundel MS 263, ff.174v-175r, Public Domain','https://commons.wikimedia.org/wiki/File:Codex_Arundel_263_ff.174v-175r.jpg'],
+  ['ג׳יין אוסטן, רישום של קסנדרה אוסטן · Jane Austen by Cassandra Austen','c.1810, Public Domain','https://commons.wikimedia.org/wiki/File:CassandraAusten-JaneAusten(c.1810)_hires.jpg'],
+  ['הכרזת העצמאות, הדפסת דנלאפ · Declaration of Independence, Dunlap broadside','US National Archives, Public Domain','https://commons.wikimedia.org/wiki/File:Dunlap_Broadside_(Declaration_of_Independence)_-_NARA_-_301682.jpg'],
+  ['לוח שעווה ממצרים · Wax writing tablet (2nd century)','British Library Add MS 34186, CC0','https://commons.wikimedia.org/wiki/File:Wax_writing_tablet_(2nd_C)_-_BL_Add_MS_34186.jpg'],
   ['השער, אולם הכניסה ומגדל המלך · Gate, hall, King’s Library','Immanuel Giel, CC0','https://commons.wikimedia.org/wiki/File:British_Library_(17).jpg']
 ];
 
@@ -479,6 +503,7 @@ const L = o => o[lang];
 
 let S = Object.assign({ started:false, done:[], guess:null, revealed:false }, store.get('advot-tour') || {});
 const save = () => store.set('advot-tour', S);
+S.done = (S.done || []).filter(id => STOPS.some(s => s.id === id)); save();
 const isHost = location.hash === '#host';
 
 /* host-driven state as last received on a phone */
@@ -505,7 +530,7 @@ function applyLang(){
   $('#msPrev').setAttribute('aria-label', lang==='he'?'הקודם':'Previous');
   $('#msNext').setAttribute('aria-label', lang==='he'?'הבא':'Next');
   renderHome(); renderCredits();
-  if (openStop != null) fillStop(openStop);
+  if (openStop != null){ fillStop(openStop); requestAnimationFrame(fitHero); }
   if ($('#ms').classList.contains('on')) fillMs();
   if (isHost) renderHost();
 }
@@ -540,19 +565,38 @@ $('#list').addEventListener('click', e => {
 });
 function stamp(id){
   if (S.done.includes(id)) return false;
-  S.done.push(id); save(); return true;
+  S.done.push(id); save();
+  $('#pass').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  return true;
 }
 
 /* ---------------- sheets ---------------- */
-function openSheet(el){ el.classList.add('on'); document.body.style.overflow='hidden'; setTimeout(()=>{ const x = el.querySelector('[data-close]'); x && x.focus({preventScroll:true}); }, 60); }
-function closeSheet(el){ el.classList.remove('on'); if (!document.querySelector('.sheet.on')) document.body.style.overflow=''; }
-document.querySelectorAll('[data-close]').forEach(b => b.onclick = () => {
-  const el = b.closest('.sheet');
-  if (el.id === 'st') closeStop(false);
-  else if (el.id === 'ms') closeMs();
-  else closeSheet(el);
+let popSkip = 0, lastOpener = [];
+function openSheet(el){
+  if (el.classList.contains('on')) return;
+  lastOpener.push(document.activeElement);
+  el.classList.add('on'); document.body.style.overflow='hidden';
+  try { history.pushState({ sheet: el.id }, ''); } catch(e){}
+  setTimeout(()=>{ const x = el.querySelector('[data-close]'); x && x.focus({preventScroll:true}); }, 60);
+}
+function closeSheet(el, fromPop){
+  if (!el.classList.contains('on')) return;
+  el.classList.remove('on'); if (!document.querySelector('.sheet.on')) document.body.style.overflow='';
+  if (!fromPop && history.state && history.state.sheet === el.id){ popSkip++; history.back(); }
+  const back = lastOpener.pop(); if (back && back.focus && document.contains(back)) back.focus({preventScroll:true});
+}
+function closeByEl(el, fromPop){
+  if (el.id === 'st') closeStop(false, fromPop);
+  else if (el.id === 'ms') closeMs(fromPop);
+  else closeSheet(el, fromPop);
+}
+const topSheet = () => [...document.querySelectorAll('.sheet.on')].pop();
+addEventListener('popstate', () => {
+  if (popSkip){ popSkip--; return; }
+  const top = topSheet(); if (top) closeByEl(top, true);
 });
-document.addEventListener('keydown', e => { if (e.key === 'Escape'){ const o = document.querySelector('.sheet.on'); if (o) o.querySelector('[data-close]').click(); } });
+document.querySelectorAll('[data-close]').forEach(b => b.onclick = () => closeByEl(b.closest('.sheet'), false));
+document.addEventListener('keydown', e => { if (e.key === 'Escape'){ const o = topSheet(); if (o) closeByEl(o, false); } });
 
 /* ---------------- station ---------------- */
 let openStop = null;
@@ -569,15 +613,27 @@ function fillStop(i){
   $('#stStory').textContent = c.s;
   const fact = $('#stFact'); fact.hidden = !c.f; fact.textContent = c.f || '';
   const look = $('#stLook'); look.hidden = !c.l; $('#stLookP').textContent = c.l || '';
+  look.querySelector('b').textContent = c.lt || t('look_t');
+  look.classList.toggle('tap', !!c.lt); look.tabIndex = c.lt ? 0 : -1;
+  if (c.lt) look.setAttribute('role', 'button'); else look.removeAttribute('role');
+  look.querySelector('svg').innerHTML = c.lt ? '<circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5M10.5 8v5M8 10.5h5"/>' : '<path d="M12 19V5M6 11l6-6 6 6"/>';
   const g = $('#stGuess');
   if (s.kind === 'guess') { g.hidden = false; renderGuess(); } else { g.hidden = true; g.innerHTML = ''; }
   const btn = $('#stBtn');
   btn.textContent = s.kind === 'stop' ? t('seen') : t('cont');
   btn.hidden = s.kind === 'guess' && !S.revealed;
 }
-function openStopSheet(i){ openStop = i; fillStop(i); $('#st .body').scrollTop = 0; openSheet($('#st')); }
-function closeStop(complete){
-  const i = openStop; closeSheet($('#st')); openStop = null;
+function fitHero(){
+  // a longer station gives up image height first, so the whole stop fits one screen without scrolling
+  const hero = $('#stHero'), body = $('#st .body');
+  hero.style.height = ''; hero.style.minHeight = '';
+  const over = body.scrollHeight - body.clientHeight;
+  if (over > 0){ hero.style.minHeight = '96px'; hero.style.height = Math.max(96, hero.offsetHeight - over - 6) + 'px'; }
+}
+function openStopSheet(i){ openStop = i; fillStop(i); $('#st .body').scrollTop = 0; openSheet($('#st')); requestAnimationFrame(fitHero); }
+addEventListener('resize', () => { if (openStop != null) fitHero(); });
+function closeStop(complete, fromPop){
+  const i = openStop; closeSheet($('#st'), fromPop); openStop = null;
   if (complete && i != null){
     const id = STOPS[i].id;
     if (stamp(id)) setTimeout(() => { renderHome(id); }, 380); else renderHome();
@@ -625,8 +681,8 @@ function fillMs(){
   $('#msPrev').disabled = msI === 0; $('#msNext').disabled = msI === MSS.length - 1;
 }
 function openMs(i, byHost){ msI = i; msByHost = byHost; fillMs(); openSheet($('#ms')); }
-function closeMs(){
-  closeSheet($('#ms'));
+function closeMs(fromPop){
+  closeSheet($('#ms'), fromPop);
   if (stamp('ms')) setTimeout(() => renderHome('ms'), 380); else renderHome();
 }
 $('#msPrev').onclick = () => { if (msI > 0){ msI--; fillMs(); } };
@@ -683,6 +739,8 @@ function openLightbox(i){
   openSheet($('#lb'));
 }
 $('#stHero').addEventListener('click', () => { if (openStop != null && STOPS[openStop].img) openLightbox(openStop); });
+$('#stLook').addEventListener('click', () => { if ($('#stLook').classList.contains('tap')) openLightbox(openStop); });
+$('#stLook').addEventListener('keydown', e => { if ((e.key === 'Enter' || e.key === ' ') && $('#stLook').classList.contains('tap')){ e.preventDefault(); openLightbox(openStop); } });
 
 let swipe0 = null;
 frame.addEventListener('touchstart', e => { swipe0 = e.touches.length === 1 && !msZoom.zoomed() ? e.touches[0].clientX : null; }, {passive:true});
