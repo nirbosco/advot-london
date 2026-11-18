@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#0B1440">
-<title>כרטיס קורא · הספרייה הבריטית</title>
+<title>כרטיס קריאה · הספרייה הבריטית</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
@@ -40,7 +40,7 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stro
 .mini .strip{height:7px;background:var(--grad)}
 .mini-in{padding:14px 16px 16px}
 .mini-in .en{font-size:12px;letter-spacing:.16em;font-weight:800;color:var(--sky)}
-.mini-slots{display:grid;grid-template-columns:repeat(5,1fr);gap:8px 10px;margin-top:12px;max-width:240px}
+.mini-slots{display:grid;grid-template-columns:repeat(6,1fr);gap:8px 10px;margin-top:12px;max-width:280px}
 .mini-slots i{aspect-ratio:1;border-radius:50%;border:1.5px dashed rgba(220,227,245,.28)}
 .welcome h1{font-size:34px;line-height:1.15;font-weight:900;letter-spacing:-.01em;text-wrap:balance}
 .welcome p{color:var(--ink-2);font-size:18px;max-width:34ch}
@@ -54,8 +54,8 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stro
 .pass .row1 b{font-size:20px;font-weight:900}
 .pass .row1 .en{font-size:12px;letter-spacing:.16em;font-weight:800;color:var(--sky)}
 .pass .sub{font-size:14px;color:var(--dim);margin-top:2px}
-.stamps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px 6px;margin-top:16px}
-.slot{width:50px;height:50px;margin:0 auto;border-radius:50%;display:grid;place-items:center;position:relative}
+.stamps{display:grid;grid-template-columns:repeat(6,1fr);gap:10px 4px;margin-top:16px}
+.slot{width:46px;height:46px;margin:0 auto;border-radius:50%;display:grid;place-items:center;position:relative}
 .slot.off{border:1.5px dashed rgba(220,227,245,.28);color:var(--dim);font-size:14px;font-weight:700}
 .slot.on{border:2px solid var(--teal);color:var(--teal);background:rgba(65,202,197,.12);transform:rotate(-8deg)}
 .slot.on::after{content:"";position:absolute;inset:4px;border-radius:50%;border:1px solid rgba(65,202,197,.45)}
@@ -210,7 +210,7 @@ body.host .wrap{max-width:560px}
   <section class="welcome" id="welcome" hidden>
     <h1 data-t="w_h"></h1>
     <p data-t="w_p"></p>
-    <div class="mini" aria-hidden="true"><div class="strip"></div><div class="mini-in"><span class="en">READER PASS</span><div class="mini-slots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
+    <div class="mini" aria-hidden="true"><div class="strip"></div><div class="mini-in"><span class="en">READER PASS</span><div class="mini-slots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
     <button class="btn" id="startBtn" type="button" data-t="w_btn"></button>
   </section>
 
@@ -312,6 +312,7 @@ const ICON = {
   ms:'<path d="M12 6.5C10 5 7 4.5 3 5v13c4-.5 7 0 9 1.5 2-1.5 5-2 9-1.5V5c-4-.5-7 0-9 1.5z"/><path d="M12 6.5v13"/>',
   kings:'<path d="M7 3h10v18H7z"/><path d="M7 7.5h10M7 12h10M7 16.5h10M12 3v18"/>',
   magna:'<circle cx="12" cy="9.5" r="5.5"/><path d="M9 14l-1.5 7 4.5-2.4 4.5 2.4L15 14"/><path d="M10 9.5h4"/>',
+  beatles:'<path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/>',
   folio:'<path d="M19 4c-6 1.5-10.5 6-12.5 13"/><path d="M19 4c.5 4-2 8-7.5 10.5"/><path d="M6.5 17 5 20.5"/><path d="M4 20.5h9"/>',
   leo:'<circle cx="12" cy="12" r="8.5"/><rect x="6" y="6" width="12" height="12"/><path d="M12 3.5v17M3.5 12h17"/>',
   austen:'<circle cx="7" cy="14" r="3.5"/><circle cx="17" cy="14" r="3.5"/><path d="M10.5 14c.5-1 2.5-1 3 0M3.5 13 2.5 9.5M20.5 13l1-3.5"/>',
@@ -326,12 +327,12 @@ const T = {
   he:{
     top:'הספרייה הבריטית · 26.11', langBtn:'EN',
     w_h:'ברוכים הבאים לספרייה הבריטית',
-    w_p:'מי שרוצה לעיין באוספים כאן מוציא כרטיס קורא, וזה הכרטיס שלכם: עשר תחנות קצרות, ובכל אחת מקבלים חותמת.',
+    w_p:'מי שרוצה לעיין באוספים כאן מוציא כרטיס קריאה, וזה הכרטיס שלכם: אחת-עשרה תחנות קצרות, ובכל אחת מקבלים חותמת.',
     w_btn:'לכרטיס שלי',
-    pass_t:'כרטיס קורא', pass_sub:'משלחת אדוות · לונדון 2026',
+    pass_t:'כרטיס קריאה', pass_sub:'משלחת אדוות · לונדון 2026',
     empty:'הכרטיס עוד ריק. מתחילים בחצר, בתחנה הראשונה.',
     progress:n=>`${n} מתוך ${STOPS.length} חותמות.`,
-    full_h:'הכרטיס מלא', full_p:'עשר חותמות. נתראה בחצר.',
+    full_h:'הכרטיס מלא', full_p:'אחת-עשרה חותמות. נתראה בחצר.',
     together:'יחד', look_t:'תרימו את הראש',
     cont:'ממשיכים', seen:'ראיתי', again:'סגירה',
     guess_btn:'זה הניחוש שלי', guess_wait:'תכף נגלה את התשובה.', guess_show:'מה התשובה?',
@@ -350,12 +351,12 @@ const T = {
   en:{
     top:'British Library · 26.11', langBtn:'עב',
     w_h:'Welcome to the British Library',
-    w_p:'Anyone who wants to use the collections here gets a Reader Pass. This one is yours: ten short stops, and a stamp at each one.',
+    w_p:'Anyone who wants to use the collections here gets a Reader Pass. This one is yours: eleven short stops, and a stamp at each one.',
     w_btn:'Open my pass',
     pass_t:'Reader Pass', pass_sub:'Adavot delegation · London 2026',
     empty:'Your pass is still empty. Start in the courtyard, at the first stop.',
     progress:n=>`${n} of ${STOPS.length} stamps.`,
-    full_h:'Pass complete', full_p:'Ten stamps. See you in the courtyard.',
+    full_h:'Pass complete', full_p:'Eleven stamps. See you in the courtyard.',
     together:'Together', look_t:'Look up',
     cont:'Continue', seen:"I've seen it", again:'Close',
     guess_btn:"That's my guess", guess_wait:"We'll reveal the answer in a moment.", guess_show:"What's the answer?",
@@ -420,6 +421,15 @@ const STOPS = [
       s:'Seven years after Shakespeare died, friends from his theatre company gathered 36 of his plays into one book. This is the First Folio, from 1623.',
       f:'Eighteen of them had never been printed before, among them Macbeth, The Tempest and Twelfth Night.',
       l:'Check which page the book is open at today. If it is the title page, you will see Shakespeare\'s portrait.' } },
+  { id:'beatles', kind:'stop', img:'assets/tour/st-beatles.webp', pos:'center 35%',
+    he:{ t:'הביטלס בכתב יד', w:'בגלריה', pic:'בתמונה: הביטלס בנמל התעופה בניו יורק, 1964',
+      s:'ב-2013 תרם הנטר דייוויס, הביוגרף של הביטלס, לספרייה דפים בכתב ידו של ג\'ון לנון, ובהם המילים לשירים \u2068Strawberry Fields Forever\u2069 ו-\u2068In My Life\u2069. דייוויס אמר שהוא שמח לראות אותם בגלריה, ליד מגנה קרטה וליד שייקספיר.',
+      f:'את חלק מהדפים הציגה הספרייה בגלריה עוד לפני התרומה, כשדייוויס השאיל אותם לה.',
+      l:'מצאו בגלריה את הדפים של לנון, וחפשו בהם מילה שהוא מחק ותיקן.' },
+    en:{ t:'The Beatles, by hand', w:'In the gallery', pic:'Pictured: the Beatles at the airport in New York, 1964',
+      s:'In 2013 Hunter Davies, the Beatles\' biographer, gave the library pages in John Lennon\'s handwriting, among them the lyrics of Strawberry Fields Forever and In My Life. Davies said he was glad to see them in the gallery, next to Magna Carta and Shakespeare.',
+      f:'The library showed some of the pages in the gallery even before the gift, when Davies lent them.',
+      l:'Find Lennon\'s pages in the gallery and look for a word he crossed out and corrected.' } },
   { id:'leo', kind:'stop', img:'assets/tour/st-leonardo.webp',
     he:{ t:'המחברת של דה וינצ\'י', w:'בגלריה', pic:'בתמונה: שני דפים מהמחברת',
       s:'אחרי מותו של לאונרדו דה וינצ\'י אספו את הדפים המפוזרים שלו, עם ההערות והרישומים, לכרך אחד. הספרייה סרקה 570 דפים, ואפשר לצפות בהם ברשת.',
@@ -481,6 +491,7 @@ const CREDITS = [
   ['התנ"ך מליסבון, כרך ב · Lisbon Bible, vol. 2','British Library Or. 2627, Public Domain','https://commons.wikimedia.org/wiki/File:Lisbon_Bible_2.jpg'],
   ['ספר התורה מקאיפנג · Kaifeng Torah Scroll','British Library Add MS 19250, Public Domain','https://www.bl.uk/stories/blogs/posts/the-kaifeng-torah-scroll-a-british-library-treasure'],
   ['מגנה קרטה · Magna Carta (1215)','British Library Cotton MS Augustus II 106, CC0','https://commons.wikimedia.org/wiki/File:Magna_Carta_(1215)_-_BL_Cotton_MS_Augustus_II_106.jpg'],
+  ['הביטלס בניו יורק, 1964 · The Beatles in New York, 1964','United Press International, Library of Congress, Public Domain','https://commons.wikimedia.org/wiki/File:The_Beatles_in_America.JPG'],
   ['הפוליו הראשון, עמוד השער · First Folio, title page','British Library copy, CC0','https://commons.wikimedia.org/wiki/File:Title_Page_-_Shakespeare_First_Folio_(1623),_title_page_-_BL.jpg'],
   ['המחברת של דה וינצ׳י · Da Vinci, Codex Arundel','British Library Arundel MS 263, ff.174v-175r, Public Domain','https://commons.wikimedia.org/wiki/File:Codex_Arundel_263_ff.174v-175r.jpg'],
   ['ג׳יין אוסטן, רישום של קסנדרה אוסטן · Jane Austen by Cassandra Austen','c.1810, Public Domain','https://commons.wikimedia.org/wiki/File:CassandraAusten-JaneAusten(c.1810)_hires.jpg'],
