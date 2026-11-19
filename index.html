@@ -554,6 +554,7 @@ footer .ripples-f{position:absolute;left:-130px;top:-60px;width:420px;opacity:.0
         <li><a href="learn.html#m1"><span class="lt-num" aria-hidden="true">1</span><span class="lt-name" data-i18n="mod1_short"></span><span class="lt-status" id="ltStatus1" data-i18n="mod_status_open"></span></a></li>
         <li><a href="learn.html#m2"><span class="lt-num" aria-hidden="true">2</span><span class="lt-name" data-i18n="mod2_short"></span><span class="lt-status" id="ltStatus2" data-i18n="mod_status_open"></span></a></li>
         <li><a href="learn.html#m3"><span class="lt-num" aria-hidden="true">3</span><span class="lt-name" data-i18n="mod3_short"></span><span class="lt-status" id="ltStatus3" data-i18n="mod_status_open"></span></a></li>
+        <li><a href="learn.html#m4"><span class="lt-num" aria-hidden="true">4</span><span class="lt-name" data-i18n="mod4_short"></span><span class="lt-status" id="ltStatus4" data-i18n="mod_status_open"></span></a></li>
         <li class="lt-sep" role="presentation" aria-hidden="true"></li>
         <li><a href="learn.html#library"><span class="lt-num" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 6.5C10.5 5.3 8.3 4.5 4 4.5v13c4.3 0 6.5.8 8 2 1.5-1.2 3.7-2 8-2v-13c-4.3 0-6.5.8-8 2zM12 6.5v13"/></svg></span><span class="lt-name" data-i18n="lt_row_library"></span><span class="lt-status" data-i18n="lt_status_library"></span></a></li>
         <li><a href="learn.html#culture"><span class="lt-num" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v4a2 2 0 0 0 0 4v4H4v-4a2 2 0 0 0 0-4z"/><path d="M14 5v12" stroke-dasharray="2 2"/></svg></span><span class="lt-name" data-i18n="lt_row_culture"></span><span class="lt-status" data-i18n="lt_status_culture"></span></a></li>
@@ -676,6 +677,7 @@ he: {
   sp_lede:"קצת מידע על חלק מהאנשים שנפגוש בלונדון.",
   mod2_short:"מבנה בתי הספר",
   mod3_short:"אחריותיות",
+  mod4_short:"בונוס: שכר ושעות",
   mod_status_open:"אפשר להתחיל",
   mod_status_progress:"סיימתם {x} מתוך {y}",
   mod_status_done:"סיימתם",
@@ -773,6 +775,7 @@ en: {
   sp_lede:"A little about some of the people we will meet in London.",
   mod2_short:"School structures",
   mod3_short:"Accountability",
+  mod4_short:"Bonus: pay and hours",
   mod_status_open:"Ready to start",
   mod_status_progress:"{x} of {y} done",
   mod_status_done:"Done",
@@ -845,7 +848,7 @@ addEventListener('scroll',spy,{passive:true});spy();
 
 // learning-plan card: module progress from learn.html (same origin, localStorage 'advot-learn')
 langHooks.push(function(){
-  const d=I18N[lang], mods={1:['m1-audio','m1-deck','m1-exec','m1-ch5'],2:['m2-audio','m2-deck','m2-ark','m2-blog'],3:['m3-doc','m3-podcast']};
+  const d=I18N[lang], mods={1:['m1-audio','m1-deck','m1-exec','m1-ch5'],2:['m2-audio','m2-deck','m2-ark','m2-blog'],3:['m3-doc','m3-podcast'],4:['m4-deck','m4-numbers','m4-podcast']};
   let done={};
   try{ const o=JSON.parse(localStorage.getItem('advot-learn')||'null'); if(o&&o.v===1&&o.done) done=o.done; }catch(e){}
   Object.keys(mods).forEach(function(n){
