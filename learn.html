@@ -514,6 +514,36 @@ html[lang="en"] .cul-tips dd{font-size:14.5px}
   .cul-card.is-target{animation:none;box-shadow:0 0 0 3px var(--blue),var(--shadow-md)}
   .lib-card.is-target{animation:none;box-shadow:0 0 0 3px var(--blue),var(--shadow-md)}
 }
+
+/* module 4 (bonus): tiles go to four, numbers block */
+.mod-overview{grid-template-columns:repeat(4,1fr)}
+.mod-tile.is-bonus .mt-num{background:var(--white);border:1.5px solid var(--blue)}
+.mod-tile.is-bonus.is-done .mt-num{background:var(--blue)}
+.num-block{margin-top:18px}
+.num-h{font-size:15.5px;font-weight:800;color:var(--ink);margin:22px 0 10px}
+.num-h:first-child{margin-top:0}
+.num-rows{border-top:1px solid var(--line)}
+.num-row{display:grid;grid-template-columns:minmax(0,11em) minmax(0,1fr);gap:4px 20px;padding:12px 0;border-bottom:1px solid var(--line)}
+.num-row dt{font-size:14px;font-weight:700;color:var(--ink-dim);line-height:1.5}
+.num-row dd{font-size:15.5px;color:var(--ink);line-height:1.6}
+.num-row dd b,.num-note b{font-weight:800;color:var(--ink)}
+html[lang="en"] .num-row dd{font-size:14.5px}
+.num-t{width:100%;border-collapse:collapse;font-size:15px}
+.num-t th,.num-t td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:start;vertical-align:baseline}
+.num-t thead th{font-size:13px;font-weight:700;color:var(--ink-dim);border-bottom-color:var(--ink-dim)}
+.num-t tbody th{font-weight:600;color:var(--ink)}
+.num-t td{font-family:'Montserrat',sans-serif;font-weight:700;font-variant-numeric:tabular-nums;color:var(--ink);white-space:nowrap}
+.num-t th:first-child{padding-inline-start:0}
+.num-note{font-size:15px;color:var(--ink-dim);margin-top:12px;line-height:1.6}
+.num-flag{font-size:15px;color:var(--ink);background:var(--soft);border-radius:12px;padding:14px 16px;margin-top:18px;line-height:1.6}
+.num-src{font-size:13px;color:var(--ink-dim);margin-top:14px;line-height:1.7}
+.num-src a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+@media (max-width:560px){
+  .mod-overview{grid-template-columns:repeat(2,1fr)}
+  .num-row{grid-template-columns:minmax(0,1fr);gap:2px}
+  .num-t{font-size:14px}
+  .num-t th,.num-t td{padding:9px 4px}
+}
 </style>
 </head>
 <body>
@@ -551,7 +581,7 @@ html[lang="en"] .cul-tips dd{font-size:14.5px}
   <section class="view" id="plan" aria-labelledby="plan-h">
   <div class="container">
     <h2 id="plan-h" class="view-h sr-only" tabindex="-1" data-i18n="plan_h">תוכנית הלמידה</h2>
-    <nav class="mod-overview" data-i18n-aria="learn_overview_aria" aria-label="שלושת המודולים">
+    <nav class="mod-overview" data-i18n-aria="learn_overview_aria" aria-label="ארבעת המודולים">
       <a class="mod-tile" href="#m1" data-mod="1">
         <span class="mt-num" aria-hidden="true"><span class="mt-digit">1</span><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
         <span class="mt-txt"><b data-i18n="mod1_short">הסיפור הלונדוני</b><span class="mt-status" id="tile1Status">אפשר להתחיל</span></span>
@@ -564,11 +594,15 @@ html[lang="en"] .cul-tips dd{font-size:14.5px}
         <span class="mt-num" aria-hidden="true"><span class="mt-digit">3</span><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
         <span class="mt-txt"><b data-i18n="mod3_short">אחריותיות</b><span class="mt-status" id="tile3Status">אפשר להתחיל</span></span>
       </a>
+      <a class="mod-tile is-bonus" href="#m4" data-mod="4">
+        <span class="mt-num" aria-hidden="true"><span class="mt-digit">4</span><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+        <span class="mt-txt"><b data-i18n="mod4_short">בונוס: שכר ושעות</b><span class="mt-status" id="tile4Status">אפשר להתחיל</span></span>
+      </a>
     </nav>
   <div class="col">
 
     <aside class="learn-how">
-      <p data-i18n="learn_how_p">במודולים 1 ו-2 תמצאו סקירה קולית, מצגת, קריאה מרכזית וטקסטים להרחבה; במודול 3, מסמך מרכזי אחד ופרק פודקאסט. חומרי הליבה הם העיקר, וההרחבה למי שרוצה עוד.</p>
+      <p data-i18n="learn_how_p">במודולים 1 ו-2 תמצאו סקירה קולית, מצגת, קריאה מרכזית וטקסטים להרחבה; במודול 3, מסמך מרכזי אחד ופרק פודקאסט. מודול 4 הוא מודול בונוס, למי שרוצה להעמיק בשכר ובשעות העבודה של המורים. חומרי הליבה הם העיקר, וההרחבה למי שרוצה עוד.</p>
       <p data-i18n="learn_order_p">כדאי להתחיל מהסקירה הקולית, שהיא הכי קצרה ואפשר לשמוע אותה בדרך, ואחר כך לעבור למצגת ולקריאה. זו רק המלצה, ואפשר להתחיל מכל מקום.</p>
       <p class="js-only" data-i18n="learn_privacy">אפשר לסמן כל פריט שסיימתם. הסימונים נשמרים רק בדפדפן הזה ולא נשלחים לאף אחד.</p>
     </aside>
@@ -817,6 +851,92 @@ html[lang="en"] .cul-tips dd{font-size:14.5px}
       <p class="mod-closing" data-i18n="mod3_closing">זהו המודול האחרון לפני הנסיעה, אז נפציר בכם בפעם האחרונה, בנימוס אנגלי, להעמיק בלמידה המקדימה. כל מה שתקראו עכשיו הוא בסיס מצוין שעליו נבנה עוד קומות במהלך המסע.</p>
     </section>
 
+    <!-- ===== module 4 (bonus) ===== -->
+    <section class="module is-open" id="m4" aria-labelledby="m4-h">
+      <header class="mod-head">
+        <div class="mod-k" data-i18n="mod4_k">מודול בונוס · למיטיבי לכת</div>
+        <h2 id="m4-h" data-i18n="mod4_h">כמה עובדים מורים באנגליה, וכמה הם מרוויחים</h2>
+        <p class="mod-scope" data-i18n="mod4_scope">מודול רשות למי שרוצה להעמיק. הוא עוסק בתנאי ההעסקה של מורים באנגליה, ובעיקר בשתי שאלות שעולות כמעט בכל שיחה עם מורים: כמה שעות הם עובדים בפועל, וכמה הם מרוויחים. המודול הוא יוזמה של עמית בן זאב, עמית בתוכנית.</p>
+        <div class="mod-progress js-only">
+          <p class="mp-txt" id="m4Prog" aria-live="polite"></p>
+          <div class="mp-bar" id="m4BarWrap" aria-hidden="true" hidden><i id="m4Bar"></i></div>
+        </div>
+      </header>
+
+      <ol class="steps" role="list">
+        <li class="step" id="m4-deck" data-items="m4-deck">
+          <span class="step-dot"><span class="sd-n">1</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+          <div class="step-card">
+            <div class="step-top"><span class="step-kind" data-i18n="kind_deck">מצגת</span><span class="step-meta" data-i18n="mod4_deck_meta">12 שקפים · בעברית · <bdi>PDF 2.9MB</bdi></span></div>
+            <h3 class="step-h" data-i18n="mod4_deck_h">המורה האנגלי: תנאי העסקה ושכר</h3>
+            <p class="step-p" data-i18n="mod4_deck_p">המצגת עוברת על ספר החוקים של המורים באנגליה, שמתעדכן כל שנה. היא מסבירה כמה ימים ושעות המנהל רשאי לדרוש ממורה, איזה זמן מוגן לתכנון ולבדיקת עבודות, אילו מטלות אסור להטיל על מורים, ואיך בנוי סולם השכר עם התוספות על תפקיד, על עבודה בלונדון ועל חינוך מיוחד. בשקף האחרון יש השוואה לתנאים אצלנו.</p>
+            <div class="step-body">
+              <a class="btn-solid" href="assets/module4-deck.pdf" hreflang="he" target="_blank" rel="noopener" data-i18n="mod4_deck_btn">לצפייה במצגת</a>
+            </div>
+            <div class="step-foot js-only">
+              <label class="done-toggle"><input type="checkbox" data-item="m4-deck"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span data-i18n="done_label">סיימתי</span><span class="sr-only">: <span data-i18n="mod4_deck_h">המורה האנגלי: תנאי העסקה ושכר</span></span></label>
+            </div>
+          </div>
+        </li>
+        <li class="step" id="m4-numbers" data-items="m4-numbers">
+          <span class="step-dot"><span class="sd-n">2</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+          <div class="step-card">
+            <div class="step-top"><span class="step-kind" data-i18n="kind_numbers">במספרים</span><span class="step-meta" data-i18n="mod4_num_meta">3 דקות קריאה</span></div>
+            <h3 class="step-h" data-i18n="mod4_num_h">השורה התחתונה: שעות ושכר</h3>
+            <p class="step-p" data-i18n="mod4_num_p">המצגת מתארת מה כתוב בתקנון. כאן המספרים בפועל, לפי הנתונים הרשמיים העדכניים.</p>
+            <div class="num-block">
+              <h4 class="num-h" data-i18n="mod4_hours_h">שעות עבודה</h4>
+              <dl class="num-rows">
+                <div class="num-row"><dt data-i18n="mod4_hours_rule_k">לפי התקנון</dt><dd data-i18n="mod4_hours_rule_v"><b>1,265 שעות בשנה</b> שהמנהל קובע מתי ואיפה, לאורך 195 ימי עבודה. מעבר להן המורה עובד עוד "שעות סבירות" לתכנון ולבדיקה, והתקנון לא קובע כמה.</dd></div>
+                <div class="num-row"><dt data-i18n="mod4_hours_t_k">בפועל, מורה במשרה מלאה</dt><dd data-i18n="mod4_hours_t_v"><b>50.1 שעות בשבוע</b>, מהן כ-23 שעות הוראה בכיתה. אחד מכל חמישה מורים מדווח על 60 שעות ומעלה.</dd></div>
+                <div class="num-row"><dt data-i18n="mod4_hours_l_k">בפועל, הנהלת בית הספר</dt><dd data-i18n="mod4_hours_l_v"><b>56.5 שעות בשבוע</b>.</dd></div>
+                <div class="num-row"><dt data-i18n="mod4_hours_il_k">ובישראל</dt><dd data-i18n="mod4_hours_il_v">לפי ההשוואה של ה-<bdi>OECD</bdi>, היקף השעות השנתי שנקבע בהסכמים קרוב לאנגלי: בין 1,208 ל-1,242 שעות. ההבדל הוא שבהסכמים אצלנו השעות מחולקות מראש לשעות הוראה, שעות פרטניות ושעות שהייה, ובתקנון האנגלי אין מכסת שעות הוראה.</dd></div>
+              </dl>
+              <h4 class="num-h" id="m4-pay-h" data-i18n="mod4_pay_h">שכר שנתי ברוטו, מספטמבר 2026</h4>
+              <table class="num-t" aria-labelledby="m4-pay-h">
+                <thead><tr><th scope="col" data-i18n="mod4_pay_col0">שלב בסולם</th><th scope="col" data-i18n="mod4_pay_col1">מחוץ ללונדון</th><th scope="col" data-i18n="mod4_pay_col2">לונדון הפנימית</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row" data-i18n="mod4_pay_r1">מורה מתחיל</th><td><bdi>£34,069</bdi></td><td><bdi>£41,729</bdi></td></tr>
+                  <tr><th scope="row" data-i18n="mod4_pay_r2">ראש הסולם הרגיל</th><td><bdi>£46,940</bdi></td><td><bdi>£54,131</bdi></td></tr>
+                  <tr><th scope="row" data-i18n="mod4_pay_r3">ראש הסולם העליון</th><td><bdi>£52,835</bdi></td><td><bdi>£64,684</bdi></td></tr>
+                </tbody>
+              </table>
+              <p class="num-note" data-i18n="mod4_pay_actual">בפועל, השכר החציוני של מורה הוא <b>£51,047</b> בשנה, ושל מנהל בית ספר <b>£86,803</b> (נובמבר 2025, לפני ההעלאה האחרונה).</p>
+              <p class="num-note" data-i18n="mod4_pay_oecd">בהשוואה בינלאומית: מורה בחטיבת ביניים מרוויח בפועל בממוצע 75,839 דולר בשנה באנגליה, 59,811 דולר בישראל ו-65,499 דולר בממוצע מדינות ה-<bdi>OECD</bdi> (2025, בדולרים מתואמי כוח קנייה).</p>
+              <p class="num-flag" data-i18n="mod4_flag"><b>חשוב לדעת:</b> לפי התקנון של 2026, בית הספר חייב לקדם מורה בסולם בכל שנה, והוא רשאי לעכב את הקידום רק בגלל ביצועים חלשים או בזמן הליך לבדיקת כשירות. כלומר, הקידום בסולם הרגיל כמעט אוטומטי, ולא כפי שמתואר בשקף 8.</p>
+              <p class="num-src"><span data-i18n="mod4_src_lbl">מקורות:</span> <a href="https://www.gov.uk/government/publications/working-lives-of-teachers-and-leaders-wave-4" target="_blank" rel="noopener" data-i18n="mod4_src_wltl">סקר חיי העבודה של מורים ומנהלים (2025)</a> · <a href="https://explore-education-statistics.service.gov.uk/find-statistics/school-workforce-in-england" target="_blank" rel="noopener" data-i18n="mod4_src_swf">נתוני כוח האדם בבתי הספר (2026)</a> · <a href="https://www.oecd.org/en/publications/education-at-a-glance-2026_b4968bbc-en/full-report/how-much-are-teachers-and-school-heads-paid_a6233c97.html" target="_blank" rel="noopener" data-i18n="mod4_src_oecd"><bdi>OECD</bdi>, השוואת שכר המורים (2026)</a> · <a href="assets/module4-stpcd-2026.pdf" target="_blank" rel="noopener" data-i18n="mod4_src_stpcd">התקנון המלא</a></p>
+            </div>
+            <div class="step-foot js-only">
+              <label class="done-toggle"><input type="checkbox" data-item="m4-numbers"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span data-i18n="done_label">סיימתי</span><span class="sr-only">: <span data-i18n="mod4_num_h">השורה התחתונה: שעות ושכר</span></span></label>
+            </div>
+          </div>
+        </li>
+        <li class="step" id="m4-podcast" data-items="m4-podcast">
+          <span class="step-dot"><span class="sd-n">3</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+          <div class="step-card">
+            <div class="step-top"><span class="step-kind" data-i18n="kind_audio">האזנה</span><span class="step-meta" data-i18n="mod4_pod_meta">פרק פודקאסט · באנגלית</span></div>
+            <h3 class="step-h" data-i18n="mod4_pod_h">כמה באמת מרוויח מורה ממוצע?</h3>
+            <p class="read-src"><span class="ltr" lang="en">BBC Radio 4 · More or Less · Does the average teacher really earn £54,000?</span></p>
+            <p class="step-p" data-i18n="mod4_pod_p">בקיץ האחרון הודיעה הממשלה שמורה ממוצע ירוויח כ-54 אלף ליש"ט בשנה. התוכנית <bdi>More or Less</bdi> של רדיו 4, שבודקת מספרים מהחדשות, בדקה את הטענה עם המכון למחקרים פיסקליים (<bdi>IFS</bdi>). הם מסבירים את ההבדל בין ממוצע לחציון, ומה המספר הנכון היום. הקטע על המורים פותח את הפרק.</p>
+            <div class="step-body">
+              <a class="btn-solid" href="https://podcasts.apple.com/gb/podcast/does-the-average-teacher-really-earn-%C2%A354-000/id267300884?i=1000777564958" hreflang="en" target="_blank" rel="noopener" data-i18n="mod4_pod_btn">להאזנה באפל פודקאסטס</a>
+            </div>
+            <div class="step-foot js-only">
+              <label class="done-toggle"><input type="checkbox" data-item="m4-podcast"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span data-i18n="done_label">סיימתי</span><span class="sr-only">: <span data-i18n="mod4_pod_h">כמה באמת מרוויח מורה ממוצע?</span></span></label>
+            </div>
+          </div>
+        </li>
+      </ol>
+
+      <section class="extras" aria-labelledby="m4-ex-h">
+        <div class="ex-head"><h3 id="m4-ex-h" data-i18n="extras_h">טקסטים להרחבה</h3><span class="opt" data-i18n="extras_optional">רשות</span></div>
+        <ul class="ext-list" role="list" data-from="m4"><li class="ext-row ext-nojs" data-i18n="extras_nojs">את הטקסטים להרחבה של המודול תמצאו <a href="#library">בספרייה</a>.</li></ul>
+        <a class="ext-all" href="#library" data-i18n="extras_all">לכל החומרים בספרייה</a>
+      </section>
+
+      <p class="mod-closing" data-i18n="mod4_closing">בשיחות עם מורים ומנהלים בלונדון אפשר לשאול איך מתחלקות אצלם השעות בפועל, ואיך בית הספר שומר על הזמן המוגן לתכנון ולבדיקה.</p>
+    </section>
+
   </div>
   </div>
   </section>
@@ -894,6 +1014,24 @@ html[lang="en"] .cul-tips dd{font-size:14.5px}
           <h4 class="lc-title"><a class="stretch" href="#m3-podcast"><span class="lc-t" data-i18n="mod3_podcast_h">לקראת המפגש עם דייזי כריסטודולו</span></a></h4>
           <p class="lc-note" data-i18n="mod3_podcast_p">בלונדון נפגוש את החוקרת דייזי כריסטודולו, מהקולות החדים והמשפיעים בשיח החינוכי בבריטניה, ומי שאינה חוששת לאתגר את המדיניות הקיימת. בפרק היא פורשת את תפיסת עולמה על תפקיד הידע והזיכרון בלמידה, מנתחת את הרפורמות בבריטניה, ונוגעת בסוגיות בוערות כמו חינוך מקצועי, נשירת תלמידים והשפעת הבינה המלאכותית על החשיבה שלנו. האזנה לפני הנסיעה תביא אתכם לשיחה איתה כבר בתוך העניינים.</p>
           <div class="lc-tags"><span class="lc-mod is-core" data-i18n="lib_core_tag" data-n="3">מודול 3 · חומר ליבה</span></div>
+        </article>
+        <article class="lib-card is-core" id="res-m4-deck" data-core="m4-deck" data-topic="plan" data-kind="deck" data-langs="he" data-mods="m4" data-kw="שכר שעות תקנון תנאי העסקה עמית STPCD">
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_deck"></span><span class="lc-where" data-i18n="lib_core_where">בתוכנית הלמידה</span><svg class="lc-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+          <h4 class="lc-title"><a class="stretch" href="#m4-deck"><span class="lc-t" data-i18n="mod4_deck_h">המורה האנגלי: תנאי העסקה ושכר</span></a></h4>
+          <p class="lc-note" data-i18n="mod4_deck_p">המצגת עוברת על ספר החוקים של המורים באנגליה, שמתעדכן כל שנה. היא מסבירה כמה ימים ושעות המנהל רשאי לדרוש ממורה, איזה זמן מוגן לתכנון ולבדיקת עבודות, אילו מטלות אסור להטיל על מורים, ואיך בנוי סולם השכר עם התוספות על תפקיד, על עבודה בלונדון ועל חינוך מיוחד. בשקף האחרון יש השוואה לתנאים אצלנו.</p>
+          <div class="lc-tags"><span class="lc-mod is-core" data-i18n="lib_core_tag" data-n="4">מודול 4 · חומר ליבה</span></div>
+        </article>
+        <article class="lib-card is-core" id="res-m4-numbers" data-core="m4-numbers" data-topic="plan" data-kind="read" data-langs="he" data-mods="m4" data-kw="שכר שעות עומס חציון OECD ישראל">
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_read"></span><span class="lc-where" data-i18n="lib_core_where">בתוכנית הלמידה</span><svg class="lc-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+          <h4 class="lc-title"><a class="stretch" href="#m4-numbers"><span class="lc-t" data-i18n="mod4_num_h">השורה התחתונה: שעות ושכר</span></a></h4>
+          <p class="lc-note" data-i18n="mod4_num_p">המצגת מתארת מה כתוב בתקנון. כאן המספרים בפועל, לפי הנתונים הרשמיים העדכניים.</p>
+          <div class="lc-tags"><span class="lc-mod is-core" data-i18n="lib_core_tag" data-n="4">מודול 4 · חומר ליבה</span></div>
+        </article>
+        <article class="lib-card is-core" id="res-m4-podcast" data-core="m4-podcast" data-topic="plan" data-kind="listen" data-langs="en" data-mods="m4" data-kw="פודקאסט BBC שכר ממוצע חציון IFS">
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_listen"></span><span class="lc-where" data-i18n="lib_core_where">בתוכנית הלמידה</span><svg class="lc-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+          <h4 class="lc-title"><a class="stretch" href="#m4-podcast"><span class="lc-t" data-i18n="mod4_pod_h">כמה באמת מרוויח מורה ממוצע?</span></a></h4>
+          <p class="lc-note" data-i18n="mod4_pod_p">בקיץ האחרון הודיעה הממשלה שמורה ממוצע ירוויח כ-54 אלף ליש"ט בשנה. התוכנית <bdi>More or Less</bdi> של רדיו 4, שבודקת מספרים מהחדשות, בדקה את הטענה עם המכון למחקרים פיסקליים (<bdi>IFS</bdi>). הם מסבירים את ההבדל בין ממוצע לחציון, ומה המספר הנכון היום. הקטע על המורים פותח את הפרק.</p>
+          <div class="lc-tags"><span class="lc-mod is-core" data-i18n="lib_core_tag" data-n="4">מודול 4 · חומר ליבה</span></div>
         </article>
         </div>
       </div>
@@ -1007,6 +1145,34 @@ html[lang="en"] .cul-tips dd{font-size:14.5px}
           <p class="lc-note" data-i18n="r10">איך מחוברות התלמידים יורדת בבית הספר העל-יסודי. אתגר חשוב שבתי ספר רבים מתמודדים איתו.</p>
           <div class="lc-tags"><a class="lc-mod" href="#m3" data-i18n="lib_mod_tag" data-n="3">מודול 3</a></div>
         </article>
+        <article class="lib-card" id="res-m4-stpcd" data-topic="policy" data-kind="doc" data-langs="en" data-mods="m4" data-ext-m4="1" data-ctx-m4="ext_m4_stpcd" data-kw="תקנון שכר תנאי העסקה STPCD שעות 1265">
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_doc"></span><span class="lc-lang" data-i18n="lib_lang_en">באנגלית</span></div>
+          <h4 class="lc-title"><a class="stretch" href="assets/module4-stpcd-2026.pdf" target="_blank" rel="noopener"><span class="lc-t"><span class="ltr" lang="en">School Teachers' Pay and Conditions Document 2026</span></span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></h4>
+          <p class="lc-src"><span class="ltr" lang="en">Department for Education · PDF</span></p>
+          <p class="lc-note" data-i18n="r_m4_stpcd">תקנון השכר ותנאי העבודה של המורים באנגליה לשנת 2026, המסמך המלא.</p>
+          <div class="lc-tags"><a class="lc-mod" href="#m4" data-i18n="lib_mod_tag" data-n="4">מודול 4</a></div>
+        </article>
+        <article class="lib-card" id="res-m4-wltl" data-topic="policy" data-kind="read" data-langs="en" data-mods="m4" data-ext-m4="2" data-ctx-m4="ext_m4_wltl" data-kw="עומס שעות שחיקה סקר מורים עזיבה">
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_read"></span><span class="lc-lang" data-i18n="lib_lang_en">באנגלית</span></div>
+          <h4 class="lc-title"><a class="stretch" href="https://www.gov.uk/government/publications/working-lives-of-teachers-and-leaders-wave-4" target="_blank" rel="noopener"><span class="lc-t"><span class="ltr" lang="en">Working lives of teachers and leaders: wave 4</span></span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></h4>
+          <p class="lc-src"><span class="ltr" lang="en">Department for Education · GOV.UK</span></p>
+          <p class="lc-note" data-i18n="r_m4_wltl">סקר של משרד החינוך האנגלי על שעות העבודה, העומס והשחיקה של מורים ומנהלים.</p>
+          <div class="lc-tags"><a class="lc-mod" href="#m4" data-i18n="lib_mod_tag" data-n="4">מודול 4</a></div>
+        </article>
+        <article class="lib-card" id="res-m4-ifs" data-topic="policy" data-kind="read" data-langs="en" data-mods="m4" data-ext-m4="3" data-ctx-m4="ext_m4_ifs" data-kw="שכר העלאה ריאלי IFS אוצר תקציב">
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_read"></span><span class="lc-lang" data-i18n="lib_lang_en">באנגלית</span></div>
+          <h4 class="lc-title"><a class="stretch" href="https://ifs.org.uk/articles/ifs-response-announcements-teacher-pay-pensions-and-school-funding" target="_blank" rel="noopener"><span class="lc-t"><span class="ltr" lang="en">IFS response to announcements on teacher pay, pensions and school funding</span></span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></h4>
+          <p class="lc-src"><span class="ltr" lang="en">Institute for Fiscal Studies · July 2026</span></p>
+          <p class="lc-note" data-i18n="r_m4_ifs">המכון למחקרים פיסקליים על הסכם השכר של 2026 ועל השכר הריאלי של מורים מאז 2010.</p>
+          <div class="lc-tags"><a class="lc-mod" href="#m4" data-i18n="lib_mod_tag" data-n="4">מודול 4</a></div>
+        </article>
+        <article class="lib-card" id="res-m4-oecd" data-topic="policy" data-kind="read" data-langs="en" data-mods="m4" data-ext-m4="4" data-ctx-m4="ext_m4_oecd" data-kw="OECD השוואה בינלאומית שכר ישראל">
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_read"></span><span class="lc-lang" data-i18n="lib_lang_en">באנגלית</span></div>
+          <h4 class="lc-title"><a class="stretch" href="https://www.oecd.org/en/publications/education-at-a-glance-2026_b4968bbc-en/full-report/how-much-are-teachers-and-school-heads-paid_a6233c97.html" target="_blank" rel="noopener"><span class="lc-t"><span class="ltr" lang="en">How much are teachers and school heads paid?</span></span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></h4>
+          <p class="lc-src"><span class="ltr" lang="en">OECD · Education at a Glance 2026</span></p>
+          <p class="lc-note" data-i18n="r_m4_oecd">השוואה בינלאומית של שכר מורים ומנהלים, כולל אנגליה וישראל.</p>
+          <div class="lc-tags"><a class="lc-mod" href="#m4" data-i18n="lib_mod_tag" data-n="4">מודול 4</a></div>
+        </article>
         <article class="lib-card" id="res-r11" data-topic="policy" data-kind="read" data-langs="en" data-mods="m1" data-ext-m1="4" data-ctx-m1="ext_m1_r11" data-kw="גוב רפורמות">
           <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_read">קריאה</span><span class="lc-lang" data-i18n="lib_lang_en">באנגלית</span></div>
           <h4 class="lc-title"><a class="stretch" href="https://schoolsweek.co.uk/goves-traditionalists-won-but-now-they-see-what-was-lost/" target="_blank" rel="noopener"><span class="lc-t"><span class="ltr" lang="en">Opinion: Traditionalists won, but what was lost?</span></span><span class="sr-only" data-i18n="a11y_newtab">(נפתח בלשונית חדשה)</span><svg class="x-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></h4>
@@ -1025,6 +1191,13 @@ html[lang="en"] .cul-tips dd{font-size:14.5px}
           <p class="lc-src" data-i18n="lib_ark_s">מאמר · בעברית · כ-12 דקות קריאה</p>
           <p class="lc-note" data-i18n="lib_ark_n">מאמר קצר לקראת הביקור ב-EdCity.</p>
           <div class="lc-tags"><a class="lc-mod" href="#m2" data-i18n="lib_mod_tag" data-n="2">מודול 2</a> <a class="lc-mod" href="#m3" data-i18n="lib_mod_tag" data-n="3">מודול 3</a></div>
+        </article>
+        <article class="lib-card" id="res-quals" data-topic="schools" data-kind="read" data-langs="he" data-mods="m3" data-ext-m3="0.5" data-ctx-m3="ext_m3_quals" data-kw="מסגרת ההסמכות תעודות rqf nqf eqf qcf ofqual gcse a level t level v level btec בגרות בחינות ציונים רמות גופים מסמיכים aqa pearson ocr חניכות הערכה מאמר">
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_read">קריאה</span><span class="lc-lang" data-i18n="lib_lang_he">בעברית</span></div>
+          <h4 class="lc-title"><a class="stretch" href="qualifications.html"><span class="lc-t" data-i18n="lib_quals_t">מה שווה תעודה באנגליה</span></a></h4>
+          <p class="lc-src" data-i18n="lib_quals_s">מאמר · בעברית · כ-11 דקות קריאה</p>
+          <p class="lc-note" data-i18n="lib_quals_n">מאמר לקראת הביקורים בבתי הספר: איך בנויה מסגרת ההסמכות של אנגליה, איך היא מתחברת למסגרת האירופית, מי כותב את הבחינות ואיך נקבעים הציונים. עם טבלת רמות ושאלות לביקורים.</p>
+          <div class="lc-tags"><a class="lc-mod" href="#m3" data-i18n="lib_mod_tag" data-n="3">מודול 3</a></div>
         </article>
         <article class="lib-card" id="res-of-reach" data-topic="schools" data-kind="doc" data-langs="en" data-mods="m3" data-ext-m3="4" data-ctx-m3="ext_m3_ofsted" data-kw="אופסטד ofsted פיקוח דוח דוחות ביקור reach פלטהאם רב-גילאי">
           <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_doc">מסמך</span><span class="lc-lang" data-i18n="lib_lang_en">באנגלית</span></div>
@@ -1496,6 +1669,10 @@ const I18N = {
 "ext_m2_r15": "מה בית ספר מחויב בחוק לעשות כדי להגן על התלמידים, אחד מתחומי האחריות של המנהל.",
 "ext_m2_r8": "המסמך הרשמי של הממשלה שמסביר למה בתי ספר הפכו לאקדמיות. רקע טוב למבנה שמתואר במצגת.",
 "ext_m2_s2": "ההקלטה והמצגת ממפגש ההכנה השני עם עמוס רבן, על ההשוואה בין המערכת האנגלית לישראלית.",
+"lib_quals_t": "מה שווה תעודה באנגליה",
+"lib_quals_s": "מאמר · בעברית · כ-11 דקות קריאה",
+"lib_quals_n": "מאמר לקראת הביקורים בבתי הספר: איך בנויה מסגרת ההסמכות של אנגליה, איך היא מתחברת למסגרת האירופית, מי כותב את הבחינות ואיך נקבעים הציונים. עם טבלת רמות ושאלות לביקורים.",
+"ext_m3_quals": "הצד של התעודות: מה עומד מאחורי ה-<bdi>GCSE</bdi> וה-<bdi>A level</bdi>, מי כותב את הבחינות ואיך נקבעים הציונים. משלים את המסמך המרכזי של המודול.",
 "lib_ark_t": "הוראה לשליטה ברשת <bdi>Ark</bdi>",
 "lib_ark_s": "מאמר · בעברית · כ-12 דקות קריאה",
 "lib_of_reach_t": "דוח <bdi>Ofsted</bdi>: <bdi>Reach Academy Feltham</bdi>",
@@ -1541,12 +1718,12 @@ const I18N = {
 "learn_back": "חזרה לאתר המסע",
 "learn_footer_glossary": "למילון המושגים של המסע",
 "learn_h1": "תוכנית הלמידה לפני המסע",
-"learn_how_p": "במודולים 1 ו-2 תמצאו סקירה קולית, מצגת, קריאה מרכזית וטקסטים להרחבה; במודול 3, מסמך מרכזי אחד ופרק פודקאסט. חומרי הליבה הם העיקר, וההרחבה למי שרוצה עוד.",
+"learn_how_p": "במודולים 1 ו-2 תמצאו סקירה קולית, מצגת, קריאה מרכזית וטקסטים להרחבה; במודול 3, מסמך מרכזי אחד ופרק פודקאסט. מודול 4 הוא מודול בונוס, למי שרוצה להעמיק בשכר ובשעות העבודה של המורים. חומרי הליבה הם העיקר, וההרחבה למי שרוצה עוד.",
 "learn_kicker": "משלחת אדוות · לונדון 2026",
 "learn_lede": "בסמינר האחרון ביקשתם דרך מסודרת להתכונן ללונדון, אז בנינו תוכנית ללמידה עצמאית: מתוך כל החומרים באתר, בחרנו את אלה ששווה להעמיק בהם.",
 "learn_meta_desc": "שלושה מודולים ללמידה עצמית לקראת משלחת אדוות ללונדון: הסיפור הלונדוני, מבנה בתי הספר ואחריותיות.",
 "learn_order_p": "כדאי להתחיל מהסקירה הקולית, שהיא הכי קצרה ואפשר לשמוע אותה בדרך, ואחר כך לעבור למצגת ולקריאה. זו רק המלצה, ואפשר להתחיל מכל מקום.",
-"learn_overview_aria": "שלושת המודולים",
+"learn_overview_aria": "ארבעת המודולים",
 "learn_privacy": "אפשר לסמן כל פריט שסיימתם. הסימונים נשמרים רק בדפדפן הזה ולא נשלחים לאף אחד.",
 "learn_title": "תוכנית הלמידה · אדוות לונדון 2026",
 "media_artist": "אדוות · לונדון 2026",
@@ -1576,6 +1753,55 @@ const I18N = {
 "mod3_podcast_btn": "להאזנה בספוטיפיי",
 "mod3_closing": "זהו המודול האחרון לפני הנסיעה, אז נפציר בכם בפעם האחרונה, בנימוס אנגלי, להעמיק בלמידה המקדימה. כל מה שתקראו עכשיו הוא בסיס מצוין שעליו נבנה עוד קומות במהלך המסע.",
 "mod3_short": "אחריותיות",
+"mod4_short": "בונוס: שכר ושעות",
+"mod4_k": "מודול בונוס · למיטיבי לכת",
+"mod4_h": "כמה עובדים מורים באנגליה, וכמה הם מרוויחים",
+"mod4_scope": "מודול רשות למי שרוצה להעמיק. הוא עוסק בתנאי ההעסקה של מורים באנגליה, ובעיקר בשתי שאלות שעולות כמעט בכל שיחה עם מורים: כמה שעות הם עובדים בפועל, וכמה הם מרוויחים. המודול הוא יוזמה של עמית בן זאב, עמית בתוכנית.",
+"mod4_deck_h": "המורה האנגלי: תנאי העסקה ושכר",
+"mod4_deck_meta": "12 שקפים · בעברית · <bdi>PDF 2.9MB</bdi>",
+"mod4_deck_p": "המצגת עוברת על ספר החוקים של המורים באנגליה, שמתעדכן כל שנה. היא מסבירה כמה ימים ושעות המנהל רשאי לדרוש ממורה, איזה זמן מוגן לתכנון ולבדיקת עבודות, אילו מטלות אסור להטיל על מורים, ואיך בנוי סולם השכר עם התוספות על תפקיד, על עבודה בלונדון ועל חינוך מיוחד. בשקף האחרון יש השוואה לתנאים אצלנו.",
+"mod4_deck_btn": "לצפייה במצגת",
+"kind_numbers": "במספרים",
+"mod4_num_h": "השורה התחתונה: שעות ושכר",
+"mod4_num_meta": "3 דקות קריאה",
+"mod4_num_p": "המצגת מתארת מה כתוב בתקנון. כאן המספרים בפועל, לפי הנתונים הרשמיים העדכניים.",
+"mod4_hours_h": "שעות עבודה",
+"mod4_hours_rule_k": "לפי התקנון",
+"mod4_hours_rule_v": "<b>1,265 שעות בשנה</b> שהמנהל קובע מתי ואיפה, לאורך 195 ימי עבודה. מעבר להן המורה עובד עוד \"שעות סבירות\" לתכנון ולבדיקה, והתקנון לא קובע כמה.",
+"mod4_hours_t_k": "בפועל, מורה במשרה מלאה",
+"mod4_hours_t_v": "<b>50.1 שעות בשבוע</b>, מהן כ-23 שעות הוראה בכיתה. אחד מכל חמישה מורים מדווח על 60 שעות ומעלה.",
+"mod4_hours_l_k": "בפועל, הנהלת בית הספר",
+"mod4_hours_l_v": "<b>56.5 שעות בשבוע</b>.",
+"mod4_hours_il_k": "ובישראל",
+"mod4_hours_il_v": "לפי ההשוואה של ה-<bdi>OECD</bdi>, היקף השעות השנתי שנקבע בהסכמים קרוב לאנגלי: בין 1,208 ל-1,242 שעות. ההבדל הוא שבהסכמים אצלנו השעות מחולקות מראש לשעות הוראה, שעות פרטניות ושעות שהייה, ובתקנון האנגלי אין מכסת שעות הוראה.",
+"mod4_pay_h": "שכר שנתי ברוטו, מספטמבר 2026",
+"mod4_pay_col0": "שלב בסולם",
+"mod4_pay_col1": "מחוץ ללונדון",
+"mod4_pay_col2": "לונדון הפנימית",
+"mod4_pay_r1": "מורה מתחיל",
+"mod4_pay_r2": "ראש הסולם הרגיל",
+"mod4_pay_r3": "ראש הסולם העליון",
+"mod4_pay_actual": "בפועל, השכר החציוני של מורה הוא <b>£51,047</b> בשנה, ושל מנהל בית ספר <b>£86,803</b> (נובמבר 2025, לפני ההעלאה האחרונה).",
+"mod4_pay_oecd": "בהשוואה בינלאומית: מורה בחטיבת ביניים מרוויח בפועל בממוצע 75,839 דולר בשנה באנגליה, 59,811 דולר בישראל ו-65,499 דולר בממוצע מדינות ה-<bdi>OECD</bdi> (2025, בדולרים מתואמי כוח קנייה).",
+"mod4_flag": "<b>חשוב לדעת:</b> לפי התקנון של 2026, בית הספר חייב לקדם מורה בסולם בכל שנה, והוא רשאי לעכב את הקידום רק בגלל ביצועים חלשים או בזמן הליך לבדיקת כשירות. כלומר, הקידום בסולם הרגיל כמעט אוטומטי, ולא כפי שמתואר בשקף 8.",
+"mod4_src_lbl": "מקורות:",
+"mod4_src_wltl": "סקר חיי העבודה של מורים ומנהלים (2025)",
+"mod4_src_swf": "נתוני כוח האדם בבתי הספר (2026)",
+"mod4_src_oecd": "<bdi>OECD</bdi>, השוואת שכר המורים (2026)",
+"mod4_src_stpcd": "התקנון המלא",
+"mod4_pod_h": "כמה באמת מרוויח מורה ממוצע?",
+"mod4_pod_meta": "פרק פודקאסט · באנגלית",
+"mod4_pod_p": "בקיץ האחרון הודיעה הממשלה שמורה ממוצע ירוויח כ-54 אלף ליש\"ט בשנה. התוכנית <bdi>More or Less</bdi> של רדיו 4, שבודקת מספרים מהחדשות, בדקה את הטענה עם המכון למחקרים פיסקליים (<bdi>IFS</bdi>). הם מסבירים את ההבדל בין ממוצע לחציון, ומה המספר הנכון היום. הקטע על המורים פותח את הפרק.",
+"mod4_pod_btn": "להאזנה באפל פודקאסטס",
+"mod4_closing": "בשיחות עם מורים ומנהלים בלונדון אפשר לשאול איך מתחלקות אצלם השעות בפועל, ואיך בית הספר שומר על הזמן המוגן לתכנון ולבדיקה.",
+"ext_m4_stpcd": "המסמך שעליו נשענת המצגת, 102 עמודים באנגלית. אין צורך לקרוא את כולו. הפרק על זמן העבודה והנספח על המטלות המנהלתיות (נספח 6) קצרים ומעניינים במיוחד.",
+"ext_m4_wltl": "הסקר הגדול של משרד החינוך האנגלי על עומס, שחיקה ושביעות רצון של מורים. ממנו לקוחים מספרי השעות שבמודול, ויש בו גם נתונים על כמה מורים שוקלים לעזוב ולמה.",
+"ext_m4_ifs": "תגובה קצרה של המכון למחקרים פיסקליים להסכם השכר החדש: כמה עולה ההעלאה, ומה נשאר מהשחיקה בשכר מאז 2010. קריאה של שלוש דקות.",
+"ext_m4_oecd": "פרק השכר בדוח ההשוואתי השנתי של ה-<bdi>OECD</bdi>. אפשר להשוות בו בין אנגליה, ישראל ושאר המדינות.",
+"r_m4_stpcd": "תקנון השכר ותנאי העבודה של המורים באנגליה לשנת 2026, המסמך המלא.",
+"r_m4_wltl": "סקר של משרד החינוך האנגלי על שעות העבודה, העומס והשחיקה של מורים ומנהלים.",
+"r_m4_ifs": "המכון למחקרים פיסקליים על הסכם השכר של 2026 ועל השכר הריאלי של מורים מאז 2010.",
+"r_m4_oecd": "השוואה בינלאומית של שכר מורים ומנהלים, כולל אנגליה וישראל.",
 "mod_complete": "סיימתם את המודול",
 "mod_k": "מודול {n} מתוך 3",
 "mod_progress": "סיימתם {x} מתוך {y}",
@@ -1896,6 +2122,10 @@ const I18N = {
 "ext_m2_r15": "What schools are legally required to do to keep pupils safe, one of the areas a headteacher is responsible for.",
 "ext_m2_r8": "The government's own explanation of why schools became academies. Useful background to the structure described in the slides.",
 "ext_m2_s2": "The recording and slides from the second induction session with Amos Raban, on how the English and Israeli systems compare.",
+"lib_quals_t": "What a qualification is worth in England (in Hebrew)",
+"lib_quals_s": "Article · Hebrew · about 11 minutes",
+"lib_quals_n": "An article ahead of the school visits: how England's qualifications framework is built, how it links to the European framework, who writes the exams and how grades are set. With a table of levels and questions for the visits.",
+"ext_m3_quals": "The qualifications side: what lies behind GCSEs and A levels, who writes the exams and how grades are set. Complements the module's main document. The article is in Hebrew.",
 "lib_ark_t": "Teaching for mastery at Ark (in Hebrew)",
 "lib_ark_s": "Article · Hebrew · about 12 minutes",
 "lib_of_reach_t": "Ofsted report: Reach Academy Feltham",
@@ -1941,12 +2171,12 @@ const I18N = {
 "learn_back": "Back to the trip site",
 "learn_footer_glossary": "The trip glossary",
 "learn_h1": "Your learning plan before the trip",
-"learn_how_p": "Modules 1 and 2 each have an audio overview, slides, a core reading and further texts; Module 3 has one central document and a podcast episode. The core materials are the main thing, and the further texts are there if you want more.",
+"learn_how_p": "Modules 1 and 2 each have an audio overview, slides, a core reading and further texts; Module 3 has one central document and a podcast episode. Module 4 is a bonus module for anyone who wants to look more closely at teachers' pay and working hours. The core materials are the main thing, and the further texts are there if you want more.",
 "learn_kicker": "Advot delegation · London 2026",
 "learn_lede": "At the last seminar you asked for a structured way to prepare for London, so we built a self-study plan that points you to the materials on this site most worth your time.",
 "learn_meta_desc": "Three self-study modules ahead of the Advot delegation to London: the London story, school structures and accountability.",
 "learn_order_p": "We suggest starting with the audio overview, the shortest piece and easy to listen to on the go, then moving on to the slides and the reading. It is only a suggestion, so start wherever suits you.",
-"learn_overview_aria": "The three modules",
+"learn_overview_aria": "The four modules",
 "learn_privacy": "You can tick off each item as you finish it. Your ticks are saved only in this browser and are not sent to anyone.",
 "learn_title": "Learning plan · Advot London 2026",
 "media_artist": "Advot · London 2026",
@@ -1976,6 +2206,55 @@ const I18N = {
 "mod3_podcast_btn": "Listen on Spotify",
 "mod3_closing": "This is the last module before the trip, so allow us one final, politely English plea to make time for the preparatory learning. Everything you read now is an excellent foundation we will keep building on during the journey.",
 "mod3_short": "Accountability",
+"mod4_short": "Bonus: pay and hours",
+"mod4_k": "Bonus module · for the keen",
+"mod4_h": "How much English teachers work, and how much they earn",
+"mod4_scope": "An optional module for anyone who wants to go further. It covers teachers' terms of employment in England, and mainly two questions that come up in almost every conversation with teachers: how many hours they actually work, and how much they earn. The module is an initiative of Amit Ben Zeev, a fellow on the programme.",
+"mod4_deck_h": "The English teacher: terms of employment and pay",
+"mod4_deck_meta": "12 slides · in Hebrew · PDF 2.9MB",
+"mod4_deck_p": "The slides walk through teachers' rulebook in England, which is updated every year: how many days and hours a head can direct, what time is protected for planning and marking, which tasks teachers must not be given, and how the pay scale works, with allowances for responsibility, for working in London and for special needs. The last slide compares it with conditions in Israel.",
+"mod4_deck_btn": "View the slides",
+"kind_numbers": "In numbers",
+"mod4_num_h": "The bottom line: hours and pay",
+"mod4_num_meta": "3-minute read",
+"mod4_num_p": "The slides describe what the rulebook says. Here are the figures in practice, from the latest official data.",
+"mod4_hours_h": "Working hours",
+"mod4_hours_rule_k": "By the rulebook",
+"mod4_hours_rule_v": "<b>1,265 hours a year</b> directed by the head, across 195 working days. On top of these, teachers work \"reasonable additional hours\" for planning and marking, and the rulebook does not say how many.",
+"mod4_hours_t_k": "In practice, full-time teachers",
+"mod4_hours_t_v": "<b>50.1 hours a week</b>, of which about 23 are spent teaching. One teacher in five reports 60 hours or more.",
+"mod4_hours_l_k": "In practice, school leaders",
+"mod4_hours_l_v": "<b>56.5 hours a week</b>.",
+"mod4_hours_il_k": "And in Israel",
+"mod4_hours_il_v": "According to the OECD comparison, the annual hours set in Israeli agreements are close to England's: between 1,208 and 1,242. The difference is that Israeli agreements divide the hours in advance into teaching, individual and on-site hours, while the English rulebook sets no teaching quota.",
+"mod4_pay_h": "Gross annual pay, from September 2026",
+"mod4_pay_col0": "Point on the scale",
+"mod4_pay_col1": "Outside London",
+"mod4_pay_col2": "Inner London",
+"mod4_pay_r1": "New teacher",
+"mod4_pay_r2": "Top of the main range",
+"mod4_pay_r3": "Top of the upper range",
+"mod4_pay_actual": "In practice, the median teacher earns <b>£51,047</b> a year and the median head teacher <b>£86,803</b> (November 2025, before the latest rise).",
+"mod4_pay_oecd": "Internationally: a lower-secondary teacher actually earns on average $75,839 a year in England, $59,811 in Israel and $65,499 across the OECD (2025, in purchasing-power-adjusted dollars).",
+"mod4_flag": "<b>Worth knowing:</b> under the 2026 rulebook, schools must move teachers up the scale every year, and may hold progression back only for poor performance or during capability proceedings. So progression on the main range is close to automatic, not as slide 8 describes it.",
+"mod4_src_lbl": "Sources:",
+"mod4_src_wltl": "Working lives of teachers and leaders (2025)",
+"mod4_src_swf": "School workforce in England (2026)",
+"mod4_src_oecd": "OECD, teacher pay comparison (2026)",
+"mod4_src_stpcd": "the full rulebook",
+"mod4_pod_h": "What does the average teacher really earn?",
+"mod4_pod_meta": "Podcast episode · in English",
+"mod4_pod_p": "This summer the government said the average teacher would earn about £54,000 a year. Radio 4's More or Less, which checks the numbers in the news, tested the claim with the Institute for Fiscal Studies. They explain the difference between mean and median, and what the right figure is today. The teacher item opens the episode.",
+"mod4_pod_btn": "Listen on Apple Podcasts",
+"mod4_closing": "In conversations with teachers and heads in London, it is worth asking how their hours actually divide up, and how the school protects the time set aside for planning and marking.",
+"ext_m4_stpcd": "The document the slides are built on, 102 pages. No need to read all of it: the section on working time and the annex on administrative tasks (Annex 6) are short and especially interesting.",
+"ext_m4_wltl": "The Department for Education's large survey of teachers' workload, wellbeing and satisfaction. The module's hours figures come from it, and it also shows how many teachers are thinking of leaving, and why.",
+"ext_m4_ifs": "A short response from the Institute for Fiscal Studies to the new pay deal: what the rise costs, and how much of the real-terms fall since 2010 remains. A three-minute read.",
+"ext_m4_oecd": "The pay chapter of the OECD's annual comparative report. You can compare England, Israel and the other countries.",
+"r_m4_stpcd": "The full 2026 School Teachers' Pay and Conditions Document for England.",
+"r_m4_wltl": "A Department for Education survey of teachers' and leaders' hours, workload and wellbeing.",
+"r_m4_ifs": "The IFS on the 2026 pay award and teachers' real pay since 2010.",
+"r_m4_oecd": "An international comparison of teacher and head pay, including England and Israel.",
 "mod_complete": "You have finished this module",
 "mod_k": "Module {n} of 3",
 "mod_progress": "{x} of {y} done",
@@ -2283,7 +2562,7 @@ const I18N = {
 };
 
 /* ticks per module; keys live together in localStorage 'advot-learn' (module 1 keys unchanged) */
-const MODS={1:['m1-audio','m1-deck','m1-exec','m1-ch5'],2:['m2-audio','m2-deck','m2-ark','m2-blog'],3:['m3-doc','m3-podcast']};
+const MODS={1:['m1-audio','m1-deck','m1-exec','m1-ch5'],2:['m2-audio','m2-deck','m2-ark','m2-blog'],3:['m3-doc','m3-podcast'],4:['m4-deck','m4-numbers','m4-podcast']};
 const CHECK='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
 
 let lang='he';
