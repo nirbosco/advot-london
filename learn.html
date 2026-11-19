@@ -229,7 +229,8 @@ footer :focus-visible{outline-color:var(--white)}
   .learn-hero .lede{font-size:16px}
   html[lang="en"] .learn-hero .lede{font-size:15.5px}
   .mod-overview{gap:8px}
-  .mod-tile{flex-direction:column;text-align:center;padding:14px 8px;gap:8px}
+  .mod-tile{flex-direction:column;text-align:center;padding:10px 8px;gap:6px}
+  .mt-num{width:32px;height:32px;font-size:15px;border-radius:10px}
   .mt-txt b{font-size:14px}
   .mt-status{font-size:12.5px}
   main.container{padding-top:24px;padding-bottom:48px}
@@ -544,6 +545,78 @@ html[lang="en"] .num-row dd{font-size:14.5px}
   .num-t{font-size:14px}
   .num-t th,.num-t td{padding:9px 4px}
 }
+
+/* ---------- reorganisation 19.11: flight strip, folded modules, folded extras ---------- */
+.flight{background:var(--white);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--shadow-sm);padding:24px 28px 18px}
+.fl-head{display:flex;align-items:baseline;justify-content:space-between;gap:6px 16px;flex-wrap:wrap}
+.flight h2{font-size:24px;font-weight:800;line-height:1.25}
+.fl-prog{font-size:14px;font-weight:700;color:var(--blue);display:flex;align-items:center;gap:6px}
+.fl-prog svg{width:16px;height:16px;stroke:var(--blue);fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.fl-p{font-size:16px;color:var(--ink-dim);margin-top:6px;max-width:62ch}
+.fl-list{list-style:none;margin-top:14px;border-top:1px solid var(--line)}
+.fl-list li{border-bottom:1px solid var(--line)}
+.fl-list a{display:grid;grid-template-columns:36px minmax(0,1fr) 20px;align-items:center;gap:14px;min-height:64px;padding:12px 2px;color:var(--ink);transition:background .2s var(--ease)}
+.fl-list a:hover{background:var(--soft)}
+.fl-list a:focus-visible{outline:3px solid var(--blue);outline-offset:-3px;border-radius:10px}
+.fl-dot{width:32px;height:32px;border-radius:50%;border:2px solid var(--blue);color:var(--blue);display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px}
+.fl-dot svg{display:none;width:16px;height:16px;stroke:var(--white);fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.fl-list li.is-done .fl-dot{background:var(--blue)}
+.fl-list li.is-done .fl-dot svg{display:block}
+.fl-list li.is-done .fl-n{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+.fl-txt{display:flex;flex-direction:column;gap:2px;min-width:0}
+.fl-txt b{font-size:16.5px;font-weight:800;line-height:1.35}
+.fl-why{font-size:14.5px;color:var(--ink-dim);line-height:1.45}
+.fl-meta{font-size:13.5px;color:var(--ink-dim)}
+.fl-arr{width:20px;height:20px;stroke:var(--blue);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+html[dir="ltr"] .fl-arr{transform:scaleX(-1)}
+.fl-note{font-size:13.5px;color:var(--ink-dim);margin-top:12px}
+.mod-open{display:flex;align-items:center;gap:12px;width:100%;min-height:52px;margin-top:16px;padding:10px 16px;border:1px solid var(--line);border-radius:12px;background:var(--white);color:var(--ink);font:inherit;text-align:start;cursor:pointer;transition:border-color .2s var(--ease),background .2s var(--ease)}
+.mod-open:hover{border-color:var(--blue-mid)}
+.mod-open:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.mo-meta{flex:1;min-width:0;font-size:15px;color:var(--ink-dim)}
+.mo-act{font-size:15px;font-weight:700;color:var(--blue)}
+.mo-chev,.ex-chev{width:20px;height:20px;stroke:var(--blue);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;transition:transform .25s var(--ease)}
+.module:not(.is-collapsed) .mo-chev{transform:rotate(180deg)}
+.module.is-collapsed .mod-body{display:none}
+.module.is-collapsed .mod-head{margin-bottom:0}
+.module.is-collapsed .mod-open{background:var(--white);border-color:var(--line);box-shadow:var(--shadow-sm)}
+.module.is-collapsed .mo-act{background:var(--blue);color:var(--white);border-radius:999px;padding:5px 16px}
+.mod-open{max-width:560px}
+.mod-open,details.extras>summary,.fl-list a{-webkit-tap-highlight-color:transparent}
+.mod-open:active,.fl-list a:active{background:var(--soft)}
+.flight{margin-top:28px}
+.module{border-top:1px solid var(--line);padding-top:40px;margin-top:40px}
+details.extras > summary{list-style:none;cursor:pointer;min-height:48px;border-radius:12px;padding:6px 4px}
+details.extras > summary::-webkit-details-marker{display:none}
+details.extras > summary:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+details.extras > summary h3{display:inline}
+.ex-n{font-family:'Montserrat',sans-serif;font-weight:600;color:var(--ink-dim);font-size:.85em}
+.ex-chev{margin-inline-start:auto}
+details.extras[open] .ex-chev{transform:rotate(180deg)}
+@media (max-width:940px){
+  .flight{padding:20px 18px 14px}
+  .flight h2{font-size:21px}
+  .fl-list a{grid-template-columns:32px minmax(0,1fr) 18px;gap:12px;min-height:56px}
+  .module{padding-top:32px;margin-top:32px}
+}
+@media (prefers-reduced-motion:reduce){.mo-chev,.ex-chev{transition:none}}
+
+/* culture: the delegation's Google My Map */
+.cmap{margin:22px 0 8px;scroll-margin-top:140px}
+.cmap-h{font-size:18px;font-weight:800;margin-bottom:10px}
+.cmap-frame{position:relative;border:1px solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--soft);aspect-ratio:4/3;max-height:520px}
+.cmap-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.cmap-cap{font-size:14.5px;color:var(--ink-dim);margin-top:10px;line-height:1.6}
+.cmap-cap a{display:inline-flex;align-items:center;min-height:44px;color:var(--blue);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:940px){.cmap-frame{aspect-ratio:3/4;max-height:70vh}}
+
+.fl-book{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:16px;padding:16px;border-radius:12px;background:var(--soft)}
+.fb-ico{width:28px;height:28px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.fb-txt{flex:1;min-width:200px;display:flex;flex-direction:column;gap:2px}
+.fb-txt b{font-size:16.5px;font-weight:800}
+.fb-txt span{font-size:14.5px;color:var(--ink-dim)}
+.fb-meta{font-family:'Montserrat','Heebo',sans-serif;font-size:13px!important}
+@media (max-width:940px){.fl-book .btn-solid{width:100%}}
 </style>
 </head>
 <body>
@@ -564,7 +637,7 @@ html[lang="en"] .num-row dd{font-size:14.5px}
   <div class="container hero-inner">
     <span class="kicker" data-i18n="learn_kicker">משלחת אדוות · לונדון 2026</span>
     <h1 data-i18n="hub_h1">מרכז הלמידה לקראת המסע</h1>
-    <p class="lede" data-i18n="hub_lede">בסמינר האחרון ביקשתם דרך מסודרת להתכונן ללונדון. כאן תמצאו את תוכנית הלמידה בשלושה מודולים ואת הספרייה עם כל החומרים שבאתר. בלשונית "תרבות ופנאי" יש רקע למטילדה ורעיונות לזמן החופשי.</p>
+    <p class="lede" data-i18n="hub_lede">בסמינר האחרון ביקשתם דרך מסודרת להתכונן ללונדון. כאן תמצאו את תוכנית הלמידה בשלושה מודולים ועוד מודול בונוס, ואת הספרייה עם כל החומרים שבאתר. בלשונית "תרבות ופנאי" יש רקע למטילדה ורעיונות לזמן החופשי.</p>
   </div>
 </section>
 
@@ -601,23 +674,33 @@ html[lang="en"] .num-row dd{font-size:14.5px}
     </nav>
   <div class="col">
 
-    <aside class="learn-how">
-      <p data-i18n="learn_how_p">במודולים 1 ו-2 תמצאו סקירה קולית, מצגת, קריאה מרכזית וטקסטים להרחבה; במודול 3, מסמך מרכזי אחד ופרק פודקאסט. מודול 4 הוא מודול בונוס, למי שרוצה להעמיק בשכר ובשעות העבודה של המורים. חומרי הליבה הם העיקר, וההרחבה למי שרוצה עוד.</p>
-      <p data-i18n="learn_order_p">כדאי להתחיל מהסקירה הקולית, שהיא הכי קצרה ואפשר לשמוע אותה בדרך, ואחר כך לעבור למצגת ולקריאה. זו רק המלצה, ואפשר להתחיל מכל מקום.</p>
-      <p class="js-only" data-i18n="learn_privacy">אפשר לסמן כל פריט שסיימתם. הסימונים נשמרים רק בדפדפן הזה ולא נשלחים לאף אחד.</p>
-    </aside>
+    <section class="flight" aria-labelledby="flight-h">
+      <div class="fl-head"><h2 id="flight-h" data-i18n="flight_h">לפני הטיסה</h2><p class="fl-prog js-only" id="flightProg"></p></div>
+      <p class="fl-p" data-i18n="flight_p">אם יש לכם זמן רק לחלק מהחומרים, התחילו מחמשת החומרים האלה. הם הבסיס לביקורים ולמפגשים בלונדון, וכל השאר מעמיק את התמונה.</p>
+      <ol class="fl-list" role="list" data-i18n-aria="flight_aria" aria-label="חמשת החומרים לפני הטיסה">
+        <li data-item="m1-audio"><a href="#m1-audio"><span class="fl-dot"><span class="fl-n">1</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="fl-txt"><b data-i18n="mod1_audio_h">סקירה קולית: <bdi>London Challenge</bdi></b><span class="fl-why" data-i18n="flight_why1">נקודת הפתיחה של כל המסע</span><span class="fl-meta" data-i18n="flight_meta1">2 דקות</span></span><svg class="fl-arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></a></li>
+        <li data-item="m2-deck"><a href="#m2-deck"><span class="fl-dot"><span class="fl-n">2</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="fl-txt"><b data-i18n="mod2_deck_h">אנטומיה של מערכת החינוך האנגלית</b><span class="fl-why" data-i18n="flight_why2">מי מחליט על מה במערכת שנבקר בה</span><span class="fl-meta" data-i18n="flight_meta2">15 שקפים</span></span><svg class="fl-arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></a></li>
+        <li data-item="m2-ark"><a href="#m2-ark"><span class="fl-dot"><span class="fl-n">3</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="fl-txt"><b data-i18n="mod2_read1_h">מסגרת קבלת ההחלטות של רשת <bdi>Ark</bdi></b><span class="fl-why" data-i18n="flight_why3">לקראת הביקור ברשת <bdi>Ark</bdi></span><span class="fl-meta" data-i18n="flight_meta3">15 עמודים, יש תרגום לעברית</span></span><svg class="fl-arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></a></li>
+        <li data-item="m3-doc"><a href="#m3-doc"><span class="fl-dot"><span class="fl-n">4</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="fl-txt"><b data-i18n="mod3_doc_h">אחריותיות במערכת החינוך האנגלית</b><span class="fl-why" data-i18n="flight_why4">פיקוח ומבחנים, נושא שיעלה כמעט בכל ביקור</span><span class="fl-meta" data-i18n="flight_meta4">10 עמודים בעברית</span></span><svg class="fl-arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></a></li>
+        <li data-item="m3-podcast"><a href="#m3-podcast"><span class="fl-dot"><span class="fl-n">5</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="fl-txt"><b data-i18n="mod3_podcast_h">לקראת המפגש עם דייזי כריסטודולו</b><span class="fl-why" data-i18n="flight_why5">כדאי להוריד את הפרק לפני הטיסה</span><span class="fl-meta" data-i18n="flight_meta5">פרק פודקאסט</span></span><svg class="fl-arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></a></li>
+      </ol>
+      <div class="fl-book"><svg class="fb-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.3 4.5 4 4.5v13c4.3 0 6.5.8 8 2 1.5-1.2 3.7-2 8-2v-13c-4.3 0-6.5.8-8 2zM12 6.5v13"/></svg><div class="fb-txt"><b data-i18n="flight_book_h">חוברת לטיסה</b><span data-i18n="flight_book_p">כל חומרי הליבה בעברית בקובץ אחד, שנפתח גם בלי אינטרנט.</span><span class="fb-meta" data-i18n="flight_book_meta"><bdi>PDF</bdi> · 128 עמודים · 9MB</span></div><a class="btn-solid" href="assets/advot-london-booklet.pdf" download="advot-london-booklet.pdf" data-i18n="flight_book_btn">להורדת החוברת</a></div>
+      <p class="fl-note js-only" data-i18n="flight_note">את &quot;סיימתי&quot; מסמנים בתוך המודולים, והרשימה כאן מתעדכנת מעצמה. הסימונים נשמרים רק בדפדפן הזה ולא נשלחים לאף אחד.</p>
+    </section>
 
     <!-- ===== module 1 ===== -->
-    <section class="module is-open" id="m1" aria-labelledby="m1-h">
+    <section class="module" id="m1" aria-labelledby="m1-h">
       <header class="mod-head">
-        <div class="mod-k" data-i18n="mod_k" data-n="1">מודול 1 מתוך 3</div>
+        <div class="mod-k" data-i18n="mod_k" data-n="1">מודול 1</div>
         <h2 id="m1-h" data-i18n="mod1_h">הסיפור הלונדוני</h2>
         <p class="mod-scope" data-i18n="mod1_scope">המודול מתמקד בתוכנית <bdi>London Challenge</bdi> ובשאלה שעדיין מתווכחים עליה: כמה מההצלחה בזכות המדיניות, וכמה בזכות השינויים באוכלוסיית העיר.</p>
         <div class="mod-progress js-only">
           <p class="mp-txt" id="m1Prog" aria-live="polite"></p>
           <div class="mp-bar" id="m1BarWrap" aria-hidden="true" hidden><i id="m1Bar"></i></div>
         </div>
+        <button type="button" class="mod-open js-only" aria-expanded="true" aria-controls="m1-body" aria-labelledby="m1-act m1-h" aria-describedby="m1-meta"><span class="mo-meta" id="m1-meta" data-i18n="mod1_meta">סקירה קולית, מצגת וקריאה</span><span class="mo-act" id="m1-act" data-i18n="mod_close">סגירה</span><svg class="mo-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
       </header>
+      <div class="mod-body" id="m1-body">
 
       <ol class="steps" role="list">
         <!-- step 1: audio -->
@@ -687,26 +770,29 @@ html[lang="en"] .num-row dd{font-size:14.5px}
         </li>
       </ol>
 
-      <section class="extras" aria-labelledby="m1-ex-h">
-        <div class="ex-head"><h3 id="m1-ex-h" data-i18n="extras_h">טקסטים להרחבה</h3><span class="opt" data-i18n="extras_optional">רשות</span></div>
+      <details class="extras" id="m1-ex">
+        <summary class="ex-head"><h3 id="m1-ex-h"><span data-i18n="extras_h">טקסטים להרחבה</span> <span class="ex-n"></span></h3><span class="opt" data-i18n="extras_optional">רשות</span><svg class="ex-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
         <ul class="ext-list" role="list" data-from="m1"><li class="ext-row ext-nojs" data-i18n="extras_nojs">את הטקסטים להרחבה של המודול תמצאו <a href="#library">בספרייה</a>.</li></ul>
         <a class="ext-all" href="#library" data-i18n="extras_all">לכל החומרים בספרייה</a>
-      </section>
+      </details>
 
       <p class="mod-closing" data-i18n="mod1_closing">אז תכינו לכם כוס תה טובה, וצוללים.</p>
+      </div>
     </section>
 
     <!-- ===== module 2 ===== -->
-    <section class="module is-open" id="m2" aria-labelledby="m2-h">
+    <section class="module" id="m2" aria-labelledby="m2-h">
       <header class="mod-head">
-        <div class="mod-k" data-i18n="mod_k" data-n="2">מודול 2 מתוך 3</div>
+        <div class="mod-k" data-i18n="mod_k" data-n="2">מודול 2</div>
         <h2 id="m2-h" data-i18n="mod2_h">איך בנויים בתי הספר באנגליה</h2>
         <p class="mod-scope" data-i18n="mod2_scope">המודול מסביר איך המערכת בנויה, איך התקציב עובר מהמדינה דרך הרשתות אל בתי הספר, ועל מה אחראי המנהל.</p>
         <div class="mod-progress js-only">
           <p class="mp-txt" id="m2Prog" aria-live="polite"></p>
           <div class="mp-bar" id="m2BarWrap" aria-hidden="true" hidden><i id="m2Bar"></i></div>
         </div>
+        <button type="button" class="mod-open js-only" aria-expanded="true" aria-controls="m2-body" aria-labelledby="m2-act m2-h" aria-describedby="m2-meta"><span class="mo-meta" id="m2-meta" data-i18n="mod2_meta">סקירה קולית, מצגת ושתי קריאות</span><span class="mo-act" id="m2-act" data-i18n="mod_close">סגירה</span><svg class="mo-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
       </header>
+      <div class="mod-body" id="m2-body">
 
       <ol class="steps" role="list">
         <!-- step 1: audio -->
@@ -784,27 +870,30 @@ html[lang="en"] .num-row dd{font-size:14.5px}
         </li>
       </ol>
 
-      <section class="extras" aria-labelledby="m2-ex-h">
-        <div class="ex-head"><h3 id="m2-ex-h" data-i18n="extras_h">טקסטים להרחבה</h3><span class="opt" data-i18n="extras_optional">רשות</span></div>
+      <details class="extras" id="m2-ex">
+        <summary class="ex-head"><h3 id="m2-ex-h"><span data-i18n="extras_h">טקסטים להרחבה</span> <span class="ex-n"></span></h3><span class="opt" data-i18n="extras_optional">רשות</span><svg class="ex-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
         <p class="ext-intro" data-i18n="mod2_more_p">למי שרוצה להעמיק, בחרנו עוד כמה חומרים על המבנה של המערכת. לא צריך לעבור על כולם. בחרו את מה שמעניין אתכם.</p>
         <ul class="ext-list" role="list" data-from="m2"><li class="ext-row ext-nojs" data-i18n="extras_nojs">את הטקסטים להרחבה של המודול תמצאו <a href="#library">בספרייה</a>.</li></ul>
         <a class="ext-all" href="#library" data-i18n="extras_all">לכל החומרים בספרייה</a>
-      </section>
+      </details>
 
       <p class="mod-closing" data-i18n="mod2_closing">יש כאן הרבה חומר, אבל כל מה שתקראו עכשיו יעזור לכם להבין את מה שנראה בלונדון. אפשר להתארגן בקבוצות למידה ולעבור עליו יחד. ואם עוד לא עברתם על מודול 1, כדאי להתחיל ממנו.</p>
+      </div>
     </section>
 
     <!-- ===== module 3 ===== -->
-    <section class="module is-open" id="m3" aria-labelledby="m3-h">
+    <section class="module" id="m3" aria-labelledby="m3-h">
       <header class="mod-head">
-        <div class="mod-k" data-i18n="mod_k" data-n="3">מודול 3 מתוך 3</div>
+        <div class="mod-k" data-i18n="mod_k" data-n="3">מודול 3</div>
         <h2 id="m3-h" data-i18n="mod3_h">אחריותיות: איך מעריכים בתי ספר באנגליה</h2>
         <p class="mod-scope" data-i18n="mod3_scope">איך אנגליה בודקת את בתי הספר שלה: הבחינות הארציות והנתונים המתפרסמים, הפיקוח של <bdi>Ofsted</bdi>, ומה קורה כשבית ספר נכשל. הפעם, בגישה קצת אחרת: במקום סקירה ומצגת, מסמך אחד בעברית שעושה סדר בתמונה כולה, ולצידו פרק פודקאסט לקראת מפגש שנקיים בלונדון.</p>
         <div class="mod-progress js-only">
           <p class="mp-txt" id="m3Prog" aria-live="polite"></p>
           <div class="mp-bar" id="m3BarWrap" aria-hidden="true" hidden><i id="m3Bar"></i></div>
         </div>
+        <button type="button" class="mod-open js-only" aria-expanded="true" aria-controls="m3-body" aria-labelledby="m3-act m3-h" aria-describedby="m3-meta"><span class="mo-meta" id="m3-meta" data-i18n="mod3_meta">מסמך ופרק פודקאסט</span><span class="mo-act" id="m3-act" data-i18n="mod_close">סגירה</span><svg class="mo-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
       </header>
+      <div class="mod-body" id="m3-body">
 
       <ol class="steps" role="list">
         <!-- step 1: the core document -->
@@ -842,17 +931,18 @@ html[lang="en"] .num-row dd{font-size:14.5px}
         </li>
       </ol>
 
-      <section class="extras" aria-labelledby="m3-ex-h">
-        <div class="ex-head"><h3 id="m3-ex-h" data-i18n="extras_h">טקסטים להרחבה</h3><span class="opt" data-i18n="extras_optional">רשות</span></div>
+      <details class="extras" id="m3-ex">
+        <summary class="ex-head"><h3 id="m3-ex-h"><span data-i18n="extras_h">טקסטים להרחבה</span> <span class="ex-n"></span></h3><span class="opt" data-i18n="extras_optional">רשות</span><svg class="ex-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
         <ul class="ext-list" role="list" data-from="m3"><li class="ext-row ext-nojs" data-i18n="extras_nojs">את הטקסטים להרחבה של המודול תמצאו <a href="#library">בספרייה</a>.</li></ul>
         <a class="ext-all" href="#library" data-i18n="extras_all">לכל החומרים בספרייה</a>
-      </section>
+      </details>
 
-      <p class="mod-closing" data-i18n="mod3_closing">זהו המודול האחרון לפני הנסיעה, אז נפציר בכם בפעם האחרונה, בנימוס אנגלי, להעמיק בלמידה המקדימה. כל מה שתקראו עכשיו הוא בסיס מצוין שעליו נבנה עוד קומות במהלך המסע.</p>
+      <p class="mod-closing" data-i18n="mod3_closing">זה מודול הליבה האחרון לפני הנסיעה, אז נפציר בכם בפעם האחרונה, בנימוס אנגלי, להעמיק בלמידה המקדימה. כל מה שתקראו עכשיו הוא בסיס מצוין שעליו נבנה עוד קומות במהלך המסע.</p>
+      </div>
     </section>
 
     <!-- ===== module 4 (bonus) ===== -->
-    <section class="module is-open" id="m4" aria-labelledby="m4-h">
+    <section class="module" id="m4" aria-labelledby="m4-h">
       <header class="mod-head">
         <div class="mod-k" data-i18n="mod4_k">מודול בונוס · למיטיבי לכת</div>
         <h2 id="m4-h" data-i18n="mod4_h">כמה עובדים מורים באנגליה, וכמה הם מרוויחים</h2>
@@ -861,7 +951,9 @@ html[lang="en"] .num-row dd{font-size:14.5px}
           <p class="mp-txt" id="m4Prog" aria-live="polite"></p>
           <div class="mp-bar" id="m4BarWrap" aria-hidden="true" hidden><i id="m4Bar"></i></div>
         </div>
+        <button type="button" class="mod-open js-only" aria-expanded="true" aria-controls="m4-body" aria-labelledby="m4-act m4-h" aria-describedby="m4-meta"><span class="mo-meta" id="m4-meta" data-i18n="mod4_meta">מצגת, מספרים ופרק פודקאסט</span><span class="mo-act" id="m4-act" data-i18n="mod_close">סגירה</span><svg class="mo-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
       </header>
+      <div class="mod-body" id="m4-body">
 
       <ol class="steps" role="list">
         <li class="step" id="m4-deck" data-items="m4-deck">
@@ -928,13 +1020,14 @@ html[lang="en"] .num-row dd{font-size:14.5px}
         </li>
       </ol>
 
-      <section class="extras" aria-labelledby="m4-ex-h">
-        <div class="ex-head"><h3 id="m4-ex-h" data-i18n="extras_h">טקסטים להרחבה</h3><span class="opt" data-i18n="extras_optional">רשות</span></div>
+      <details class="extras" id="m4-ex">
+        <summary class="ex-head"><h3 id="m4-ex-h"><span data-i18n="extras_h">טקסטים להרחבה</span> <span class="ex-n"></span></h3><span class="opt" data-i18n="extras_optional">רשות</span><svg class="ex-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
         <ul class="ext-list" role="list" data-from="m4"><li class="ext-row ext-nojs" data-i18n="extras_nojs">את הטקסטים להרחבה של המודול תמצאו <a href="#library">בספרייה</a>.</li></ul>
         <a class="ext-all" href="#library" data-i18n="extras_all">לכל החומרים בספרייה</a>
-      </section>
+      </details>
 
       <p class="mod-closing" data-i18n="mod4_closing">בשיחות עם מורים ומנהלים בלונדון אפשר לשאול איך מתחלקות אצלם השעות בפועל, ואיך בית הספר מבטיח להם את הזמן לתכנון ולבדיקת עבודות.</p>
+      </div>
     </section>
 
   </div>
@@ -959,7 +1052,7 @@ html[lang="en"] .num-row dd{font-size:14.5px}
         <p class="lib-count" id="libCount" aria-live="polite"></p>
       </div>
       <div class="lib-group" data-topic="plan">
-        <div class="res-cat-head"><span class="bar"></span><h3 data-i18n="lib_cat_plan">החומרים המרכזיים של שלושת המודולים</h3></div>
+        <div class="res-cat-head"><span class="bar"></span><h3 data-i18n="lib_cat_plan">החומרים המרכזיים של ארבעת המודולים</h3></div>
         <div class="lib-grid">
         <article class="lib-card is-core" id="res-m1-audio" data-core="m1-audio" data-topic="plan" data-kind="listen" data-langs="" data-mods="m1" data-kw="">
           <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_listen">האזנה</span><span class="lc-where" data-i18n="lib_core_where">בתוכנית הלמידה</span><svg class="lc-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
@@ -1312,7 +1405,7 @@ html[lang="en"] .num-row dd{font-size:14.5px}
         <li><span class="mat-when"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span data-i18n="culture_slot_wed_pm">רביעי אחר הצהריים</span></span></li>
         <li><span class="mat-when"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span data-i18n="culture_slot_wed_ev">רביעי בערב</span></span></li>
       </ul>
-      <nav class="mat-toc cul-toc" data-i18n-aria="culture_toc_aria" aria-label="בלשונית הזו"><span class="toc-item"><a href="#matilda" data-i18n="culture_toc_matilda">מטילדה</a></span><span class="toc-item"><a href="#culture-winter" data-i18n="culture_toc_winter">לקראת חג המולד</a></span><span class="toc-item"><a href="#culture-sights" data-i18n="culture_toc_sights">מקומות לראות</a></span><span class="toc-item"><a href="#culture-streets" data-i18n="culture_toc_streets">רחובות ושכונות</a></span><span class="toc-item"><a href="#culture-shopping" data-i18n="culture_toc_shopping">קניות</a></span><span class="toc-item"><a href="#culture-practical" data-i18n="culture_toc_practical">שווה לדעת</a></span></nav>
+      <nav class="mat-toc cul-toc" data-i18n-aria="culture_toc_aria" aria-label="בלשונית הזו"><span class="toc-item"><a href="#matilda" data-i18n="culture_toc_matilda">מטילדה</a></span><span class="toc-item"><a href="#culture-map" data-i18n="culture_toc_map">המפה</a></span><span class="toc-item"><a href="#culture-winter" data-i18n="culture_toc_winter">לקראת חג המולד</a></span><span class="toc-item"><a href="#culture-sights" data-i18n="culture_toc_sights">מקומות לראות</a></span><span class="toc-item"><a href="#culture-streets" data-i18n="culture_toc_streets">רחובות ושכונות</a></span><span class="toc-item"><a href="#culture-shopping" data-i18n="culture_toc_shopping">קניות</a></span><span class="toc-item"><a href="#culture-practical" data-i18n="culture_toc_practical">שווה לדעת</a></span></nav>
     </div></header>
 
     <section class="cul-ch cul-mat" id="matilda" aria-labelledby="mat-h">
@@ -1403,6 +1496,11 @@ html[lang="en"] .num-row dd{font-size:14.5px}
     <section class="cul-free" id="culture-free" aria-labelledby="cul-free-h"><div class="col">
       <h3 id="cul-free-h" class="cul-free-h" data-i18n="culture_free_h">לזמן החופשי</h3>
       <p class="mod-scope" data-i18n="culture_free_p">ביום רביעי, אחרי הסדנה על <bdi>Ofsted</bdi>, שאר היום והערב פנויים. בסוף נובמבר מחשיך כבר בסביבות ארבע, ורוב המוזיאונים נסגרים בין חמש לשש. כל אחד יוצא ממקום אחר, ולכן סידרנו את המקומות לפי אזור ולפי תחנת הרכבת התחתית הקרובה.</p>
+      <figure class="cmap" id="culture-map" aria-labelledby="cmap-h">
+        <h4 class="cmap-h" id="cmap-h" data-i18n="culture_map_h">המפה של המשלחת</h4>
+        <div class="cmap-frame"><iframe src="https://www.google.com/maps/d/embed?mid=12avYhqJOgVvfpuOp8qCDaXBXBjN5mL0&amp;ll=51.509%2C-0.13&amp;z=12" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen data-i18n-title="culture_map_title" title="המפה של משלחת אדוות בלונדון: מקומות בילוי ותרבות"></iframe></div>
+        <figcaption class="cmap-cap"><span data-i18n="culture_map_cap">מפה שהכנו למשלחת, עם מקומות בילוי ותרבות בלונדון. לחיצה על נקודה במפה מציגה את פרטי המקום. המפה עובדת רק עם חיבור לאינטרנט.</span> <a href="https://www.google.com/maps/d/viewer?mid=12avYhqJOgVvfpuOp8qCDaXBXBjN5mL0" target="_blank" rel="noopener" data-i18n="culture_map_open">פתיחת המפה במסך מלא</a></figcaption>
+      </figure>
       <div class="cul-tools js-only">
         <label class="done-toggle cul-eve"><input type="checkbox" id="culEve"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span data-i18n="culture_filter_evening">רק מה שמתאים לערב</span></label>
         <p class="lib-count" id="culCount" aria-live="polite"></p>
@@ -1751,7 +1849,7 @@ const I18N = {
 "mod3_podcast_meta": "פרק פודקאסט · באנגלית",
 "mod3_podcast_p": "בלונדון נפגוש את החוקרת דייזי כריסטודולו, מהקולות החדים והמשפיעים בשיח החינוכי בבריטניה, ומי שאינה חוששת לאתגר את המדיניות הקיימת. בפרק היא פורשת את תפיסת עולמה על תפקיד הידע והזיכרון בלמידה, מנתחת את הרפורמות בבריטניה, ונוגעת בסוגיות בוערות כמו חינוך מקצועי, נשירת תלמידים והשפעת הבינה המלאכותית על החשיבה שלנו. האזנה לפני הנסיעה תביא אתכם לשיחה איתה כבר בתוך העניינים.",
 "mod3_podcast_btn": "להאזנה בספוטיפיי",
-"mod3_closing": "זהו המודול האחרון לפני הנסיעה, אז נפציר בכם בפעם האחרונה, בנימוס אנגלי, להעמיק בלמידה המקדימה. כל מה שתקראו עכשיו הוא בסיס מצוין שעליו נבנה עוד קומות במהלך המסע.",
+"mod3_closing": "זה מודול הליבה האחרון לפני הנסיעה, אז נפציר בכם בפעם האחרונה, בנימוס אנגלי, להעמיק בלמידה המקדימה. כל מה שתקראו עכשיו הוא בסיס מצוין שעליו נבנה עוד קומות במהלך המסע.",
 "mod3_short": "אחריותיות",
 "mod4_short": "בונוס: שכר ושעות",
 "mod4_k": "מודול בונוס · למיטיבי לכת",
@@ -1803,7 +1901,35 @@ const I18N = {
 "r_m4_ifs": "ניתוח של המכון למחקרים פיסקליים על תוספת השכר של 2026 ועל השכר הריאלי של מורים מאז 2010.",
 "r_m4_oecd": "השוואה בינלאומית של שכר מורים ומנהלים, כולל אנגליה וישראל.",
 "mod_complete": "סיימתם את המודול",
-"mod_k": "מודול {n} מתוך 3",
+"mod_k": "מודול {n}",
+"flight_h": "לפני הטיסה",
+"flight_book_h": "חוברת לטיסה",
+"flight_book_p": "כל חומרי הליבה בעברית בקובץ אחד, שנפתח גם בלי אינטרנט.",
+"flight_book_btn": "להורדת החוברת",
+"flight_book_meta": "<bdi>PDF</bdi> · 128 עמודים · 9MB",
+"flight_note": "את \"סיימתי\" מסמנים בתוך המודולים, והרשימה כאן מתעדכנת מעצמה. הסימונים נשמרים רק בדפדפן הזה ולא נשלחים לאף אחד.",
+"flight_done_sr": "בוצע",
+"extras_sum_aria": "טקסטים להרחבה, {n} פריטים, רשות",
+"flight_p": "אם יש לכם זמן רק לחלק מהחומרים, התחילו מחמשת החומרים האלה. הם הבסיס לביקורים ולמפגשים בלונדון, וכל השאר מעמיק את התמונה.",
+"flight_why1": "נקודת הפתיחה של כל המסע",
+"flight_why2": "מי מחליט על מה במערכת שנבקר בה",
+"flight_why3": "לקראת הביקור ברשת <bdi>Ark</bdi>",
+"flight_why4": "פיקוח ומבחנים, נושא שיעלה כמעט בכל ביקור",
+"flight_why5": "כדאי להוריד את הפרק לפני הטיסה",
+"flight_meta1": "2 דקות",
+"flight_meta2": "15 שקפים",
+"flight_meta3": "15 עמודים, יש תרגום לעברית",
+"flight_meta4": "10 עמודים בעברית",
+"flight_meta5": "פרק פודקאסט",
+"flight_prog": "סיימתם {x} מתוך 5",
+"flight_done": "סיימתם את כל החמישה",
+"flight_aria": "חמשת החומרים לפני הטיסה",
+"mod1_meta": "סקירה קולית, מצגת וקריאה",
+"mod2_meta": "סקירה קולית, מצגת ושתי קריאות",
+"mod3_meta": "מסמך ופרק פודקאסט",
+"mod4_meta": "מצגת, מספרים ופרק פודקאסט",
+"mod_open": "פתיחה",
+"mod_close": "סגירה",
 "mod_progress": "סיימתם {x} מתוך {y}",
 "mod_progress_zero": "{y} דברים לסמן במודול, מתחילים מתי שנוח לכם",
 "mod_status_done": "סיימתם",
@@ -1902,7 +2028,7 @@ const I18N = {
 "hub_meta_desc": "מרכז הלמידה של משלחת אדוות ללונדון: תוכנית למידה בשלושה מודולים, ספרייה של כל החומרים, מטילדה ורעיונות לזמן החופשי.",
 "hub_og_title": "מרכז הלמידה · אדוות לונדון 2026",
 "hub_h1": "מרכז הלמידה לקראת המסע",
-"hub_lede": "בסמינר האחרון ביקשתם דרך מסודרת להתכונן ללונדון. כאן תמצאו את תוכנית הלמידה בשלושה מודולים ואת הספרייה עם כל החומרים שבאתר. בלשונית \"תרבות ופנאי\" יש רקע למטילדה ורעיונות לזמן החופשי.",
+"hub_lede": "בסמינר האחרון ביקשתם דרך מסודרת להתכונן ללונדון. כאן תמצאו את תוכנית הלמידה בשלושה מודולים ועוד מודול בונוס, ואת הספרייה עם כל החומרים שבאתר. בלשונית \"תרבות ופנאי\" יש רקע למטילדה ורעיונות לזמן החופשי.",
 "hubnav_aria": "חלקי מרכז הלמידה",
 "hubnav_plan": "תוכנית הלמידה",
 "hubnav_library": "הספרייה",
@@ -1925,7 +2051,7 @@ const I18N = {
 "lib_topic_schools": "בתי ספר",
 "lib_topic_leadership": "מנהיגות והוראה",
 "lib_topic_matilda": "מטילדה",
-"lib_cat_plan": "החומרים המרכזיים של שלושת המודולים",
+"lib_cat_plan": "החומרים המרכזיים של ארבעת המודולים",
 "lib_cat_sessions": "חומרים ממפגשי ההכנה",
 "lib_cat_matilda": "מטילדה: מאמרים ורקע לערב בתיאטרון",
 "lib_he_only": "רק חומרים עם גרסה בעברית",
@@ -2000,6 +2126,11 @@ const I18N = {
 "culture_mat_more": "הספר, הסופר רואלד דאל, העלילה, המאמרים והשירים",
 "culture_free_h": "לזמן החופשי",
 "culture_free_p": "ביום רביעי, אחרי הסדנה על <bdi>Ofsted</bdi>, שאר היום והערב פנויים. בסוף נובמבר מחשיך כבר בסביבות ארבע, ורוב המוזיאונים נסגרים בין חמש לשש. כל אחד יוצא ממקום אחר, ולכן סידרנו את המקומות לפי אזור ולפי תחנת הרכבת התחתית הקרובה.",
+"culture_toc_map": "המפה",
+"culture_map_h": "המפה של המשלחת",
+"culture_map_cap": "מפה שהכנו למשלחת, עם מקומות בילוי ותרבות בלונדון. לחיצה על נקודה במפה מציגה את פרטי המקום. המפה עובדת רק עם חיבור לאינטרנט.",
+"culture_map_open": "פתיחת המפה במסך מלא",
+"culture_map_title": "המפה של משלחת אדוות בלונדון: מקומות בילוי ותרבות",
 "culture_filter_evening": "רק מה שמתאים לערב",
 "culture_count": "{n} מקומות",
 "culture_count_filtered": "{n} מתוך {total}",
@@ -2204,7 +2335,7 @@ const I18N = {
 "mod3_podcast_meta": "Podcast episode · in English",
 "mod3_podcast_p": "In London we will meet the researcher Daisy Christodoulou, one of the sharpest and most influential voices in British education, and one who is not afraid to challenge current policy. In this episode she lays out her thinking on the role of knowledge and memory in learning, analyses Britain's reforms, and touches on burning questions such as vocational education, pupil dropout and what AI is doing to our thinking. Listening before the trip will bring you into the conversation with her already up to speed.",
 "mod3_podcast_btn": "Listen on Spotify",
-"mod3_closing": "This is the last module before the trip, so allow us one final, politely English plea to make time for the preparatory learning. Everything you read now is an excellent foundation we will keep building on during the journey.",
+"mod3_closing": "This is the last core module before the trip, so allow us one final, politely English plea to make time for the preparatory learning. Everything you read now is an excellent foundation we will keep building on during the journey.",
 "mod3_short": "Accountability",
 "mod4_short": "Bonus: pay and hours",
 "mod4_k": "Bonus module · for the keen",
@@ -2256,7 +2387,35 @@ const I18N = {
 "r_m4_ifs": "The IFS on the 2026 pay award and teachers' real pay since 2010.",
 "r_m4_oecd": "An international comparison of teacher and head pay, including England and Israel.",
 "mod_complete": "You have finished this module",
-"mod_k": "Module {n} of 3",
+"mod_k": "Module {n}",
+"flight_h": "Before the flight",
+"flight_book_h": "Flight booklet",
+"flight_book_p": "All the core materials in Hebrew in one file that opens without internet.",
+"flight_book_btn": "Download the booklet",
+"flight_book_meta": "PDF · 128 pages · 9MB",
+"flight_note": "You tick \"Done\" inside the modules, and this list updates by itself. Your ticks are saved only in this browser and are not sent to anyone.",
+"flight_done_sr": "Done",
+"extras_sum_aria": "Further reading, {n} items, optional",
+"flight_p": "If you only have time for some of the materials, start with these five. They are the groundwork for the visits and meetings in London, and everything else deepens the picture.",
+"flight_why1": "Where the whole trip begins",
+"flight_why2": "Who decides what in the system we will visit",
+"flight_why3": "Ahead of the visit to Ark",
+"flight_why4": "Inspection and exams, which will come up at almost every visit",
+"flight_why5": "Worth downloading the episode before the flight",
+"flight_meta1": "2 minutes",
+"flight_meta2": "15 slides",
+"flight_meta3": "15 pages, Hebrew translation available",
+"flight_meta4": "10 pages in Hebrew",
+"flight_meta5": "Podcast episode",
+"flight_prog": "{x} of 5 done",
+"flight_done": "All five done",
+"flight_aria": "The five items before the flight",
+"mod1_meta": "Audio overview, slides and a reading",
+"mod2_meta": "Audio overview, slides and two readings",
+"mod3_meta": "A document and a podcast episode",
+"mod4_meta": "Slides, figures and a podcast episode",
+"mod_open": "Open",
+"mod_close": "Close",
 "mod_progress": "{x} of {y} done",
 "mod_progress_zero": "{y} things to tick off in this module. Start whenever suits you.",
 "mod_status_done": "Done",
@@ -2355,7 +2514,7 @@ const I18N = {
 "hub_meta_desc": "The learning hub for the Advot delegation to London: a three-module learning plan, a library of every resource, Matilda, and ideas for your free time.",
 "hub_og_title": "Learning hub · Advot London 2026",
 "hub_h1": "Your learning hub for the trip",
-"hub_lede": "At the last seminar you asked for a structured way to prepare for London. Here you will find the three-module learning plan and a library of every resource on the site. The Culture tab has background on Matilda and ideas for your free time.",
+"hub_lede": "At the last seminar you asked for a structured way to prepare for London. Here you will find the learning plan, three modules plus a bonus module, and a library of every resource on the site. The Culture tab has background on Matilda and ideas for your free time.",
 "hubnav_aria": "Learning hub sections",
 "hubnav_plan": "Learning plan",
 "hubnav_library": "Library",
@@ -2378,7 +2537,7 @@ const I18N = {
 "lib_topic_schools": "Schools",
 "lib_topic_leadership": "Leadership and teaching",
 "lib_topic_matilda": "Matilda",
-"lib_cat_plan": "Core materials from the three modules",
+"lib_cat_plan": "Core materials from the four modules",
 "lib_cat_sessions": "From the induction sessions",
 "lib_cat_matilda": "Matilda: articles and background for our evening at the theatre",
 "lib_he_only": "Only items available in Hebrew",
@@ -2453,6 +2612,11 @@ const I18N = {
 "culture_mat_more": "The book, its author Roald Dahl, the story, the articles and the songs",
 "culture_free_h": "For your free time",
 "culture_free_p": "On Wednesday, after the Ofsted workshop, the rest of the day and the evening are free. In late November it gets dark at around four, and most museums close between five and six. Everyone will be setting out from a different place, so we have arranged the ideas by area and by nearest Underground station.",
+"culture_toc_map": "The map",
+"culture_map_h": "The delegation's map",
+"culture_map_cap": "A map we made for the delegation, with places for culture and going out in London. Tap a point on the map to see its details. The map needs an internet connection.",
+"culture_map_open": "Open the map full screen",
+"culture_map_title": "The Advot delegation's London map: culture and going out",
 "culture_filter_evening": "Evening options only",
 "culture_count": "{n} places",
 "culture_count_filtered": "{n} of {total}",
@@ -2591,6 +2755,7 @@ function setLang(l){
     const v=d[el.dataset.i18n];
     if(v!==undefined) el.innerHTML=fill(v,el.dataset);
   });
+  document.querySelectorAll('[data-i18n-title]').forEach(function(el){ const v=d[el.dataset.i18nTitle]; if(v!==undefined) el.setAttribute('title',plain(v)); });
   document.querySelectorAll('[data-i18n-aria]').forEach(function(el){
     const v=d[el.dataset.i18nAria];
     if(v!==undefined) el.setAttribute('aria-label',plain(fill(v,el.dataset)));
@@ -2604,6 +2769,10 @@ function setLang(l){
 
 function render(){
   document.querySelectorAll('input[data-item]').forEach(function(i){ i.checked=!!done[i.dataset.item]; });
+  (function(){ var fx=0, fl=document.querySelectorAll('.fl-list li[data-item]');
+    fl.forEach(function(li){ var d=!!done[li.dataset.item]; li.classList.toggle('is-done',d); if(d) fx++;
+      var sr=li.querySelector('.fl-sr'); if(!sr){ sr=document.createElement('span'); sr.className='sr-only fl-sr'; li.querySelector('a').appendChild(sr); } sr.textContent=d?', '+t('flight_done_sr'):''; });
+    var fp=document.getElementById('flightProg'); if(fp){ if(fx===fl.length) fp.innerHTML=CHECK+'<span>'+t('flight_done')+'</span>'; else fp.textContent=fx?t('flight_prog',{x:fx}):''; } })();
   Object.keys(MODS).forEach(function(n){
     const items=MODS[n], y=items.length;
     const x=items.filter(function(k){ return done[k]; }).length;
@@ -2713,6 +2882,21 @@ document.querySelectorAll('ul.ext-list[data-from]').forEach(function(ul){
   });
 });
 
+document.querySelectorAll('details.extras').forEach(function(d){ var n=d.querySelectorAll('.ext-row').length, el=d.querySelector('.ex-n'), sm=d.querySelector('summary'); if(el) el.textContent='('+n+')'; sm.dataset.n=n; sm.dataset.i18nAria='extras_sum_aria'; sm.setAttribute('aria-label',plain(t('extras_sum_aria',{n:n}))); });
+
+/* modules fold: closed by default once JS runs (without JS everything stays open); a link into a module opens it */
+var MODSEC=[].slice.call(document.querySelectorAll('section.module'));
+function setMod(sec,open){
+  sec.classList.toggle('is-collapsed',!open);
+  var b=sec.querySelector('.mod-open'); if(!b) return;
+  b.setAttribute('aria-expanded',open?'true':'false');
+  var act=b.querySelector('.mo-act'); act.dataset.i18n=open?'mod_close':'mod_open'; act.textContent=t(act.dataset.i18n);
+}
+MODSEC.forEach(function(sec){
+  setMod(sec,false);
+  sec.querySelector('.mod-open').addEventListener('click',function(){ setMod(sec,sec.classList.contains('is-collapsed')); });
+});
+
 /* 3. Library search: normalised text of every card, in both languages, built once */
 var FINALS={'ם':'מ','ן':'נ','ץ':'צ','ף':'פ','ך':'כ'};
 function norm(s){
@@ -2737,7 +2921,7 @@ function applyFilter(now){
   /* "מודול 2" / "module 2" means the module tag, not any text containing a 2 */
   var toks=norm(F.q).replace(/(?:מודול|module)\s*(\d)/g,'modtagm$1').split(' ').filter(Boolean), shown=0;
   cards.forEach(function(c){
-    var ok=(F.topic==='all'||c.dataset.topic===F.topic)&&(!F.he||(' '+c.dataset.langs+' ').indexOf(' he ')>=0)&&toks.every(function(t){ return c._idx.indexOf(t)>=0; });
+    var ok=(F.topic==='all'?(c.dataset.topic!=='plan'||!!F.q):c.dataset.topic===F.topic)&&(!F.he||(' '+c.dataset.langs+' ').indexOf(' he ')>=0)&&toks.every(function(t){ return c._idx.indexOf(t)>=0; });
     c.hidden=!ok; if(ok) shown++;
   });
   groupsEl.forEach(function(g){ g.hidden=!g.querySelector('.lib-card:not([hidden])'); });
@@ -2745,7 +2929,8 @@ function applyFilter(now){
   libEmptyH.textContent=F.q?fill(plain(t('lib_empty_h')),{q:F.q}):plain(t('lib_empty_h_filter'));
   libClear.hidden=!F.q;
   var filtered=F.q||F.topic!=='all'||F.he;
-  var txt=filtered?fill(t('lib_count_filtered'),{n:shown,total:cards.length}):fill(t('lib_count'),{n:cards.length});
+  var base=cards.filter(function(c){ return c.dataset.topic!=='plan'; }).length;
+  var txt=filtered?fill(t('lib_count_filtered'),{n:shown,total:(F.q||F.topic==='plan')?cards.length:base}):fill(t('lib_count'),{n:base});
   clearTimeout(countTimer);
   if(now) libCount.textContent=txt; else countTimer=setTimeout(function(){ libCount.textContent=txt; },400);
 }
@@ -2811,7 +2996,9 @@ function route(opt){
   if(target){
     /* Matilda's background opens by itself when someone arrives with a direct link (#matilda, #matilda-*) */
     if(target.id==='matilda'||target.closest('#matMore')) document.getElementById('matMore').open=true;
-    if(target.classList.contains('lib-card')){ resetFilters(); target.scrollIntoView({behavior:how}); highlight(target); }
+    var ms=target.closest('section.module'); if(ms) setMod(ms,true);
+    var dx=target.closest('details.extras'); if(dx) dx.open=true;
+    if(target.classList.contains('lib-card')){ resetFilters(); if(target.dataset.topic==='plan'){ setTopic('plan'); applyFilter(true); } target.scrollIntoView({behavior:how}); highlight(target); }
     else if(target.classList.contains('cul-card')){ culReset(); target.scrollIntoView({behavior:how}); highlight(target); }
     else target.scrollIntoView({behavior:how});
   } else {
@@ -2827,6 +3014,7 @@ document.querySelectorAll('.hub-tab').forEach(function(a){
   a.addEventListener('click',function(){ tabClick=true; if(location.hash==='#'+a.dataset.view){ setTimeout(function(){ route({click:true}); tabClick=false; },0); } });
 });
 addEventListener('hashchange',function(){ route({click:tabClick}); tabClick=false; });
+document.querySelectorAll('#plan a[href^="#"]').forEach(function(a){ a.addEventListener('click',function(){ if(location.hash===a.getAttribute('href')) setTimeout(function(){ route({}); },0); }); });
 
 /* culture tab: one filter, "evening options only", over the four place chapters (Matilda and "good to know" are never filtered) */
 var culEve=document.getElementById('culEve'), culCount=document.getElementById('culCount'), culEmpty=document.getElementById('culEmpty');
