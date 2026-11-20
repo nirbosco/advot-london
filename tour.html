@@ -40,7 +40,7 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stro
 .mini .strip{height:7px;background:var(--grad)}
 .mini-in{padding:14px 16px 16px}
 .mini-in .en{font-size:12px;letter-spacing:.16em;font-weight:800;color:var(--sky)}
-.mini-slots{display:grid;grid-template-columns:repeat(6,1fr);gap:8px 10px;margin-top:12px;max-width:280px}
+.mini-slots{display:grid;grid-template-columns:repeat(5,1fr);gap:8px 12px;margin-top:12px;max-width:240px}
 .mini-slots i{aspect-ratio:1;border-radius:50%;border:1.5px dashed rgba(220,227,245,.28)}
 .welcome h1{font-size:34px;line-height:1.15;font-weight:900;letter-spacing:-.01em;text-wrap:balance}
 .welcome p{color:var(--ink-2);font-size:18px;max-width:34ch}
@@ -52,10 +52,13 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stro
 .pass .in{padding:16px 18px 18px}
 .pass .row1{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
 .pass .row1 b{font-size:20px;font-weight:900}
+html[lang="en"] .pass .row1 .en{display:none}
 .pass .row1 .en{font-size:12px;letter-spacing:.16em;font-weight:800;color:var(--sky)}
 .pass .sub{font-size:14px;color:var(--dim);margin-top:2px}
-.stamps{display:grid;grid-template-columns:repeat(6,1fr);gap:10px 4px;margin-top:16px}
-.slot{width:100%;max-width:46px;aspect-ratio:1;height:auto;margin:0 auto;border-radius:50%;display:grid;place-items:center;position:relative}
+.stamps{display:grid;grid-template-columns:repeat(5,1fr);gap:10px 6px;margin-top:16px;max-width:300px}
+.slot{width:100%;max-width:48px;aspect-ratio:1;height:auto;margin:0 auto;border-radius:50%;display:grid;place-items:center;position:relative;cursor:pointer;transition:background .2s var(--ease)}
+.slot.off:active{background:rgba(220,227,245,.08)}
+.slot.off.next{border:1.5px solid var(--blue-hi);color:var(--ink);background:rgba(0,72,255,.35)}
 .slot.off{border:1.5px dashed rgba(220,227,245,.28);color:var(--dim);font-size:14px;font-weight:700}
 .slot.on{border:2px solid var(--teal);color:var(--teal);background:rgba(65,202,197,.12);transform:rotate(-8deg)}
 .slot.on::after{content:"";position:absolute;inset:4px;border-radius:50%;border:1px solid rgba(65,202,197,.45)}
@@ -64,8 +67,12 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stro
 .pass .msg{margin-top:14px;font-size:15px;color:var(--ink-2)}
 .pass.full .msg b{display:block;font-size:18px;color:var(--ink)}
 
-/* ---------- list ---------- */
-.list{list-style:none;margin-top:18px;background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+/* ---------- sections + list ---------- */
+.sec{margin-top:26px}
+.sec-h{display:flex;align-items:baseline;gap:10px;font-size:21px;font-weight:900;line-height:1.25}
+.sec-h .k{font-size:14px;font-weight:700;color:var(--dim)}
+.sec-d{font-size:15px;color:var(--dim);margin-top:2px;max-width:40ch}
+.list{list-style:none;margin-top:10px;background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden}
 .list li+li .item{border-top:1px solid var(--line)}
 .item{width:100%;display:flex;align-items:center;gap:14px;text-align:start;background:transparent;border:0;
   padding:12px 16px;min-height:64px;transition:background .25s var(--ease)}
@@ -78,6 +85,8 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stro
 .item .tag{font-size:13px;font-weight:700;border:1px solid rgba(13,180,244,.6);color:var(--sky);border-radius:99px;padding:2px 10px;flex-shrink:0}
 .item.next{background:rgba(0,72,255,.2)}
 .item.next .n{border-color:var(--blue-hi);color:var(--ink);background:var(--blue)}
+.item.aid .n{border-style:solid;color:var(--sky);border-color:var(--line)}
+.item.aid .n svg{width:18px;height:18px}
 .foot{margin-top:26px;text-align:center}
 .foot button{font-size:14px;color:var(--dim);text-decoration:underline;text-underline-offset:4px;min-height:44px;padding:0 10px}
 
@@ -97,13 +106,14 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stro
   background:rgba(7,13,46,.72);border:1px solid var(--line);display:grid;place-items:center;color:var(--ink)}
 .hero{position:relative;height:34dvh;min-height:190px;flex-shrink:0;background:#0E1748 center/cover no-repeat;overflow:hidden}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(11,20,64,0) 45%,rgba(11,20,64,.94) 100%)}
-.hero .cnt{position:absolute;bottom:12px;inset-inline-start:16px;z-index:2;font-size:13px;color:var(--ink-2);
+.hero .cnt{position:absolute;bottom:16px;inset-inline-start:16px;z-index:2;font-size:13px;color:var(--ink-2);
   background:rgba(7,13,46,.7);border:1px solid var(--line);border-radius:99px;padding:3px 12px}
 .body{flex:1;overflow-y:auto;padding:16px 18px 10px;display:flex;flex-direction:column;gap:12px;max-width:520px;width:100%;margin:0 auto}
 .body .where{font-size:15px;color:var(--dim);margin-top:-8px}
 .body .pic{font-size:14px;color:var(--dim);margin-top:-10px}
 .body h2{font-size:27px;line-height:1.2;font-weight:900;text-wrap:balance}
-.body .story{font-size:17px;color:var(--ink-2)}
+.body .story{font-size:17px;color:var(--ink-2);text-wrap:pretty}
+.fact,.look p,.more-in p,.cap p,.sec-d{text-wrap:pretty}
 .fact{background:rgba(13,180,244,.09);border-radius:14px;padding:11px 14px;font-weight:700;font-size:16px;color:var(--ink)}
 .look{background:rgba(65,202,197,.09);border:1px solid rgba(65,202,197,.42);border-radius:16px;padding:12px 14px;display:flex;gap:12px;align-items:flex-start}
 .look svg{color:var(--teal);margin-top:2px}
@@ -150,9 +160,8 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stro
 .lbframe{margin:calc(64px + env(safe-area-inset-top,0px)) 14px 0}
 #lb .cap{padding-bottom:calc(18px + var(--safe-b))}
 .hero{cursor:zoom-in}
-.hero .zoomchip{position:absolute;bottom:12px;inset-inline-end:16px;z-index:2;display:flex;align-items:center;gap:6px;font-size:13px;color:var(--ink);background:rgba(7,13,46,.7);border:1px solid var(--line);border-radius:99px;padding:4px 12px;min-height:32px}
+.hero .zoomchip{position:absolute;bottom:6px;inset-inline-end:10px;z-index:2;display:flex;align-items:center;gap:6px;font-size:13px;color:var(--ink);background:rgba(7,13,46,.7);border:1px solid var(--line);border-radius:99px;padding:4px 14px;min-height:44px}
 .hero .zoomchip svg{width:16px;height:16px}
-.hero.short .zoomchip{display:none}
 .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transform-origin:0 0;will-change:transform;user-select:none;-webkit-user-drag:none}
 .frame .hint{position:absolute;bottom:10px;inset-inline-end:10px;font-size:13px;color:var(--ink-2);background:rgba(5,9,31,.78);border:1px solid var(--line);border-radius:99px;padding:3px 10px;pointer-events:none;transition:opacity .4s}
 .cap{padding:12px 18px 4px;max-width:520px;width:100%;margin:0 auto}
@@ -180,7 +189,7 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stro
 .credits h2{font-size:24px;font-weight:900;margin-bottom:10px}
 .credits li{list-style:none;font-size:14px;color:var(--ink-2);padding:9px 0;border-bottom:1px solid var(--line)}
 .credits li b{color:var(--ink);font-weight:700}
-.credits a{color:var(--sky);text-underline-offset:3px}
+.credits a{color:var(--sky);text-underline-offset:3px;display:inline-block;padding:12px 6px;margin:-12px 0}
 
 /* ---------- host ---------- */
 body.host .wrap{max-width:560px}
@@ -222,7 +231,7 @@ body.host .wrap{max-width:560px}
   <section class="welcome" id="welcome" hidden>
     <h1 data-t="w_h"></h1>
     <p data-t="w_p"></p>
-    <div class="mini" aria-hidden="true"><div class="strip"></div><div class="mini-in"><span class="en">READER PASS</span><div class="mini-slots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
+    <div class="mini" aria-hidden="true"><div class="strip"></div><div class="mini-in"><span class="en">READER PASS</span><div class="mini-slots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
     <button class="btn" id="startBtn" type="button" data-t="w_btn"></button>
   </section>
 
@@ -233,11 +242,11 @@ body.host .wrap{max-width:560px}
       <div class="in">
         <div class="row1"><b id="passTitle" data-t="pass_t"></b><span class="en">READER PASS</span></div>
         <div class="sub" data-t="pass_sub"></div>
-        <div class="stamps" id="stamps" role="list"></div>
+        <div class="stamps" id="stamps" role="group" aria-labelledby="passTitle"></div>
         <p class="msg" id="passMsg" aria-live="polite"></p>
       </div>
     </section>
-    <ol class="list" id="list"></ol>
+    <div id="list"></div>
     <div class="foot"><button type="button" id="credBtn" data-t="cred_btn"></button></div>
   </main>
 
@@ -272,9 +281,9 @@ body.host .wrap{max-width:560px}
     <div class="where" id="stWhere"></div>
     <div class="pic" id="stPic"></div>
     <p class="story" id="stStory"></p>
+    <div class="look" id="stLook"><svg class="i" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg><div><b data-t="look_t"></b><p id="stLookP"></p></div></div>
     <div class="fact" id="stFact"></div>
     <div id="stGuess"></div>
-    <div class="look" id="stLook"><svg class="i" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg><div><b data-t="look_t"></b><p id="stLookP"></p></div></div>
     <details class="more" id="stMore"><summary><span data-t="more"></span><svg class="i" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></summary><div class="more-in" id="stMoreBody"></div></details>
   </div>
   <div class="dock"><button class="btn ghost morebtn" type="button" id="stMoreBtn"><svg class="i" viewBox="0 0 24 24"><path d="M12 6.5C10 5 7 4.5 3 5v13c4-.5 7 0 9 1.5 2-1.5 5-2 9-1.5V5c-4-.5-7 0-9 1.5z"/><path d="M12 6.5v13"/></svg><span data-t="more_btn"></span></button><button class="btn" type="button" id="stBtn"></button></div>
@@ -331,6 +340,12 @@ const ICON = {
   austen:'<circle cx="7" cy="14" r="3.5"/><circle cx="17" cy="14" r="3.5"/><path d="M10.5 14c.5-1 2.5-1 3 0M3.5 13 2.5 9.5M20.5 13l1-3.5"/>',
   usa:'<path d="M5 21V3"/><path d="M5 4c3-1.5 5 1.5 8 0s4-1 6 0v8c-2-1-3-1.5-6 0s-5-1.5-8 0"/>',
   tablet:'<rect x="3.5" y="4" width="14" height="16" rx="1.5"/><path d="M6.5 8.5h8M6.5 12h6M6.5 15.5h7"/><path d="M21 3.5 17.5 13"/>',
+  judaism:'<path d="M12 3.5l8 13.5H4z"/><path d="M12 20.5 4 7h16z"/>',
+  woolf:'<path d="M5 21V4h14v17"/><path d="M3 21h18"/><circle cx="15.5" cy="12.5" r=".9"/>',
+  pooh:'<path d="M7 9h10l1 3v5.5a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3V12z"/><path d="M6.5 9 8 6h8l1.5 3"/><path d="M6 14h12"/>',
+  handel:'<path d="M3 6.5h18M3 10.5h18M3 14.5h18"/><circle cx="9" cy="17.5" r="2.3"/><path d="M11.3 17.5V4.5l4.5 2"/>',
+  python:'<path d="M9.5 3.5c1.2 0 2 1 2 2.2v6c2.2-.6 5.2-.3 7.2.8 1.3.7 1.8 1.8 1.6 3-.3 1.4-1.6 2.2-3.2 2.2h-5.4c-.9 0-1.5.5-2 1.4-.6 1.1-1.5 1.4-2.6 1.4-1.9 0-2.8-1.7-2.4-3.6l1.3-6.4c.3-1.4.2-2.8.1-4.2-.1-1.6 1-2.8 3.4-2.8z"/>',
+  newton:'<circle cx="12" cy="5" r="1.6"/><path d="M11.2 6.5 6 21M12.8 6.5 18 21M8.2 15h7.6"/>',
   check:'<path d="M4.5 12.5l5 5 10-11"/>'
 };
 const svg = (k, cls='i') => `<svg class="${cls}" viewBox="0 0 24 24" aria-hidden="true">${ICON[k]}</svg>`;
@@ -340,12 +355,15 @@ const T = {
   he:{
     top:'הספרייה הבריטית · 26.11', langBtn:'EN',
     w_h:'ברוכים הבאים לספרייה הבריטית',
-    w_p:'מי שרוצה לעיין באוספים כאן מוציא כרטיס קריאה, וזה הכרטיס שלכם: אחת-עשרה תחנות קצרות, ובכל אחת מקבלים חותמת.',
+    w_p:'מי שרוצה לעיין באוספים כאן מוציא כרטיס קריאה, וזה הכרטיס שלכם. מתחילים בבניין עצמו, ממשיכים להיכל האוצרות, ובכל תחנה בדרך מקבלים חותמת.',
     w_btn:'לכרטיס שלי',
     pass_t:'כרטיס קריאה', pass_sub:'משלחת אדוות · לונדון 2026',
     empty:'הכרטיס עוד ריק. מתחילים בחצר, בתחנה הראשונה.',
-    progress:n=>`${n} מתוך ${STOPS.length} חותמות.`,
-    full_h:'הכרטיס מלא', full_p:'אחת-עשרה חותמות. נתראה בחצר.',
+    progress:n=>`${n===1?'חותמת אחת':n+' חותמות'} בכרטיס. לחיצה על משבצת פותחת את התחנה שלה.`,
+    full_h:'הכרטיס מלא', full_p:'כל החותמות אצלכם. נתראה בחצר.',
+    sec_place:'על המקום', sec_place_d:'הבניין והאוסף. מתחילים בחצר, לפני הכניסה.',
+    sec_gallery:'היכל האוצרות', sec_gallery_d:'פותחים יחד בכתבי היד העבריים, ומשם כל אחד עובר בין הוויטרינות בקצב שלו ובסדר שלו.',
+    sec_aids:'עזרים', sec_aids_d:'תמונות וטקסטים לשיחה בקבוצה. בלי חותמות.',
     together:'יחד', look_t:'תרימו את הראש',
     cont:'ממשיכים', seen:'ראיתי', again:'סגירה',
     guess_btn:'זה הניחוש שלי', guess_wait:'תכף נגלה את התשובה.', guess_show:'מה התשובה?',
@@ -364,12 +382,15 @@ const T = {
   en:{
     top:'British Library · 26.11', langBtn:'עב',
     w_h:'Welcome to the British Library',
-    w_p:'Anyone who wants to use the collections here gets a Reader Pass. This one is yours: eleven short stops, and a stamp at each one.',
+    w_p:'Anyone who wants to use the collections here gets a Reader Pass. This one is yours. We start with the building itself, move on to the Treasures Gallery, and you get a stamp at every stop on the way.',
     w_btn:'Open my pass',
     pass_t:'Reader Pass', pass_sub:'Adavot delegation · London 2026',
     empty:'Your pass is still empty. Start in the courtyard, at the first stop.',
-    progress:n=>`${n} of ${STOPS.length} stamps.`,
-    full_h:'Pass complete', full_p:'Eleven stamps. See you in the courtyard.',
+    progress:n=>`${n} ${n===1?'stamp':'stamps'} on your pass. Tap a slot to open its stop.`,
+    full_h:'Pass complete', full_p:'You have every stamp. See you in the courtyard.',
+    sec_place:'The place', sec_place_d:'The building and the collection. We start in the courtyard, before the entrance.',
+    sec_gallery:'The Treasures Gallery', sec_gallery_d:'We open together with the Hebrew manuscripts. From there, everyone moves between the cases at their own pace and in their own order.',
+    sec_aids:'Resources', sec_aids_d:'Pictures and texts for group discussion. No stamps.',
     together:'Together', look_t:'Look up',
     cont:'Continue', seen:"I've seen it", again:'Close',
     guess_btn:"That's my guess", guess_wait:"We'll reveal the answer in a moment.", guess_show:"What's the answer?",
@@ -388,7 +409,7 @@ const T = {
 };
 
 const STOPS = [
-  { id:'courtyard', kind:'walk', img:'assets/tour/st-courtyard.webp',
+  { id:'courtyard', sec:'place', kind:'walk', img:'assets/tour/st-courtyard.webp',
     he:{ t:'החצר', w:'בחצר, לפני הכניסה',
       s:'עשרה מיליון לבנים אדומות, וכל אחת מהן נעשתה ביד. בזמן השריפה בכבשן השתחרר מהן גז, והשאיר בכל לבנה קו מעוקל שנראה כמו חיוך.',
       f:'ברצפה שאתם עומדים עליה יש מאובנים של חלזונות וצדפות, בני מיליוני שנים.',
@@ -397,17 +418,14 @@ const STOPS = [
       s:'Ten million red bricks, every one of them made by hand. As they were fired in the kiln, gas escaped and left a curved line in every brick that looks like a smile.',
       f:'The paving under your feet holds fossils of snails and oysters, millions of years old.',
       l:'Look for a smiling brick in the nearest wall. If you find one, show whoever is next to you.' } },
-  { id:'hall', kind:'guess', img:'assets/tour/st-hall.webp',
+  { id:'hall', sec:'place', kind:'guess', img:'assets/tour/st-hall.webp',
     he:{ t:'אולם הכניסה', w:'מיד אחרי הדלתות',
       s:'האדריכל, קולין סנט ג\'ון וילסון, שירת בעבר כקצין בצי, ומהזווית הנכונה הבניין שלו נראה כמו ספינה. מתחת לרגליים יש חמש קומות מרתף, עד עומק 24 מטר. זה עמוק כמו קו הרכבת התחתית שעובר ליד.',
       q:'כמה פריטים שמורים בספרייה הזאת?' },
     en:{ t:'The entrance hall', w:'Just inside the doors',
       s:'The architect, Colin St John Wilson, had served as a naval officer, and from the right angle his building looks like a ship. Under your feet are five basement levels, 24 metres deep. That is as deep as the Underground line that runs nearby.',
       q:'How many items does this library hold?' } },
-  { id:'ms', kind:'ms',
-    he:{ t:'כתבי היד העבריים', w:'בכניסה לגלריית האוצרות' },
-    en:{ t:'The Hebrew manuscripts', w:'At the entrance to the Treasures Gallery' } },
-  { id:'kings', kind:'stop', img:'assets/tour/st-kings.webp',
+  { id:'kings', sec:'place', kind:'stop', img:'assets/tour/st-kings.webp',
     he:{ t:'מגדל המלך', w:'במרכז הבניין, מגדל הזכוכית',
       s:'בתוך הזכוכית עומדים הספרים שאסף המלך ג\'ורג\' השלישי. כשבנו מסר אותם לאומה ב-1823, הוא התנה תנאי: האוסף יוצג שלם ונפרד משאר הספרייה. והאוסף מוצג כך עד היום, במגדל הזה.',
       f:'מי שיקרא ספר אחד ביום מהאוסף הזה יסיים בעוד 219 שנה.',
@@ -416,61 +434,112 @@ const STOPS = [
       s:'Inside the glass stand the books collected by King George III. When his son gave them to the nation in 1823, he set one condition: the collection would be shown whole, and apart from the rest of the library. And that is how it is shown to this day, in this tower.',
       f:'Read one book a day from this collection and you will finish in 219 years.',
       l:'Stand close to the glass and lift your eyes all the way to the top floor.' } },
-  { id:'magna', kind:'stop', img:'assets/tour/st-magna.webp',
-    he:{ t:'מגנה קרטה', w:'בגלריה',
+  { id:'ms', sec:'gallery', kind:'ms',
+    he:{ t:'כתבי היד העבריים', w:'בכניסה להיכל' },
+    en:{ t:'The Hebrew manuscripts', w:'At the gallery entrance' } },
+  { id:'judaism', sec:'gallery', kind:'stop', img:'assets/tour/st-judaism.webp', pos:'center 30%',
+    he:{ t:'יהדות', w:'תנ"ך, סידור, הגדה וכתובה', pic:'בתמונה: מחזור לחגים מדרום גרמניה, בערך 1322. משה מקבל את הלוחות בסיני',
+      s:'בוויטרינה הזאת רואים איך הטקסטים של היהדות עברו מדור לדור. התנ"ך הועתק במגילות ובהמשך גם בספרים, ובעלי המסורה הוסיפו לו ניקוד, טעמים והערות בשוליים, כדי שהנוסח והקריאה יישמרו מדויקים.',
+      f:'הכתובה מלווה חתונות יהודיות כבר יותר מאלפיים שנה. האוצרת של האוסף העברי בספרייה כותבת שהיא מהמסמכים הקדומים שהעניקו לנשים זכויות משפטיות וכלכליות.',
+      l:'קראו את השלט JUDAISM ובדקו אילו מהפריטים שהוא מזכיר מוצגים בוויטרינה.' },
+    en:{ t:'Judaism', w:'Bible, prayer book, Haggadah and ketubah', pic:'Pictured: a festival prayer book from southern Germany, about 1322. Moses receives the Tablets at Sinai',
+      s:'This case shows how the texts of Judaism passed from generation to generation. The Bible was copied onto scrolls and later into books too, and the Masoretes added vowels, cantillation marks and marginal notes so that the text and its reading would be kept exact.',
+      f:'The ketubah has been part of Jewish weddings for more than two thousand years. The curator of the library\'s Hebrew collection writes that it is one of the earliest documents to give women legal and financial rights.',
+      l:'Read the JUDAISM panel and check which of the items it mentions are on show in the case.' } },
+  { id:'magna', sec:'gallery', kind:'stop', img:'assets/tour/st-magna.webp',
+    he:{ t:'מגנה קרטה', w:'אנגליה, 1215',
       s:'ב-1215 אישר המלך ג\'ון בחותמו מסמך שהגביל את כוחו. מאותה שנה שרדו ארבעה עותקים, ושניים מהם שמורים בספרייה הזאת.',
       f:'אחד משני העותקים ניזוק בשריפה ב-1731, והכתב בו כמעט נמחק. הספרייה שומרת גם עליו, ובצילום באור אולטרה סגול הצליחה לקרוא בו שוב.',
       l:'הפריטים בגלריה מתחלפים מדי פעם לשימור. אם מגנה קרטה מוצגת היום, מצאו אותה ושימו לב כמה צפוף הכתב.' },
-    en:{ t:'Magna Carta', w:'In the gallery',
+    en:{ t:'Magna Carta', w:'England, 1215',
       s:'In 1215 King John sealed a document that limited his power. Four copies survive from that year, and two of them are kept in this library.',
       f:'One of the two was damaged in a fire in 1731 and its text is almost gone. The library looks after it too, and with ultraviolet imaging it has managed to read it again.',
       l:'Items in the gallery are rotated from time to time to protect them. If Magna Carta is on show today, find it and notice how dense the writing is.' } },
-  { id:'folio', kind:'stop', img:'assets/tour/st-folio.webp', pos:'center 30%',
-    he:{ t:'הפוליו הראשון של שייקספיר', w:'בגלריה', pic:'בתמונה: עמוד השער של העותק שבספרייה הבריטית',
-      s:'שבע שנים אחרי ששייקספיר מת, חברים מלהקת התיאטרון שלו אספו 36 ממחזותיו לספר אחד. זה הפוליו הראשון, מ-1623.',
-      f:'שמונה-עשר מהם לא הודפסו לפני כן, ביניהם מקבת, הסערה והלילה השנים-עשר.',
-      l:'בדקו באיזה עמוד הספר פתוח היום. אם זה עמוד השער, תראו בו את הדיוקן של שייקספיר.' },
-    en:{ t:"Shakespeare's First Folio", w:'In the gallery', pic:"Pictured: the title page of the British Library's copy",
-      s:'Seven years after Shakespeare died, friends from his theatre company gathered 36 of his plays into one book. This is the First Folio, from 1623.',
-      f:'Eighteen of them had never been printed before, among them Macbeth, The Tempest and Twelfth Night.',
-      l:'Check which page the book is open at today. If it is the title page, you will see Shakespeare\'s portrait.' } },
-  { id:'beatles', kind:'stop', img:'assets/tour/st-beatles.webp', pos:'center 35%',
-    he:{ t:'הביטלס בכתב יד', w:'בגלריה', pic:'בתמונה: הביטלס בנמל התעופה בניו יורק, 1964',
-      s:'ב-2013 תרם הנטר דייוויס, הביוגרף של הביטלס, לספרייה דפים בכתב ידו של ג\'ון לנון, ובהם המילים לשירים \u2068Strawberry Fields Forever\u2069 ו-\u2068In My Life\u2069. דייוויס אמר שהוא שמח לראות אותם בגלריה, ליד מגנה קרטה וליד שייקספיר.',
-      f:'את חלק מהדפים הציגה הספרייה בגלריה עוד לפני התרומה, כשדייוויס השאיל אותם לה.',
-      l:'מצאו בגלריה את הדפים של לנון, וחפשו בהם מילה שהוא מחק ותיקן.' },
-    en:{ t:'The Beatles, by hand', w:'In the gallery', pic:'Pictured: the Beatles at the airport in New York, 1964',
-      s:'In 2013 Hunter Davies, the Beatles\' biographer, gave the library pages in John Lennon\'s handwriting, among them the lyrics of Strawberry Fields Forever and In My Life. Davies said he was glad to see them in the gallery, next to Magna Carta and Shakespeare.',
-      f:'The library showed some of the pages in the gallery even before the gift, when Davies lent them.',
-      l:'Find Lennon\'s pages in the gallery and look for a word he crossed out and corrected.' } },
-  { id:'leo', kind:'stop', img:'assets/tour/st-leonardo.webp',
-    he:{ t:'המחברת של דה וינצ\'י', w:'בגלריה', pic:'בתמונה: שני דפים מהמחברת',
+  { id:'leo', sec:'gallery', kind:'stop', img:'assets/tour/st-leonardo.webp',
+    he:{ t:'המחברת של דה וינצ\'י', w:'הרנסנס האיטלקי', pic:'בתמונה: שני דפים מהמחברת',
       s:'אחרי מותו של לאונרדו דה וינצ\'י אספו את הדפים המפוזרים שלו, עם ההערות והרישומים, לכרך אחד. הספרייה סרקה 570 דפים, ואפשר לצפות בהם ברשת.',
       f:'דה וינצ\'י כתב בכתב ראי, מימין לשמאל. לא ברור אם רצה להסתיר את מה שכתב או פשוט לא למרוח את הדיו, כי היה שמאלי.',
       l:'הסתכלו על הכתב בוויטרינה. אנחנו כותבים מימין לשמאל כל יום, ודה וינצ\'י עשה את זה באיטלקית.' },
-    en:{ t:"Da Vinci's notebook", w:'In the gallery', pic:'Pictured: two pages from the notebook',
+    en:{ t:"Da Vinci's notebook", w:'The Italian Renaissance', pic:'Pictured: two pages from the notebook',
       s:'After Leonardo da Vinci died, his loose pages of notes and drawings were gathered into one volume. The library has scanned 570 pages, and they can be viewed online.',
       f:'Da Vinci wrote in mirror script, from right to left. It is not clear whether he wanted to hide what he wrote or simply not smudge the ink, since he was left-handed.',
       l:'Look at the writing in the case. In Hebrew we write right to left every day; da Vinci did it in Italian.' } },
-  { id:'austen', kind:'stop', img:'assets/tour/st-austen.webp', pos:'center 25%',
-    he:{ t:'ג\'יין אוסטן', w:'בגלריה, אם מוצג היום', pic:'בתמונה: ג\'יין אוסטן, רישום של אחותה קסנדרה',
-      s:'את שולחן הכתיבה הנייד קיבלה ג\'יין אוסטן מאביה בדצמבר 1794, והוא נשאר אצלה עד מותה ב-1817. ב-1999 העבירה אותו ג\'ואן אוסטן-לי, מצאצאי המשפחה, לספרייה.',
-      f:'במגירה של השולחן נשמרו במשך דורות שלושה זוגות משקפיים. בבדיקה ב-2017 התברר שבכולם עדשות פלוס, כלומר אוסטן התקשתה לראות מקרוב.',
-      l:'אם השולחן מוצג היום, שימו לב כמה הוא קטן. אפשר היה לקחת אותו לכל מקום.' },
-    en:{ t:'Jane Austen', w:'In the gallery, if on show today', pic:'Pictured: Jane Austen, a sketch by her sister Cassandra',
-      s:'Jane Austen received the portable writing desk from her father in December 1794, and kept it until her death in 1817. In 1999 Joan Austen-Leigh, a descendant of the family, placed it in the library\'s care.',
-      f:'Three pairs of spectacles were kept for generations in the desk\'s drawer. Tests in 2017 showed that all of them have plus lenses, meaning Austen struggled to see close up.',
-      l:'If the desk is on show today, notice how small it is. It could go anywhere with her.' } },
-  { id:'usa', kind:'stop', img:'assets/tour/st-declaration.webp', pos:'center 15%',
-    he:{ t:'250 שנה להכרזת העצמאות', w:'בגלריה, תצוגה זמנית', pic:'בתמונה: הדפסה מ-1776 של הכרזת העצמאות, מהארכיון הלאומי של ארצות הברית',
+  { id:'folio', sec:'gallery', kind:'stop', img:'assets/tour/st-folio.webp', pos:'center 30%',
+    he:{ t:'הפוליו הראשון של שייקספיר', w:'1623', pic:'בתמונה: עמוד השער של העותק שבספרייה הבריטית',
+      s:'שבע שנים אחרי ששייקספיר מת, חברים מלהקת התיאטרון שלו אספו 36 ממחזותיו לספר אחד. זה הפוליו הראשון, מ-1623.',
+      f:'שמונה-עשר מהם לא הודפסו לפני כן, ביניהם מקבת, הסערה והלילה השנים-עשר.',
+      l:'בדקו באיזה עמוד הספר פתוח היום. אם זה עמוד השער, תראו בו את הדיוקן של שייקספיר.' },
+    en:{ t:"Shakespeare's First Folio", w:'1623', pic:"Pictured: the title page of the British Library's copy",
+      s:'Seven years after Shakespeare died, friends from his theatre company gathered 36 of his plays into one book. This is the First Folio, from 1623.',
+      f:'Eighteen of them had never been printed before, among them Macbeth, The Tempest and Twelfth Night.',
+      l:'Check which page the book is open at today. If it is the title page, you will see Shakespeare\'s portrait.' } },
+  { id:'handel', sec:'gallery', kind:'stop', img:'assets/tour/st-handel.webp',
+    he:{ t:'הנדל', w:'לונדון, 1741', pic:'בתמונה: מקהלת ההללויה מתוך "משיח", בכתב ידו של הנדל',
+      s:'בספרייה שמורים עשרות כתבי יד של גאורג פרידריך הנדל, ובהם התווים המקוריים של "משיח". הוא כתב את האורטוריה בלונדון בתוך כ-24 יום, בין 22 באוגוסט ל-14 בספטמבר 1741, ובסוף חתם SDG, ראשי התיבות של "לאל לבדו התהילה" בלטינית.',
+      f:'בבכורה בדבלין, באפריל 1742, ביקשו מהגברים לבוא בלי חרבות ומהנשים בלי חישוקים בשמלות, כדי שייכנס כמה שיותר קהל. מההכנסות שוחררו 142 אסירים שישבו בכלא בגלל חובות.',
+      l:'מצאו את התווים של הנדל ובדקו מאיזו יצירה הם. גם בלי לקרוא תווים, אפשר לחפש בהם מחיקות ותיקונים.' },
+    en:{ t:'Handel', w:'London, 1741', pic:'Pictured: the Hallelujah chorus from Messiah, in Handel\'s hand',
+      s:'The library holds dozens of George Frideric Handel\'s manuscripts, among them his original score of Messiah. He wrote the oratorio in London in about 24 days, between 22 August and 14 September 1741, and at the end he signed it SDG, the initials of "to God alone the glory" in Latin.',
+      f:'At the premiere in Dublin, in April 1742, men were asked to come without swords and women without hoops in their dresses, to fit in as many people as possible. The proceeds freed 142 people jailed for debt.',
+      l:'Find Handel\'s score and check which work it is from. Even if you don\'t read music, you can look for crossings-out and corrections.' } },
+  { id:'usa', sec:'gallery', kind:'stop', img:'assets/tour/st-declaration.webp', pos:'center 15%',
+    he:{ t:'250 שנה להכרזת העצמאות', w:'תצוגה זמנית, עד ינואר 2027', pic:'בתמונה: הדפסה מ-1776 של הכרזת העצמאות, מהארכיון הלאומי של ארצות הברית',
       s:'לרגל 250 שנה להכרזת העצמאות האמריקאית, הספרייה מציגה מכתבים, מפות ומסמכים מתקופת המהפכה מתוך האוסף שלה. התצוגה פתוחה עד ינואר 2027.',
       f:'התצוגה מראה גם איך התווכחו במשך 250 שנה על המשפט "כל בני האדם נבראו שווים", ואיך נשענו עליו מנהיגים כמו פרדריק דאגלס ומרטין לותר קינג במאבק לשוויון.',
       l:'מצאו את ארבע הוויטרינות של התצוגה, בחרו מסמך אחד ובדקו מאיזו שנה הוא.' },
-    en:{ t:'250 years since the Declaration of Independence', w:'In the gallery, temporary display', pic:'Pictured: a 1776 printing of the Declaration of Independence, from the US National Archives',
+    en:{ t:'250 years since the Declaration of Independence', w:'Temporary display, until January 2027', pic:'Pictured: a 1776 printing of the Declaration of Independence, from the US National Archives',
       s:'To mark 250 years since the Declaration of Independence, the library is showing letters, maps and documents from the Revolution, drawn from its collections. The display is open until January 2027.',
       f:'The display also shows how "all men are created equal" has been argued over for 250 years, and how leaders such as Frederick Douglass and Martin Luther King Jr. drew on it in the struggle for equality.',
       l:'Find the four cases of the display, pick one document and check what year it is from.' } },
-  { id:'tablet', kind:'stop', img:'assets/tour/st-tablet.webp',
+  { id:'austen', sec:'gallery', kind:'stop', img:'assets/tour/st-austen.webp', pos:'center 25%',
+    he:{ t:'ג\'יין אוסטן', w:'שולחן הכתיבה שלה, 1794', pic:'בתמונה: ג\'יין אוסטן, רישום של אחותה קסנדרה',
+      s:'את שולחן הכתיבה הנייד קיבלה ג\'יין אוסטן מאביה בדצמבר 1794, והוא נשאר אצלה עד מותה ב-1817. ב-1999 העבירה אותו ג\'ואן אוסטן-לי, מצאצאי המשפחה, לספרייה.',
+      f:'במגירה של השולחן נשמרו במשך דורות שלושה זוגות משקפיים. בבדיקה ב-2017 התברר שבכולם עדשות פלוס, כלומר אוסטן התקשתה לראות מקרוב.',
+      l:'שימו לב כמה השולחן קטן. אפשר היה לקחת אותו לכל מקום.' },
+    en:{ t:'Jane Austen', w:'Her writing desk, 1794', pic:'Pictured: Jane Austen, a sketch by her sister Cassandra',
+      s:'Jane Austen received the portable writing desk from her father in December 1794, and kept it until her death in 1817. In 1999 Joan Austen-Leigh, a descendant of the family, placed it in the library\'s care.',
+      f:'Three pairs of spectacles were kept for generations in the desk\'s drawer. Tests in 2017 showed that all of them have plus lenses, meaning Austen struggled to see close up.',
+      l:'Notice how small the desk is. It could go anywhere with her.' } },
+  { id:'woolf', sec:'gallery', kind:'stop', img:'assets/tour/st-woolf.webp', pos:'center 22%',
+    he:{ t:'וירג\'יניה וולף', w:'לונדון, 1923 עד 1925', pic:'בתמונה: וולף בגיל 20, צילום של ג\'ורג\' צ\'רלס ברספורד, 1902',
+      s:'בספרייה שמורות שלוש מחברות שבהן כתבה וולף את הטיוטה של "גברת דאלוויי". בהתחלה קראה לרומן "השעות", ובמחברות רואים את השם משתנה: קודם "השעות?" עם סימן שאלה, אחר כך "השעות, או גברת דאלוויי", ובסוף "גברת דאלוויי, או השעות".',
+      f:'חלק גדול מהטיוטה כתוב בדיו סגולה. היא נפתחת בצלצול הפעמונים של וסטמינסטר, והרומן שיצא לאור מתחיל כשקלריסה דאלוויי יוצאת לקנות פרחים.',
+      l:'מצאו את כתב היד של וולף, ושימו לב לצבע הדיו ולמחיקות.' },
+    en:{ t:'Virginia Woolf', w:'London, 1923 to 1925', pic:'Pictured: Woolf at 20, photographed by George Charles Beresford, 1902',
+      s:'The library holds three notebooks in which Woolf wrote the draft of Mrs Dalloway. At first she called the novel The Hours, and in the notebooks you can see the title change: first "The Hours?" with a question mark, then "The Hours, or Mrs Dalloway", and finally "Mrs Dalloway, or The Hours".',
+      f:'Much of the draft is in purple ink. The draft opens with the bells of Westminster; the published novel opens with Clarissa Dalloway going out to buy flowers.',
+      l:'Find Woolf\'s manuscript and notice the colour of the ink and the crossings-out.' } },
+  { id:'pooh', sec:'gallery', kind:'stop', img:'assets/tour/st-pooh.webp', pos:'center 30%',
+    he:{ t:'פו הדב בן 100', w:'לונדון, 1926', pic:'בתמונה: הדובה ויני עם סגן הארי קולבורן, במחנה צבאי בקנדה, 1914',
+      s:'ב-14 באוקטובר 1926 יצא לאור "פו הדב" של א"א מילן. הדוב בסיפורים נוצר בהשראת הדובי של כריסטופר רובין, בנו של מילן, ואת השם ויני קיבל הצעצוע מדובה אמיתית בגן החיות של לונדון.',
+      f:'הדובה, ויני, הגיעה מקנדה. וטרינר בצבא הקנדי קנה אותה ב-1914 בעשרים דולר וקרא לה על שם העיר שלו, ויניפג. לפני שיצא לחזית בצרפת השאיר אותה בגן החיות של לונדון.',
+      l:'בוויטרינה יש מהדורה ראשונה מ-1926 ומכתב של כריסטופר רובין. מצאו את הציורים הקטנים בשולי המכתב.' },
+    en:{ t:'Winnie-the-Pooh at 100', w:'London, 1926', pic:'Pictured: Winnie the bear with Lt Harry Colebourn, at an army camp in Canada, 1914',
+      s:'On 14 October 1926 A. A. Milne\'s Winnie-the-Pooh was published. The bear in the stories was inspired by the toy bear of Christopher Robin, Milne\'s son, and the toy took the name Winnie from a real bear at London Zoo.',
+      f:'The bear, Winnie, came from Canada. A Canadian army vet bought her in 1914 for twenty dollars and named her after his home city, Winnipeg. Before leaving for the front in France, he left her at London Zoo.',
+      l:'The case holds a 1926 first edition and a letter from Christopher Robin. Find the little drawings in the margins of the letter.' } },
+  { id:'beatles', sec:'gallery', kind:'stop', img:'assets/tour/st-beatles.webp', pos:'center 35%',
+    he:{ t:'הביטלס בכתב יד', w:'שנות ה-60', pic:'בתמונה: הביטלס בנמל התעופה בניו יורק, 1964',
+      s:'ב-2013 תרם הנטר דייוויס, הביוגרף של הביטלס, לספרייה דפים בכתב ידו של ג\'ון לנון, ובהם המילים לשירים \u2068Strawberry Fields Forever\u2069 ו-\u2068In My Life\u2069. דייוויס אמר שהוא שמח לראות אותם בגלריה, ליד מגנה קרטה וליד שייקספיר.',
+      f:'את חלק מהדפים הציגה הספרייה בגלריה עוד לפני התרומה, כשדייוויס השאיל אותם לה.',
+      l:'מצאו את הדפים של לנון וחפשו בהם מילה שהוא מחק ותיקן. בקרבת מקום מוצג גם פנקס של דייוויס, ובו פול מקרטני צייר את ג\'ורג\' ואת ג\'ון.' },
+    en:{ t:'The Beatles, by hand', w:'The 1960s', pic:'Pictured: the Beatles at the airport in New York, 1964',
+      s:'In 2013 Hunter Davies, the Beatles\' biographer, gave the library pages in John Lennon\'s handwriting, among them the lyrics of Strawberry Fields Forever and In My Life. Davies said he was glad to see them in the gallery, next to Magna Carta and Shakespeare.',
+      f:'The library showed some of the pages in the gallery even before the gift, when Davies lent them.',
+      l:'Find Lennon\'s pages and look for a word he crossed out and corrected. Nearby is a notebook of Davies\'s in which Paul McCartney sketched George and John.' } },
+  { id:'python', sec:'gallery', kind:'stop', img:'assets/tour/st-python.webp', pos:'center 55%',
+    he:{ t:'מונטי פייתון', w:'סדרת טלוויזיה, 1969 עד 1974', pic:'בתמונה: כף הרגל של קופידון מציור של ברונזינו. טרי גיליאם בחר בה לפתיחה של הסדרה',
+      s:'ב-2017 תרם מייקל פיילין, אחד מחברי מונטי פייתון, את הארכיון שלו לספרייה. יש בו יותר מחמישים מחברות של פייתון, חלקן בכתב ידו של שותפו לכתיבה טרי ג\'ונס, ובהן טיוטות של מערכונים מהסדרה "הקרקס המעופף של מונטי פייתון".',
+      f:'בארכיון שמור גם מכתב ההצעה הראשון של ה-BBC, ובו פער בשכר: לקליז, לג\'ונס ולפיילין הוצעו 12 גינאות, לאיידל 11 ולצ\'פמן 10.',
+      l:'מצאו את הטיוטות של פייתון בוויטרינה, וחפשו בהן מערכון שאתם מכירים.' },
+    en:{ t:'Monty Python', w:'TV series, 1969 to 1974', pic:'Pictured: Cupid\'s foot from a painting by Bronzino. Terry Gilliam chose it for the show\'s opening titles',
+      s:'In 2017 Michael Palin, one of Monty Python, gave his archive to the library. It holds more than fifty Python notebooks, some in the hand of his writing partner Terry Jones, with drafts of sketches from Monty Python\'s Flying Circus.',
+      f:'The archive also keeps the BBC\'s first offer letter, which shows a pay gap: Cleese, Jones and Palin were offered 12 guineas, Idle 11 and Chapman 10.',
+      l:'Find the Python drafts in the case and look for a sketch you know.' } }
+];
+
+const AIDS = [
+  { id:'tablet', sec:'aids', kind:'stop', img:'assets/tour/st-tablet.webp',
     he:{ t:'שיעורי בית מלפני 1,800 שנה', w:'מהאוסף, בתמונה בלבד', pic:'בתמונה: הלוח עם השורות של המורה והתלמיד', lt:'נסו בעצמכם',
       s:'אלה שני לוחות עץ מכוסים שעווה, שנכתבו במצרים במאה השנייה לספירה. על הראשון המורה כתב למעלה שתי שורות ביוונית, ומתחת התלמיד העתיק אותן פעמיים. על השני כתוב לוח כפל.',
       f:'התלמיד טעה, והטעות נשארה שם 1,800 שנה: בשתי ההעתקות הוא השמיט את האות הראשונה של המשפט.',
@@ -478,10 +547,19 @@ const STOPS = [
     en:{ t:'Homework from 1,800 years ago', w:'From the collection, in the picture only', pic:'Pictured: the tablet with the teacher\'s and the pupil\'s lines', lt:'Try it yourself',
       s:'These are two wooden tablets coated in wax, written in Egypt in the second century CE. On the first, the teacher wrote two lines in Greek at the top, and below them the pupil copied them twice. The second carries a multiplication table.',
       f:'The pupil made a mistake, and it has stayed there for 1,800 years: in both copies he left out the first letter of the sentence.',
-      l:'Zoom in and compare the teacher\'s lines with the pupil\'s. As far as we know, the tablets are not on show in the gallery right now, so this picture is the place to see them.' } }
+      l:'Zoom in and compare the teacher\'s lines with the pupil\'s. As far as we know, the tablets are not on show in the gallery right now, so this picture is the place to see them.' } },
+  { id:'newton', sec:'aids', kind:'stop', img:'assets/tour/aid-newton.webp',
+    he:{ t:'"ניוטון" של בלייק', w:'התמונה שמאחורי הפסל בחצר', pic:'בתמונה: ויליאם בלייק, "ניוטון", 1795 עד 1805 בערך. גלריית טייט, לונדון', lt:'לשיחה',
+      s:'ויליאם בלייק צייר את אייזק ניוטון יושב עירום על סלע מכוסה אצות, כנראה בקרקעית הים, שקוע כולו במחוגה ובשרטוט. בלייק חשש מ"ראייה יחידה": מבט שרואה רק את מה שאפשר למדוד ולחשב.',
+      f:'"ישמור אותנו האל מראייה יחידה ומתרדמת ניוטון", כתב בלייק במכתב מ-1802.',
+      l:'הפסל הגדול בחצר, של אדוארדו פאולוצי, מבוסס על התמונה הזאת. השוו ביניהם: מה פאולוצי לקח מבלייק, ומה הוסיף משלו?' },
+    en:{ t:'Blake\'s Newton', w:'The picture behind the statue in the courtyard', pic:'Pictured: William Blake, Newton, 1795 to about 1805. Tate, London', lt:'For discussion',
+      s:'William Blake showed Isaac Newton sitting naked on an algae-covered rock, probably at the bottom of the sea, wholly absorbed in his compasses and his diagram. Blake feared "single vision": a gaze that sees only what can be measured and calculated.',
+      f:'"May God us keep / From Single vision & Newtons sleep", Blake wrote in a letter of 1802.',
+      l:'The large statue in the courtyard, by Eduardo Paolozzi, is based on this picture. Compare them: what did Paolozzi take from Blake, and what did he add of his own?' } }
 ];
 
-const EXTRA = {"kings": {"he": {"h": ["מי", "האוסף", "למה זה חשוב"], "p": ["ג'ורג' השלישי מלך על בריטניה שישים שנה, מ-1760 עד 1820, ולאורך השנים אסף ספרייה פרטית ענקית.", "יש בו יותר מ-65 אלף כרכים, 17,500 חוברות ו-446 כתבי יד. בינואר 1823 הציע בנו, ג'ורג' הרביעי, לתת אותו לאומה, והפרלמנט החליט לשכן אותו במוזיאון הבריטי.", "כך הפך אוסף פרטי של מלך לרכוש של הציבור. היום הוא עומד במגדל זכוכית וברונזה בן שש קומות, בלב הבניין של הספרייה."]}, "en": {"h": ["Who", "The collection", "Why it matters"], "p": ["George III reigned over Britain for sixty years, from 1760 to 1820, and over those years built a vast private library.", "It holds more than 65,000 volumes, 17,500 pamphlets and 446 manuscripts. In January 1823 his son, George IV, offered it to the nation, and Parliament decided to house it at the British Museum.", "That is how a king's private collection became public property. Today it stands in a six-storey tower of glass and bronze at the heart of the library building."]}}, "magna": {"he": {"h": ["מי", "המסמך", "למה זה חשוב"], "p": ["המלך ג'ון שלט באנגליה מ-1199 עד 1216. מלחמה כושלת בצרפת ומסים כבדים הרחיקו ממנו את הברונים, והם מרדו בו.", "ב-15 ביוני 1215, בראנימיד שליד וינדזור, אישר ג'ון בחותמו את המסמך כדי לעשות שלום עם המורדים. באוגוסט אותה שנה ביטל אותו האפיפיור, אבל הוא הוצא מחדש ב-1216, ב-1217 וב-1225.", "מגנה קרטה הפכה לסמל לרעיון שגם השליט כפוף לחוק. ממנה צמח המושג \"הליך משפטי נאות\", שנכנס לחוקה האמריקאית, ושלושה מהסעיפים שלה עדיין בתוקף באנגליה ובוויילס."]}, "en": {"h": ["Who", "The document", "Why it matters"], "p": ["King John ruled England from 1199 to 1216. A failed war in France and heavy taxes turned the barons against him, and they rebelled.", "On 15 June 1215, at Runnymede near Windsor, John sealed the document to make peace with the rebels. The Pope annulled it in August that year, but it was reissued in 1216, 1217 and 1225.", "Magna Carta became a symbol of the idea that even the ruler is bound by the law. The notion of \"due process of law\" grew from it and entered the American Constitution, and three of its clauses are still in force in England and Wales."]}}, "folio": {"he": {"h": ["מי", "היצירה", "למה זה חשוב"], "p": ["ויליאם שייקספיר נולד ב-1564 בסטרטפורד-על-אייבון ומת שם ב-1616. בלונדון היה שחקן ומחזאי, ושותף בלהקה שבנתה את תיאטרון הגלוב.", "הוא כתב כ-39 מחזות, 154 סונטות ושלוש פואמות. את הפוליו ערכו שניים מחבריו ללהקה, ג'ון המינג'ס והנרי קונדל. הוא נדפס בכ-750 עותקים, וידוע על 235 שנשתמרו.", "המחזות של שייקספיר תורגמו לכל שפה חיה גדולה, ומועלים יותר ממחזות של כל מחזאי אחר. לגבי כעשרים מהם, הפוליו הוא כנראה הנוסח האמין היחיד שיש לנו."]}, "en": {"h": ["Who", "The work", "Why it matters"], "p": ["William Shakespeare was born in 1564 in Stratford-upon-Avon and died there in 1616. In London he was an actor and playwright, and a partner in the company that built the Globe Theatre.", "He wrote about 39 plays, 154 sonnets and three long poems. The Folio was edited by two of his fellow actors, John Heminges and Henry Condell. About 750 copies were printed, and 235 are known to survive.", "Shakespeare's plays have been translated into every major living language and are performed more than those of any other playwright. For about twenty of them, the Folio is arguably the only reliable text we have."]}}, "beatles": {"he": {"h": ["מי", "השיר", "למה זה חשוב"], "p": ["הביטלס הוקמו בליברפול ב-1960: ג'ון לנון, פול מקרטני, ג'ורג' הריסון ורינגו סטאר. לנון ומקרטני כתבו את רוב השירים. הלהקה התפרקה ב-1970, ולנון נרצח בניו יורק ב-1980.", "את Strawberry Fields Forever כתב לנון על בית ילדים של צבא הישע בליברפול, ליד בית ילדותו. כילד הוא שיחק בגן של המקום. השיר יצא ב-1967, והסרט שצולם לו נחשב לחלוץ בעולם הקליפים.", "הביטלס מכרו יותר מ-600 מיליון עותקים, יותר מכל אמן אחר, ונחשבים ללהקה המשפיעה ביותר במוזיקה הפופולרית."]}, "en": {"h": ["Who", "The song", "Why it matters"], "p": ["The Beatles formed in Liverpool in 1960: John Lennon, Paul McCartney, George Harrison and Ringo Starr. Lennon and McCartney wrote most of the songs. The band broke up in 1970, and Lennon was murdered in New York in 1980.", "Lennon wrote Strawberry Fields Forever about a Salvation Army children's home in Liverpool, near his childhood home. As a boy he played in its garden. The song came out in 1967, and the film made for it is seen as a pioneer of the music video.", "The Beatles have sold more than 600 million units, more than any other act, and are regarded as the most influential band in popular music."]}}, "leo": {"he": {"h": ["מי", "המחברות", "למה זה חשוב"], "p": ["לאונרדו דה וינצ'י נולד ב-1452 בווינצ'י שבטוסקנה ומת ב-1519 באמבואז שבצרפת. הוא צייר את המונה ליזה ואת הסעודה האחרונה, ועסק גם בהנדסה, באנטומיה, באופטיקה ובזרימת מים.", "במחברות שלו הגה מכונות מעופפות, שרטט את גוף האדם ורשם תצפיות על מים ועל אור. המחברת שבספרייה, קודקס ארונדל, קרויה על שם האספן תומס הווארד, הרוזן מארונדל.", "דה וינצ'י נחשב לדמות שמגלמת את האידיאל של הרנסנס: אדם שמחבר בין אמנות למדע. במחברות רואים מקרוב איך הוא חשב."]}, "en": {"h": ["Who", "The notebooks", "Why it matters"], "p": ["Leonardo da Vinci was born in 1452 in Vinci, Tuscany, and died in 1519 in Amboise, France. He painted the Mona Lisa and The Last Supper, and also worked in engineering, anatomy, optics and the study of flowing water.", "In his notebooks he conceived flying machines, drew the human body and recorded what he saw of water and light. The notebook at the library, the Codex Arundel, is named after the collector Thomas Howard, Earl of Arundel.", "Da Vinci is seen as the embodiment of the Renaissance ideal: a person who joins art and science. The notebooks let you see up close how he thought."]}}, "austen": {"he": {"h": ["מי", "היצירה", "למה זה חשוב"], "p": ["ג'יין אוסטן נולדה ב-1775 בסטיוונטון שבהמפשייר ומתה ב-1817 בווינצ'סטר, בגיל 41. את ספריה פרסמה בלי שמה: על הראשון נכתב רק \"מאת גברת\", ועל הבאים \"מאת מחברת 'תבונה ורגישות'\".", "היא כתבה שישה רומנים, ביניהם \"תבונה ורגישות\", \"גאווה ודעה קדומה\" ו\"אמה\". בעלילות שלה נשים תלויות בנישואים כדי להבטיח את מעמדן ואת פרנסתן.", "אוסטן הייתה הסופרת האנגלית הראשונה שהרבתה להשתמש במבע משולב, שבו המספר מדבר מתוך התודעה של הדמות. ספריה כמעט לא ירדו מהדפוס מאז מותה, ומ-2017 הדיוקן שלה מופיע על שטר של עשרה פאונד."]}, "en": {"h": ["Who", "The work", "Why it matters"], "p": ["Jane Austen was born in 1775 in Steventon, Hampshire, and died in 1817 in Winchester, aged 41. She published her books without her name: the first said only \"By a Lady\", and the later ones \"by the author of Sense and Sensibility\".", "She wrote six novels, among them Sense and Sensibility, Pride and Prejudice and Emma. In her plots, women depend on marriage to secure their standing and their livelihood.", "Austen was the first English novelist to make extensive use of free indirect speech, where the narrator speaks from within a character's consciousness. Her books have hardly been out of print since her death, and since 2017 her portrait has been on the ten-pound note."]}}, "usa": {"he": {"h": ["מי", "המסמך", "למה זה חשוב"], "p": ["את רוב הטיוטה כתב תומס ג'פרסון בין 11 ל-28 ביוני 1776, לבקשת ועדה של חמישה צירים. הקונגרס ערך את הנוסח וקיצר אותו בכרבע.", "הקונגרס הקונטיננטלי השני אישר את ההכרזה ב-4 ביולי 1776 בפילדלפיה, ו-56 צירים חתמו עליה. היא מסבירה למה שלוש-עשרה המושבות רואות את עצמן עצמאיות מבריטניה.", "המשפט על הזכות ל\"חיים, חירות והשאיפה לאושר\" הפך לאחת ההצהרות המשפיעות בעולם על זכויות האדם. אברהם לינקולן ראה בהכרזה אמת מידה מוסרית שארצות הברית צריכה לשאוף אליה, והעמיד אותה במרכז נאום גטיסברג ב-1863."]}, "en": {"h": ["Who", "The document", "Why it matters"], "p": ["Thomas Jefferson wrote most of the draft between 11 and 28 June 1776, at the request of a committee of five delegates. Congress edited the text and cut it by about a quarter.", "The Second Continental Congress adopted the Declaration on 4 July 1776 in Philadelphia, and 56 delegates signed it. It explains why the thirteen colonies consider themselves independent of Britain.", "The sentence on the right to \"Life, Liberty and the pursuit of Happiness\" became one of the world's most influential statements on human rights. Abraham Lincoln saw the Declaration as the moral standard America should strive towards and placed it at the centre of the Gettysburg Address in 1863."]}}, "tablet": {"he": {"h": ["מי", "המשפטים", "למה זה חשוב"], "p": ["את השורות לקח המורה מהפתגמים של מנאנדרוס, מחזאי קומי מאתונה שחי בסוף המאה הרביעית לפני הספירה וכתב 108 קומדיות.", "הפתגמים שלו היו כל כך שגורים, שהשליח פאולוס מצטט אחד מהם בברית החדשה, על חברה רעה שמשחיתה מידות טובות. רוב המחזות שלו אבדו, וקטעים מהם נמצאו על פפירוסים במצרים.", "לוח כזה מראה איך ילדים למדו לכתוב לפני 1,800 שנה: מעתיקים את השורה של המורה שוב ושוב. בקצה השני של החרט היה מגרד שטוח, ובו החליקו את השעווה ותיקנו טעויות."]}, "en": {"h": ["Who", "The lines", "Why it matters"], "p": ["The teacher took the lines from the maxims of Menander, a comic playwright from Athens who lived in the late fourth century BCE and wrote 108 comedies.", "His maxims were so well known that the apostle Paul quotes one of them in the New Testament, about bad company corrupting good character. Most of his plays were lost, and fragments have been found on papyri in Egypt.", "A tablet like this shows how children learned to write 1,800 years ago: copying the teacher's line again and again. The other end of the stylus was a flat scraper, used to smooth the wax and fix mistakes."]}}};
+const EXTRA = {"kings": {"he": {"h": ["מי", "האוסף", "למה זה חשוב"], "p": ["ג'ורג' השלישי מלך על בריטניה שישים שנה, מ-1760 עד 1820, ולאורך השנים אסף ספרייה פרטית ענקית.", "יש בו יותר מ-65 אלף כרכים, 17,500 חוברות ו-446 כתבי יד. בינואר 1823 הציע בנו, ג'ורג' הרביעי, לתת אותו לאומה, והפרלמנט החליט לשכן אותו במוזיאון הבריטי.", "כך הפך אוסף פרטי של מלך לרכוש של הציבור. היום הוא עומד במגדל זכוכית וברונזה בן שש קומות, בלב הבניין של הספרייה."]}, "en": {"h": ["Who", "The collection", "Why it matters"], "p": ["George III reigned over Britain for sixty years, from 1760 to 1820, and over those years built a vast private library.", "It holds more than 65,000 volumes, 17,500 pamphlets and 446 manuscripts. In January 1823 his son, George IV, offered it to the nation, and Parliament decided to house it at the British Museum.", "That is how a king's private collection became public property. Today it stands in a six-storey tower of glass and bronze at the heart of the library building."]}}, "magna": {"he": {"h": ["מי", "המסמך", "למה זה חשוב"], "p": ["המלך ג'ון שלט באנגליה מ-1199 עד 1216. מלחמה כושלת בצרפת ומסים כבדים הרחיקו ממנו את הברונים, והם מרדו בו.", "ב-15 ביוני 1215, בראנימיד שליד וינדזור, אישר ג'ון בחותמו את המסמך כדי לעשות שלום עם המורדים. באוגוסט אותה שנה ביטל אותו האפיפיור, אבל הוא הוצא מחדש ב-1216, ב-1217 וב-1225.", "מגנה קרטה הפכה לסמל לרעיון שגם השליט כפוף לחוק. ממנה צמח המושג \"הליך משפטי נאות\", שנכנס לחוקה האמריקאית, ושלושה מהסעיפים שלה עדיין בתוקף באנגליה ובוויילס."]}, "en": {"h": ["Who", "The document", "Why it matters"], "p": ["King John ruled England from 1199 to 1216. A failed war in France and heavy taxes turned the barons against him, and they rebelled.", "On 15 June 1215, at Runnymede near Windsor, John sealed the document to make peace with the rebels. The Pope annulled it in August that year, but it was reissued in 1216, 1217 and 1225.", "Magna Carta became a symbol of the idea that even the ruler is bound by the law. The notion of \"due process of law\" grew from it and entered the American Constitution, and three of its clauses are still in force in England and Wales."]}}, "folio": {"he": {"h": ["מי", "היצירה", "למה זה חשוב"], "p": ["ויליאם שייקספיר נולד ב-1564 בסטרטפורד-על-אייבון ומת שם ב-1616. בלונדון היה שחקן ומחזאי, ושותף בלהקה שבנתה את תיאטרון הגלוב.", "הוא כתב כ-39 מחזות, 154 סונטות ושלוש פואמות. את הפוליו ערכו שניים מחבריו ללהקה, ג'ון המינג'ס והנרי קונדל. הוא נדפס בכ-750 עותקים, וידוע על 235 שנשתמרו.", "המחזות של שייקספיר תורגמו לכל שפה חיה גדולה, ומועלים יותר ממחזות של כל מחזאי אחר. לגבי כעשרים מהם, הפוליו הוא כנראה הנוסח האמין היחיד שיש לנו."]}, "en": {"h": ["Who", "The work", "Why it matters"], "p": ["William Shakespeare was born in 1564 in Stratford-upon-Avon and died there in 1616. In London he was an actor and playwright, and a partner in the company that built the Globe Theatre.", "He wrote about 39 plays, 154 sonnets and three long poems. The Folio was edited by two of his fellow actors, John Heminges and Henry Condell. About 750 copies were printed, and 235 are known to survive.", "Shakespeare's plays have been translated into every major living language and are performed more than those of any other playwright. For about twenty of them, the Folio is arguably the only reliable text we have."]}}, "beatles": {"he": {"h": ["מי", "השיר", "למה זה חשוב"], "p": ["הביטלס הוקמו בליברפול ב-1960: ג'ון לנון, פול מקרטני, ג'ורג' הריסון ורינגו סטאר. לנון ומקרטני כתבו את רוב השירים. הלהקה התפרקה ב-1970, ולנון נרצח בניו יורק ב-1980.", "את Strawberry Fields Forever כתב לנון על בית ילדים של צבא הישע בליברפול, ליד בית ילדותו. כילד הוא שיחק בגן של המקום. השיר יצא ב-1967, והסרט שצולם לו נחשב לחלוץ בעולם הקליפים.", "הביטלס מכרו יותר מ-600 מיליון עותקים, יותר מכל אמן אחר, ונחשבים ללהקה המשפיעה ביותר במוזיקה הפופולרית."]}, "en": {"h": ["Who", "The song", "Why it matters"], "p": ["The Beatles formed in Liverpool in 1960: John Lennon, Paul McCartney, George Harrison and Ringo Starr. Lennon and McCartney wrote most of the songs. The band broke up in 1970, and Lennon was murdered in New York in 1980.", "Lennon wrote Strawberry Fields Forever about a Salvation Army children's home in Liverpool, near his childhood home. As a boy he played in its garden. The song came out in 1967, and the film made for it is seen as a pioneer of the music video.", "The Beatles have sold more than 600 million units, more than any other act, and are regarded as the most influential band in popular music."]}}, "leo": {"he": {"h": ["מי", "המחברות", "למה זה חשוב"], "p": ["לאונרדו דה וינצ'י נולד ב-1452 בווינצ'י שבטוסקנה ומת ב-1519 באמבואז שבצרפת. הוא צייר את המונה ליזה ואת הסעודה האחרונה, ועסק גם בהנדסה, באנטומיה, באופטיקה ובזרימת מים.", "במחברות שלו הגה מכונות מעופפות, שרטט את גוף האדם ורשם תצפיות על מים ועל אור. המחברת שבספרייה, קודקס ארונדל, קרויה על שם האספן תומס הווארד, הרוזן מארונדל.", "דה וינצ'י נחשב לדמות שמגלמת את האידיאל של הרנסנס: אדם שמחבר בין אמנות למדע. במחברות רואים מקרוב איך הוא חשב."]}, "en": {"h": ["Who", "The notebooks", "Why it matters"], "p": ["Leonardo da Vinci was born in 1452 in Vinci, Tuscany, and died in 1519 in Amboise, France. He painted the Mona Lisa and The Last Supper, and also worked in engineering, anatomy, optics and the study of flowing water.", "In his notebooks he conceived flying machines, drew the human body and recorded what he saw of water and light. The notebook at the library, the Codex Arundel, is named after the collector Thomas Howard, Earl of Arundel.", "Da Vinci is seen as the embodiment of the Renaissance ideal: a person who joins art and science. The notebooks let you see up close how he thought."]}}, "austen": {"he": {"h": ["מי", "היצירה", "למה זה חשוב"], "p": ["ג'יין אוסטן נולדה ב-1775 בסטיוונטון שבהמפשייר ומתה ב-1817 בווינצ'סטר, בגיל 41. את ספריה פרסמה בלי שמה: על הראשון נכתב רק \"מאת גברת\", ועל הבאים \"מאת מחברת 'תבונה ורגישות'\".", "היא כתבה שישה רומנים, ביניהם \"תבונה ורגישות\", \"גאווה ודעה קדומה\" ו\"אמה\". בעלילות שלה נשים תלויות בנישואים כדי להבטיח את מעמדן ואת פרנסתן.", "אוסטן הייתה הסופרת האנגלית הראשונה שהרבתה להשתמש במבע משולב, שבו המספר מדבר מתוך התודעה של הדמות. ספריה כמעט לא ירדו מהדפוס מאז מותה, ומ-2017 הדיוקן שלה מופיע על שטר של עשרה פאונד."]}, "en": {"h": ["Who", "The work", "Why it matters"], "p": ["Jane Austen was born in 1775 in Steventon, Hampshire, and died in 1817 in Winchester, aged 41. She published her books without her name: the first said only \"By a Lady\", and the later ones \"by the author of Sense and Sensibility\".", "She wrote six novels, among them Sense and Sensibility, Pride and Prejudice and Emma. In her plots, women depend on marriage to secure their standing and their livelihood.", "Austen was the first English novelist to make extensive use of free indirect speech, where the narrator speaks from within a character's consciousness. Her books have hardly been out of print since her death, and since 2017 her portrait has been on the ten-pound note."]}}, "usa": {"he": {"h": ["מי", "המסמך", "למה זה חשוב"], "p": ["את רוב הטיוטה כתב תומס ג'פרסון בין 11 ל-28 ביוני 1776, לבקשת ועדה של חמישה צירים. הקונגרס ערך את הנוסח וקיצר אותו בכרבע.", "הקונגרס הקונטיננטלי השני אישר את ההכרזה ב-4 ביולי 1776 בפילדלפיה, ו-56 צירים חתמו עליה. היא מסבירה למה שלוש-עשרה המושבות רואות את עצמן עצמאיות מבריטניה.", "המשפט על הזכות ל\"חיים, חירות והשאיפה לאושר\" הפך לאחת ההצהרות המשפיעות בעולם על זכויות האדם. אברהם לינקולן ראה בהכרזה אמת מידה מוסרית שארצות הברית צריכה לשאוף אליה, והעמיד אותה במרכז נאום גטיסברג ב-1863."]}, "en": {"h": ["Who", "The document", "Why it matters"], "p": ["Thomas Jefferson wrote most of the draft between 11 and 28 June 1776, at the request of a committee of five delegates. Congress edited the text and cut it by about a quarter.", "The Second Continental Congress adopted the Declaration on 4 July 1776 in Philadelphia, and 56 delegates signed it. It explains why the thirteen colonies consider themselves independent of Britain.", "The sentence on the right to \"Life, Liberty and the pursuit of Happiness\" became one of the world's most influential statements on human rights. Abraham Lincoln saw the Declaration as the moral standard America should strive towards and placed it at the centre of the Gettysburg Address in 1863."]}}, "tablet": {"he": {"h": ["מי", "המשפטים", "למה זה חשוב"], "p": ["את השורות לקח המורה מהפתגמים של מנאנדרוס, מחזאי קומי מאתונה שחי בסוף המאה הרביעית לפני הספירה וכתב 108 קומדיות.", "הפתגמים שלו היו כל כך שגורים, שהשליח פאולוס מצטט אחד מהם בברית החדשה, על חברה רעה שמשחיתה מידות טובות. רוב המחזות שלו אבדו, וקטעים מהם נמצאו על פפירוסים במצרים.", "לוח כזה מראה איך ילדים למדו לכתוב לפני 1,800 שנה: מעתיקים את השורה של המורה שוב ושוב. בקצה השני של החרט היה מגרד שטוח, ובו החליקו את השעווה ותיקנו טעויות."]}, "en": {"h": ["Who", "The lines", "Why it matters"], "p": ["The teacher took the lines from the maxims of Menander, a comic playwright from Athens who lived in the late fourth century BCE and wrote 108 comedies.", "His maxims were so well known that the apostle Paul quotes one of them in the New Testament, about bad company corrupting good character. Most of his plays were lost, and fragments have been found on papyri in Egypt.", "A tablet like this shows how children learned to write 1,800 years ago: copying the teacher's line again and again. The other end of the stylus was a flat scraper, used to smooth the wax and fix mistakes."]}}, "judaism": {"he": {"h": ["הנוסח", "התפילה", "למה זה חשוב"], "p": ["ספר תורה שקוראים בו בבית הכנסת נכתב עד היום בלי ניקוד. סופר מעתיק ביד, על קלף, את כל 304,805 האותיות שבו. בעלי המסורה, שפעלו בערך מהמאה השישית עד העשירית, רשמו בשוליים אפילו כמה פעמים מופיעה כל צורה של מילה.", "הסידור הקדום ביותר שידוע לנו, סדר רב עמרם גאון, הוא מסוף המאה התשיעית. ההגדה הייתה בתחילה חלק מהסידור, ובמאה ה-13 הפכה לספר בפני עצמו. הגדת הזהב שראיתם בכניסה היא מהמאה שאחריה, בערך 1320 עד 1330.", "הכתובה מפרטת את ההתחייבויות של הבעל כלפי אשתו. בספרייה יותר מ-3,000 כתבי יד עבריים, וכ-1,300 מהם סרוקים ופתוחים לכל אחד ברשת."]}, "en": {"h": ["The text", "Prayer", "Why it matters"], "p": ["A Torah scroll read in the synagogue is written without vowels to this day. A scribe copies all 304,805 of its letters by hand, on parchment. The Masoretes, who worked from about the sixth to the tenth century, recorded in the margins even how many times each form of a word appears.", "The earliest prayer book we know of, the Seder of Rav Amram Gaon, dates from the end of the ninth century. The Haggadah began as part of the prayer book and became a book of its own in the 13th century. The Golden Haggadah you saw at the entrance comes from the following century, about 1320 to 1330.", "The ketubah sets out the husband's obligations to his wife. The library holds more than 3,000 Hebrew manuscripts, and about 1,300 of them are digitised and open to anyone online."]}}, "handel": {"he": {"h": ["מי", "היצירה", "למה זה חשוב"], "p": ["הנדל נולד ב-1685 בהאלה שבגרמניה, השתקע באנגליה ב-1712 וב-1727 קיבל אזרחות בריטית. בשנים האחרונות לחייו התעוור. הוא מת ב-1759 ונקבר במנזר וסטמינסטר, ויותר משלושת אלפים איש באו להלוויה.", "יש מסורת שלפיה המלך ג'ורג' השני קם על רגליו כשנשמעה מקהלת ההללויה, ומאז הקהל עומד. אין לכך ראיה משכנעת, ואין אפילו ודאות שהמלך היה שם. האזכור המוקדם ביותר למנהג הוא ממכתב מ-1756.", "המלכה אליזבת השנייה נתנה למוזיאון הבריטי את ספריית המוזיקה המלכותית ב-27 בנובמבר 1957, ובה 97 כתבי יד של הנדל. הנדל גר ברחוב ברוק במייפייר, ויותר ממאתיים שנה אחרי מותו גר בבית הסמוך ג'ימי הנדריקס."]}, "en": {"h": ["Who", "The work", "Why it matters"], "p": ["Handel was born in 1685 in Halle, Germany, settled in England in 1712 and became a British subject in 1727. He went blind in his last years. He died in 1759 and was buried in Westminster Abbey, and more than three thousand people came to the funeral.", "Tradition has it that King George II rose to his feet at the Hallelujah chorus, and audiences have stood ever since. There is no convincing evidence for it, nor even certainty that the king was there. The earliest mention of the custom is in a letter from 1756.", "Queen Elizabeth II gave the Royal Music Library to the British Museum on 27 November 1957, with 97 Handel manuscripts in it. Handel lived on Brook Street in Mayfair, and more than two hundred years after his death Jimi Hendrix lived in the house next door."]}}, "woolf": {"he": {"h": ["מי", "היצירה", "למה זה חשוב"], "p": ["וירג'יניה וולף נולדה בלונדון ב-1882 ומתה ב-1941. ב-1917 ייסדה עם בעלה, לאונרד, את הוצאת הוגארת'. מ-1924 עד 1939 גרו בכיכר טביסטוק שבבלומסברי, לא רחוק מכאן, וההוצאה פעלה במרתף הבית. בגן הכיכר עומד היום פסל ראש שלה.", "בהתחלה עמד במרכז הטיוטה פיטר וולש, ולא קלריסה. אחרי מותה של וולף עבר כתב היד לחברתה הקרובה ויטה סאקוויל-וסט, ומשם הגיע בסוף לספרייה.", "ב\"חדר משלך\" (1929) כתבה וולף שאישה צריכה כסף וחדר משלה אם היא רוצה לכתוב ספרות. הרומנים שלה כתובים מתוך זרם המחשבות של הדמויות, והיא נחשבת לאחת מחלוצי זרם התודעה ברומן, לצד פרוסט וג'ויס."]}, "en": {"h": ["Who", "The work", "Why it matters"], "p": ["Virginia Woolf was born in London in 1882 and died in 1941. In 1917 she and her husband, Leonard, founded the Hogarth Press. From 1924 to 1939 they lived in Tavistock Square in Bloomsbury, not far from here, and the press was run from the basement. A bust of her stands in the square's garden today.", "In the draft, the centre was at first Peter Walsh, not Clarissa. After Woolf's death the manuscript passed to her close friend Vita Sackville-West, and from there it eventually reached the library.", "In A Room of One's Own (1929) Woolf wrote that a woman must have money and a room of her own if she is to write fiction. Her novels are written from within the stream of the characters' thoughts, and she is regarded as one of the pioneers of stream of consciousness in the novel, alongside Proust and Joyce."]}}, "pooh": {"he": {"h": ["מי", "היצירה", "למה זה חשוב"], "p": ["מילן היה בתחילת שנות העשרים מחזאי וכותב במגזין הסאטירי \"פאנץ'\", וכתב גם רומן בלשי. המאייר, א\"ה שפרד, צייר את הדוב לפי הדובי של בנו שלו, גראולר.", "מילן כתב ארבעה ספרים לילדים, ושניים מהם, \"פו הדב\" ו\"הבית בקרן פו\", הם סיפורים על פו וחבריו. התרגום הראשון לעברית יצא ב-1943, ואת השירים שבו תרגם נתן אלתרמן.", "פו תורגם לעשרות שפות. התרגום ללטינית, Winnie ille Pu, היה הספר הראשון בשפה זרה שנכנס לרשימת רבי המכר של הניו יורק טיימס, והיחיד בלטינית עד היום. ויני, הדובה, חיה בגן החיות של לונדון עד מותה ב-1934."]}, "en": {"h": ["Who", "The work", "Why it matters"], "p": ["In the early 1920s Milne was a playwright and a writer for the satirical magazine Punch, and had also written a detective novel. The illustrator, E. H. Shepard, drew the bear after his own son's teddy, Growler.", "Milne wrote four books for children, and two of them, Winnie-the-Pooh and The House at Pooh Corner, are stories about Pooh and his friends. The first Hebrew translation came out in 1943, with the songs translated by Natan Alterman.", "Pooh has been translated into dozens of languages. The Latin translation, Winnie ille Pu, was the first foreign-language book on the New York Times bestseller list, and is still the only one in Latin. Winnie the bear lived at London Zoo until she died in 1934."]}}, "python": {"he": {"h": ["מי", "היצירה", "למה זה חשוב"], "p": ["מונטי פייתון היו שישה: גרהם צ'פמן, ג'ון קליז, טרי גיליאם, אריק איידל, טרי ג'ונס ומייקל פיילין. \"הקרקס המעופף של מונטי פייתון\" שודר ב-BBC מאוקטובר 1969 עד דצמבר 1974, בארבע עונות ו-45 פרקים.", "כף הרגל הענקית שמועכת הכול בפתיחה של הסדרה לקוחה מציור של ברונזינו מהמאה ה-16, שתלוי בגלריה הלאומית בלונדון. זו כף הרגל של קופידון, אל האהבה, וגיליאם הסביר שאין דרך טובה יותר להימעך מאשר בידי האהבה.", "פייתון השאירו את חותמם גם מחוץ לטלוויזיה. המילה ספאם, לדואר זבל, באה ממערכון מ-1970, ושפת התכנות Python נקראה על שמם."]}, "en": {"h": ["Who", "The work", "Why it matters"], "p": ["Monty Python were six: Graham Chapman, John Cleese, Terry Gilliam, Eric Idle, Terry Jones and Michael Palin. Monty Python's Flying Circus ran on the BBC from October 1969 to December 1974, over four series and 45 episodes.", "The giant foot that squashes everything in the opening titles is taken from a 16th-century painting by Bronzino that hangs in the National Gallery in London. It is the foot of Cupid, god of love, and Gilliam explained that there is no better way to be crushed than by love.", "Python left a mark beyond television too. The word spam, for junk email, comes from a 1970 sketch, and the Python programming language is named after them."]}}, "newton": {"he": {"h": ["התמונה", "הפסל", "לשיחה"], "p": ["את \"ניוטון\" יצר בלייק ב-1795 כהדפס צבע, ובערך ב-1805 עבד עליו שוב והדפיס אותו מחדש. העותק הזה שמור היום בגלריית טייט.", "הפסל של פאולוצי, \"ניוטון, על פי ויליאם בלייק\", נוצר ב-1995 וגובהו כ-3.7 מטרים. הפנים הן דיוקן עצמי של פאולוצי, העיניים הועתקו מ\"דוד\" של מיכלאנג'לו, והגפיים מחוברות בברגים, כמו חלקים של מכונה.", "בלייק צייר את ניוטון כאזהרה מפני מבט צר, ופאולוצי הפך אותו לפסל שעומד בחצר הספרייה. אפשר לשאול את הקבוצה: מה ספרייה צריכה למדוד, ומה היא שומרת גם כשאי אפשר למדוד אותו?"]}, "en": {"h": ["The image", "The statue", "For discussion"], "p": ["Blake made Newton as a colour print in 1795, and in about 1805 he reworked and reprinted it. That impression is now at Tate.", "Paolozzi's statue, Newton, after William Blake, dates from 1995 and is about 3.7 metres high. The face is Paolozzi's self-portrait, the eyes are copied from Michelangelo's David, and the limbs are joined with bolts, like the parts of a machine.", "Blake painted Newton as a warning against a narrow gaze, and Paolozzi turned him into the statue that stands in the library's courtyard. A question for the group: what should a library measure, and what does it keep even when it cannot be measured?"]}}};
 
 const MSS = [
   { img:'assets/tour/ms-golden-haggadah.webp',
@@ -501,6 +579,10 @@ const MSS = [
       p:'Jews lived in Kaifeng from the tenth century. This scroll is sewn from 95 strips of sheepskin with silk thread, not sinew as is customary. In 1851, when no one left in the community could read Hebrew, it was sold, and a year later it reached London. This column is from Vayishlach: Jacob wrestles with the angel, and his name becomes Israel.' } }
 ];
 
+const SECS = ['place', 'gallery', 'aids'];
+const ITEMS = [...STOPS, ...AIDS];
+const HALL = STOPS.findIndex(s => s.kind === 'guess');
+
 const CREDITS = [
   ['הגדת הזהב, דף 15 · Golden Haggadah, f.15','British Library Add MS 27210, Public Domain','https://commons.wikimedia.org/wiki/File:Dance_of_Marian._Full_F15_from_Golden_Haggadah.jpg'],
   ['התנ"ך מליסבון, כרך ב · Lisbon Bible, vol. 2','British Library Or. 2627, Public Domain','https://commons.wikimedia.org/wiki/File:Lisbon_Bible_2.jpg'],
@@ -512,6 +594,12 @@ const CREDITS = [
   ['ג׳יין אוסטן, רישום של קסנדרה אוסטן · Jane Austen by Cassandra Austen','c.1810, Public Domain','https://commons.wikimedia.org/wiki/File:CassandraAusten-JaneAusten(c.1810)_hires.jpg'],
   ['הכרזת העצמאות, הדפסת דנלאפ · Declaration of Independence, Dunlap broadside','US National Archives, Public Domain','https://commons.wikimedia.org/wiki/File:Dunlap_Broadside_(Declaration_of_Independence)_-_NARA_-_301682.jpg'],
   ['לוח שעווה ממצרים · Wax writing tablet (2nd century)','British Library Add MS 34186, CC0','https://commons.wikimedia.org/wiki/File:Wax_writing_tablet_(2nd_C)_-_BL_Add_MS_34186.jpg'],
+  ['יהדות: מחזור משולש, דף 3 · Tripartite Mahzor, f.3r','British Library Add MS 22413, Public Domain','https://commons.wikimedia.org/wiki/File:Tripartite_Mahzor_fol._3r_MS_Add._22413.jpg'],
+  ['הנדל, משיח, מקהלת ההללויה · Handel, Messiah autograph','British Library R.M.20.f.2, Public Domain','https://commons.wikimedia.org/wiki/File:Messiah_Autograph_And_He_shall_reign_for_ever_and_ever.jpg'],
+  ['וירג׳יניה וולף, 1902 · Virginia Woolf, 1902','George Charles Beresford, Public Domain','https://commons.wikimedia.org/wiki/File:George_Charles_Beresford_-_Virginia_Woolf_in_1902_-_Restoration.jpg'],
+  ['ויני והארי קולבורן, 1914 · Winnie and Harry Colebourn, 1914','Archives of Manitoba N10467, Public Domain','https://commons.wikimedia.org/wiki/File:Harry_Colebourne_and_Winnie.jpg'],
+  ['ברונזינו, אלגוריה עם ונוס וקופידון, פרט · Bronzino, An Allegory with Venus and Cupid, detail','National Gallery, London, Public Domain','https://commons.wikimedia.org/wiki/File:Angelo_Bronzino_-_Venus,_Cupid,_Folly_and_Time_-_National_Gallery,_London.jpg'],
+  ['ויליאם בלייק, ניוטון · William Blake, Newton','Tate N05058, Public Domain','https://commons.wikimedia.org/wiki/File:Newton-WilliamBlake.jpg'],
   ['השער, אולם הכניסה ומגדל המלך · Gate, hall, King’s Library','Immanuel Giel, CC0','https://commons.wikimedia.org/wiki/File:British_Library_(17).jpg']
 ];
 
@@ -564,28 +652,35 @@ $('#langBtn').onclick = () => { lang = lang === 'he' ? 'en' : 'he'; try{ localSt
 
 /* ---------------- home ---------------- */
 function nextIndex(){ return STOPS.findIndex(s => !S.done.includes(s.id)); }
+function guidedNext(){ const i = nextIndex(); return i >= 0 && (STOPS[i].sec === 'place' || STOPS[i].kind === 'ms') ? i : -1; }
+function itemRow(s, i, nx){
+  const aid = s.sec === 'aids', done = !aid && S.done.includes(s.id);
+  return `<li><button type="button" class="item ${aid?'aid':''} ${done?'done':''} ${i===nx?'next':''}" data-i="${i}">
+      <span class="n">${aid ? svg(s.id) : done ? svg('check') : `<span class="num">${i+1}</span>`}</span>
+      <span class="t"><b>${L(s).t}</b><small>${L(s).w}</small></span>
+      ${s.kind==='ms' || s.kind==='guess' ? `<span class="tag">${t('together')}</span>` : ''}
+    </button></li>`;
+}
 function renderHome(pressId){
-  const stamps = $('#stamps');
+  const stamps = $('#stamps'), nx = guidedNext();
   stamps.innerHTML = STOPS.map((s, i) => {
     const on = S.done.includes(s.id);
-    return `<div role="listitem" class="slot ${on?'on':'off'} ${pressId===s.id?'press':''}" aria-label="${L(s).t}${on?' ✓':''}">${on ? svg(s.id) : `<span class="num">${i+1}</span>`}</div>`;
+    return `<button type="button" data-i="${i}" class="slot ${on?'on':'off'} ${i===nx && !on?'next':''} ${pressId===s.id?'press':''}" aria-label="${L(s).t}${on?' ✓':''}">${on ? svg(s.id) : `<span class="num">${i+1}</span>`}</button>`;
   }).join('');
   const n = S.done.length, full = n === STOPS.length;
   $('#pass').classList.toggle('full', full);
   $('#passMsg').innerHTML = full ? `<b>${t('full_h')}</b>${t('full_p')}` : (n ? t('progress')(n) : t('empty'));
-  const nx = nextIndex();
-  $('#list').innerHTML = STOPS.map((s, i) => {
-    const done = S.done.includes(s.id);
-    return `<li><button type="button" class="item ${done?'done':''} ${i===nx?'next':''}" data-i="${i}">
-      <span class="n">${done ? svg('check') : `<span class="num">${i+1}</span>`}</span>
-      <span class="t"><b>${L(s).t}</b><small>${L(s).w}</small></span>
-      ${s.kind==='ms' || s.kind==='guess' ? `<span class="tag">${t('together')}</span>` : ''}
-    </button></li>`;
+  $('#list').innerHTML = SECS.map(k => {
+    const rows = ITEMS.map((s, i) => s.sec === k ? itemRow(s, i, nx) : '').join('');
+    const cnt = k === 'aids' ? '' : `<span class="k num">${ITEMS.filter(s => s.sec === k).length}</span>`;
+    return `<section class="sec" aria-labelledby="sec-${k}"><h2 class="sec-h" id="sec-${k}">${t('sec_'+k)}${cnt}</h2><p class="sec-d">${t('sec_'+k+'_d')}</p><ol class="list">${rows}</ol></section>`;
   }).join('');
 }
+function openItem(i){ const s = ITEMS[i]; if (s.kind === 'ms') openMs(remote.m === 'ms' ? remote.i : 0, false); else openStopSheet(i); }
+$('#stamps').addEventListener('click', e => { const b = e.target.closest('.slot'); if (b) openItem(+b.dataset.i); });
 $('#list').addEventListener('click', e => {
   const b = e.target.closest('.item'); if (!b) return;
-  const s = STOPS[+b.dataset.i];
+  const s = ITEMS[+b.dataset.i];
   if (s.kind === 'ms') openMs(remote.m === 'ms' ? remote.i : 0, false);
   else openStopSheet(+b.dataset.i);
 });
@@ -627,12 +722,12 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape'){ const o = t
 /* ---------------- station ---------------- */
 let openStop = null;
 function fillStop(i){
-  const s = STOPS[i], c = L(s);
+  const s = ITEMS[i], c = L(s), aid = s.sec === 'aids';
   const hero = $('#stHero');
   hero.className = 'hero';
   hero.style.backgroundImage = s.img ? `url("${s.img}")` : '';
   hero.style.backgroundPosition = s.pos || '';
-  hero.innerHTML = (s.img ? `<button type="button" class="zoomchip" aria-label="${t('zoom_open')}"><svg class="i" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5M10.5 8v5M8 10.5h5"/></svg>${t('zoom_open')}</button>` : '') + `<span class="cnt">${t('of')(i+1, STOPS.length)}</span>`;
+  hero.innerHTML = (s.img ? `<button type="button" class="zoomchip" aria-label="${t('zoom_open')}"><svg class="i" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5M10.5 8v5M8 10.5h5"/></svg>${t('zoom_open')}</button>` : '') + `<span class="cnt">${aid ? t('sec_aids') : t('of')(i+1, STOPS.length)}</span>`;
   $('#stWhere').textContent = c.w;
   const pic = $('#stPic'); pic.hidden = !c.pic; pic.textContent = c.pic || '';
   $('#stTitle').textContent = c.t;
@@ -649,7 +744,7 @@ function fillStop(i){
   const g = $('#stGuess');
   if (s.kind === 'guess') { g.hidden = false; renderGuess(); } else { g.hidden = true; g.innerHTML = ''; }
   const btn = $('#stBtn');
-  btn.textContent = s.kind === 'stop' ? t('seen') : t('cont');
+  btn.textContent = aid ? t('again') : s.kind === 'stop' ? t('seen') : t('cont');
   btn.hidden = s.kind === 'guess' && !S.revealed;
 }
 function fitHero(){
@@ -668,8 +763,9 @@ addEventListener('resize', () => { if (openStop != null) fitHero(); });
 function closeStop(complete, fromPop){
   const i = openStop; closeSheet($('#st'), fromPop); openStop = null;
   if (complete && i != null){
-    const id = STOPS[i].id;
-    if (stamp(id)) setTimeout(() => { renderHome(id); }, 380); else renderHome();
+    const id = ITEMS[i].id;
+    if (ITEMS[i].sec === 'aids') renderHome();
+    else if (stamp(id)) setTimeout(() => { renderHome(id); }, 380); else renderHome();
   }
 }
 $('#stBtn').onclick = () => closeStop(true);
@@ -680,7 +776,7 @@ const sliderToVal = v => Math.round(Math.exp(G_MIN + (G_MAX - G_MIN) * v / 1000)
 const valToSlider = n => Math.round(1000 * (Math.log(n) - G_MIN) / (G_MAX - G_MIN));
 let draftGuess = 20;
 function renderGuess(){
-  const g = $('#stGuess'), c = L(STOPS[1]);
+  const g = $('#stGuess'), c = L(STOPS[HALL]);
   if (S.revealed){
     g.innerHTML = `<div class="guess answer"><div class="big">${t('ans_big')}</div><p>${t('ans_p')}</p>${S.guess ? `<div class="mine">${t('mine')(t('mil')(S.guess))}</div>` : ''}</div>`;
     $('#stBtn').hidden = false; return;
@@ -765,16 +861,16 @@ function resetZoom(){ msZoom.reset(); }
 
 /* station image, full screen */
 function openLightbox(i){
-  const s = STOPS[i], c = L(s);
+  const s = ITEMS[i], c = L(s);
   const img = $('#lbImg'); img.src = s.img; img.alt = c.t; lbZoom.reset();
   $('#lbTitle').textContent = c.t;
   $('#lbMeta').textContent = c.pic || c.w;
   openSheet($('#lb'));
 }
-$('#stHero').addEventListener('click', () => { if (openStop != null && STOPS[openStop].img) openLightbox(openStop); });
+$('#stHero').addEventListener('click', () => { if (openStop != null && ITEMS[openStop].img) openLightbox(openStop); });
 const motionOK = () => !matchMedia('(prefers-reduced-motion: reduce)').matches;
 $('#stMoreBtn').addEventListener('click', () => { $('#stMore').open = true; });
-$('#stMore').addEventListener('toggle', () => { const o = $('#stMore').open; $('#stMoreBtn').hidden = o || !EXTRA[STOPS[openStop] && STOPS[openStop].id]; if (o) setTimeout(() => $('#stMore').scrollIntoView({ behavior: motionOK() ? 'smooth' : 'auto', block: 'start' }), 60); });
+$('#stMore').addEventListener('toggle', () => { const o = $('#stMore').open; $('#stMoreBtn').hidden = o || !EXTRA[ITEMS[openStop] && ITEMS[openStop].id]; if (o) setTimeout(() => $('#stMore').scrollIntoView({ behavior: motionOK() ? 'smooth' : 'auto', block: 'start' }), 60); });
 $('#stLook').addEventListener('click', () => { if ($('#stLook').classList.contains('tap')) openLightbox(openStop); });
 $('#stLook').addEventListener('keydown', e => { if ((e.key === 'Enter' || e.key === ' ') && $('#stLook').classList.contains('tap')){ e.preventDefault(); openLightbox(openStop); } });
 
@@ -803,7 +899,7 @@ function applyRemote(st){
   if (at < lastAt) return;                       // an older host screen: ignore, never flip back
   lastBeat = Date.now();
   remote = st;
-  if (at === lastAt){ if (openStop === 1 && !S.revealed) renderGuess(); return; }
+  if (at === lastAt){ if (openStop === HALL && !S.revealed) renderGuess(); return; }
   lastAt = at; store.set('advot-tour-at', at);
   if (Date.now() - at > STALE) return;            // a moment left open long ago: do not pull anyone into it
   setRest(st.m === 'rest');
@@ -814,10 +910,10 @@ function applyRemote(st){
     if ($('#ms').classList.contains('on')) closeMs();
     if (st.m === 'reveal' && S.guess == null && !S.revealed){ /* no guess given: still reveal */ }
     if (st.m === 'reveal') { S.revealed = true; save(); }
-    if (openStop !== 1) openStopSheet(1); else fillStop(1);
+    if (openStop !== HALL) openStopSheet(HALL); else fillStop(HALL);
   } else if (st.m === 'none'){
     if ($('#ms').classList.contains('on') && msByHost) closeMs();
-    if (openStop === 1 && S.revealed) closeStop(true);
+    if (openStop === HALL && S.revealed) closeStop(true);
   }
 }
 
@@ -892,7 +988,7 @@ function startHost(){
 }
 
 /* ---------------- boot ---------------- */
-function preload(){ [...STOPS.map(s => s.img).filter(Boolean), ...MSS.map(m => m.img)].forEach(src => { const im = new Image(); im.src = src; }); }
+function preload(){ [...ITEMS.map(s => s.img).filter(Boolean), ...MSS.map(m => m.img)].forEach(src => { const im = new Image(); im.src = src; }); }
 function showHome(){ $('#welcome').hidden = true; $('#home').hidden = false; renderHome(); }
 $('#startBtn').onclick = () => { S.started = true; save(); showHome(); };
 

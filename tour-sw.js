@@ -1,9 +1,10 @@
-const CACHE = 'advot-tour-v5';
+const CACHE = 'advot-tour-v6';
 const CORE = [
   'tour.html',
   'assets/tour/ms-golden-haggadah.webp', 'assets/tour/ms-lisbon-bible.webp', 'assets/tour/ms-kaifeng-torah.webp',
   'assets/tour/st-courtyard.webp', 'assets/tour/st-hall.webp', 'assets/tour/st-kings.webp', 'assets/tour/st-magna.webp',
-  'assets/tour/st-folio.webp', 'assets/tour/st-beatles.webp', 'assets/tour/st-leonardo.webp', 'assets/tour/st-austen.webp', 'assets/tour/st-declaration.webp', 'assets/tour/st-tablet.webp'
+  'assets/tour/st-folio.webp', 'assets/tour/st-beatles.webp', 'assets/tour/st-leonardo.webp', 'assets/tour/st-austen.webp', 'assets/tour/st-declaration.webp', 'assets/tour/st-tablet.webp',
+  'assets/tour/st-judaism.webp', 'assets/tour/st-handel.webp', 'assets/tour/st-woolf.webp', 'assets/tour/st-pooh.webp', 'assets/tour/st-python.webp', 'assets/tour/aid-newton.webp'
 ];
 const SHARED_HOSTS = ['fonts.googleapis.com', 'fonts.gstatic.com', 'cdn.jsdelivr.net', 'cdnjs.cloudflare.com'];
 
