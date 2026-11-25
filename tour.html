@@ -227,6 +227,13 @@ body.host .wrap{max-width:560px}
     <button class="lang" id="langBtn" type="button" aria-label="Switch language"></button>
   </header>
 
+  <!-- before opening time -->
+  <section class="welcome" id="soon" hidden>
+    <h1 data-t="soon_h"></h1>
+    <p data-t="soon_p"></p>
+    <div class="mini" aria-hidden="true"><div class="strip"></div><div class="mini-in"><span class="en">READER PASS</span><div class="mini-slots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
+  </section>
+
   <!-- welcome -->
   <section class="welcome" id="welcome" hidden>
     <h1 data-t="w_h"></h1>
@@ -357,6 +364,8 @@ const T = {
     w_h:'ברוכים הבאים לספרייה הבריטית',
     w_p:'מי שרוצה לעיין באוספים כאן מוציא כרטיס קריאה, וזה הכרטיס שלכם. מתחילים בבניין עצמו, ממשיכים להיכל האוצרות, ובכל תחנה בדרך מקבלים חותמת.',
     w_btn:'לכרטיס שלי',
+    soon_h:'הכרטיס ייפתח בקרוב',
+    soon_p:'הסיור בספרייה הבריטית נפתח ביום חמישי, 26.11, בשעה 11:00 לפי שעון לונדון. העמוד ייפתח מעצמו, ואין צורך לרענן.',
     pass_t:'כרטיס קריאה', pass_sub:'משלחת אדוות · לונדון 2026',
     empty:'הכרטיס עוד ריק. מתחילים בחצר, בתחנה הראשונה.',
     progress:n=>`${n===1?'חותמת אחת':n+' חותמות'} בכרטיס. לחיצה על משבצת פותחת את התחנה שלה.`,
@@ -384,6 +393,8 @@ const T = {
     w_h:'Welcome to the British Library',
     w_p:'Anyone who wants to use the collections here gets a Reader Pass. This one is yours. We start with the building itself, move on to the Treasures Gallery, and you get a stamp at every stop on the way.',
     w_btn:'Open my pass',
+    soon_h:'Your pass opens soon',
+    soon_p:'The British Library tour opens on Thursday 26 November at 11:00 London time. This page will open by itself, so there is no need to refresh.',
     pass_t:'Reader Pass', pass_sub:'Adavot delegation · London 2026',
     empty:'Your pass is still empty. Start in the courtyard, at the first stop.',
     progress:n=>`${n} ${n===1?'stamp':'stamps'} on your pass. Tap a slot to open its stop.`,
@@ -994,11 +1005,23 @@ $('#startBtn').onclick = () => { S.started = true; save(); showHome(); };
 
 applyLang();
 preload();
-if (isHost){ startHost(); }
-else {
+/* opening time: 26.11.2026, 11:00 London (GMT in November = UTC). Host, ?ch=test and ?preview skip it. */
+const OPEN_AT = Date.UTC(2026, 10, 26, 11, 0, 0);
+const PREVIEW = new URLSearchParams(location.search).has('preview');
+const isLocked = () => !CH && !PREVIEW && Date.now() < OPEN_AT;
+function openPhone(){
+  $('#soon').hidden = true;
   if (S.started) showHome(); else $('#welcome').hidden = false;
   connectPhone();
 }
+if (isHost){ startHost(); }
+else if (isLocked()){
+  $('#soon').hidden = false;
+  const check = () => { if (!isLocked()){ clearInterval(iv); removeEventListener('visibilitychange', check); openPhone(); } };
+  const iv = setInterval(check, 5000);
+  addEventListener('visibilitychange', check);
+}
+else openPhone();
 addEventListener('hashchange', () => location.reload());
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('tour-sw.js', { scope: './tour' }).catch(() => {});
 </script>
