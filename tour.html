@@ -40,7 +40,7 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stro
 .mini .strip{height:7px;background:var(--grad)}
 .mini-in{padding:14px 16px 16px}
 .mini-in .en{font-size:12px;letter-spacing:.16em;font-weight:800;color:var(--sky)}
-.mini-slots{display:grid;grid-template-columns:repeat(5,1fr);gap:8px 12px;margin-top:12px;max-width:240px}
+.mini-slots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px 12px;margin-top:12px;max-width:196px}
 .mini-slots i{aspect-ratio:1;border-radius:50%;border:1.5px dashed rgba(220,227,245,.28)}
 .welcome h1{font-size:34px;line-height:1.15;font-weight:900;letter-spacing:-.01em;text-wrap:balance}
 .welcome p{color:var(--ink-2);font-size:18px;max-width:34ch}
@@ -55,7 +55,7 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stro
 html[lang="en"] .pass .row1 .en{display:none}
 .pass .row1 .en{font-size:12px;letter-spacing:.16em;font-weight:800;color:var(--sky)}
 .pass .sub{font-size:14px;color:var(--dim);margin-top:2px}
-.stamps{display:grid;grid-template-columns:repeat(5,1fr);gap:10px 6px;margin-top:16px;max-width:300px}
+.stamps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px 6px;margin-top:16px;max-width:240px}
 .slot{width:100%;max-width:48px;aspect-ratio:1;height:auto;margin:0 auto;border-radius:50%;display:grid;place-items:center;position:relative;cursor:pointer;transition:background .2s var(--ease)}
 .slot.off:active{background:rgba(220,227,245,.08)}
 .slot.off.next{border:1.5px solid var(--blue-hi);color:var(--ink);background:rgba(0,72,255,.35)}
@@ -231,7 +231,7 @@ body.host .wrap{max-width:560px}
   <section class="welcome" id="welcome" hidden>
     <h1 data-t="w_h"></h1>
     <p data-t="w_p"></p>
-    <div class="mini" aria-hidden="true"><div class="strip"></div><div class="mini-in"><span class="en">READER PASS</span><div class="mini-slots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
+    <div class="mini" aria-hidden="true"><div class="strip"></div><div class="mini-in"><span class="en">READER PASS</span><div class="mini-slots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
     <button class="btn" id="startBtn" type="button" data-t="w_btn"></button>
   </section>
 
@@ -437,6 +437,15 @@ const STOPS = [
   { id:'ms', sec:'gallery', kind:'ms',
     he:{ t:'כתבי היד העבריים', w:'בכניסה להיכל' },
     en:{ t:'The Hebrew manuscripts', w:'At the gallery entrance' } },
+  { id:'tablet', sec:'gallery', kind:'stop', img:'assets/tour/st-tablet.webp',
+    he:{ t:'שיעורי בית מלפני 1,800 שנה', w:'מצרים, המאה השנייה', pic:'בתמונה: הלוח עם השורות של המורה והתלמיד', lt:'נסו בעצמכם',
+      s:'אלה שני לוחות עץ מכוסים שעווה, שנכתבו במצרים במאה השנייה לספירה. על הראשון המורה כתב למעלה שתי שורות ביוונית, ומתחת התלמיד העתיק אותן פעמיים. על השני כתוב לוח כפל.',
+      f:'התלמיד טעה, והטעות נשארה שם 1,800 שנה: בשתי ההעתקות הוא השמיט את האות הראשונה של המשפט.',
+      l:'מצאו את הלוח בוויטרינה והשוו בין השורות של המורה לשורות של התלמיד. אפשר להגדיל כאן את התמונה ולראות כל אות.' },
+    en:{ t:'Homework from 1,800 years ago', w:'Egypt, 2nd century', pic:'Pictured: the tablet with the teacher\'s and the pupil\'s lines', lt:'Try it yourself',
+      s:'These are two wooden tablets coated in wax, written in Egypt in the second century CE. On the first, the teacher wrote two lines in Greek at the top, and below them the pupil copied them twice. The second carries a multiplication table.',
+      f:'The pupil made a mistake, and it has stayed there for 1,800 years: in both copies he left out the first letter of the sentence.',
+      l:'Find the tablet in its case and compare the teacher\'s lines with the pupil\'s. You can zoom in on the picture here to see every letter.' } },
   { id:'judaism', sec:'gallery', kind:'stop', img:'assets/tour/st-judaism.webp', pos:'center 30%',
     he:{ t:'יהדות', w:'תנ"ך, סידור, הגדה וכתובה', pic:'בתמונה: מחזור לחגים מדרום גרמניה, בערך 1322. משה מקבל את הלוחות בסיני',
       s:'בוויטרינה הזאת רואים איך הטקסטים של היהדות עברו מדור לדור. התנ"ך הועתק במגילות ובהמשך גם בספרים, ובעלי המסורה הוסיפו לו ניקוד, טעמים והערות בשוליים, כדי שהנוסח והקריאה יישמרו מדויקים.',
@@ -539,15 +548,6 @@ const STOPS = [
 ];
 
 const AIDS = [
-  { id:'tablet', sec:'aids', kind:'stop', img:'assets/tour/st-tablet.webp',
-    he:{ t:'שיעורי בית מלפני 1,800 שנה', w:'מהאוסף, בתמונה בלבד', pic:'בתמונה: הלוח עם השורות של המורה והתלמיד', lt:'נסו בעצמכם',
-      s:'אלה שני לוחות עץ מכוסים שעווה, שנכתבו במצרים במאה השנייה לספירה. על הראשון המורה כתב למעלה שתי שורות ביוונית, ומתחת התלמיד העתיק אותן פעמיים. על השני כתוב לוח כפל.',
-      f:'התלמיד טעה, והטעות נשארה שם 1,800 שנה: בשתי ההעתקות הוא השמיט את האות הראשונה של המשפט.',
-      l:'הגדילו את התמונה והשוו בין השורות של המורה לשורות של התלמיד. ככל הידוע, הלוחות לא מוצגים כרגע בגלריה, אז רואים אותם כאן, בתמונה.' },
-    en:{ t:'Homework from 1,800 years ago', w:'From the collection, in the picture only', pic:'Pictured: the tablet with the teacher\'s and the pupil\'s lines', lt:'Try it yourself',
-      s:'These are two wooden tablets coated in wax, written in Egypt in the second century CE. On the first, the teacher wrote two lines in Greek at the top, and below them the pupil copied them twice. The second carries a multiplication table.',
-      f:'The pupil made a mistake, and it has stayed there for 1,800 years: in both copies he left out the first letter of the sentence.',
-      l:'Zoom in and compare the teacher\'s lines with the pupil\'s. As far as we know, the tablets are not on show in the gallery right now, so this picture is the place to see them.' } },
   { id:'newton', sec:'aids', kind:'stop', img:'assets/tour/aid-newton.webp',
     he:{ t:'"ניוטון" של בלייק', w:'התמונה שמאחורי הפסל בחצר', pic:'בתמונה: ויליאם בלייק, "ניוטון", 1795 עד 1805 בערך. גלריית טייט, לונדון', lt:'לשיחה',
       s:'ויליאם בלייק צייר את אייזק ניוטון יושב עירום על סלע מכוסה אצות, כנראה בקרקעית הים, שקוע כולו במחוגה ובשרטוט. בלייק חשש מ"ראייה יחידה": מבט שרואה רק את מה שאפשר למדוד ולחשב.',

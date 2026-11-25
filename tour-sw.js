@@ -1,4 +1,4 @@
-const CACHE = 'advot-tour-v6';
+const CACHE = 'advot-tour-v7';
 const CORE = [
   'tour.html',
   'assets/tour/ms-golden-haggadah.webp', 'assets/tour/ms-lisbon-bible.webp', 'assets/tour/ms-kaifeng-torah.webp',
