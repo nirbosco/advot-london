@@ -73,6 +73,19 @@ html[dir="ltr"] .back svg{transform:scaleX(-1)}
 .learn-hero h1{font-size:clamp(32px,6vw,52px);font-weight:800;line-height:1.1;margin-bottom:12px}
 .learn-hero .lede{font-size:18.5px;max-width:640px;margin:0 auto}
 html[lang="en"] .learn-hero .lede{font-size:17px}
+/* after the trip: entry to the session summaries */
+.after-trip{display:flex;align-items:center;gap:16px;max-width:640px;margin:26px auto 0;padding:16px 18px 16px 20px;background:var(--white);color:var(--ink);text-align:start;border-radius:var(--r-card);box-shadow:var(--shadow-md);transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+.after-trip:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+.after-trip:focus-visible{outline:3px solid var(--white);outline-offset:3px}
+.at-txt{flex:1;min-width:0}
+.at-t{display:block;font-size:18px;font-weight:800;line-height:1.35}
+.at-d{display:block;font-size:15px;color:var(--ink-dim);line-height:1.5;margin-top:3px}
+html[lang="en"] .at-t{font-size:16.5px}
+html[lang="en"] .at-d{font-size:14px}
+.at-go{flex-shrink:0;width:40px;height:40px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center}
+.at-go svg{width:20px;height:20px;stroke:var(--white);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+html[dir="rtl"] .at-go svg{transform:scaleX(-1)}
+@media (prefers-reduced-motion:reduce){.after-trip{transition:none}.after-trip:hover{transform:none}}
 
 /* ---------- module overview tiles ---------- */
 .mod-overview{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:-64px;position:relative;z-index:2}
@@ -638,6 +651,10 @@ details.extras[open] .ex-chev{transform:rotate(180deg)}
     <span class="kicker" data-i18n="learn_kicker">משלחת אדוות · לונדון 2026</span>
     <h1 data-i18n="hub_h1">מרכז הלמידה לקראת המסע</h1>
     <p class="lede" data-i18n="hub_lede">בסמינר האחרון ביקשתם דרך מסודרת להתכונן ללונדון. כאן תמצאו את תוכנית הלמידה בשלושה מודולים ועוד מודול בונוס, ואת הספרייה עם כל החומרים שבאתר. בלשונית "תרבות ופנאי" יש רקע למטילדה ורעיונות לזמן החופשי.</p>
+    <a class="after-trip" href="sessions.html">
+      <span class="at-txt"><b class="at-t" data-i18n="after_t">מה שמענו בלונדון: סיכומי המפגשים</b><span class="at-d" data-i18n="after_d">לכל מפגש מקצועי של המשלחת יש עמוד משלו, ובו תקציר, תרשים ושאלות לעבודה בארץ.</span></span>
+      <span class="at-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
   </div>
 </section>
 
@@ -1278,6 +1295,12 @@ details.extras[open] .ex-chev{transform:rotate(180deg)}
       <div class="lib-group" data-topic="schools">
         <div class="res-cat-head"><span class="bar"></span><h3 data-i18n="cat3">בתי ספר: איך הם עובדים ולמה לצפות</h3></div>
         <div class="lib-grid">
+        <article class="lib-card" id="res-sessions" data-topic="schools" data-kind="read" data-langs="he" data-mods="" data-kw="מה שמענו בלונדון סיכומי המפגשים סיכום מפגש מפגשים הרצאות ביקורים אחרי המסע תרשים שאלות גוב מייקל גוב michael gove דייזי כריסטודולו daisy christodoulou אופסטד ofsted פיקוח reach ריץ פלטהאם feltham ark ארק edcity הקני hackney stac סרג׳ ספאי serge cefai אלעד שמחיוף משרד החינוך האנגלי westminster">
+          <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_read">קריאה</span><span class="lc-lang" data-i18n="lib_lang_he">בעברית</span></div>
+          <h4 class="lc-title"><a class="stretch" href="sessions.html"><span class="lc-t" data-i18n="lib_sessions_t">מה שמענו בלונדון: סיכומי המפגשים</span></a></h4>
+          <p class="lc-src" data-i18n="lib_sessions_s">אחרי המסע · בעברית · עמוד לכל מפגש</p>
+          <p class="lc-note" data-i18n="lib_sessions_n">סיכום לכל אחד מ-13 המפגשים של השבוע בלונדון, ממפגשי הפתיחה ביום ראשון ועד מפגש הסיכום ביום חמישי. ביניהם לורד מייקל גוב, בית הספר <bdi>Reach</bdi>, דייזי כריסטודולו והפיקוח של <bdi>Ofsted</bdi>. בכל עמוד יש גם תרשים ושאלות לעבודה בארץ.</p>
+        </article>
         <article class="lib-card" id="res-ark" data-topic="schools" data-kind="read" data-langs="he" data-mods="m2 m3" data-ext-m2="6" data-ctx-m2="ext_m2_ark" data-ext-m3="0" data-ctx-m3="ext_m3_ark" data-kw="הוראה לשליטה למידה לשליטה מאסטרי mastery ark edcity הערכה דייזי מתמטיקה מאמר">
           <div class="lc-meta"><span class="lc-kind" data-i18n="lib_kind_read">קריאה</span><span class="lc-lang" data-i18n="lib_lang_he">בעברית</span></div>
           <h4 class="lc-title"><a class="stretch" href="ark-mastery.html"><span class="lc-t" data-i18n="lib_ark_t">הוראה לשליטה ברשת Ark</span></a></h4>
@@ -1759,6 +1782,9 @@ const I18N = {
 "ext_m2_r15": "מה בית ספר מחויב בחוק לעשות כדי להגן על התלמידים, אחד מתחומי האחריות של המנהל.",
 "ext_m2_r8": "המסמך הרשמי של הממשלה שמסביר למה בתי ספר הפכו לאקדמיות. רקע טוב למבנה שמתואר במצגת.",
 "ext_m2_s2": "ההקלטה והמצגת ממפגש ההכנה השני עם עמוס רבן, על ההשוואה בין המערכת האנגלית לישראלית.",
+"lib_sessions_t": "מה שמענו בלונדון: סיכומי המפגשים",
+"lib_sessions_s": "אחרי המסע · בעברית · עמוד לכל מפגש",
+"lib_sessions_n": "סיכום לכל אחד מ-13 המפגשים של השבוע בלונדון, ממפגשי הפתיחה ביום ראשון ועד מפגש הסיכום ביום חמישי. ביניהם לורד מייקל גוב, בית הספר <bdi>Reach</bdi>, דייזי כריסטודולו והפיקוח של <bdi>Ofsted</bdi>. בכל עמוד יש גם תרשים ושאלות לעבודה בארץ.",
 "lib_quals_t": "מה שווה תעודה באנגליה",
 "lib_quals_s": "מאמר · בעברית · כ-11 דקות קריאה",
 "lib_quals_n": "מאמר לקראת הביקורים בבתי הספר: איך בנויה מסגרת ההסמכות של אנגליה, איך היא מתחברת למסגרת האירופית, מי כותב את הבחינות ואיך נקבעים הציונים. עם טבלת רמות ושאלות לביקורים.",
@@ -2016,6 +2042,8 @@ const I18N = {
 "hub_meta_desc": "מרכז הלמידה של משלחת אדוות ללונדון: תוכנית למידה בשלושה מודולים, ספרייה של כל החומרים, מטילדה ורעיונות לזמן החופשי.",
 "hub_og_title": "מרכז הלמידה · אדוות לונדון 2026",
 "hub_h1": "מרכז הלמידה לקראת המסע",
+"after_t": "מה שמענו בלונדון: סיכומי המפגשים",
+"after_d": "לכל מפגש מקצועי של המשלחת יש עמוד משלו, ובו תקציר, תרשים ושאלות לעבודה בארץ.",
 "hub_lede": "בסמינר האחרון ביקשתם דרך מסודרת להתכונן ללונדון. כאן תמצאו את תוכנית הלמידה בשלושה מודולים ועוד מודול בונוס, ואת הספרייה עם כל החומרים שבאתר. בלשונית \"תרבות ופנאי\" יש רקע למטילדה ורעיונות לזמן החופשי.",
 "hubnav_aria": "חלקי מרכז הלמידה",
 "hubnav_plan": "תוכנית הלמידה",
@@ -2241,6 +2269,9 @@ const I18N = {
 "ext_m2_r15": "What schools are legally required to do to keep pupils safe, one of the areas a headteacher is responsible for.",
 "ext_m2_r8": "The government's own explanation of why schools became academies. Useful background to the structure described in the slides.",
 "ext_m2_s2": "The recording and slides from the second induction session with Amos Raban, on how the English and Israeli systems compare.",
+"lib_sessions_t": "What we heard in London: session summaries (in Hebrew)",
+"lib_sessions_s": "After the trip · Hebrew · a page per session",
+"lib_sessions_n": "A summary of each of the 13 sessions of our London week, from the opening sessions on Sunday to the closing session on Thursday. Among them: Lord Michael Gove, Reach, Daisy Christodoulou and Ofsted inspection. Each page also has a diagram and questions for our work back home.",
 "lib_quals_t": "What a qualification is worth in England (in Hebrew)",
 "lib_quals_s": "Article · Hebrew · about 11 minutes",
 "lib_quals_n": "An article ahead of the school visits: how England's qualifications framework is built, how it links to the European framework, who writes the exams and how grades are set. With a table of levels and questions for the visits.",
@@ -2498,6 +2529,8 @@ const I18N = {
 "hub_meta_desc": "The learning hub for the Advot delegation to London: a three-module learning plan, a library of every resource, Matilda, and ideas for your free time.",
 "hub_og_title": "Learning hub · Advot London 2026",
 "hub_h1": "Your learning hub for the trip",
+"after_t": "What we heard in London: session summaries",
+"after_d": "Each professional session of the delegation has its own page, with a short summary, a diagram and questions for our work back home. In Hebrew.",
 "hub_lede": "At the last seminar you asked for a structured way to prepare for London. Here you will find the learning plan, three modules plus a bonus module, and a library of every resource on the site. The Culture tab has background on Matilda and ideas for your free time.",
 "hubnav_aria": "Learning hub sections",
 "hubnav_plan": "Learning plan",

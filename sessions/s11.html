@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>מה משרד החינוך האנגלי עושה בעצמו, ומה הוא מעביר לאחרים · מה שמענו בלונדון</title>
+<meta name="description" content="דיון פנימי של המשלחת, בעברית ובאנגלית, על מה שמשרד החינוך האנגלי עושה בעצמו ועל מה שהוא מעביר לגופים אחרים. מייקל, המנחה הבריטי של התוכנית, פתח בתדריך קצר: המשרד קובע את תוכנית הלימודים, את המימון ואת הסטנדרטים, ובית הספר מחליט איך לבצע.">
+<meta name="theme-color" content="#0048FF">
+<meta property="og:type" content="article">
+<meta property="og:title" content="מה משרד החינוך האנגלי עושה בעצמו, ומה הוא מעביר לאחרים">
+<meta property="og:description" content="דיון פנימי של המשלחת, בעברית ובאנגלית, על מה שמשרד החינוך האנגלי עושה בעצמו ועל מה שהוא מעביר לגופים אחרים. מייקל, המנחה הבריטי של התוכנית, פתח בתדריך קצר: המשרד קובע את תוכנית הלימודים, את המימון ואת הסטנדרטים, ובית הספר מחליט איך לבצע.">
+<meta property="og:image" content="https://london.hotam.tech/assets/advot-logo.png">
+<meta property="og:url" content="https://london.hotam.tech/sessions/s11.html">
+<link rel="icon" type="image/png" href="../assets/advot-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   1. TOKENS: copied from site/index.html :root, plus the
+      sessions additions (marked NEW). Assets path in this
+      live page: assets/. Source: 20-draft/mockup-sessions.html
+   ========================================================= */
+:root{
+  --blue:#0048FF;--blue-deep:#3B5DEC;--blue-mid:#2680F1;--sky:#0DB4F4;--teal:#41CAC5;--purple:#6536EA;
+  --white:#FEFEFE;--soft:#F3F6FF;--ink:#0B1440;--ink-dim:#4A5580;--line:#DCE3F5;
+  --shadow-sm:0 1px 3px rgba(11,20,64,.08);--shadow-md:0 6px 20px rgba(11,20,64,.10);--shadow-lg:0 16px 40px rgba(11,20,64,.14);
+  --grad:linear-gradient(105deg,#41CAC5 0%,#0DB4F4 22%,#2680F1 45%,#3B5DEC 66%,#6536EA 85%,#0048FF 100%);
+  --ease:cubic-bezier(0.22,1,0.36,1);--r-card:16px;--r-btn:10px;
+  /* NEW: sessions */
+  --teal-ink:#0A6E6A;          /* text-safe teal, 5.6:1 on --soft */
+  --tint-1:#E8EEFF;            /* layer 2 / hover wash */
+  --tint-2:#D3DFFF;            /* layer 3 */
+  --rule:#C3CFEF;              /* infographic connectors */
+  --measure:68ch;              /* long-text measure */
+  --col:880px;                 /* session content column */
+  --bar-h:56px;                /* sticky day bar */
+  --head-h:64px;               /* site header */
+  --anchor:calc(var(--head-h) + var(--bar-h) + 16px);
+  --s-1:4px;--s-2:8px;--s-3:12px;--s-4:16px;--s-5:24px;--s-6:32px;--s-7:48px;--s-8:72px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:var(--anchor)}
+html,body{overflow-x:clip}
+body{font-family:'Heebo',sans-serif;color:var(--ink);background:var(--white);font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--blue);text-decoration:none}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.container{max-width:1080px;margin:0 auto;padding-inline:24px}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+bdi,.lat{font-family:'Montserrat','Heebo',sans-serif;font-size:.94em}
+bdi{white-space:nowrap}
+::selection{background:rgba(0,72,255,.16);color:var(--ink)}
+.ico{width:18px;height:18px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* =========================================================
+   2. SITE CHROME (from article-build/template.html)
+   ========================================================= */
+body>header{position:sticky;top:0;z-index:100;background:rgba(254,254,254,.96);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:var(--head-h);gap:12px}
+.brand img{height:34px;width:auto}
+.back{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;color:var(--blue);background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:5px 16px;min-height:40px;white-space:nowrap}
+.back:hover{background:var(--line)}
+
+.art-hero{position:relative;overflow:hidden;background:linear-gradient(105deg,rgba(11,20,64,.5) 0%,rgba(11,20,64,.44) 25%,rgba(11,20,64,.32) 50%,rgba(11,20,64,.22) 75%),var(--grad);color:var(--white);padding:56px 0 60px}
+.art-hero .rip{position:absolute;left:-120px;top:-60px;width:520px;opacity:.18;pointer-events:none}
+.hero-inner{position:relative;z-index:1;max-width:760px}
+.art-hero h1{font-size:clamp(32px,5.4vw,50px);font-weight:800;line-height:1.15;margin-bottom:14px;text-wrap:balance}
+.hero-lede{font-size:19px;line-height:1.7;color:rgba(254,254,254,.94);max-width:58ch;text-wrap:pretty}
+.hero-meta{margin-top:14px;font-size:15px;color:rgba(254,254,254,.88)}
+
+footer{background:var(--ink);color:var(--white);padding:48px 0 36px;position:relative;overflow:hidden}
+footer .ripples-f{position:absolute;left:-130px;top:-60px;width:420px;opacity:.07;transform:rotate(12deg);pointer-events:none}
+.f-inner{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:24px 32px;flex-wrap:wrap}
+.f-brand{display:flex;align-items:center;gap:22px}
+.f-brand img{height:52px;width:auto}
+.f-brand .sep{width:1px;height:36px;background:rgba(254,254,254,.25)}
+.f-text{font-size:14px;color:rgba(254,254,254,.78);line-height:1.9}
+.f-link{font-size:14px;font-weight:700;color:var(--white);border-bottom:1px solid rgba(254,254,254,.45);padding-bottom:1px}
+footer :focus-visible{outline-color:var(--white)}
+
+/* =========================================================
+   3. WEEK INDEX (the session index, top of page)
+   ========================================================= */
+.week{padding-block:var(--s-7) var(--s-6)}
+.sec-h{font-size:clamp(23px,2.6vw,29px);font-weight:800;line-height:1.3;margin-bottom:var(--s-5)}
+.sec-h::before{content:"";display:block;width:36px;height:4px;border-radius:2px;background:linear-gradient(90deg,var(--sky),var(--blue));margin-bottom:14px}
+.week-grid{list-style:none;display:grid;grid-template-columns:repeat(var(--days,5),minmax(0,1fr));border-top:2px solid var(--ink)}
+.wk-day{padding:var(--s-4) var(--s-4) var(--s-5) 0;border-inline-start:1px solid var(--line);padding-inline-start:var(--s-4)}
+.wk-day:first-child{border-inline-start:0;padding-inline-start:0}
+.wk-name{display:flex;align-items:baseline;gap:8px;font-size:17px;font-weight:800;margin-bottom:var(--s-3)}
+.wk-name a{color:var(--ink)}
+.wk-name a:hover{color:var(--blue)}
+.wk-date{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;color:var(--ink-dim)}
+.wk-list{list-style:none;display:grid;gap:2px}
+.wk-list a{display:grid;grid-template-columns:44px 1fr;gap:8px;padding:8px 0;color:var(--ink);font-size:15px;line-height:1.45;border-top:1px solid var(--line)}
+.wk-list li:first-child a{border-top:0}
+.wk-list a:hover .wk-t{color:var(--blue);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1.5px}
+.wk-time{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:var(--blue);padding-top:2px;font-variant-numeric:tabular-nums}
+
+/* =========================================================
+   4. STICKY DAY BAR
+   ========================================================= */
+.daybar{position:sticky;top:var(--head-h);z-index:90;background:rgba(254,254,254,.97);border-bottom:1px solid var(--line)}
+.daybar ol{list-style:none;display:flex;gap:4px;height:var(--bar-h);align-items:center}
+.daybar a{display:flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border-radius:999px;color:var(--ink-dim);font-size:15px;font-weight:700;white-space:nowrap;transition:background-color .2s var(--ease),color .2s var(--ease)}
+.daybar a:hover{background:var(--soft);color:var(--ink)}
+.daybar a[aria-current]{background:var(--blue);color:var(--white)}
+.db-date{font-family:'Montserrat',sans-serif;font-size:13.5px;font-weight:600;opacity:.85}
+.db-short{display:none}
+
+/* =========================================================
+   5. DAY SECTION
+   ========================================================= */
+.day{scroll-margin-top:calc(var(--head-h) + var(--bar-h))}
+.day-head{padding:var(--s-8) 0 var(--s-5);border-bottom:2px solid var(--ink)}
+.day-h{font-size:clamp(30px,4vw,44px);font-weight:800;line-height:1.15}
+.day-h .lat{font-weight:700;color:var(--ink-dim);font-size:20px;margin-inline-start:10px;white-space:nowrap}
+.day-where{font-size:17px;color:var(--ink-dim);margin-top:8px;max-width:var(--measure)}
+
+/* =========================================================
+   6. SESSION BLOCK
+   ========================================================= */
+.ses{display:grid;grid-template-columns:120px minmax(0,var(--col));gap:0 var(--s-6);padding:var(--s-7) 0 var(--s-8);border-bottom:1px solid var(--line);scroll-margin-top:var(--anchor)}
+.ses:target .ses-title{animation:flash 1.6s var(--ease)}
+@keyframes flash{0%{background:rgba(0,72,255,.14)}100%{background:transparent}}
+
+/* rail: time, type, share. Sticky on desktop. */
+.ses-rail{grid-column:1;grid-row:1 / span 2;align-self:start;position:sticky;top:calc(var(--anchor) + 8px);display:flex;flex-direction:column;gap:10px;padding-top:6px}
+.ses-time{font-family:'Montserrat',sans-serif;font-size:26px;font-weight:800;color:var(--blue);line-height:1;font-variant-numeric:tabular-nums}
+.ses-day{font-size:14.5px;font-weight:700;color:var(--ink-dim)}
+.ses-type{align-self:flex-start;font-size:13.5px;font-weight:700;color:var(--ink);background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:2px 12px}
+.ses-type.t-visit{background:#E4F6F5;border-color:#BFE7E5;color:var(--teal-ink)}
+.share{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;min-height:44px;padding:0 14px;margin-top:4px;border-radius:var(--r-btn);border:1.5px solid var(--blue);background:var(--white);color:var(--blue);font:700 14px 'Heebo',sans-serif;cursor:pointer;transition:background-color .2s var(--ease)}
+.share:hover{background:var(--soft)}
+.share.is-done{border-color:var(--teal-ink);color:var(--teal-ink)}
+
+.ses-main{grid-column:2;min-width:0}
+.ses-title{font-size:clamp(25px,3vw,34px);font-weight:800;line-height:1.25;text-wrap:balance;border-radius:6px;margin-inline:-6px;padding-inline:6px}
+.ses-title a{color:inherit}
+.ses-sub{font-size:17px;color:var(--ink-dim);margin-top:6px;max-width:var(--measure)}
+.ses-people{list-style:none;display:flex;flex-wrap:wrap;gap:6px 20px;margin-top:var(--s-4);font-size:15px;color:var(--ink-dim)}
+.ses-people b{color:var(--ink);font-weight:700}
+.ses-place{display:flex;align-items:center;gap:6px;font-size:15px;color:var(--ink-dim);margin-top:6px}
+.ses-place .ico{width:16px;height:16px}
+
+/* the five parts */
+.part-h{display:flex;align-items:baseline;gap:10px;font-size:21px;font-weight:800;line-height:1.35}
+.part-n{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:var(--ink-dim)}
+.lead{margin-top:var(--s-6)}
+.lead p{font-size:19.5px;line-height:1.8;max-width:var(--measure);margin-top:var(--s-3);text-wrap:pretty}
+
+.part{margin-top:var(--s-6);border-top:1px solid var(--line)}
+.part>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:60px;padding:var(--s-3) 0;cursor:pointer}
+.part>summary::-webkit-details-marker{display:none}
+.part>summary:hover .part-h{color:var(--blue)}
+.part-count{font-family:'Montserrat','Heebo',sans-serif;font-size:13px;font-weight:600;color:var(--ink-dim);background:var(--soft);border-radius:999px;padding:1px 10px;margin-inline-start:4px}
+.chev{width:22px;height:22px;stroke:var(--blue);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s var(--ease)}
+.part[open]>summary .chev{transform:rotate(180deg)}
+.part-body{padding-bottom:var(--s-3)}
+.part.is-static>summary{cursor:default;pointer-events:none}
+.part.is-static .chev{display:none}
+
+/* deep summary: takeaways */
+.deep-intro{font-size:17.5px;line-height:1.85;max-width:var(--measure);margin-bottom:var(--s-5)}
+.take{list-style:none;counter-reset:tk;display:grid;gap:var(--s-5);max-width:calc(var(--measure) + 50px)}
+.take>li{counter-increment:tk;display:grid;grid-template-columns:36px 1fr;gap:0 14px}
+.take>li::before{content:counter(tk);font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px;color:var(--blue);width:32px;height:32px;border-radius:50%;border:2px solid var(--blue);display:flex;align-items:center;justify-content:center;margin-top:1px}
+.take h3{font-size:18px;font-weight:800;line-height:1.4;margin-bottom:4px}
+.take p{font-size:17.5px;line-height:1.85;text-wrap:pretty}
+/* conversation mode: who asked */
+.take .who{display:block;font-size:14px;font-weight:700;color:var(--teal-ink);margin-bottom:2px}
+
+.quote{margin:var(--s-6) 0 var(--s-2);max-width:var(--measure);padding:var(--s-5) var(--s-5) var(--s-5) 0;position:relative;border-top:2px solid var(--ink);border-bottom:1px solid var(--line)}
+.quote svg{width:34px;height:26px;fill:var(--blue);margin-bottom:8px}
+.quote p{font-size:22px;font-weight:700;line-height:1.55;text-wrap:balance}
+.quote .q-en{direction:ltr;text-align:left;font-family:'Montserrat',sans-serif;font-size:14.5px;font-weight:500;color:var(--ink-dim);margin-top:10px;line-height:1.6}
+.quote cite{display:block;font-style:normal;font-size:14.5px;font-weight:700;color:var(--ink-dim);margin-top:10px}
+
+/* sources */
+.src{list-style:none;max-width:var(--measure)}
+.src li{padding:var(--s-4) 0;border-top:1px solid var(--line)}
+.src li:first-child{border-top:0;padding-top:4px}
+.src-top{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;margin-bottom:4px;font-size:13.5px;color:var(--ink-dim)}
+.src-kind{font-weight:700;color:var(--ink)}
+.src-said{display:inline-flex;align-items:center;gap:4px;font-weight:700;color:var(--teal-ink)}
+.src-said .ico{width:14px;height:14px}
+.src-t{display:inline;padding-block:8px;font-family:'Montserrat','Heebo',sans-serif;font-size:16.5px;font-weight:700;line-height:1.45;color:var(--blue);text-decoration:underline;text-decoration-color:rgba(0,72,255,.35);text-underline-offset:3px;text-decoration-thickness:1.5px}
+.src-t:hover{text-decoration-color:var(--blue)}
+.src-t .ico{width:14px;height:14px;display:inline;vertical-align:-1px;margin-inline-start:4px}
+.src-why{font-size:16px;line-height:1.7;margin-top:4px;color:var(--ink)}
+
+/* questions (from template .q-list, tightened) */
+.qs{max-width:var(--measure)}
+.q-list{list-style:none;display:grid;gap:10px;margin-top:var(--s-3)}
+.q-list li{display:flex;gap:14px;align-items:flex-start;background:var(--soft);border-radius:12px;padding:14px 18px;font-size:17px;line-height:1.65}
+.q-n{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--white);border:2px solid var(--blue);color:var(--blue);font-family:'Montserrat',sans-serif;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.q-sub{font-size:15px;font-weight:800;color:var(--ink-dim);margin-top:var(--s-5)}
+.q-list.q-gen li{background:var(--white);border:1.5px solid var(--line)}
+.q-list.q-gen .q-n{border-color:var(--teal-ink);color:var(--teal-ink)}
+
+.ses-end{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:var(--s-6);font-size:14.5px}
+.ses-end a{display:inline-flex;align-items:center;gap:6px;min-height:48px;font-weight:700}
+
+/* collapsed teaser of next session (shows rhythm only) */
+.ses-teaser .lead p{color:var(--ink)}
+
+/* =========================================================
+   7. INFOGRAPHIC SYSTEM
+   One plate, eight grammars. Real HTML text only.
+   ========================================================= */
+.ig{margin-top:var(--s-6);background:var(--soft);border-radius:20px;padding:28px 28px 18px;position:relative;overflow:hidden;isolation:isolate}
+.ig::before{content:"";position:absolute;inset-inline-end:-90px;top:-90px;width:300px;height:300px;background:url(../assets/ripples-blue-sm.webp) center/contain no-repeat;opacity:.07;z-index:-1;pointer-events:none}
+.ig-title{font-size:20px;font-weight:800;line-height:1.35;max-width:46ch;text-wrap:balance;margin-bottom:var(--s-5)}
+.ig figcaption{font-size:15px;line-height:1.6;color:var(--ink-dim);border-top:1px solid var(--rule);padding-top:12px;margin-top:var(--s-5)}
+.ig ol,.ig ul{list-style:none}
+.ig .k{display:block;font-size:16px;font-weight:800;line-height:1.35;color:var(--ink)}
+.ig .b{display:block;font-size:16px;line-height:1.6;color:#33406B;margin-top:3px;text-wrap:pretty}
+.ig .nb{font-family:'Montserrat',sans-serif;font-variant-numeric:tabular-nums}
+
+/* ---- 7.1 FLOW: ordered steps with arrows; last step may be the outcome */
+.ig-flow{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr)}
+.ig-flow>li{position:relative;padding-top:56px;padding-inline-end:20px}
+.ig-flow .n{position:absolute;top:0;inset-inline-start:0;width:40px;height:40px;border-radius:50%;background:var(--white);border:2px solid var(--blue);color:var(--blue);font:800 15px 'Montserrat',sans-serif;display:flex;align-items:center;justify-content:center;z-index:1}
+.ig-flow>li::before{content:"";position:absolute;top:19px;inset-inline-start:46px;inset-inline-end:6px;height:2px;background:var(--rule)}
+.ig-flow>li::after{content:"";position:absolute;top:15px;inset-inline-end:7px;width:10px;height:10px;border-top:2px solid var(--blue);border-left:2px solid var(--blue);transform:rotate(-45deg)} /* RTL: points left (toward next step). For an LTR page use border-right + rotate(45deg). */
+.ig-flow>li:last-child::before,.ig-flow>li:last-child::after{display:none}
+.ig-flow>li.is-end .n{background:var(--blue);color:var(--white)}
+.ig-flow>li.is-end .k{color:var(--blue)}
+.ig-flow .when{display:block;font-family:'Montserrat','Heebo',sans-serif;font-size:13px;font-weight:700;color:var(--teal-ink);margin-bottom:2px}
+
+/* ---- 7.2 CYCLE: steps around a ring; centre names the loop */
+.ig-cycle{container-type:inline-size;position:relative;width:min(100%,540px);aspect-ratio:1/1;margin:0 auto;--n:4}
+.cyc-ring{position:absolute;left:50%;top:50%;width:64cqw;height:64cqw;transform:translate(-50%,-50%);border:2px solid var(--rule);border-radius:50%}
+.cyc-arrow{position:absolute;left:50%;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;background:var(--blue);clip-path:polygon(0 0,100% 50%,0 100%);transform:rotate(calc((var(--i) + .5) * 360deg / var(--n))) translateY(-32cqw)}
+.cyc-core{position:absolute;left:50%;top:50%;width:25cqw;transform:translate(-50%,-50%);text-align:center;font-size:clamp(16px,3.8cqw,21px);font-weight:800;line-height:1.35;color:var(--ink)}
+.cyc-core small{display:block;font-size:.78em;font-weight:500;color:var(--ink-dim);margin-top:4px}
+.ig-cycle ol>li{position:absolute;left:50%;top:50%;width:30cqw;transform:translate(-50%,-50%) rotate(calc(var(--i) * 360deg / var(--n))) translateY(-32cqw) rotate(calc(var(--i) * -360deg / var(--n)));background:var(--white);border-radius:14px;padding:12px 14px;box-shadow:var(--shadow-sm);text-align:center}
+.ig-cycle .n{display:inline-flex;width:26px;height:26px;border-radius:50%;background:var(--blue);color:var(--white);font:800 12.5px 'Montserrat',sans-serif;align-items:center;justify-content:center;margin-bottom:4px}
+.ig-cycle .b{font-size:15px}
+.cyc-back{display:none}
+
+/* ---- 7.3 COMPARE: two systems, same dimensions, side by side */
+.ig-compare{--a:var(--blue);--bb:var(--teal-ink)}
+.cmp-head,.cmp-row{display:grid;grid-template-columns:170px minmax(0,1fr) minmax(0,1fr);gap:0 24px}
+.cmp-head{padding-bottom:10px}
+.cmp-side{font-size:22px;font-weight:800;line-height:1.2;padding-bottom:8px;border-bottom:3px solid var(--a)}
+.cmp-side.sb{border-bottom-color:var(--bb)}
+.cmp-side small{display:block;font-size:13.5px;font-weight:500;color:var(--ink-dim);margin-top:2px}
+.cmp-row{padding:14px 0;border-top:1px solid var(--rule)}
+.cmp-dim{font-size:15px;font-weight:800;line-height:1.4;color:var(--ink)}
+.cmp-cell{font-size:15.5px;line-height:1.6;color:var(--ink)}
+.cmp-cell strong{display:block;font-weight:800;color:var(--a)}
+.cmp-cell.sb strong{color:var(--bb)}
+
+/* ---- 7.4 LAYERS: nested frames, outermost = widest context (the ripple) */
+.ig-layers li{border-radius:18px;padding:14px 16px 16px;background:var(--white);border:1px solid var(--line)}
+.ig-layers li li{background:var(--tint-1);border-color:#CFDAFB}
+.ig-layers li li li{background:var(--tint-2);border-color:#B9CBFA}
+.ig-layers li li li li{background:var(--blue);border-color:var(--blue)}
+.ig-layers li li li li .k,.ig-layers li li li li .b{color:var(--white)}
+.ig-layers li li li li li{background:var(--ink);border-color:var(--ink)}
+.ig-layers ol{margin-top:12px}
+.lay-row{display:grid;grid-template-columns:200px minmax(0,1fr);gap:4px 20px;align-items:baseline}
+.lay-row .b{margin-top:0}
+.ig-layers .en{font-family:'Montserrat',sans-serif;font-size:13.5px;font-weight:600;color:inherit;opacity:.8;display:block}
+
+/* ---- 7.5 NUMBERS: one lead figure, then a ledger */
+.num-lead{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 24px;align-items:center;padding-bottom:var(--s-5);border-bottom:2px solid var(--ink)}
+.num-lead .v{font:800 clamp(56px,9vw,96px)/1 'Montserrat',sans-serif;color:var(--blue);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.num-lead .k{font-size:19px}
+.num-ledger>li{display:grid;grid-template-columns:150px minmax(0,1fr);gap:4px 24px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--rule)}
+.num-ledger>li:last-child{border-bottom:0}
+.num-ledger .v{font:800 32px/1.1 'Montserrat',sans-serif;color:var(--ink);font-variant-numeric:tabular-nums;text-align:start}
+.num-ledger .v small{font-size:.5em;font-weight:700;color:var(--ink-dim);margin-inline-start:4px}
+.num-ledger .b{margin-top:2px}
+
+/* ---- 7.6 NETWORK: one hub, up to six actors, each with its relation */
+.ig-network{display:grid;grid-template-columns:minmax(0,1fr) 190px minmax(0,1fr);gap:0 44px;align-items:center}
+.net-hub{grid-column:2;grid-row:1;position:relative;aspect-ratio:1/1;border-radius:50%;background:var(--blue);color:var(--white);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px}
+.net-hub::before,.net-hub::after{content:"";position:absolute;inset:-14px;border-radius:50%;border:1.5px solid rgba(0,72,255,.28)}
+.net-hub::after{inset:-30px;border-color:rgba(0,72,255,.14)}
+.net-hub .k{color:var(--white);font-size:18px}
+.net-hub .b{color:rgba(254,254,254,.9);font-size:13.5px}
+.net-side{display:grid;gap:14px}
+.net-side.s1{grid-column:1;grid-row:1}
+.net-side.s2{grid-column:3;grid-row:1}
+.net-side>li{position:relative;background:var(--white);border-radius:14px;padding:12px 16px;box-shadow:var(--shadow-sm)}
+.net-side>li::after{content:"";position:absolute;top:50%;width:44px;height:2px;background:var(--rule)}
+.net-side.s1>li::after{inset-inline-end:-44px}
+.net-side.s2>li::after{inset-inline-start:-44px}
+.net-rel{display:flex;align-items:center;gap:4px;font-size:14.5px;font-weight:700;color:var(--blue);margin-top:2px}
+.net-rel .ico{width:14px;height:14px}
+
+/* ---- 7.7 TIMELINE: dated events along an axis; an era paints the axis */
+.ig-timeline{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr)}
+.ig-timeline>li{display:grid;grid-template-rows:minmax(0,1fr) 28px minmax(0,1fr);position:relative}
+.tl-ax{grid-row:2;position:relative}
+.tl-ax::before{content:"";position:absolute;inset-inline:0;top:13px;height:2px;background:var(--rule)}
+.tl-ax::after{content:"";position:absolute;inset-inline-start:calc(50% - 7px);top:7px;width:14px;height:14px;border-radius:50%;background:var(--white);border:2.5px solid var(--blue)}
+.in-era .tl-ax{background:linear-gradient(var(--blue),var(--blue)) no-repeat;background-size:100% 6px;background-position:center 11px}
+/* era ends at the dot. Physical sides because the page is RTL: start = right, so era-start paints the left half */
+.in-era.era-start .tl-ax{background-size:50% 6px;background-position:left 11px}
+.in-era.era-end .tl-ax{background-size:50% 6px;background-position:right 11px}
+.in-era .tl-ax::before{background:transparent}
+.in-era.era-end .tl-ax::before{background:var(--rule);inset-inline-start:50%}
+.tl-c{padding:0 8px;text-align:center}
+.ig-timeline>li:nth-child(odd) .tl-c{grid-row:1;align-self:end;padding-bottom:10px}
+.ig-timeline>li:nth-child(even) .tl-c{grid-row:3;padding-top:10px}
+.tl-y{display:block;font:800 22px/1.1 'Montserrat',sans-serif;color:var(--blue);margin-bottom:4px;font-variant-numeric:tabular-nums}
+.tl-c .k{font-size:15px}
+.tl-c .b{font-size:15px}
+.tl-legend{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--ink-dim);margin-top:var(--s-4)}
+.tl-legend i{display:inline-block;width:28px;height:6px;border-radius:3px;background:var(--blue)}
+
+/* ---- 7.8 MATRIX: two axes, four quadrants; one may be in focus */
+.ig-matrix{width:100%;border-collapse:separate;border-spacing:8px;margin:-8px;width:calc(100% + 16px);table-layout:fixed}
+.ig-matrix caption{caption-side:bottom;text-align:start;font-size:14px;color:var(--ink-dim);padding:6px 8px 0}
+.mx-corner{width:118px;background:none!important;padding:0!important;height:auto!important}
+.ig-matrix thead th{font-size:14px;font-weight:700;color:var(--ink-dim);text-align:center;padding:0 4px 2px;vertical-align:bottom}
+.ig-matrix tbody th{font-size:14px;font-weight:700;color:var(--ink-dim);text-align:start;vertical-align:middle;padding:0 4px;line-height:1.4}
+.mx-axis{display:flex;align-items:center;gap:6px;justify-content:center;font-size:13px;color:var(--ink);font-weight:800;margin-bottom:4px}
+.mx-axis .ico{width:16px;height:16px;stroke:var(--blue)}
+.ig-matrix td{background:var(--white);border-radius:14px;padding:16px 18px;vertical-align:top;height:140px}
+.ig-matrix td.is-focus{background:var(--blue)}
+.ig-matrix td.is-focus .k,.ig-matrix td.is-focus .b{color:var(--white)}
+.mx-tag{display:inline-block;font-size:13.5px;font-weight:700;background:var(--white);color:var(--blue);border-radius:999px;padding:0 9px;margin-top:8px}
+/* =========================================================
+   9. RESPONSIVE
+   ========================================================= */
+@media (max-width:1040px){
+  .wk-day{padding-inline-start:var(--s-3)}
+  .wk-list a{grid-template-columns:1fr;gap:0}
+}
+@media (max-width:960px){
+  .container{padding-inline:20px}
+  .ses{grid-template-columns:minmax(0,1fr);padding:var(--s-6) 0 var(--s-7)}
+  .ses-rail{grid-column:1;grid-row:auto;position:static;flex-direction:row;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:0 0 10px}
+  .ses-time{font-size:20px}
+  .share{margin:0;margin-inline-start:auto;min-height:48px;padding:0 14px}
+  .ses-main{grid-column:1}
+  .week-grid{grid-template-columns:minmax(0,1fr);border-top:2px solid var(--ink)}
+  .wk-day{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;border-inline-start:0;border-top:1px solid var(--line);padding:var(--s-3) 0}
+  .wk-day:first-child{border-top:0}
+  .wk-name{flex-direction:column;gap:0;margin:6px 0 0}
+  .wk-list a{grid-template-columns:44px 1fr;gap:8px;min-height:44px}
+}
+@media (max-width:720px){
+  /* flow → vertical */
+  .ig-flow{grid-auto-flow:row}
+  .ig-flow>li{padding-top:0;padding-bottom:24px;padding-inline-start:58px;padding-inline-end:0}
+  .ig-flow>li::before{top:46px;bottom:12px;height:auto;width:2px;inset-inline-start:19px;inset-inline-end:auto}
+  .ig-flow>li::after{top:auto;bottom:10px;inset-inline-start:15px;inset-inline-end:auto;transform:rotate(-135deg)}
+  .ig-flow>li:last-child{padding-bottom:0}
+  .ig-flow .n{top:-2px}
+  /* cycle → vertical list + loop back */
+  .ig-cycle{aspect-ratio:auto;width:100%;container-type:normal}
+  .cyc-ring,.cyc-arrow{display:none}
+  .cyc-core{position:static;transform:none;width:auto;text-align:start;font-size:16px;margin-bottom:var(--s-4);padding:10px 14px;background:var(--white);border-radius:12px;border:1.5px solid var(--rule)}
+  .ig-cycle ol{display:grid;gap:10px}
+  .ig-cycle ol>li{position:relative;left:auto;top:auto;width:auto;transform:none;text-align:start;display:grid;grid-template-columns:30px 1fr;gap:0 12px;padding:12px 14px}
+  .ig-cycle .n{grid-row:1 / span 2;margin:0}
+  .cyc-back{display:flex;align-items:center;gap:8px;font-size:14.5px;font-weight:700;color:var(--blue);margin-top:12px}
+  .cyc-back .ico{width:20px;height:20px}
+  /* compare → dimension on top, two cells below */
+  .cmp-head,.cmp-row{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 16px}
+  .cmp-head .cmp-dim{display:none}
+  .cmp-row .cmp-dim{grid-column:1 / -1;margin-bottom:6px}
+  .cmp-side{font-size:18px}
+  .cmp-cell{font-size:15px}
+  /* layers */
+  .lay-row{grid-template-columns:minmax(0,1fr)}
+  .ig-layers li{padding:12px 12px 14px}
+  .ig-layers ol{margin-top:10px}
+  /* numbers */
+  .num-lead{grid-template-columns:minmax(0,1fr)}
+  .num-ledger>li{grid-template-columns:96px minmax(0,1fr);gap:4px 16px}
+  .num-ledger .v{font-size:24px}
+  /* network → hub on top, trunk with branches */
+  .net-hub{grid-column:1;grid-row:1;width:150px;margin:24px auto 40px}
+  .ig-network{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;align-items:stretch}
+  .net-hub{grid-column:1 / -1}
+  .net-side,.net-side.s1,.net-side.s2{display:contents}
+  .net-side>li::after{display:none}
+  .net-side.s1 .net-rel .ico{transform:rotate(90deg)}   /* arrows point up, toward the hub */
+  .net-side.s2 .net-rel .ico{transform:rotate(-90deg)}
+  /* timeline → vertical */
+  .ig-timeline{grid-auto-flow:row}
+  .ig-timeline>li{grid-template-rows:auto;grid-template-columns:64px 28px minmax(0,1fr)}
+  .tl-ax{grid-row:1;grid-column:2}
+  .tl-ax::before{inset-inline:auto;top:0;bottom:0;inset-inline-start:13px;width:2px;height:auto}
+  .tl-ax::after{top:6px;inset-inline-start:7px}
+  .in-era .tl-ax{background-size:6px 100%;background-position:right 11px top 0}
+  .in-era.era-start .tl-ax{background-size:6px calc(100% - 13px);background-position:right 11px bottom}
+  .in-era.era-end .tl-ax{background-size:6px 13px;background-position:right 11px top}
+  .in-era.era-end .tl-ax::before{inset-inline-start:13px;top:14px}
+  .ig-timeline>li:nth-child(n) .tl-c{grid-row:1;grid-column:3;text-align:start;padding:0 0 20px 0;align-self:start}
+  .tl-y{grid-row:1;grid-column:1;font-size:17px;padding-top:4px;margin:0}
+  .ig-timeline>li .tl-c .tl-y{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+  .tl-y-m{display:block!important}
+  /* matrix */
+  .mx-corner{width:64px}
+  .ig-matrix{border-spacing:5px;margin:-5px;width:calc(100% + 10px)}
+  .ig-matrix td{padding:12px 10px;height:auto}
+  .ig-matrix .k{font-size:14.5px}
+  .ig-matrix .b{font-size:14px;line-height:1.5}
+  .ig-matrix tbody th,.ig-matrix thead th{font-size:13.5px}
+}
+.tl-y-m{display:none}
+@media (max-width:600px){
+  .container{padding-inline:16px}
+  .art-hero{padding:36px 0 40px}
+  .hero-lede{font-size:17.5px}
+  .back-txt{display:none}
+  .back{padding:5px 12px}
+  .daybar ol{gap:2px;justify-content:space-between}
+  .daybar a{flex-direction:column;justify-content:center;gap:0;padding:0 8px;min-height:46px;min-width:56px;line-height:1.15;font-size:14.5px}
+  .db-long{display:none}
+  .db-short{display:inline}
+  .day-head{padding-top:var(--s-7)}
+  .lead p{font-size:18px}
+  .ig{padding:20px 16px 14px;border-radius:16px;margin-inline:-6px}
+  .ig-title{font-size:18px}
+  .take>li{grid-template-columns:30px 1fr;gap:0 12px}
+  .take>li::before{width:28px;height:28px;font-size:13px}
+  .take p{font-size:17px}
+  .quote{padding:var(--s-4) 0}
+  .quote p{font-size:19px}
+  .q-list li{padding:12px 14px;font-size:16.5px}
+  .f-brand{gap:14px}
+  .f-brand img{height:42px}
+}
+
+/* =========================================================
+   10. PRINT: one session per page, everything open
+   ========================================================= */
+@media print{
+  @page{margin:16mm 14mm}
+  body>header,.daybar,.art-hero .rip,.share,.ses-end,footer,.chev,.week{display:none!important}
+  .art-hero{background:none;color:var(--ink);padding:0 0 12pt}
+  .hero-lede,.hero-meta{color:var(--ink-dim)}
+  .ses{display:block;padding:0;border:0}
+  .ses-rail{position:static;flex-direction:row;gap:12pt;padding-bottom:6pt}
+  .part>summary{min-height:0}
+  .part-count{display:none}
+  .ig{break-inside:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .take>li,.q-list li,.src li{break-inside:avoid}
+  .lead p,.take p{font-size:11.5pt}
+  .src-t::after{content:" " attr(href);font-family:'Montserrat',sans-serif;font-size:9pt;font-weight:500;color:var(--ink-dim);word-break:break-all;text-decoration:none}
+  a{color:var(--ink)}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .chev,.daybar a,.share{transition:none}
+  .ses:target .ses-title{animation:none}
+}
+/* =========================================================
+   11. LIVE-PAGE ADDITIONS (sessions-build, not in mockup)
+   ========================================================= */
+bdi.lw{white-space:normal}
+/* the mockup set both html scroll-padding and .ses scroll-margin, which doubled the anchor offset */
+html{scroll-padding-top:0}
+.part,.qs,.ig{scroll-margin-top:var(--anchor)}
+.nw{white-space:nowrap}
+.skip{position:absolute;inset-inline-start:16px;top:-60px;z-index:200;background:var(--blue);color:var(--white);font-weight:700;padding:10px 16px;border-radius:var(--r-btn)}
+.skip:focus{top:12px}
+::-webkit-scrollbar{width:12px;height:12px}
+::-webkit-scrollbar-thumb{background:#C3CFEF;border-radius:999px;border:3px solid var(--white)}
+::-webkit-scrollbar-track{background:var(--white)}
+html{scrollbar-color:#C3CFEF var(--white);accent-color:var(--blue)}
+.ses-title a:focus-visible{outline-offset:4px}
+
+/* week index as a collapsible block: closed on mobile, open on desktop */
+.week-d>summary{list-style:none;display:flex;align-items:flex-end;gap:12px;cursor:pointer;padding-bottom:var(--s-5)}
+.week-d>summary::-webkit-details-marker{display:none}
+.week-d>summary .sec-h{margin:0}
+.week-d>summary:hover .sec-h{color:var(--blue)}
+.week-n{font-family:'Montserrat','Heebo',sans-serif;font-size:13px;font-weight:600;color:var(--ink-dim);background:var(--soft);border-radius:999px;padding:1px 10px;margin-bottom:6px}
+.week-d>summary .chev{margin-inline-start:auto;margin-bottom:6px}
+.week-d[open]>summary .chev{transform:rotate(180deg)}
+.wk-name a{display:inline-flex;align-items:center;min-height:44px}
+.day-count{font-size:15px;font-weight:700;color:var(--ink-dim);margin-top:6px}
+.day-count + .day-where{margin-top:2px}
+.src-by{color:var(--ink-dim)}
+.qs-h{padding-top:var(--s-4)}
+.lead p + p{margin-top:var(--s-3)}
+.take p + p{margin-top:var(--s-2)}
+
+/* generic fallback when no hand-tuned fragment exists yet */
+.ig-gen{display:grid;gap:10px}
+.ig-gen>li{background:var(--white);border-radius:12px;padding:12px 14px}
+.ig-gen .ig-gen{margin-top:8px;gap:6px}
+.ig-gen .ig-gen>li{background:none;padding:6px 0 0;border-top:1px solid var(--rule);border-radius:0}
+
+/* ---- 7.9 FLOORS (layers variant): a building seen from the side.
+   Floors stack top to bottom in DOM and on screen (ol reversed: 3, 2, 1);
+   the ground line closes the bottom floor; a spine arrow shows what travels up. */
+.ig-floors{display:grid;grid-template-columns:minmax(0,1fr) 40px;gap:0 14px}
+.flr-stack{display:grid;gap:10px;padding-bottom:12px;border-bottom:3px solid var(--ink)}
+.flr{border-radius:16px;padding:18px 20px 20px;background:var(--white);border:1px solid var(--line)}
+.flr.f2{background:var(--tint-1);border-color:#CFDAFB}
+.flr.f1{background:var(--tint-2);border-color:#B9CBFA}
+.flr-head{display:grid;grid-template-columns:52px minmax(0,1fr);gap:0 14px;align-items:start;margin-bottom:14px}
+.flr-no{grid-row:1 / span 3;width:52px;height:52px;border-radius:14px;background:var(--blue);color:var(--white);display:flex;flex-direction:column;align-items:center;justify-content:center;font:800 21px/1 'Montserrat',sans-serif;font-variant-numeric:tabular-nums}
+.flr-no small{font:700 11px/1.2 'Heebo',sans-serif;margin-bottom:2px;opacity:.92}
+.flr-head .k{font-size:20px;line-height:1.3}
+.flr-who{display:block;font-size:14.5px;font-weight:700;color:var(--teal-ink);margin-top:2px}
+.flr-head .b{margin-top:4px}
+.flr-items{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px 20px}
+.flr-items>li{border-top:1px solid var(--rule);padding-top:10px}
+.flr-ex{margin-top:14px;font-size:15.5px;line-height:1.6;color:#33406B;max-width:var(--measure)}
+.flr-ex b{color:var(--ink)}
+.flr-sub{display:block;font-size:15px;font-weight:800;color:var(--ink-dim);margin:18px 0 12px}
+.flr-sub:first-of-type{margin-top:4px}
+.flr .ig-flow{margin-bottom:4px}
+.flr .ig-flow .n{background:var(--white)}
+.flr .ig-flow>li.is-end .n{background:var(--blue)}
+.flr-spine{position:relative}
+.flr-spine::before{content:"";position:absolute;inset-inline-start:calc(50% - 1.5px);top:10px;bottom:18px;width:3px;border-radius:2px;background:linear-gradient(to top,rgba(0,72,255,.25),var(--blue))}
+.flr-spine::after{content:"";position:absolute;inset-inline-start:calc(50% - 8px);top:6px;width:13px;height:13px;border-top:3px solid var(--blue);border-left:3px solid var(--blue);transform:rotate(45deg)} /* physical: points up in either direction */
+.flr-legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px 24px;margin-top:var(--s-5)}
+.flr-legend>li{display:grid;grid-template-columns:36px minmax(0,1fr);gap:0 12px;align-items:start}
+.flr-legend .ico{width:36px;height:36px;padding:8px;border-radius:50%;background:var(--white);stroke:var(--blue);stroke-width:2.4}
+.flr-legend .b{margin-top:6px;color:var(--ink)}
+.flr-facts{margin-top:var(--s-5);padding-top:var(--s-4);border-top:1px solid var(--rule)}
+.flr-facts .k{margin-bottom:6px}
+.flr-facts ol>li{display:grid;grid-template-columns:120px minmax(0,1fr);gap:0 18px;align-items:baseline;padding:8px 0;border-top:1px solid var(--rule)}
+.flr-facts ol>li:first-child{border-top:0}
+.flr-facts .v{font:800 19px/1.3 'Montserrat',sans-serif;color:var(--blue);font-variant-numeric:tabular-nums;white-space:nowrap}
+.flr-facts .b{margin:0;color:var(--ink)}
+
+@media (max-width:960px){
+  .week-d>summary{padding:var(--s-3) 0;min-height:60px;align-items:center}
+  .week-d>summary .sec-h::before{display:none}
+  .week-d>summary .sec-h,.week-n,.week-d>summary .chev{margin-bottom:0}
+  .week{padding-block:var(--s-5) var(--s-3)}
+  .week-d:not([open]){border-bottom:1px solid var(--line)}
+  .week-d[open]{padding-bottom:var(--s-4)}
+}
+@media (max-width:720px){
+  .ig-flow .when.is-empty{display:none}
+  .ig-floors{grid-template-columns:minmax(0,1fr)}
+  .flr-spine{display:none}
+  .flr{padding:14px 12px 16px}
+  .flr-head{grid-template-columns:44px minmax(0,1fr);gap:0 12px}
+  .flr-no{width:44px;height:44px;font-size:18px;border-radius:12px}
+  .flr-no small{font-size:11.5px}
+  .flr-head .k{font-size:18px}
+  .flr-items{grid-template-columns:minmax(0,1fr);gap:8px}
+  .flr-facts ol>li{grid-template-columns:minmax(0,1fr);gap:2px}
+  .flr-facts .v{font-size:17px}
+}
+@media print{
+  .skip,.week{display:none!important}
+  .day-head{padding-top:0;break-after:avoid}
+  .ig-title,.part-h,.flr-sub{break-after:avoid}
+  .flr,.flr-legend,.flr-facts{break-inside:avoid}
+  .ig .flr{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+@media (prefers-reduced-motion:reduce){
+  .week-d>summary .chev{transition:none}
+}
+@media print{.ig:has(.ig-floors){break-inside:auto}}
+/* ===== s03–s06 additions (additive; new classes only, no existing selector changed) ===== */
+/* ---- 7.10 BUILDING (layers variant, s03): a cross-section read bottom to top.
+   DOM: foundation, floors 1..n, roof, side note. Grid areas put the roof on top and the
+   foundation under the ground line; the floor list is column-reverse so the last floor is highest.
+   Walls and slabs are the ink background showing through 2px of padding and gap. */
+.ig-bld{display:grid;grid-template-columns:minmax(0,1fr) 196px;grid-template-areas:"roof ." "floors side" "base .";gap:0 20px}
+.bld-roof{grid-area:roof;background:var(--ink);clip-path:polygon(50% 0,100% 34px,100% 100%,0 100%,0 34px);padding:46px 24px 16px;text-align:center}
+.bld-roof .k{color:#AFC4FF;font-size:14px;font-weight:800}
+.bld-roof .b{color:var(--white);font-size:17px;font-weight:700;line-height:1.5;max-width:52ch;margin:2px auto 0;text-wrap:balance}
+.bld-floors{grid-area:floors;display:flex;flex-direction:column-reverse;gap:2px;padding:2px 2px 0;background:var(--ink)}
+.bld-f{display:grid;grid-template-columns:52px minmax(0,1fr) 236px;gap:0 16px;align-items:start;padding:16px 18px;background:var(--white)}
+.bld-f .flr-no{grid-row:auto}
+.bld-f:not(:has(.bld-ms)) .bld-txt{grid-column:2 / -1}
+.bld-txt .k{font-size:18px}
+.bld-age{display:block;font-size:14.5px;font-weight:700;color:var(--teal-ink);margin-top:2px}
+.bld-f.is-hl{background:var(--blue)}
+.bld-f.is-hl .flr-no{background:var(--white);color:var(--blue)}
+.bld-f.is-hl .bld-txt .k,.bld-f.is-hl .bld-txt .b{color:var(--white)}
+.bld-f.is-hl .bld-age{color:#D6E2FF}
+.bld-ms{background:var(--soft);border-radius:12px;padding:10px 12px 11px}
+.bld-f.is-hl .bld-ms{background:var(--white)}
+.bld-ms-k{display:block;font-size:13.5px;font-weight:800;line-height:1.4;color:var(--ink)}
+.bld-ms dl{display:grid;gap:6px;margin-top:6px}
+.bld-ms dl>div{display:grid;grid-template-columns:58px minmax(0,1fr);gap:0 8px;align-items:baseline}
+.bld-ms dt{font-size:13.5px;font-weight:700;color:var(--ink-dim)}
+.bld-ms dd{font-size:14.5px;line-height:1.45;color:var(--ink)}
+.bld-ms dd .nb{font-weight:800;font-size:1.12em}
+.bld-ms dd.is-school .nb{color:var(--blue)}
+.bld-ms-n{display:block;font-size:13.5px;line-height:1.5;color:var(--ink-dim);margin-top:8px;text-wrap:pretty}
+.bld-base{grid-area:base;margin-inline:-10px;border-top:4px solid var(--ink);padding:12px 28px 14px;background:var(--tint-2)}
+.bld-base .k{font-size:15px}
+.bld-base .b{color:var(--ink)}
+.bld-side{grid-area:side;display:grid;grid-template-rows:minmax(28px,1fr) auto minmax(28px,1fr);justify-items:center}
+.bld-rail{position:relative;width:3px;border-radius:2px;background:linear-gradient(to top,rgba(0,72,255,.55),var(--blue))}
+.bld-rail:last-child{background:linear-gradient(to top,rgba(0,72,255,.18),rgba(0,72,255,.55))}
+.bld-rail:first-child::after{content:"";position:absolute;inset-inline-start:calc(50% - 8px);top:2px;width:13px;height:13px;border-top:3px solid var(--blue);border-left:3px solid var(--blue);transform:rotate(45deg)} /* physical: points up */
+.bld-side-c{background:var(--white);border-radius:14px;padding:14px 14px 16px;box-shadow:var(--shadow-sm);margin:10px 0;text-align:center}
+.bld-side-c .ico{display:block;width:32px;height:32px;padding:6px;margin:0 auto 6px;border-radius:50%;background:var(--soft);stroke:var(--blue);stroke-width:2.4}
+.bld-side-c .k{font-size:15.5px}
+.bld-side-c .b{font-size:14.5px;line-height:1.55}
+.ig-bld + .flr-facts .v{min-width:0}
+
+/* ---- 7.11 COMPARE, steps variant (s04): ordered dimensions joined by a spine; both sides meet in one line */
+.cmp-steps .cmp-head,.cmp-steps .cmp-row,.cmp-merge{display:grid;grid-template-columns:184px minmax(0,1fr) minmax(0,1fr);gap:0 24px}
+.cmp-list{list-style:none}
+.cmp-steps .cmp-row{position:relative}
+.cmp-steps .cmp-dim{display:flex;align-items:flex-start;gap:10px}
+.cmp-steps .cmp-dim .n{flex:none;width:30px;height:30px;margin-top:-3px;border-radius:50%;background:var(--white);border:2px solid var(--blue);color:var(--blue);font:800 13px 'Montserrat',sans-serif;display:flex;align-items:center;justify-content:center}
+.cmp-list .cmp-row::before{content:"";position:absolute;inset-inline-start:14px;top:44px;bottom:-11px;width:2px;background:var(--rule)}
+.cmp-who{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+.cmp-dest .cmp-dim .ico{flex:none;width:30px;height:30px;margin-top:-3px;padding:6px;border-radius:50%;background:var(--blue);stroke:var(--white);stroke-width:2.6}
+.cmp-dest .cmp-cell{background:var(--white);border-radius:12px;padding:12px 14px;box-shadow:var(--shadow-sm)}
+.cmp-join{grid-column:2 / 4;grid-row:1;position:relative;height:22px;margin-inline:25%;border:2px solid var(--blue);border-top:0;border-radius:0 0 14px 14px}
+.cmp-join::after{content:"";position:absolute;left:calc(50% - 1px);top:100%;width:2px;height:12px;background:var(--blue)}
+.cmp-bridge{grid-column:2 / 4;grid-row:2;justify-self:center;margin-top:12px;background:var(--blue);color:var(--white);font-size:18px;font-weight:800;line-height:1.4;border-radius:999px;padding:10px 24px;text-align:center;text-wrap:balance}
+.cmp-foot{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:var(--s-5);font-size:15.5px;font-weight:700;color:var(--ink);text-align:center}
+.cmp-foot .ico{width:24px;height:24px;stroke:var(--blue)}
+
+/* ---- 7.12 MATRIX, 3×3 variant (s05): three levels × fixed / free / dropped. Dashed = taken off the table */
+.ig-matrix.mx-3 .mx-corner{width:150px}
+.mx-3 thead th{padding:0 4px 4px}
+.mx-h{display:flex;align-items:center;justify-content:center;gap:6px;padding-bottom:6px;border-bottom:3px solid var(--blue);font-size:15px;font-weight:800;color:var(--ink)}
+.mx-h .ico{width:18px;height:18px;stroke:var(--blue)}
+.mx-loose .mx-h{border-bottom-color:var(--teal-ink)}
+.mx-loose .mx-h .ico{stroke:var(--teal-ink)}
+.mx-off .mx-h{border-bottom-style:dashed;border-bottom-color:var(--ink-dim)}
+.mx-off .mx-h .ico{stroke:var(--ink-dim)}
+.ig-matrix.mx-3 td{height:auto;padding:14px 16px}
+.ig-matrix.mx-3 td.mx-off{background:transparent;border:1.5px dashed #A3B2DD}
+.mx-3 td .b{margin-top:0;font-size:15px;line-height:1.6}
+.mx-lv{display:block;font-size:16px;font-weight:800;color:var(--ink)}
+.mx-note{display:block;font-size:13.5px;font-weight:500;line-height:1.45;color:var(--ink-dim);margin-top:4px}
+.mx-c{display:none}
+.mx-after{display:grid;grid-template-columns:minmax(0,1fr) calc((100% - 166px) / 3);gap:8px;margin-top:26px;align-items:start}
+.mx-week{background:var(--white);border-radius:14px;padding:14px 18px 16px}
+.mx-week .k{font-size:15.5px}
+.mx-week ul{display:grid;gap:4px;margin-top:8px}
+.mx-week li{position:relative;padding-inline-start:16px;font-size:15px;margin-top:0}
+.mx-week li::before{content:"";position:absolute;inset-inline-start:0;top:.68em;width:6px;height:6px;border-radius:50%;background:var(--teal-ink)}
+.mx-effect{display:flex;flex-direction:column;align-items:center;gap:6px;background:var(--blue);border-radius:14px;padding:0 16px 16px;text-align:center}
+.mx-effect .ico{width:34px;height:34px;margin-top:-20px;padding:7px;border-radius:50%;background:var(--white);stroke:var(--blue);stroke-width:2.6;box-shadow:var(--shadow-sm)}
+.mx-effect .b{margin:0;color:var(--white);font-weight:700;font-size:15.5px;line-height:1.55}
+
+/* ---- 7.13 WHEEL (other, s06): hub + up to six spokes, 3 per side. Spoke lines are a decorative SVG behind the cards */
+.ig-wheel{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 224px minmax(0,1fr);grid-auto-rows:1fr;gap:16px 44px;align-items:center}
+.whl-spokes{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.whl-spokes line{stroke:var(--rule);stroke-width:2;vector-effect:non-scaling-stroke}
+.whl-hub{grid-column:2;grid-row:1 / span 3;position:relative;z-index:1;aspect-ratio:1/1;border-radius:50%;background:var(--blue);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px 26px}
+.whl-hub::before,.whl-hub::after{content:"";position:absolute;inset:-14px;border-radius:50%;border:1.5px solid rgba(0,72,255,.28);pointer-events:none}
+.whl-hub::after{inset:-30px;border-color:rgba(0,72,255,.14)}
+.whl-hub .k{color:var(--white);font-size:20px}
+.whl-hub .b{color:rgba(254,254,254,.94);font-size:14px;line-height:1.5}
+.whl-spk{display:contents}
+.whl-spk>li{position:relative;z-index:1;background:var(--white);border-radius:14px;padding:14px 16px 15px;box-shadow:var(--shadow-sm)}
+.whl-spk>li:nth-child(1){grid-column:1;grid-row:1}
+.whl-spk>li:nth-child(2){grid-column:1;grid-row:2}
+.whl-spk>li:nth-child(3){grid-column:1;grid-row:3}
+.whl-spk>li:nth-child(4){grid-column:3;grid-row:1}
+.whl-spk>li:nth-child(5){grid-column:3;grid-row:2}
+.whl-spk>li:nth-child(6){grid-column:3;grid-row:3}
+.whl-spk .b{font-size:15px}
+.whl-eg{display:block;margin-top:8px;padding-top:8px;border-top:1px solid var(--rule);font-size:14.5px;line-height:1.55;color:#33406B}
+.whl-eg b{color:var(--teal-ink);font-weight:800}
+.whl-aside{margin-top:var(--s-6);padding-top:var(--s-4);border-top:1px solid var(--rule);display:grid;grid-template-columns:150px minmax(0,1fr);gap:4px 20px;align-items:baseline}
+.whl-aside .k{font-size:15px;color:var(--teal-ink)}
+.whl-aside .b{margin:0;color:var(--ink);max-width:var(--measure)}
+
+@media (max-width:960px){
+  .bld-f{grid-template-columns:48px minmax(0,1fr)}
+  .bld-f .bld-ms{grid-column:2;margin-top:12px}
+}
+@media (max-width:900px){
+  .ig-wheel{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-auto-rows:auto;gap:10px}
+  .whl-spokes,.whl-hub::before,.whl-hub::after{display:none}
+  .whl-hub{grid-column:1 / -1;grid-row:auto;aspect-ratio:auto;border-radius:16px;padding:18px 18px 20px;margin-bottom:6px}
+  .whl-spk>li:nth-child(n){grid-column:auto;grid-row:auto}
+}
+@media (max-width:820px){
+  .ig-matrix.mx-3,.mx-3 tbody,.mx-3 tr,.mx-3 th,.mx-3 td{display:block}
+  .ig-matrix.mx-3{width:100%;margin:0;border-spacing:0}
+  .mx-3 thead{display:none}
+  .mx-3 tbody tr{display:grid;gap:6px;margin-bottom:18px}
+  .mx-3 tbody th{padding:0 2px 2px}
+  .ig-matrix.mx-3 td{padding:12px 14px}
+  .mx-c{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:800;color:var(--blue);margin-bottom:2px}
+  .mx-c::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+  .mx-loose .mx-c{color:var(--teal-ink)}
+  .mx-off .mx-c{color:var(--ink-dim)}
+  .mx-off .mx-c::before{background:none;border:1.5px dashed currentColor;box-sizing:border-box}
+  .mx-after{grid-template-columns:minmax(0,1fr);gap:12px;margin-top:20px}
+  .mx-effect{order:-1}
+}
+@media (max-width:720px){
+  .ig-bld{grid-template-columns:minmax(0,1fr);grid-template-areas:"roof" "floors" "base" "side"}
+  .bld-roof{padding:42px 16px 14px}
+  .bld-roof .b{font-size:16px}
+  .bld-f{grid-template-columns:44px minmax(0,1fr);gap:0 12px;padding:14px 12px}
+  .bld-f .bld-ms{grid-column:1 / -1}
+  .bld-txt .k{font-size:17px}
+  .bld-base{margin-inline:-6px;padding:12px 16px 14px}
+  .bld-side{display:block;margin-top:var(--s-4)}
+  .bld-rail{display:none}
+  .bld-side-c{margin:0;text-align:start;display:grid;grid-template-columns:36px minmax(0,1fr);gap:0 12px;box-shadow:none}
+  .bld-side-c .ico{grid-row:1 / span 2;width:36px;height:36px;padding:7px;margin:0}
+  .cmp-steps .cmp-head,.cmp-steps .cmp-row,.cmp-merge{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 16px}
+  .cmp-steps .cmp-row .cmp-dim{grid-column:1 / -1;margin-bottom:8px}
+  .cmp-list .cmp-row::before{display:none}
+  .cmp-join,.cmp-bridge{grid-column:1 / -1}
+  .cmp-bridge{font-size:16.5px}
+  .ig-wheel{grid-template-columns:minmax(0,1fr)}
+  .whl-aside{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:560px){
+  .cmp-steps .cmp-head{display:none}
+  .cmp-steps .cmp-row{grid-template-columns:minmax(0,1fr);gap:10px}
+  .cmp-steps .cmp-row .cmp-dim{margin-bottom:0}
+  .cmp-who{position:static;width:auto;height:auto;overflow:visible;clip:auto;white-space:normal;display:flex;align-items:center;gap:6px;font-size:13px;font-weight:800;color:var(--blue)}
+  .cmp-who::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+  .cmp-cell.sb .cmp-who{color:var(--teal-ink)}
+  .cmp-join{display:none}
+  .cmp-bridge{justify-self:stretch;border-radius:14px;margin-top:14px}
+}
+@media print{
+  .bld-f,.cmp-steps .cmp-row,.mx-3 tr,.whl-spk>li,.mx-after{break-inside:avoid}
+  .bld-roof,.bld-floors,.bld-f,.bld-base,.cmp-bridge,.mx-effect,.whl-hub{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+@media print{.ig:has(.ig-bld){break-inside:auto}}
+/* ===== end s03–s06 additions ===== */
+
+/* =========================================================
+   12. HUB: day lists of session rows, each row links to its page
+   ========================================================= */
+.ses-list{list-style:none}
+.ses-list>li{border-bottom:1px solid var(--line)}
+.card{display:grid;grid-template-columns:120px minmax(0,1fr);gap:0 var(--s-6);padding:var(--s-6) 0;color:var(--ink);scroll-margin-top:var(--anchor);border-radius:4px}
+.card-rail{display:flex;flex-direction:column;gap:8px;align-items:flex-start;padding-top:4px}
+.card-time{font:800 24px/1 'Montserrat',sans-serif;color:var(--blue);font-variant-numeric:tabular-nums}
+.card-main{min-width:0;max-width:var(--col)}
+.card-t,.card-who,.card-lead{display:block}
+.card-t{font-size:clamp(21px,2.4vw,26px);font-weight:800;line-height:1.3;text-wrap:balance;transition:color .2s var(--ease)}
+.card-who{font-size:15px;color:var(--ink-dim);margin-top:4px}
+.card-who b{font-weight:700;color:var(--ink)}
+.card-lead{font-size:17px;line-height:1.75;margin-top:var(--s-3);max-width:var(--measure);text-wrap:pretty}
+.card-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px;margin-top:var(--s-4);max-width:var(--measure)}
+.card-ig{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:var(--ink-dim)}
+.card-ig svg{width:30px;height:30px;padding:5px;border-radius:8px;background:var(--soft);stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.card-go{display:inline-flex;align-items:center;gap:6px;min-height:44px;font-size:15px;font-weight:700;color:var(--blue)}
+.card-go .ico{transition:transform .25s var(--ease)}
+.card:hover .card-t{color:var(--blue)}
+.card:hover .card-go .ico{transform:translateX(-4px)}
+.card:focus-visible{outline-offset:4px}
+.card:target .card-t{animation:flash 1.6s var(--ease)}
+.day-list{padding-bottom:var(--s-4)}
+
+/* =========================================================
+   13. SESSION PAGE: compact hero, one column, prev/next
+   ========================================================= */
+.page-session{--anchor:calc(var(--head-h) + 16px)}
+.ses-hero{padding:32px 0 40px}
+.crumb{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;font-size:14.5px;margin-bottom:18px;color:rgba(254,254,254,.9)}
+.crumb a{color:var(--white);font-weight:700;text-decoration:underline;text-decoration-color:rgba(254,254,254,.5);text-underline-offset:3px;min-height:44px;display:inline-flex;align-items:center}
+.crumb a:hover{text-decoration-color:var(--white)}
+.crumb .sep{opacity:.7}
+.ses-hero h1{font-size:clamp(28px,4.6vw,44px)}
+.hero-sub{font-size:18px;line-height:1.65;color:rgba(254,254,254,.94);max-width:60ch;text-wrap:pretty}
+.hero-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin-top:20px}
+.hero-when{font-size:15.5px;font-weight:700;color:var(--white)}
+.hero-when bdi{font-weight:800}
+.hero-type{font-size:13.5px;font-weight:700;border:1px solid rgba(254,254,254,.55);border-radius:999px;padding:2px 12px;color:var(--white)}
+.share.on-dark{border-color:rgba(254,254,254,.85);background:var(--ink);color:var(--white);margin:0;margin-inline-start:auto}
+.share.on-dark:hover{background:#1C2A66}
+.share.on-dark.is-done{border-color:var(--white);color:var(--white)}
+.share.on-dark:focus-visible{outline-color:var(--white)}
+.ses-page{max-width:calc(var(--col) + 48px);padding-top:var(--s-6);padding-bottom:var(--s-8)}
+.ses-page .ses-people{margin-top:0}
+.ses-nav{margin-top:var(--s-7);border-top:2px solid var(--ink);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 var(--s-5)}
+.ses-nav a{display:flex;flex-direction:column;gap:2px;padding:var(--s-4) 0;min-height:48px;color:var(--ink)}
+.ses-nav a:hover .nav-t{color:var(--blue)}
+.ses-nav .nav-k{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:700;color:var(--blue)}
+.ses-nav .nav-t{font-size:17px;font-weight:800;line-height:1.4;transition:color .2s var(--ease)}
+.ses-nav .nav-next{grid-column:2;text-align:end;align-items:flex-end}
+.ses-nav .nav-all{grid-column:1 / -1;border-top:1px solid var(--line);flex-direction:row;align-items:center;gap:6px;font-weight:700;color:var(--blue);font-size:15px}
+
+@media (max-width:960px){
+  .card{grid-template-columns:minmax(0,1fr);padding:var(--s-5) 0}
+  .card-rail{flex-direction:row;align-items:center;gap:10px;padding:0 0 8px}
+  .card-time{font-size:19px}
+}
+@media (max-width:600px){
+  .ses-hero{padding:22px 0 30px}
+  .hero-sub{font-size:17px}
+  .ses-nav{grid-template-columns:minmax(0,1fr)}
+  .ses-nav .nav-next{grid-column:1;text-align:start;align-items:flex-start;border-top:1px solid var(--line)}
+  .card-lead{font-size:16.5px}
+}
+@media print{
+  .card-go,.crumb,.ses-nav,.share.on-dark{display:none!important}
+  .ses-hero{padding:0 0 10pt}
+  .hero-sub,.hero-when,.hero-type{color:var(--ink)}
+  .hero-type{border-color:var(--line)}
+  .card{break-inside:avoid}
+}
+@media (prefers-reduced-motion:reduce){
+  .card-go .ico,.card-t,.ses-nav .nav-t{transition:none}
+  .card:hover .card-go .ico{transform:none}
+  .card:target .card-t{animation:none}
+}
+/* =========================================================
+   14. INFOGRAPHIC VARIANTS s08–s11 (additive, every selector scoped
+       to its own variant class; nothing above is overridden)
+   ========================================================= */
+
+/* ---- 7.14 CHAIN (flow variant, s08): three wide links, each carries its own evidence.
+   Use: ol.ig-flow.ch; the principle that spans all links sits above in p.ch-banner. */
+.ch-banner{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 14px;background:var(--white);border-radius:14px;box-shadow:var(--shadow-sm);padding:14px 18px;margin-bottom:var(--s-6)}
+.ch-banner .k{font-size:14.5px;color:var(--teal-ink)}
+.ch-banner-t{font-size:19px;font-weight:800;line-height:1.4;color:var(--ink);text-wrap:balance}
+.ig-flow.ch>li{padding-inline-end:28px}
+.ig-flow.ch .when{font-family:'Heebo',sans-serif;font-size:14px}
+.ig-flow.ch .ch-h{font-size:18px;margin-bottom:14px;text-wrap:balance}
+.ig-flow.ch>li.is-end .k{color:var(--ink)}
+.ig-flow.ch>li.is-end .ch-h{color:var(--blue)}
+.ch .b{font-size:15px;line-height:1.55}
+.ch-sub{display:block;font-size:14.5px;font-weight:800;color:var(--ink-dim);margin:18px 0 8px}
+.ch-mem{display:grid;gap:14px}
+.ch-mem>li{position:relative;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.ch-mem>li+li::before{content:"";position:absolute;inset-inline-start:22px;top:-15px;width:2px;height:14px;background:var(--rule)}
+.ch-mem>li.is-core{background:var(--blue);border-color:var(--blue)}
+.ig-flow.ch .ch-mem>li.is-core .k,.ch-mem>li.is-core .b{color:var(--white)}
+.ch-exp>li{padding:8px 0;border-top:1px solid var(--rule)}
+.ch-exp>li:first-child{border-top:0;padding-top:0}
+.ch-exp .k,.ch-facts .k{font-size:15px}
+.ch-def{margin-top:14px;background:var(--tint-1);border-radius:12px;padding:12px 14px;font-size:15px;line-height:1.6;color:#33406B;text-wrap:pretty}
+.ch-def b{color:var(--ink);font-weight:800}
+.ch-levers>li{padding:9px 0;border-top:1px solid var(--rule)}
+.ch-levers>li:first-child{border-top:0;padding-top:0}
+.ch-levers .k{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:15.5px}
+.ch-yr{font:700 13px/1 'Montserrat',sans-serif;color:var(--teal-ink);font-variant-numeric:tabular-nums}
+.ch-levers>li.is-key{background:var(--blue);border-radius:12px;border-top:0;padding:10px 12px;margin:2px 0}
+.ch-levers>li.is-key+li{border-top:0}
+.ig-flow.ch .ch-levers>li.is-key .k,.ch-levers>li.is-key .b{color:var(--white)}
+.ch-tag{display:inline-block;font-size:13.5px;font-weight:700;line-height:1.6;background:var(--white);color:var(--blue);border-radius:999px;padding:0 9px;margin-top:4px}
+.ch-chart{background:var(--white);border-radius:12px;padding:12px 14px 10px}
+.ch-chart>.k{font-size:15px;margin-bottom:8px}
+.ch-bars>li,.ch-axis{display:grid;grid-template-columns:58px minmax(0,1fr) 34px;gap:0 8px;align-items:center}
+.ch-bars>li{padding:4px 0}
+.ch-c{font-size:14.5px;font-weight:700;color:var(--ink)}
+.ch-track{position:relative;height:16px}
+/* bars grow from the zero line at the start (right in RTL); width = score / 500, the axis maximum */
+.ch-bar{position:absolute;top:0;bottom:0;inset-inline-start:0;width:calc(var(--v) / 500 * 100%);background:var(--ink-dim);border-start-end-radius:3px;border-end-end-radius:3px}
+.ch-bars>li.is-focus .ch-bar{background:var(--blue)}
+.ch-v{font:800 15px/1 'Montserrat',sans-serif;color:var(--ink);font-variant-numeric:tabular-nums;text-align:end}
+.ch-bars>li.is-focus .ch-v{color:var(--blue)}
+.ch-axis{margin-top:2px}
+.ch-axis .ch-c{font-size:13.5px;font-weight:500;color:var(--ink-dim)}
+.ch-ticks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1.5px solid var(--ink-dim);padding-top:2px;font:600 12px/1.4 'Montserrat',sans-serif;color:var(--ink-dim);font-variant-numeric:tabular-nums}
+.ch-ticks span:nth-child(2){text-align:center}
+.ch-ticks span:last-child{text-align:end}
+.ch-note{font-size:13.5px;line-height:1.5;color:var(--ink-dim);margin-top:8px}
+.ch-facts{margin-top:12px}
+.ch-facts>li{padding:8px 0;border-top:1px solid var(--rule)}
+.ch-facts>li:first-child{border-top:0}
+.ch-warn{display:grid;grid-template-columns:20px minmax(0,1fr);gap:0 8px;margin-top:8px;font-size:14.5px;font-weight:700;line-height:1.55;color:var(--ink)}
+.ch-warn .ico{width:20px;height:20px;margin-top:2px;stroke:var(--teal-ink)}
+/* the chain goes vertical earlier than a plain flow: three wide links need ~250px each */
+@media (max-width:900px){
+  .ig-flow.ch{grid-auto-flow:row}
+  .ig-flow.ch>li{padding-top:0;padding-bottom:32px;padding-inline-start:58px;padding-inline-end:0}
+  .ig-flow.ch>li::before{top:46px;bottom:12px;height:auto;width:2px;inset-inline-start:19px;inset-inline-end:auto}
+  .ig-flow.ch>li::after{top:auto;bottom:10px;inset-inline-start:15px;inset-inline-end:auto;transform:rotate(-135deg)}
+  .ig-flow.ch>li:last-child{padding-bottom:0}
+  .ig-flow.ch .n{top:-2px}
+  .ig-flow.ch>li>*{max-width:520px}
+}
+@media (max-width:600px){
+  .ch-banner{padding:12px 14px;margin-bottom:var(--s-5)}
+  .ch-banner-t{font-size:17px}
+  .ig-flow.ch>li{padding-inline-start:52px}
+}
+
+/* ---- 7.15 GATE (layers variant, s09): the school wall with a gate in it.
+   Outside the wall: what the public sees. Inside: numbered layers that rest on each other. */
+.gt-out-h{display:grid;grid-template-columns:140px minmax(0,1fr);gap:2px 20px;align-items:baseline}
+.gt-out-h .b{margin:0}
+.gt-out-items{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}
+.gt-out-items>li{display:grid;grid-template-columns:36px minmax(0,1fr);gap:0 12px;align-items:start;background:var(--white);border-radius:14px;padding:12px 14px}
+.gt-out-items .ico{width:36px;height:36px;padding:8px;border-radius:50%;background:var(--soft);stroke:var(--blue);stroke-width:2.2}
+.gt-out-items .b{font-size:15px;line-height:1.55}
+.gt-in{border:3px solid var(--ink);border-radius:22px;background:var(--white);padding:0 20px 20px;margin-top:40px}
+.gt-door{display:flex;flex-direction:column;align-items:center;text-align:center;max-width:52ch;margin:-22px auto 20px}
+.gt-door-k{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 18px;border:3px solid var(--ink);border-radius:999px;background:var(--blue);color:var(--white);font-size:16px;font-weight:800}
+.gt-door-k .ico{stroke:var(--white)}
+.gt-door-t{font-size:16px;font-weight:500;line-height:1.6;color:var(--ink);margin-top:8px;text-wrap:balance}
+.gt-layers{display:grid;gap:14px}
+.gt-l{position:relative;border-radius:16px;padding:16px 18px 18px;background:var(--soft)}
+.gt-l.l2{background:var(--tint-1)}
+.gt-l.l3{background:var(--tint-2)}
+.gt-l+.gt-l::before{content:"";position:absolute;top:-14px;inset-inline-start:35px;width:2px;height:14px;background:var(--ink)}
+.gt-l-h{display:grid;grid-template-columns:36px minmax(0,1fr);gap:0 12px;margin-bottom:12px}
+.gt-no{grid-row:1 / span 2;width:36px;height:36px;border-radius:50%;background:var(--ink);color:var(--white);font:800 15px/1 'Montserrat',sans-serif;display:flex;align-items:center;justify-content:center}
+.gt-l-h .k{font-size:18px;line-height:1.3;padding-top:5px}
+.gt-l-h .b{max-width:var(--measure)}
+.gt-items{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px 20px}
+.gt-items>li{border-top:1px solid var(--rule);padding-top:8px}
+.gt-items .k{font-size:15.5px}
+.gt-items .b,.gt-steps .b{font-size:15px;line-height:1.55}
+.gt-items.is-col{grid-template-columns:minmax(0,1fr)}
+.gt-tracks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.gt-track{background:var(--white);border-radius:12px;padding:12px 14px 14px}
+.gt-track-h{display:block;font-size:15px;font-weight:800;color:var(--teal-ink);margin-bottom:8px}
+.gt-track .gt-items>li{border-top-color:var(--line)}
+.gt-track .gt-items>li:first-child{border-top:0;padding-top:0}
+.gt-steps>li{position:relative;padding-inline-start:26px;padding-bottom:12px}
+.gt-steps>li:last-child{padding-bottom:0}
+.gt-steps>li::before{content:"";position:absolute;inset-inline-start:3px;top:6px;width:14px;height:14px;border-radius:50%;border:2px solid var(--blue);background:var(--white)}
+.gt-steps>li::after{content:"";position:absolute;inset-inline-start:9px;top:22px;bottom:-2px;width:2px;background:var(--rule)}
+.gt-steps>li:last-child::after{display:none}
+.gt-steps>li.is-end::before{background:var(--blue)}
+.gt-steps .k{font-size:15.5px}
+.gt-after{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 28px;margin-top:var(--s-5);align-items:start}
+.gt-side{background:var(--white);border-radius:14px;padding:14px 16px}
+.gt-side .k,.gt-facts>.k{margin-bottom:6px}
+.gt-side .b{font-size:15.5px}
+.gt-side .b+.b{margin-top:8px}
+.gt-facts li{position:relative;padding:7px 0;padding-inline-start:16px;border-top:1px solid var(--rule);font-size:15.5px;line-height:1.55;color:var(--ink)}
+.gt-facts li:first-child{border-top:0;padding-top:0}
+.gt-facts li::before{content:"";position:absolute;inset-inline-start:0;top:17px;width:6px;height:6px;border-radius:50%;background:var(--blue)}
+.gt-facts li:first-child::before{top:10px}
+@media (max-width:720px){
+  .gt-out-h,.gt-out-items,.gt-tracks,.gt-after{grid-template-columns:minmax(0,1fr)}
+  .gt-out-items{gap:8px}
+  .gt-in{padding:0 10px 12px;border-radius:18px;margin-top:36px}
+  .gt-door{margin-bottom:16px;padding-inline:4px}
+  .gt-door-t{font-size:15.5px}
+  .gt-l{padding:12px 12px 14px}
+  .gt-l+.gt-l::before{inset-inline-start:29px}
+  .gt-l-h .k{font-size:17px}
+  .gt-items{grid-template-columns:minmax(0,1fr);gap:8px}
+  .gt-track{padding:10px 12px 12px}
+}
+
+/* ---- 7.16 REPORT CARD (layers variant, s10): a sheet of graded areas beside the scale.
+   .rc-meter is the five-step scale in miniature: empty on the sheet, filled from the start on the scale. */
+.ig-card{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:20px;align-items:start}
+.rc-sheet{background:var(--white);border-radius:16px;box-shadow:var(--shadow-sm);padding:18px 20px 16px}
+.rc-row-t .b{font-size:15px;line-height:1.55}
+.rc-safe{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 16px;align-items:start;padding-bottom:14px;border-bottom:2px solid var(--ink)}
+.rc-yn{display:inline-flex;border:1.5px solid var(--ink);border-radius:999px;overflow:hidden;font-size:13.5px;font-weight:700;line-height:1.6;color:var(--ink);white-space:nowrap;margin-top:2px}
+.rc-yn>span{padding:3px 11px}
+.rc-yn>span+span{border-inline-start:1.5px solid var(--ink)}
+.rc-sub{display:block;font-size:14.5px;font-weight:800;color:var(--ink-dim);margin:14px 0 2px}
+.rc-areas>li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 16px;align-items:start;padding:10px 0;border-top:1px solid var(--rule)}
+.rc-areas>li:first-child{border-top:0}
+.rc-areas>li.is-key .k{color:var(--blue)}
+.rc-meter{display:inline-grid;grid-auto-flow:column;gap:3px;margin-top:5px}
+.rc-meter i{display:block;width:12px;height:12px;border-radius:3px;border:1.5px solid var(--blue);background:var(--white)}
+.rc-f5 .rc-meter i,.rc-f4 .rc-meter i:nth-child(-n+4),.rc-f3 .rc-meter i:nth-child(-n+3),.rc-f2 .rc-meter i:nth-child(-n+2),.rc-f1 .rc-meter i:first-child{background:var(--blue)}
+.rc-foot{font-size:13.5px;line-height:1.55;color:var(--ink-dim);margin-top:6px}
+.rc-areas+.rc-foot{border-top:1px solid var(--rule);padding-top:10px;margin-top:0}
+.rc-side{display:grid;gap:12px}
+.rc-side .rc-sub{margin:0}
+.rc-scale{display:grid;gap:6px}
+.rc-scale>li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:0 12px;background:var(--white);border:1.5px solid transparent;border-radius:12px;padding:10px 12px}
+.rc-scale .rc-meter{grid-row:1 / span 3;margin-top:5px}
+.rc-lv{font:700 12.5px/1.4 'Montserrat',sans-serif;color:var(--teal-ink)}
+.rc-lv bdi{font-size:1em}
+.rc-scale .b{font-size:14.5px;line-height:1.5}
+.rc-scale>li.is-start{border-color:var(--blue);box-shadow:var(--shadow-sm)}
+.rc-rule{display:grid;grid-template-columns:36px minmax(0,1fr);gap:0 12px;align-items:start;background:var(--blue);border-radius:14px;padding:12px 14px}
+.rc-rule .ico{width:36px;height:36px;padding:7px;border-radius:50%;background:rgba(254,254,254,.16);stroke:var(--white);stroke-width:2.4}
+.rc-rule .k,.rc-rule .b{color:var(--white)}
+.rc-rule .b{font-size:15px;line-height:1.55}
+.rc-ba{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 28px;margin-top:var(--s-5);padding-top:var(--s-4);border-top:2px solid var(--ink)}
+.rc-ba-h{display:block;font-size:15px;font-weight:800;color:var(--ink-dim);margin-bottom:4px}
+.rc-now .rc-ba-h{color:var(--blue)}
+.rc-ba .b{margin:0;color:var(--ink)}
+.rc-dots{display:flex;gap:5px;margin:4px 0 8px}
+.rc-dots i{width:14px;height:14px;border-radius:50%;background:var(--ink-dim)}
+.rc-dots i:last-child{background:none;border:1.5px solid var(--ink-dim)}
+@media (max-width:820px){
+  .ig-card,.rc-ba{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:600px){
+  .rc-sheet{padding:14px 14px 12px}
+  .rc-safe,.rc-areas>li{grid-template-columns:minmax(0,1fr)}
+  .rc-areas>li .rc-meter{grid-row:1;justify-self:start;margin:0 0 2px}
+  .rc-yn{justify-self:start}
+}
+
+/* ---- 7.17 GRID (layers variant, s11): fields × layers, the school as the ground row.
+   DOM is column-major (one li per field). Desktop: shared subgrid, so each layer reads as a band;
+   row heads are aria-hidden and every cell names its own layer (.grd-lay, visually hidden here).
+   Under 900px each field becomes its own stack and .grd-lay shows. */
+.ig-grid{display:grid;grid-template-columns:118px minmax(0,1fr);grid-template-rows:auto repeat(3,auto) auto;gap:4px 3px}
+.grd-heads{grid-column:1;grid-row:1 / 5;display:grid;grid-template-rows:subgrid}
+.grd-cols{grid-column:2;grid-row:1 / 5;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:subgrid;column-gap:3px}
+.grd-col{grid-row:1 / 5;display:grid;grid-template-rows:subgrid}
+.grd-h{align-self:end;font-size:16px;line-height:1.3;padding:0 12px 8px;border-bottom:3px solid var(--blue);text-wrap:balance}
+.grd-rh{display:block;padding:12px 12px;border-start-start-radius:12px;border-end-start-radius:12px}
+.grd-rh .k{font-size:16px}
+.grd-who{display:block;font-size:13px;font-weight:500;line-height:1.4;color:var(--ink-dim);margin-top:2px}
+.grd-c{margin:0;padding:12px 14px}
+.grd-col:last-child .grd-c{border-start-end-radius:12px;border-end-end-radius:12px}
+.grd-c .b{margin:0;font-size:15px;line-height:1.55;color:var(--ink)}
+.ig-grid .r1{background:var(--tint-2)}
+.ig-grid .r2{background:var(--tint-1)}
+.ig-grid .r3{background:var(--white)}
+.grd-lay{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.grd-base{grid-column:1 / -1;display:grid;grid-template-columns:subgrid;align-items:baseline;margin:6px 0 0;padding:14px 0;background:var(--ink);border-radius:14px}
+.grd-base .k{color:var(--white);font-size:18px;padding-inline-start:12px}
+.grd-base .b{color:rgba(254,254,254,.92);margin:0;padding-inline:14px 18px}
+.grd-after{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:16px 28px;align-items:start;margin-top:var(--s-5)}
+.grd-after .num-ledger>li{grid-template-columns:118px minmax(0,1fr);gap:4px 18px}
+.grd-after .num-ledger .v{font-size:28px}
+.grd-after .num-ledger .v small{display:block;margin:2px 0 0;font-size:13px}
+.grd-quote{background:var(--white);border-radius:14px;padding:14px 16px}
+.grd-en{font-family:'Montserrat',sans-serif;font-size:15px;font-weight:600;line-height:1.55;color:var(--ink);margin:6px 0 8px}
+.grd-quote .b{margin:0}
+.grd-open{display:grid;grid-template-columns:36px minmax(0,1fr);gap:0 12px;align-items:center;margin-top:var(--s-4);padding:12px 14px;border:1.5px solid var(--rule);border-radius:14px;font-size:16px;font-weight:700;line-height:1.5;color:var(--ink)}
+.grd-open .ico{width:36px;height:36px;padding:7px;border-radius:50%;background:var(--white);stroke:var(--blue);stroke-width:2.2}
+@media (max-width:900px){
+  .ig-grid{display:block}
+  .grd-heads{display:none}
+  .grd-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));grid-template-rows:none;gap:12px}
+  .grd-col{display:block;grid-row:auto;background:var(--white);border-radius:14px;overflow:hidden}
+  .grd-h{font-size:17px;padding:12px 14px 10px;border-bottom:3px solid var(--blue)}
+  .grd-c{padding:10px 14px 12px}
+  .grd-c.r3{border-top:1px solid var(--line)}
+  .grd-lay{position:static;width:auto;height:auto;margin:0 0 2px;overflow:visible;clip:auto;white-space:normal;display:block;font-size:14.5px;font-weight:800;line-height:1.4;color:var(--ink)}
+  .grd-lay .grd-who{display:inline;font-size:13px;margin:0;margin-inline-start:6px}
+  .grd-base{display:block;margin-top:12px;padding:14px 16px}
+  .grd-base .k{padding:0;margin-bottom:2px}
+  .grd-base .b{padding:0}
+  .grd-after{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:600px){
+  .grd-after .num-ledger>li{grid-template-columns:96px minmax(0,1fr);gap:4px 14px}
+  .grd-after .num-ledger .v{font-size:24px}
+  .grd-open{grid-template-columns:32px minmax(0,1fr);font-size:15.5px}
+  .grd-open .ico{width:32px;height:32px;padding:6px}
+}
+
+/* print: these four are taller than a page; let them break between their parts */
+@media print{
+  .ig:has(.ig-flow.ch,.ig-gate,.ig-card,.ig-grid){break-inside:auto}
+  .ig-flow.ch>li,.ch-chart,.gt-out,.gt-l,.gt-after>*,.rc-sheet,.rc-side,.rc-ba,.grd-col,.grd-base,.grd-after>*{break-inside:avoid}
+}
+/* ===== s01–s02 additions (additive; new prefixes pm- and pk- only, no existing selector changed) ===== */
+/* ---- 7.18 PENDULUM TO MOSAIC (timeline variant, s01): old order, crisis axis, today's map, one trust figure.
+   Neutral by design: every party in one tone (--ink-dim); in the 2024 chart outline = votes, solid = seats.
+   Bars start at zero: poll width = v / 40 (axis 0 to 40), votes and seats width = v / 100.
+   Desktop axis: 14 half-slots, six dots on slots 2,4,...,12; each event box is 4 half-slots wide, centred on its dot,
+   odd events above the axis and even below, so same-side boxes never overlap. Vertical under 900px. */
+.pm-panel{background:var(--white);border-radius:16px;box-shadow:var(--shadow-sm);padding:20px 22px 22px}
+.ig .k.pm-h{font-size:18px;line-height:1.35;margin-bottom:4px}
+.pm-before{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:20px 36px;align-items:center}
+.pm-b-txt .b{max-width:44ch}
+.pm-frame{position:relative;border:1.5px dashed var(--ink-dim);border-radius:14px;padding:20px 14px 14px;margin-top:10px}
+.pm-frame-k{position:absolute;top:-11px;inset-inline-start:12px;background:var(--white);padding:0 8px;font-size:14px;font-weight:800;line-height:20px;color:#33406B}
+.pm-swing{display:block;width:100%;height:auto;margin-bottom:-10px;fill:none;stroke-linecap:round}
+.pm-arc{stroke:var(--rule);stroke-width:2;stroke-dasharray:3 5}
+.pm-rod{stroke:var(--ink-dim);stroke-width:1.5}
+.pm-bob{fill:var(--white);stroke:var(--ink-dim);stroke-width:2}
+.pm-pivot{fill:var(--ink)}
+.pm-blocs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;position:relative}
+.pm-blocs>li{background:var(--soft);border-radius:10px;padding:8px 8px 9px;text-align:center}
+.ig .pm-blocs .k{font-size:17px}
+.pm-pos{display:block;font-size:14px;font-weight:500;line-height:1.4;color:#33406B}
+.pm-rules{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:12px}
+.pm-rules>li{font-size:14px;font-weight:700;line-height:1.6;color:var(--ink);background:var(--white);border:1px solid var(--rule);border-radius:999px;padding:1px 11px}
+.pm-next{display:flex;justify-content:center;padding:10px 0;color:var(--blue)}
+.pm-next .ico{width:22px;height:22px}
+.pm-mid{padding-top:4px}
+.pm-tl{display:grid;grid-template-columns:repeat(14,minmax(0,1fr));grid-template-rows:auto 28px auto;margin-top:14px}
+.pm-tl::before{content:"";grid-column:3 / 14;margin-inline-end:20px;grid-row:2;align-self:center;height:2px;background:var(--ink-dim)}
+.pm-tl::after{content:"";grid-column:13 / 14;grid-row:2;align-self:center;justify-self:end;width:10px;height:10px;margin-inline-end:20px;border-top:2px solid var(--ink-dim);border-left:2px solid var(--ink-dim);transform:rotate(-45deg)} /* RTL: points left, the way time runs */
+.pm-e{position:relative;display:block;padding:0 8px;text-align:center}
+.pm-e:nth-child(odd){grid-row:1;align-self:end;padding-bottom:16px}
+.pm-e:nth-child(even){grid-row:3;padding-top:16px}
+.pm-e:nth-child(1){grid-column:1 / span 4}
+.pm-e:nth-child(2){grid-column:3 / span 4}
+.pm-e:nth-child(3){grid-column:5 / span 4}
+.pm-e:nth-child(4){grid-column:7 / span 4}
+.pm-e:nth-child(5){grid-column:9 / span 4}
+.pm-e:nth-child(6){grid-column:11 / span 4}
+.pm-e::before{content:"";position:absolute;inset-inline-start:calc(50% - 1px);width:2px;height:18px;background:var(--rule)}
+.pm-e:nth-child(odd)::before{bottom:-7px}
+.pm-e:nth-child(even)::before{top:-7px}
+.pm-e::after{content:"";position:absolute;inset-inline-start:calc(50% - 7px);width:14px;height:14px;border-radius:50%;background:var(--white);border:2.5px solid var(--blue)}
+.pm-e:nth-child(odd)::after{bottom:-21px}
+.pm-e:nth-child(even)::after{top:-21px}
+.pm-y{display:block;font:800 17px/1.25 'Montserrat','Heebo',sans-serif;color:var(--blue);font-variant-numeric:tabular-nums;margin-bottom:3px}
+.pm-c{display:block}
+.ig .pm-e .k{font-size:16px}
+.pm-q{display:block;font-size:14.5px;font-weight:700;line-height:1.45;color:var(--teal-ink);margin-top:2px;text-wrap:balance}
+.ig .pm-e .b{font-size:15px;line-height:1.55}
+.pm-acc{display:grid;grid-template-columns:24px minmax(0,1fr);gap:0 10px;align-items:start;margin:22px calc(100% / 7) 0;padding-top:12px;border-top:4px solid var(--teal);border-radius:2px}
+.pm-acc .ico{width:24px;height:24px;stroke:var(--teal-ink);margin-top:1px}
+.ig .pm-acc .k{color:var(--teal-ink)}
+.pm-after{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px 36px;align-items:start}
+.pm-a-txt{grid-column:1 / -1}
+.pm-a-txt .b{max-width:60ch}
+.pm-chart-k{display:block;font-size:14.5px;font-weight:800;line-height:1.4;color:#33406B;margin-bottom:8px}
+.pm-plot{position:relative;padding-top:20px}
+.pm-bars>li,.pm-axis,.pm-vs-r{display:grid;grid-template-columns:116px minmax(0,1fr) 44px;gap:0 8px;align-items:center}
+.pm-bars>li{padding:4px 0}
+.pm-p{font-size:15px;font-weight:700;line-height:1.3;color:var(--ink)}
+.pm-tr{position:relative;display:block;height:16px}
+.pm-bar{position:absolute;top:0;bottom:0;inset-inline-start:0;width:calc(var(--v) / 40 * 100%);background:var(--ink-dim);border-start-end-radius:3px;border-end-end-radius:3px}
+.pm-v{font:800 15px/1 'Montserrat',sans-serif;color:var(--ink);font-variant-numeric:tabular-nums;text-align:end}
+/* the 5% line: track starts after the name column (116px + 8px gap) and ends before the value column (44px + 8px) */
+.pm-th{position:absolute;top:0;bottom:0;inset-inline-start:calc(124px + (100% - 176px) * 5 / 40);border-inline-start:1.5px dashed var(--ink);z-index:1;pointer-events:none}
+.pm-th span{position:absolute;top:0;inset-inline-start:4px;font:700 12.5px/16px 'Montserrat',sans-serif;color:var(--ink);white-space:nowrap}
+.pm-axis{margin-top:4px}
+.pm-ticks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1.5px solid var(--ink-dim);padding-top:2px;font:600 12px/1.4 'Montserrat',sans-serif;color:#33406B;font-variant-numeric:tabular-nums}
+.pm-ticks span:nth-child(2){text-align:center}
+.pm-ticks span:last-child{text-align:end}
+.pm-sys>.b{margin:0}
+.pm-vs{margin-top:16px}
+.pm-vs-r{grid-template-columns:58px minmax(0,1fr) 52px;padding:3px 0}
+.pm-vs-p+.pm-vs-p{margin-top:10px}
+.pm-vs-n{display:block;font-size:15px;font-weight:800;line-height:1.4;color:var(--ink);margin-bottom:2px}
+.pm-vs-l{font-size:13.5px;font-weight:500;color:#33406B}
+.pm-vs .pm-axis{grid-template-columns:58px minmax(0,1fr) 52px}
+.pm-bar.is-votes,.pm-bar.is-seats{width:calc(var(--v) / 100 * 100%)}
+.pm-bar.is-votes{background:var(--white);border:1.5px solid var(--ink-dim)}
+.pm-bar.is-seats{background:var(--ink)}
+.pm-tr.is-cnt{height:auto}
+.pm-cnt{display:block;font-size:13.5px;font-weight:700;line-height:1.4;color:var(--ink)}
+.pm-stat{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 24px;align-items:center;margin-top:var(--s-6);padding-top:var(--s-4);border-top:2px solid var(--ink)}
+.pm-stat>.k{grid-column:1 / -1}
+.pm-stat-v{font:800 clamp(48px,7vw,72px)/1 'Montserrat',sans-serif;color:var(--blue);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.pm-stat-t .b{margin:0;max-width:60ch;color:var(--ink)}
+@media (max-width:900px){
+  .pm-tl{display:block;margin-top:12px}
+  .pm-tl::before,.pm-tl::after{display:none}
+  .pm-e:nth-child(n){display:grid;grid-template-columns:64px 36px minmax(0,1fr);grid-column:auto;grid-row:auto;align-self:auto;padding:0 0 20px;text-align:start}
+  .pm-e:last-child{padding-bottom:0}
+  .pm-y{grid-column:1;font-size:15px;padding-top:2px;margin:0}
+  .pm-c{grid-column:3}
+  .pm-e:nth-child(n)::before{top:0;bottom:0;height:auto;inset-inline-start:80px;background:var(--ink-dim)}
+  .pm-e:first-child::before{top:10px}
+  .pm-e:last-child::before{bottom:auto;height:10px}
+  .pm-e:nth-child(n)::after{top:4px;bottom:auto;inset-inline-start:74px}
+  .pm-acc{margin-inline:0}
+}
+@media (max-width:720px){
+  .pm-panel{padding:16px 14px 18px;border-radius:14px}
+  .pm-before,.pm-after{grid-template-columns:minmax(0,1fr)}
+  .pm-before{gap:14px}
+  .pm-e:nth-child(n){grid-template-columns:56px 34px minmax(0,1fr)}
+  .pm-e:nth-child(n)::before{inset-inline-start:72px}
+  .pm-e:nth-child(n)::after{inset-inline-start:66px}
+  .pm-bars>li,.pm-axis{grid-template-columns:104px minmax(0,1fr) 38px}
+  .pm-p{font-size:14.5px}
+  .pm-th{inset-inline-start:calc(112px + (100% - 158px) * 5 / 40)}
+  .pm-stat{grid-template-columns:minmax(0,1fr);gap:4px}
+}
+
+/* ---- 7.19 POCKET CARD (other, s02): a two-sided card to keep, then the week's route.
+   The dashed outline is the cut line; the punched hole on the front is decoration. Route: one column per day,
+   Sunday at the start (right), a line joining the day dots; vertical under 900px. */
+.pk-cards{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:32px;align-items:start;padding:8px}
+.pk-card{display:flex;flex-direction:column;background:var(--white);border-radius:18px;box-shadow:var(--shadow-md);outline:2px dashed var(--rule);outline-offset:6px;overflow:hidden}
+.pk-head{position:relative;background:var(--blue);padding:16px 22px 16px;padding-inline-end:52px}
+.ig .pk-head .k{color:var(--white);font-size:17px}
+.ig .pk-head .b{color:var(--white);font-size:15.5px;line-height:1.55;opacity:.94}
+.pk-head.is-ink{background:var(--ink)}
+.pk-hole{position:absolute;top:18px;inset-inline-end:20px;width:16px;height:16px;border-radius:50%;background:var(--soft);box-shadow:inset 0 1.5px 2px rgba(11,20,64,.45)}
+.pk-qs{padding:4px 22px 12px}
+.pk-qs>li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:0 12px;padding:14px 0;border-top:1px solid var(--line)}
+.pk-qs>li:first-child{border-top:0}
+.pk-n{grid-row:1 / span 2;font:800 30px/1 'Montserrat',sans-serif;color:var(--blue);font-variant-numeric:tabular-nums;padding-top:1px}
+.pk-q{display:block;font-size:19px;font-weight:800;line-height:1.35;color:var(--ink);text-wrap:balance}
+.ig .pk-qs .b{font-size:15.5px;margin-top:4px}
+.pk-traps{padding:6px 22px 4px}
+.pk-traps>li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:0 12px;align-items:start;padding:12px 0;border-top:1px solid var(--line);font-size:18px;font-weight:700;line-height:1.45;color:var(--ink)}
+.pk-traps>li:first-child{border-top:0}
+.pk-traps .ico{width:22px;height:22px;stroke:var(--ink-dim);margin-top:3px}
+.pk-instead{display:grid;grid-template-columns:22px minmax(0,1fr);gap:0 12px;align-items:start;margin:8px 16px 16px;padding:12px 14px;background:var(--tint-1);border-radius:12px}
+.pk-instead .ico{width:22px;height:22px;stroke:var(--blue);margin-top:3px}
+.ig .pk-instead .b{margin:0;color:var(--ink);font-weight:500}
+.pk-week{margin-top:var(--s-7)}
+.pk-week>.b{max-width:60ch}
+.pk-days{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0 16px;margin-top:16px}
+.pk-days>li{position:relative}
+.pk-days>li::before{content:"";position:absolute;top:10px;inset-inline-start:8px;inset-inline-end:-16px;height:2px;background:var(--rule)}
+.pk-days>li:last-child::before{display:none}
+.pk-day{position:relative;z-index:1;display:flex;align-items:center;gap:8px;width:fit-content;padding-inline-end:10px;background:var(--soft);font-size:16px;font-weight:800;line-height:22px;color:var(--ink)}
+.pk-day::before{content:"";width:16px;height:16px;flex-shrink:0;border-radius:50%;background:var(--white);border:3px solid var(--blue);box-sizing:border-box}
+.pk-stops{display:grid;gap:10px;margin-top:12px}
+.pk-stops>li{background:var(--white);border-radius:12px;padding:10px 12px 12px}
+.pk-when{display:block;font-size:13.5px;font-weight:700;line-height:1.4;color:var(--teal-ink)}
+.ig .pk-stops .k{font-size:15.5px}
+.ig .pk-stops .b{font-size:15px;line-height:1.55}
+@media (max-width:900px){
+  .pk-days{display:block}
+  .pk-days>li{padding-bottom:16px}
+  .pk-days>li:last-child{padding-bottom:0}
+  .pk-days>li::before{top:10px;bottom:-10px;inset-inline-start:7px;inset-inline-end:auto;width:2px;height:auto}
+  .pk-stops{margin-top:8px;margin-inline-start:24px}
+}
+@media (max-width:760px){
+  .pk-cards{grid-template-columns:minmax(0,1fr);gap:28px;padding:6px}
+  .pk-head{padding:14px 16px;padding-inline-end:44px}
+  .pk-hole{top:16px;inset-inline-end:16px}
+  .pk-qs{padding:2px 16px 8px}
+  .pk-q{font-size:18px}
+  .pk-n{font-size:26px}
+  .pk-traps{padding:4px 16px 2px}
+  .pk-traps>li{font-size:17px}
+  .pk-instead{margin:6px 12px 12px}
+}
+@media print{
+  .ig:has(.pm-tl,.pk-cards){break-inside:auto}
+  .pm-panel,.pm-mid,.pm-stat,.pk-card,.pk-days>li{break-inside:avoid}
+  .pk-card{box-shadow:none}
+}
+/* ===== end s01–s02 additions ===== */
+</style>
+</head>
+<body class="page-session" data-sessions="s01 s02 s03 s04 s05 s06 s07 s08 s09 s10 s11 s12 s13">
+
+<a class="skip" href="#main">דילוג לתוכן</a>
+
+<header>
+  <div class="container nav-inner">
+    <a class="brand" href="../index.html"><img src="../assets/advot-logo.png" alt="אדוות · מנהיגות מחוללת שינוי" width="102" height="34"></a>
+    <a class="back" href="../sessions.html#card-s11" aria-label="חזרה לכל המפגשים"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span class="back-txt">כל המפגשים</span></a>
+  </div>
+</header>
+
+<section class="art-hero ses-hero">
+  <img class="rip" src="../assets/ripples-white-sm.webp" alt="" decoding="async">
+  <div class="container"><div class="hero-inner">
+    <nav class="crumb" aria-label="מיקום באתר"><a href="../sessions.html#card-s11">מה שמענו בלונדון</a><span class="sep" aria-hidden="true">/</span><a href="../sessions.html#d4">יום רביעי 25.11</a></nav>
+    <h1 id="ses-h">מה משרד החינוך האנגלי עושה בעצמו, ומה הוא מעביר לאחרים</h1>
+    <p class="hero-sub">דיון פנימי של המשלחת עם מייקל ועמוס, המנחים של התוכנית</p>
+    <div class="hero-row">
+      <span class="hero-when">יום רביעי <bdi>25.11</bdi> · <bdi>15:04</bdi></span>
+      <span class="hero-type">דיון</span>
+      <button class="share on-dark" type="button" data-share aria-label="שליחה: קישור לעמוד המפגש הזה"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7M16 6l-4-4-4 4M12 2v14"/></svg><span class="share-t" aria-live="polite">שליחה</span></button>
+    </div>
+  </div></div>
+</section>
+
+<main id="main">
+<article class="container ses-page" aria-labelledby="ses-h">
+<ul class="ses-people" role="list" aria-label="דוברים"><li><b>מייקל</b>, המנחה הבריטי של התוכנית</li><li><b>עמוס</b>, המנחה הישראלי של התוכנית</li></ul><p class="ses-place"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>מפגש פנימי של המשלחת</p>
+<section class="lead" aria-labelledby="lead-h"><h2 class="part-h" id="lead-h">בקצרה</h2><p>דיון פנימי של המשלחת, בעברית ובאנגלית, על מה שמשרד החינוך האנגלי עושה בעצמו ועל מה שהוא מעביר לגופים אחרים. מייקל, המנחה הבריטי של התוכנית, פתח בתדריך קצר: המשרד קובע את תוכנית הלימודים, את המימון ואת הסטנדרטים, ובית הספר מחליט איך לבצע. עמוס, המנחה הישראלי של התוכנית, הראה את אותו דפוס בבחינות, בתוכן הלימודי ובהכשרת המורים. בכל אחד מהם יש סטנדרט גלוי, גוף שמפקח עליו ושוק של ספקים שבית הספר בוחר ביניהם. בחדר נשארה פתוחה שאלה אחת: איך שומרים על אמון כשמי שמשלם על הבחינה הוא גם מי שנמדד בה.</p></section>
+<!-- s11 · archetype: layers, "grid" variant (.ig-grid). Source: 20-draft/sessions/s11.json, infographic.
+     DOM is column by column (each field reads top to bottom: direction, supervision, delivery), so a phone
+     shows one stack per field. On desktop the columns sit on a shared subgrid and the layers read as bands
+     across all four; the row heads are visual only, each cell carries its layer name for screen readers. -->
+<figure class="ig" aria-labelledby="ig">
+  <h2 class="ig-title" id="ig">מי עושה מה: ארבעה תחומים, שלוש שכבות</h2>
+  <div class="ig-grid">
+
+    <div class="grd-heads" aria-hidden="true">
+      <span class="grd-corner"></span>
+      <span class="grd-rh r1"><span class="k">הכיוון</span><span class="grd-who">משרד החינוך (<bdi>DfE</bdi>)</span></span>
+      <span class="grd-rh r2"><span class="k">הפיקוח</span><span class="grd-who">גופים שאינם המשרד עצמו</span></span>
+      <span class="grd-rh r3"><span class="k">הביצוע</span><span class="grd-who">ספקים</span></span>
+    </div>
+
+    <ul class="grd-cols" role="list">
+      <li class="grd-col">
+        <span class="k grd-h">בחינות</span>
+        <p class="grd-c r1"><span class="grd-lay">הכיוון<span class="grd-who">משרד החינוך (<bdi>DfE</bdi>)</span></span><span class="b">המשרד קובע מה נלמד בכל מקצוע שנבחנים עליו.</span></p>
+        <p class="grd-c r2"><span class="grd-lay">הפיקוח<span class="grd-who">גופים שאינם המשרד עצמו</span></span><span class="b"><bdi>Ofqual</bdi>, רשות ממשלתית שאינה כפופה לשר, מכירה בגופי הבחינה ומפקחת עליהם.</span></p>
+        <p class="grd-c r3"><span class="grd-lay">הביצוע<span class="grd-who">ספקים</span></span><span class="b">ארבעה גופים כותבים ובודקים את בחינות ה-<bdi>GCSE</bdi> וה-<bdi>A level</bdi>: <bdi>AQA</bdi>, <bdi>Pearson</bdi>, <bdi>OCR</bdi> ו-<bdi>WJEC</bdi>.</span></p>
+      </li>
+      <li class="grd-col">
+        <span class="k grd-h">תוכן ומערכי שיעור</span>
+        <p class="grd-c r1"><span class="grd-lay">הכיוון<span class="grd-who">משרד החינוך (<bdi>DfE</bdi>)</span></span><span class="b">המשרד מפרסם את תוכנית הלימודים הארצית ונותן הנחיות, אבל לא כותב מערכי שיעור.</span></p>
+        <p class="grd-c r2"><span class="grd-lay">הפיקוח<span class="grd-who">גופים שאינם המשרד עצמו</span></span><span class="b"><bdi>Oak</bdi> פועלת כגוף עצמאי במימון המשרד, ומפרסמת באתר הממשלה רשומת שקיפות על כלי ה-<bdi>AI</bdi> שלה.</span></p>
+        <p class="grd-c r3"><span class="grd-lay">הביצוע<span class="grd-who">ספקים</span></span><span class="b"><bdi>Oak</bdi> וגופים אחרים כותבים מערכי שיעור וחומרי לימוד, ו-<bdi>Oak</bdi> גם בונה כלי <bdi>AI</bdi> למורים.</span></p>
+      </li>
+      <li class="grd-col">
+        <span class="k grd-h">הכשרת מורים</span>
+        <p class="grd-c r1"><span class="grd-lay">הכיוון<span class="grd-who">משרד החינוך (<bdi>DfE</bdi>)</span></span><span class="b">המשרד קבע מסגרת תוכן אחת להכשרת מורים (<bdi class="lw">Core Content Framework</bdi>) והסמיך מחדש את הספקים.</span></p>
+        <p class="grd-c r2"><span class="grd-lay">הפיקוח<span class="grd-who">גופים שאינם המשרד עצמו</span></span><span class="b"><bdi>Ofsted</bdi> ממשיך לבדוק את ספקי ההכשרה גם אחרי שקיבלו הסמכה.</span></p>
+        <p class="grd-c r3"><span class="grd-lay">הביצוע<span class="grd-who">ספקים</span></span><span class="b">אוניברסיטאות, מסלולי הכשרה בתוך בתי ספר (<bdi>SCITT</bdi>) ורשתות מכשירים את המורים.</span></p>
+      </li>
+      <li class="grd-col">
+        <span class="k grd-h">כסף ושכר</span>
+        <p class="grd-c r1"><span class="grd-lay">הכיוון<span class="grd-who">משרד החינוך (<bdi>DfE</bdi>)</span></span><span class="b">המשרד קובע כמה כסף מגיע לכל תלמיד, ויותר לתלמיד עני. את סולם השכר קובעת הממשלה לפי המלצה של גוף עצמאי (<bdi>STRB</bdi>).</span></p>
+        <p class="grd-c r2"><span class="grd-lay">הפיקוח<span class="grd-who">גופים שאינם המשרד עצמו</span></span><span class="b"><bdi>Ofsted</bdi> בודק את בתי הספר עצמם. כדברי מייקל, המשרד אומר ל-<bdi>Ofsted</bdi> ללכת ולבדוק.</span></p>
+        <p class="grd-c r3"><span class="grd-lay">הביצוע<span class="grd-who">ספקים</span></span><span class="b">בית הספר או הרשת מעסיקים את המורים, קובעים באיזו דרגה הם מתחילים ומחלקים תוספות על אחריות.</span></p>
+      </li>
+    </ul>
+
+    <p class="grd-base"><span class="k">בית הספר</span><span class="b">בית הספר בוחר גוף בחינה ומשלם לו דמי הרשמה, מעסיק את המשגיחים ביום הבחינה ומאזן בעצמו את התקציב.</span></p>
+  </div>
+
+  <div class="grd-after">
+    <ol class="num-ledger" role="list">
+      <li><span class="v"><bdi>61.5%</bdi></span><span class="b">מתעודות ה-<bdi>GCSE</bdi> ב-<bdi>2024/25</bdi> הנפיקה <bdi>AQA</bdi>, הגוף הגדול ביותר. <bdi>Pearson</bdi> הנפיקה <bdi>24.8%</bdi>.</span></li>
+      <li><span class="v">68<small>מתוך 226</small></span><span class="b">ספקי הכשרת מורים איבדו את ההסמכה או ויתרו עליה בהסמכה מחדש של 2022.</span></li>
+    </ol>
+    <blockquote class="grd-quote">
+      <span class="k">כך סיכם מייקל</span>
+      <p class="grd-en" lang="en" dir="ltr">“they set the standard, they tell Ofsted, go and check, and then the schools are implementing.”</p>
+      <p class="b">המשרד קובע את הסטנדרט, שולח את <bdi>Ofsted</bdi> לבדוק, ובתי הספר מבצעים.</p>
+    </blockquote>
+  </div>
+
+  <p class="grd-open"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.6v.4M12 17v.01"/></svg><span>מי שמשלם על הבחינה הוא גם מי שנמדד בה. איך שומרים על אמון? השאלה עלתה בחדר ונשארה פתוחה.</span></p>
+
+  <figcaption>לפי התדריך של מייקל והדוגמאות של עמוס. המספרים מדוח השוק של <bdi>Ofqual</bdi> לשנת <bdi>2024/25</bdi> ומ-<bdi class="lw">Education Policy Institute</bdi> (2022). בחדר נאמר שמשרד החינוך מפקח על גופי הבחינה, ובפועל מפקחת עליהם <bdi>Ofqual</bdi>.</figcaption>
+</figure>
+<details class="part" id="deep" data-part><summary><h2 class="part-h">סיכום השיחה <span class="part-count" aria-label="7 פריטים">7</span></h2><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><div class="part-body"><p class="deep-intro">הדיון התקיים אחרי התדריך על <bdi>Ofsted</bdi>, בשלושה חלקים. מייקל נתן תדריך קצר באנגלית על חלוקת האחריות באנגליה. אחריו הסביר עמוס בעברית איך המשרד מפעיל גופים חיצוניים, וחברי המשלחת שאלו והעירו. בסוף הכין מנחה המפגש מצוות ההובלה את הקבוצה לפאנל של היום האחרון.</p><ol class="take" role="list"><li><div><h3>המשרד קובע מה ולאן, בית הספר מחליט איך</h3><p>מייקל דיבר מניסיונו כמורה, כחבר הנהלה בתיכון וכחבר בוועד המנהל של בית ספר (<bdi>governor</bdi>). את החלוקה סיכם כך: משרד החינוך אומר מה ללמוד ולאן ללכת, ובית הספר מחליט איך. המשרד מפרסם את תוכנית הלימודים הארצית, קובע כמה כסף מגיע לכל תלמיד ומוסיף כסף על תלמידים עניים, ומממן גם תיקונים במבנה, למשל גג שדולף. איך להוציא את הכסף מחליט המנהל, ובית הספר או הרשת חייבים לאזן את התקציב. גם המעסיק של המורה הוא בית הספר או הרשת ולא המשרד. בבתי הספר של הרשות המקומית המעסיקה הרשמית היא הרשות, אבל גם שם בית הספר מנהל את ההעסקה. הדוגמה של מייקל לסטנדרט שהמשרד קובע הייתה הרפורמה בחינוך המיוחד (<bdi>SEND</bdi>), שמתקדמת לאט ובתי הספר מחכים לה בדריכות. היום ההורה פונה לפסיכולוג, מקבל מהרשות המקומית מעמד רשמי ומגיע לבית הספר עם רשימת צרכים. לדבריו, הרפורמה תהפוך את הסדר: ההורים ובית הספר יתחילו בשיחה ביניהם ויזמינו יחד את המומחים. ההצעות מופיעות בספר הלבן של המשרד מפברואר 2026 ועוד לא נחקקו, ולדברי מייקל כל בית ספר ייישם אותן קצת אחרת.</p></div></li><li><div><h3>שכר המורים: סולם ארצי וגמישות בבית הספר</h3><p>מנחה המפגש ביקש ממייקל להסביר מי אחראי על שכר המורים. את סולם השכר קובעת הממשלה, לפי המלצה של גוף עצמאי, <bdi class="lw">School Teachers' Review Body</bdi> (<bdi>STRB</bdi>). ארגוני המורים מגישים לו את עמדותיהם, ולדברי מייקל התפקיד שלהם חשוב וחיובי. השכר משתנה לפי אזור: במרכז לונדון הוא הגבוה ביותר, בשאר לונדון מעט נמוך יותר, ומחוץ ללונדון נמוך עוד יותר, אבל גם החיים זולים יותר. בתוך הסולם יש לכל מנהל שתי החלטות. הראשונה היא באיזו דרגה להתחיל מורה: אפשר להתחיל מורה מבטיח בדרגה גבוהה כדי שיישאר, ובית ספר שלא מוצא מורה לפיזיקה יכול להציע יותר, כל עוד ההצעה נשארת בתוך הסולם. השנייה היא תוספת על אחריות. מורה שאחראי על שכבה שלמה, למשל, מקבל תוספת שנתית ושעות הוראה מעטות יותר. יש הנחיות, אבל את התפקידים מגדיר המנהל, ובבית ספר אחד שמייקל הכיר, המנהל חילק מחדש בכל שנה את תחומי האחריות בין הסגנים. אחד המשתתפים סיכם בעברית שתקציב השכר נמצא בבית הספר. לפי החוק, רשתות רשאיות לקבוע מבנה שכר משלהן, אבל לדברי מייקל בפועל הן נשארות צמודות לסולם ולא נכנסות למאבק עם ארגוני העובדים.</p></div></li><li><div><h3>בחינות: בית הספר קונה את הבחינה</h3><p>עמוס ביקש להראות מנגנון של משרד שנזהר לא להתרחב, ופתח בבחינות. משרד החינוך האנגלי לא כותב בחינות. באנגליה ארבעה גופים מוכרים מעניקים תעודות <bdi>GCSE</bdi> ו-<bdi>A level</bdi>: <bdi>AQA, Pearson, OCR</bdi> ו-<bdi>WJEC</bdi>. שניים מהם, <bdi>AQA</bdi> ו-<bdi>OCR</bdi>, הם ארגונים ללא כוונת רווח, ו-<bdi>Pearson</bdi> היא חברה מסחרית. בית הספר בוחר מאיזה גוף לקנות, משלם לו דמי הרשמה, ומעסיק בעצמו משגיחים שאינם מורים. ביום הבחינה כל ההתנהלות היא בין בית הספר לגוף הבחינה. בחדר נאמר שהמשרד מפקח על הגופים האלה, אבל בפועל מפקחת עליהם <bdi>Ofqual</bdi>, רשות ממשלתית שאינה כפופה לשר. המשרד קובע את תוכן המקצועות, ו-<bdi>Ofqual</bdi> קובעת את כללי הבחינה ואוכפת אותם. לדברי עמוס, זו הסיבה שבביקורים בבתי הספר המשרד כמעט לא הוזכר. הוא הציע לחברי המשלחת לחשוב על יום בגרות בישראל ועל כל הפעמים שבהן המשרד מעורב בו, ולדמיין מערכת שבה אין אף אחת מהן. כשחזר לנושא בהמשך הוסיף שאת הבחינה הקשה ביותר במתמטיקה כותב גוף מקצועי כמו <bdi>Pearson</bdi>, שמכין גם את חומרי ההכנה ומשלם לבודקים. בית ספר שלא מרוצה יכול לעבור לגוף אחר.</p></div></li><li><div><h3>תוכן לימודי, <bdi>Oak</bdi> ומסגרת התעודות הלאומית</h3><p>הדוגמה השנייה הייתה תוכן. משרד החינוך האנגלי לא כותב מערכי שיעור, לא בחינוך החברתי ולא בתחומי הדעת. הוא נותן הנחיות, וגופים חיצוניים עובדים לפי סטנדרטים ותחת פיקוח. עמוס הביא את <bdi>Oak National Academy</bdi>: המשרד הטיל עליה להוביל את העבודה עם <bdi>AI</bdi>, לערוך ניסויים ולבנות מערכי שיעור, ובספטמבר 2024 היא השיקה את <bdi>Aila</bdi>, כלי <bdi>AI</bdi> שעוזר למורים לבנות שיעורים. <bdi>Oak</bdi> היא גוף עצמאי שהמשרד מממן, והיא פועלת בשמו. אחת המשתתפות שאלה איך זה עובד מול האוניברסיטאות, על רקע הדיון בישראל בזמן המלחמה על צמצום מקצועות הבגרות. התשובה הייתה שהמקצועות שחובה ללמוד נקבעים במשרד, ושסולם הציונים מתואם עם מה שהאוניברסיטאות מקבלות. משתתף אחר הוסיף את מסגרת התעודות הלאומית, שבה לכל מקצוע ולכל רמה יש סטנדרט גלוי, ואפשר לראות מה צריך לדעת בלי לקבוע איך מגיעים לשם. באנגליה זו מסגרת של <bdi>Ofqual</bdi> בשם <bdi>RQF</bdi>. בישראל הבסיס הוא החלטת ממשלה 147 מיוני 2015, ולפי דוח של הקרן האירופית להכשרה (<bdi>ETF</bdi>) מ-2021, המסגרת עוד לא אומצה. משתתפת הסתייגה: גם אצלנו גופים שונים בונים תכנים לפי סטנדרט משותף, אבל אין מנגנון שמחייב לעמוד בו.</p></div></li><li><div><h3>הכשרת מורים: שוק של ספקים מול מסגרת אחת</h3><p>הדוגמה השלישית חיברה בין השתיים הקודמות. באנגליה החליטו שצריך סטנדרט אחד להכשרת מורים, ובשנים האחרונות פתחו את התחום לשוק של ספקים. לדברי עמוס, אין שם מרכזי פסגה ואין מפקחות על פיתוח מקצועי. יש מסמך סטנדרטים, בודקים פעם אחת שהספק עומד בו ומבקשים ממנו דוגמאות, ומשם השוק מתנהל לבד. חלק מהמוסדות, גם אוניברסיטאות, לא עמדו בדרישות. הרפורמה יצאה לדרך בדוח של המשרד מיולי 2021, ובשני סבבים ב-2022 כל ספק שרצה להמשיך עבר הסמכה מחדש מול מסגרת התוכן. 179 ספקים קיבלו הסמכה, ו-68 מתוך 226 איבדו אותה או ויתרו עליה, ביניהם אחת מכל שבע אוניברסיטאות וכשליש ממסלולי ההכשרה בתוך בתי ספר. ההסמכה היא תנאי כניסה, ו-<bdi>Ofsted</bdi> ממשיך לבדוק את הספקים גם אחריה. מישהו בחדר העיר שזה משרד חינוך רזה מאוד.</p></div></li><li><div><h3>מי משלם למשגיח, והאם יש כאן ניגוד עניינים</h3><p>זו הייתה נקודת המחלוקת של השיחה. חברת משלחת שאלה מי משלם למשגיח בבחינה, והתשובה הייתה: בית הספר. היא המשיכה: לבית הספר יש אינטרס שהציונים יהיו גבוהים, אז האם אין כאן ניגוד עניינים? עמוס ענה בדוגמה מבית ספר אחד. בבחינה קשה מאוד במתמטיקה ברמה הגבוהה, המבחנים הפנימיים חזו ש-80% מהתלמידים יעברו, ובפועל עברו כ-40%. אחרי שמנהלים אחרים מצאו סעיף בעייתי בבחינה, בית הספר החליט לערער על כל אחת מהבחינות. מנגנון כזה קיים: בית הספר מבקש מגוף הבחינה בדיקה חוזרת ומערער, ואחר כך אפשר לפנות ל-<bdi>Ofqual</bdi>. הלקח של עמוס היה שמצפים מהגוף הפרטי להתנהג כמו משרד החינוך, להקשיב ולהגיב, וכך נשמר האמון במערכת גם כשגוף פרטי מפעיל אותה. מנחה המפגש אמר שזה דיון שלא נגמר. בחדר לא נאמר במפורש מי מטפל במשגיחים שלא עומדים בכללים, והשאלה נשארה פתוחה.</p></div></li><li><div><h3>לקראת הפאנל של היום האחרון</h3><p>מנחה המפגש סגר בהכנה לפאנל של מחרת, ההזדמנות האחרונה של המשלחת לשאול. יופיעו בו שני דוברים שראו את המערכת מכמה תפקידים: ג'ייסון מרנץ (<bdi>Jason Marantz</bdi>), מנהל החינוך וההכלה ברובע <bdi>Hackney</bdi>, וכריס וילסון (<bdi>Chris Wilson</bdi>), ממייסדי <bdi>ImpactEd</bdi>, ארגון שעוסק בקבלת החלטות לפי נתונים. הוא ביקש מכל אחד לחשוב על מה שלקח מהשבוע ועל השאלות הגדולות שעדיין פתוחות אצלו, ואחד המשתתפים הציע לאסוף את השאלות מראש בכתב. בסיום הזכיר המנחה שהשבוע היה אינטנסיבי, ושהצוות שקל לאורכו את האיזון בין תוכנית מלאה לבין זמן לנשום.</p></div></li></ol><blockquote class="quote" data-ts="13:22"><svg viewBox="0 0 34 26" aria-hidden="true"><path d="M0 26V15.6C0 6.9 4.6 1.7 13.2 0l1.6 3.6C10 5 7.6 8 7.3 12.4H14V26H0zm19.5 0V15.6c0-8.7 4.6-13.9 13.2-15.6l1.3 3.6c-4.8 1.4-7.2 4.4-7.5 8.8H33V26H19.5z"/></svg><p>משרד החינוך לא מתעסק ביום-יום של בחינות.</p><cite>עמוס</cite></blockquote><blockquote class="quote" data-ts="21:19"><svg viewBox="0 0 34 26" aria-hidden="true"><path d="M0 26V15.6C0 6.9 4.6 1.7 13.2 0l1.6 3.6C10 5 7.6 8 7.3 12.4H14V26H0zm19.5 0V15.6c0-8.7 4.6-13.9 13.2-15.6l1.3 3.6c-4.8 1.4-7.2 4.4-7.5 8.8H33V26H19.5z"/></svg><p>מצפים מהגוף הפרטי להתנהג כאילו הוא בעצמו משרד החינוך, לשמוע את זה, להקשיב לזה... ואז במערכת יש אמון גם אם הגוף הפרטי עושה את זה.</p><cite>עמוס</cite></blockquote></div></details>
+<details class="part" id="src" data-part><summary><h2 class="part-h">מקורות להעמקה <span class="part-count" aria-label="6 מקורות">6</span></h2><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><div class="part-body"><ul class="src" role="list"><li><div class="src-top"><span class="src-kind">דוח</span><span class="src-said"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>הוזכר במפגש</span><span class="src-by"><bdi>Department for Education</bdi> · 2022</span></div><a class="src-t" href="https://www.gov.uk/government/publications/initial-teacher-training-itt-market-review/initial-teacher-training-itt-market-review-overview" target="_blank" rel="noopener" lang="en" dir="ltr">Initial teacher training (ITT) market review: overview<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg><span class="sr-only"> (נפתח בלשונית חדשה)</span></a><p class="src-why">זה המסמך הרשמי של הרפורמה בהכשרת המורים שעמוס תיאר, ובו המטרות, לוח הזמנים ומספר הספקים שקיבלו הסמכה.</p></li><li><div class="src-top"><span class="src-kind">דוח</span><span class="src-said"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>הוזכר במפגש</span><span class="src-by"><bdi>Department for Education</bdi> · 2026</span></div><a class="src-t" href="https://www.gov.uk/government/publications/every-child-achieving-and-thriving" target="_blank" rel="noopener" lang="en" dir="ltr">Every child achieving and thriving<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg><span class="sr-only"> (נפתח בלשונית חדשה)</span></a><p class="src-why">בספר הלבן הזה מופיעה הרפורמה בחינוך המיוחד שמייקל סיפר שבתי הספר מחכים לה.</p></li><li><div class="src-top"><span class="src-kind">אתר</span><span class="src-said"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>הוזכר במפגש</span><span class="src-by"><bdi class="lw">Central Digital and Data Office</bdi> / <bdi>Oak National Academy</bdi> · 2024</span></div><a class="src-t" href="https://www.gov.uk/algorithmic-transparency-records/oak-national-academy-aila-oaks-ai-lesson-assistant" target="_blank" rel="noopener" lang="en" dir="ltr">Oak National Academy: Aila, Oak&#x27;s AI lesson assistant<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg><span class="sr-only"> (נפתח בלשונית חדשה)</span></a><p class="src-why">כאן רואים מה <bdi>Oak</bdi> עושה בתחום ה-<bdi>AI</bdi> ואיך גוף שפועל בשם המשרד מדווח לממשלה על הכלי שלו.</p></li><li><div class="src-top"><span class="src-kind">דוח</span><span class="src-said"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>הוזכר במפגש</span><span class="src-by"><bdi>European Training Foundation</bdi> · 2021</span></div><a class="src-t" href="https://www.etf.europa.eu/sites/default/files/2021-05/israel.pdf" target="_blank" rel="noopener" lang="en" dir="ltr">National Qualifications Framework: Israel<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg><span class="sr-only"> (נפתח בלשונית חדשה)</span></a><p class="src-why">הדוח מסכם את מצב מסגרת התעודות הלאומית בישראל, מהחלטת הממשלה של 2015 ועד מה שעוד לא הוחלט, ועונה ישירות על מה שעלה בחדר.</p></li><li><div class="src-top"><span class="src-kind">דוח</span><span class="src-by"><bdi>Ofqual</bdi> · 2026</span></div><a class="src-t" href="https://www.gov.uk/government/statistics/annual-qualifications-market-report-academic-year-2024-to-2025/annual-qualifications-market-report-academic-year-2024-to-2025" target="_blank" rel="noopener" lang="en" dir="ltr">Annual qualifications market report: academic year 2024 to 2025<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg><span class="sr-only"> (נפתח בלשונית חדשה)</span></a><p class="src-why">מהדוח אפשר ללמוד מי הם גופי הבחינה באנגליה וכמה מהשוק בידי כל אחד מהם.</p></li><li><div class="src-top"><span class="src-kind">מחקר</span><span class="src-by"><bdi>Zuccollo, J</bdi>. / <bdi>Education Policy Institute</bdi> · 2022</span></div><a class="src-t" href="https://epi.org.uk/?p=15191" target="_blank" rel="noopener" lang="en" dir="ltr">The reaccreditation of ITT providers: Implications for STEM subjects<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg><span class="sr-only"> (נפתח בלשונית חדשה)</span></a><p class="src-why">המחקר מראה מה הרפורמה בהכשרת המורים עלתה, כמה ספקים יצאו מהשוק ומה זה עשה להכשרה במקצועות המדעיים.</p></li></ul></div></details>
+<section class="part is-static qs" id="q" aria-labelledby="q-h"><h2 class="part-h qs-h" id="q-h">לשולחן העבודה בארץ</h2><ol class="q-list" role="list" start="1"><li><span class="q-n" aria-hidden="true">1</span><span>באנגליה בית הספר קונה את הבחינה ומעסיק את המשגיחים, ו-<bdi>Ofqual</bdi>, רשות שאינה כפופה לשר, מפקחת על מי שכותב את הבחינות. אילו מהפעולות ביום בגרות אצלנו היו יכולות לעבור לבית הספר, ומה צריך להיות קיים לפני כן כדי שהאמון בבחינה יישמר?</span></li><li><span class="q-n" aria-hidden="true">2</span><span>כשמי שמשלם על השירות הוא גם מי שנמדד בו, אילו מנגנונים שומרים על אמינות התוצאות? אם נעביר חלק מהשירותים שלנו לספקים חיצוניים, מי יחזיק את המנגנונים האלה?</span></li><li><span class="q-n" aria-hidden="true">3</span><span>ההסמכה מחדש של מוסדות ההכשרה באנגליה הוציאה מהשוק כשליש מהמסלולים שבתוך בתי ספר ואחת מכל שבע אוניברסיטאות. מה תהיה התועלת ומה יהיה המחיר של הסמכה מחדש מול מסגרת תוכן אחת אצלנו, ומי צריך להוביל אותה?</span></li><li><span class="q-n" aria-hidden="true">4</span><span>המשרד מממן את <bdi>Oak</bdi> והיא פועלת בשמו, אבל מנוהלת כגוף עצמאי. באילו תחומים, כמו פיתוח תוכן דיגיטלי או כלי <bdi>AI</bdi> למורים, מבנה כזה יכול לעבוד אצלנו, ואילו תחומים צריכים להישאר בתוך המשרד?</span></li><li><span class="q-n" aria-hidden="true">5</span><span>החלטת ממשלה 147 מ-2015 הניחה בסיס למסגרת תעודות לאומית, ולפי דוח מ-2021 היא עוד לא אומצה. מה נדרש כדי להתקדם בה, ומי צריך להיות שותף לכך מעבר למשרד החינוך?</span></li></ol><p class="q-sub" id="q-gen">שאלות כלליות</p><ol class="q-list q-gen" role="list" start="6" aria-labelledby="q-gen"><li><span class="q-n" aria-hidden="true">6</span><span>עד כמה יכול משרד חינוך להיות רזה ועדיין לכוון את המערכת? לפי אילו סימנים יודעים שהוא קטן מדי, או גדול מדי?</span></li></ol></section>
+<nav class="ses-nav" aria-label="ניווט בין מפגשים"><a class="nav-prev" href="s10.html" rel="prev"><span class="nav-k"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>המפגש הקודם</span><span class="nav-t">איך עובד הפיקוח של <bdi>Ofsted</bdi>, ומה המחיר שלו</span></a><a class="nav-next" href="s12.html" rel="next"><span class="nav-k">המפגש הבא<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></span><span class="nav-t">פאנל הסיום: מה עדיין לא עובד באנגליה</span></a><a class="nav-all" href="../sessions.html#card-s11"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>כל המפגשים</a></nav>
+</article>
+</main>
+
+<footer>
+  <img class="ripples-f" src="../assets/ripples-white-sm.webp" alt="" loading="lazy" decoding="async">
+  <div class="container f-inner">
+    <div class="f-brand">
+      <img src="../assets/advot-logo-white.png" alt="אדוות · מנהיגות מחוללת שינוי" width="156" height="52">
+      <span class="sep"></span>
+      <div class="f-text">אדוות · מנהיגות מחוללת שינוי<br>משלחת לונדון · 22 עד 26 בנובמבר 2026</div>
+    </div>
+    <a class="f-link" href="../glossary.html">למילון המושגים של המסע</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var wide = window.matchMedia('(min-width:961px)');
+  var parts = document.querySelectorAll('details[data-part], details[data-week]');
+  /* desktop: everything open. mobile: deep summary, sources and the week index closed until tapped */
+  function setParts(){ parts.forEach(function(d){ d.open = wide.matches; }); openFromHash(); }
+  wide.addEventListener ? wide.addEventListener('change', setParts) : wide.addListener(setParts);
+
+  /* deep links: #deep, #src, #q, #week, #card-s07 */
+  function openFromHash(){
+    var id = decodeURIComponent(location.hash.slice(1)); if(!id) return;
+    var el = document.getElementById(id); if(!el) return;
+    if(el.tagName === 'DETAILS') el.open = true;
+    var w = el.querySelector && el.querySelector(':scope > details[data-week]'); if(w) w.open = true;
+    var d = el.parentElement && el.parentElement.closest('details'); if(d) d.open = true;
+  }
+  setParts();
+  window.addEventListener('hashchange', openFromHash);
+  /* opening the parts above the target moves it: settle on the target once layout and fonts are done */
+  function settle(){ var id = decodeURIComponent(location.hash.slice(1)); var el = id && document.getElementById(id); if(el) el.scrollIntoView({block:'start', behavior:'instant'}); }
+  if(location.hash){ window.addEventListener('load', function(){ (document.fonts ? document.fonts.ready : Promise.resolve()).then(settle); }); }
+  /* index links inside the week list close it again on mobile */
+  document.querySelectorAll('.wk-list a').forEach(function(a){
+    a.addEventListener('click', function(){ if(!wide.matches){ var w=document.querySelector('details[data-week]'); if(w) w.open=false; } });
+  });
+
+  /* print: open everything, restore after */
+  window.addEventListener('beforeprint', function(){ parts.forEach(function(d){ d.dataset.was = d.open ? '1' : ''; d.open = true; }); });
+  window.addEventListener('afterprint', function(){ parts.forEach(function(d){ d.open = !!d.dataset.was; }); });
+
+  /* share this page: native sheet on touch phones, copy link elsewhere */
+  var touch = window.matchMedia('(pointer:coarse)').matches;
+  document.querySelectorAll('[data-share]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var url = location.href.split('#')[0], title = document.title;
+      var t = b.querySelector('.share-t');
+      if(touch && navigator.share){ navigator.share({ title: title, url: url }).catch(function(){}); return; }
+      var done = function(){ t.textContent = 'הקישור הועתק'; b.classList.add('is-done'); setTimeout(function(){ t.textContent = 'שליחה'; b.classList.remove('is-done'); }, 2200); };
+      if(navigator.clipboard && window.isSecureContext){ navigator.clipboard.writeText(url).then(done, function(){ prompt('הקישור למפגש:', url); }); }
+      else { prompt('הקישור למפגש:', url); }
+    });
+  });
+
+  /* hub day bar: mark the day being read */
+  var links = {}; document.querySelectorAll('.daybar a').forEach(function(a){ links[a.getAttribute('href').slice(1)] = a; });
+  if('IntersectionObserver' in window && document.querySelector('.daybar')){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(!e.isIntersecting) return;
+        Object.keys(links).forEach(function(k){ links[k].removeAttribute('aria-current'); });
+        var l = links[e.target.id]; if(l) l.setAttribute('aria-current','true');
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    document.querySelectorAll('.day').forEach(function(s){ io.observe(s); });
+  }
+})();
+</script>
+</body>
+</html>
